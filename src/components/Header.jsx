@@ -1,0 +1,120 @@
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import DownloadModal from './DownloadModal'
+import './Header.css'
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
+
+  return (
+    <>
+      <DownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <header className={`modern-header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container header-container">
+        {/* Logo */}
+        <Link to="/" className="header-logo">
+          <img 
+            src="/assets/logo.png" 
+            alt="Tidyzon Logo" 
+            className="logo-image"
+          />
+        </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="desktop-nav">
+              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/services" className="nav-link">Services</Link>
+              <Link to="/about" className="nav-link">About</Link>
+              <Link to="/teams" className="nav-link">Teams</Link>
+              <Link to="/contact" className="nav-link">Contact</Link>
+              <Link to="/terms" className="nav-link">Terms</Link>
+              <Link to="/privacy" className="nav-link">Privacy</Link>
+            </nav>
+
+        {/* CTA Button */}
+        <div className="header-cta">
+          <Link to="/get-started" className="btn-header-cta">Become a Provider</Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="mobile-menu-btn"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <X className="menu-icon" />
+          ) : (
+            <Menu className="menu-icon" />
+          )}
+        </button>
+      </div>
+
+          {/* Mobile Navigation Overlay */}
+          {isMenuOpen && (
+            <div className="mobile-nav-overlay" onClick={() => setIsMenuOpen(false)}></div>
+          )}
+
+          {/* Mobile Navigation Drawer */}
+          <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
+            <div className="mobile-nav-header">
+              <img 
+                src="/assets/logo.png" 
+                alt="Tidyzon Logo" 
+                className="mobile-nav-logo"
+              />
+              <button
+                className="mobile-close-btn"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X className="close-icon" />
+              </button>
+            </div>
+
+            <div className="mobile-nav-content">
+              <Link to="/" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+              <Link to="/services" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Services
+              </Link>
+              <Link to="/about" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                About
+              </Link>
+              <Link to="/teams" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Teams
+              </Link>
+              <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Contact
+              </Link>
+              <Link to="/terms" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Terms
+              </Link>
+              <Link to="/privacy" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
+                Privacy
+              </Link>
+              <Link to="/get-started" className="btn-mobile-cta" onClick={() => setIsMenuOpen(false)}>Get Started</Link>
+            </div>
+          </div>
+    </header>
+    </>
+  )
+}
+
+export default Header
