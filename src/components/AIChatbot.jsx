@@ -8,7 +8,7 @@ const AIChatbot = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Tidyzon A.I Assistant. I'm here to help you with any questions about Tidyzon's cleaning services. How can I assist you today?"
+      content: "Hi! I'm Tidy A.I. How can I help you today?"
     }
   ])
   const [inputMessage, setInputMessage] = useState('')
@@ -22,6 +22,19 @@ const AIChatbot = () => {
   useEffect(() => {
     scrollToBottom()
   }, [messages])
+
+  // Prevent body scroll on mobile when chatbot is open
+  useEffect(() => {
+    if (isOpen && window.innerWidth <= 1023) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   const SYSTEM_PROMPT = `You are Tidyzon A.I Assistant, a helpful AI assistant for Tidyzon, a professional mobile cleaning service company. 
 
@@ -38,7 +51,17 @@ IMPORTANT RESTRICTIONS:
 - Use the comprehensive knowledge base above to provide accurate, detailed answers
 - If you don't know something about Tidyzon's services, suggest contacting support at support@tidyzon.com
 
-Be concise, helpful, and always try to guide users toward booking a service, downloading the app, or learning more about what Tidyzon offers.`
+Be concise, helpful, and always try to guide users toward booking a service, downloading the app, or learning more about what Tidyzon offers.
+
+FORMATTING GUIDELINES:
+- Use clear paragraphs separated by double line breaks for better readability
+- When listing items, use bullet points with clear descriptions
+- Include section titles (short phrases ending with colons) to organize information
+- Structure service information with clear headings like "Our Services:", "Pricing:", "Benefits:", etc.
+- Use **bold text** for important terms, service names, and key features
+- Use *italic text* for emphasis and special notes
+- Keep responses well-organized and easy to scan
+- Use simple, conversational language`
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return
@@ -99,6 +122,69 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
     }
   }
 
+  // Format AI response for better readability
+  const formatMessage = (content) => {
+    // Split content by double line breaks to create paragraphs
+    const paragraphs = content.split('\n\n').filter(p => p.trim())
+    
+    return paragraphs.map((paragraph, index) => {
+      const trimmedParagraph = paragraph.trim()
+      
+      // Check if paragraph is a title (short line, possibly with colon, or all caps)
+      if (trimmedParagraph.length < 50 && (trimmedParagraph.includes(':') || trimmedParagraph.match(/^[A-Z\s]+$/))) {
+        return (
+          <h4 key={index} className="message-title">
+            {trimmedParagraph.replace(':', '')}
+          </h4>
+        )
+      }
+      
+      // Check if paragraph contains list items (starts with numbers, bullets, or dashes)
+      if (trimmedParagraph.match(/^[\d\-\*\+]\s/) || trimmedParagraph.includes('\n-') || trimmedParagraph.includes('\n•')) {
+        // Handle lists
+        const lines = trimmedParagraph.split('\n').filter(line => line.trim())
+        const listItems = lines.map(line => line.trim())
+        
+        return (
+          <ul key={index} className="message-list">
+            {listItems.map((item, itemIndex) => {
+              // Remove list markers and clean up
+              const cleanItem = item.replace(/^[\d\-\*\+]\s+/, '').replace(/^[\d]+\.\s+/, '')
+              const formattedItem = formatText(cleanItem)
+              
+              return (
+                <li key={itemIndex} className="message-list-item">
+                  {formattedItem}
+                </li>
+              )
+            })}
+          </ul>
+        )
+      }
+      
+      // Regular paragraph
+      return (
+        <p key={index} className="message-paragraph">
+          {formatText(trimmedParagraph)}
+        </p>
+      )
+    })
+  }
+
+  // Format text with markdown-style bold and emphasis
+  const formatText = (text) => {
+    // Handle bold text **text** or __text__
+    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    formatted = formatted.replace(/__(.*?)__/g, '<strong>$1</strong>')
+    
+    // Handle italic text *text* or _text_
+    formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>')
+    formatted = formatted.replace(/_(.*?)_/g, '<em>$1</em>')
+    
+    // Return JSX with dangerouslySetInnerHTML for HTML content
+    return <span dangerouslySetInnerHTML={{ __html: formatted }} />
+  }
+
   return (
     <>
       {/* Chat Button with Label */}
@@ -145,7 +231,7 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
                 className={`chat-message ${message.role === 'user' ? 'user-message' : 'assistant-message'}`}
               >
                 <div className="message-content">
-                  {message.content}
+                  {message.role === 'assistant' ? formatMessage(message.content) : message.content}
                 </div>
               </div>
             ))}
@@ -166,7 +252,7 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Ask me anything about Tidyzon..."
+              placeholder="Type your message..."
               className="chat-input"
               rows="1"
               disabled={isLoading}

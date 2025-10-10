@@ -74,7 +74,7 @@ const Header = () => {
             About
           </Link>
           <Link to="/teams" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
-            Teams
+            Team
           </Link>
           <Link to="/contact" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
             Contact
@@ -113,7 +113,7 @@ const Header = () => {
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/services" className="nav-link">Services</Link>
             <Link to="/about" className="nav-link">About</Link>
-            <Link to="/teams" className="nav-link">Teams</Link>
+            <Link to="/teams" className="nav-link">Team</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
             <Link to="/terms" className="nav-link">Terms</Link>
             <Link to="/privacy" className="nav-link">Privacy</Link>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 import QRCode from 'qrcode'
 import './Footer.css'
@@ -71,9 +72,9 @@ const Footer = () => {
           <div className="footer-links">
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-list">
-              <li><a href="/services">Car Cleaning</a></li>
-              <li><a href="/services">Bin Sanitization</a></li>
-              <li><a href="/services">All Services</a></li>
+              <li><Link to="/services">Car Cleaning</Link></li>
+              <li><Link to="/services">Bin Sanitization</Link></li>
+              <li><Link to="/services">All Services</Link></li>
             </ul>
           </div>
 
@@ -81,12 +82,13 @@ const Footer = () => {
               <div className="footer-links">
                 <h4 className="footer-heading">Company</h4>
                 <ul className="footer-list">
-                  <li><a href="/about">About Us</a></li>
-                  <li><a href="/teams">Teams</a></li>
-                  <li><a href="/contact">Contact</a></li>
-                  <li><a href="/get-started">Get Started</a></li>
-                  <li><a href="/terms">Terms & Conditions</a></li>
-                  <li><a href="/privacy">Privacy Policy</a></li>
+                  <li><Link to="/about">About Us</Link></li>
+                  <li><Link to="/teams">Team</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
+                  <li><Link to="/get-started">Get Started</Link></li>
+                  <li><Link to="/provider">Become a Provider</Link></li>
+                  <li><Link to="/terms">Terms & Conditions</Link></li>
+                  <li><Link to="/privacy">Privacy Policy</Link></li>
                 </ul>
               </div>
 
@@ -151,9 +153,8 @@ const Footer = () => {
             © 2024 Tidyzon. All rights reserved.
           </p>
           <div className="footer-legal">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
-            <a href="#cookies">Cookie Policy</a>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
       </div>
