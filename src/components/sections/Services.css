@@ -603,7 +603,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1;
   padding: 1rem;
 }
 
@@ -849,4 +849,134 @@
 
 .cta-button:hover .cta-arrow {
   transform: translateX(4px);
+}
+
+/* Dual CTA Section */
+.dual-cta-section {
+  margin-top: 4rem;
+  padding: 3rem 0;
+}
+
+.dual-cta-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dual-cta-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dual-cta-content {
+  flex: 1;
+}
+
+.dual-cta-title {
+  color: #1a1a1a;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.dual-cta-subtitle {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.dual-cta-button {
+  background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dual-cta-button:hover {
+  transform: translateY(-1px);
+}
+
+.dual-cta-image {
+  flex-shrink: 0;
+  width: 280px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dual-cta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* First card - image on right, content on left (default) */
+.dual-cta-card:nth-child(1) {
+  flex-direction: row;
+}
+
+/* Second card - image on left, content on right */
+.dual-cta-card:nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .dual-cta-container {
+    gap: 1rem;
+  }
+  
+  .dual-cta-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+  
+  .dual-cta-card:nth-child(2) {
+    flex-direction: column;
+  }
+  
+  .dual-cta-image {
+    width: 100%;
+    height: 220px;
+    order: -1;
+  }
+  
+  .dual-cta-title {
+    font-size: 1.125rem;
+  }
+  
+  .dual-cta-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dual-cta-section {
+    margin-top: 2rem;
+    padding: 2rem 0;
+  }
+  
+  .dual-cta-card {
+    padding: 1rem;
+  }
+  
+  .dual-cta-image {
+    height: 180px;
+  }
 }

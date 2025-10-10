@@ -6,6 +6,8 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import AIChatbot from './components/AIChatbot'
 import BottomNav from './components/BottomNav'
+// import PageLoader from './components/PageLoader'
+// import usePageLoader from './hooks/usePageLoader'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
 import ReviewsPage from './pages/ReviewsPage'
@@ -17,9 +19,12 @@ import PrivacyPage from './pages/PrivacyPage'
 import './App.css'
 
 function App() {
+  // const isLoading = usePageLoader() // Disabled for now
+
   return (
     <Router>
       <div className="App">
+        {/* {isLoading && <PageLoader />} */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

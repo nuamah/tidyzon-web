@@ -237,6 +237,47 @@ const Services = () => {
               </Link>
             </div>
           </div>
+
+          {/* New Dual CTA Section */}
+          <div className="dual-cta-section">
+            <div className="dual-cta-container">
+              {/* Become a Service Provider */}
+              <div className="dual-cta-card">
+                <div className="dual-cta-content">
+                  <h3 className="dual-cta-title">Become a service provider</h3>
+                  <p className="dual-cta-subtitle">Sign up as a service provider</p>
+                  <button className="dual-cta-button" onClick={() => setIsModalOpen(true)}>
+                    Sign up
+                  </button>
+                </div>
+                <div className="dual-cta-image">
+                  <img 
+                    src="/assets/tidyzon_cleaner_01.png" 
+                    alt="Service Providers Team" 
+                    className="dual-cta-img"
+                  />
+                </div>
+              </div>
+
+              {/* Book Services */}
+              <div className="dual-cta-card">
+                <div className="dual-cta-image">
+                  <img 
+                    src="/assets/tidyzon_welcome_05.png" 
+                    alt="Customer Booking Service" 
+                    className="dual-cta-img"
+                  />
+                </div>
+                <div className="dual-cta-content">
+                  <h3 className="dual-cta-title">Fast, reliable services at your doorstep, at your fingertips</h3>
+                  <p className="dual-cta-subtitle">Sign up and book services</p>
+                  <button className="dual-cta-button" onClick={() => setIsModalOpen(true)}>
+                    Sign up
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>
