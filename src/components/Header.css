@@ -33,6 +33,7 @@
   position: relative;
   text-decoration: none;
   transition: transform 0.3s ease;
+  pointer-events: auto;
 }
 
 .header-logo:hover {
@@ -41,14 +42,23 @@
 
 .logo-image {
   width: 90px;
-  
   border-radius: 20px;
   object-fit: contain;
   transition: transform 0.3s ease;
+  pointer-events: none;
 }
 
-.header-logo:hover .logo-image {
-  transform: rotate(5deg);
+@media (max-width: 1023px) {
+  .logo-image {
+    width: 70px;
+  }
+}
+
+/* Desktop hover effects only */
+@media (min-width: 1024px) {
+  .header-logo:hover .logo-image {
+    transform: rotate(5deg);
+  }
 }
 
 .logo-text {
@@ -191,7 +201,7 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 99998;
+  z-index: 100001; /* Above navbar and chatbot, below drawer */
   animation: fadeIn 0.3s ease;
   backdrop-filter: blur(2px);
 }
@@ -216,7 +226,7 @@
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 99999;
+  z-index: 100002; /* Above navbar and chatbot */
   box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   display: flex;

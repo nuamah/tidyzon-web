@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { X, MapPin, Star, Clock } from 'lucide-react'
 import DownloadModal from './DownloadModal'
 import './ProvidersMapModal.css'
@@ -97,6 +97,20 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
     setIsDownloadModalOpen(true)
   }
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   return (
@@ -106,7 +120,7 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
           {/* Header */}
           <div className="providers-modal-header">
             <div className="modal-header-content">
-              <h2 className="modal-title">Available providers near you</h2>
+              <h2 className="modal-title">Available providers<br />near you</h2>
               <p className="modal-subtitle">in {location || 'Los Angeles, CA'}</p>
             </div>
             <button className="modal-close-btn" onClick={onClose}>
@@ -116,27 +130,37 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
 
           {/* Map Container */}
           <div className="map-container">
-            <div className="mock-map">
-              {/* Mock Google Maps style background */}
-              <div className="map-background">
-                <div className="map-pattern"></div>
-              </div>
+            <div className="real-map">
+              {/* Real map background using OpenStreetMap */}
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-118.5,33.9,-118.2,34.1&layer=mapnik&marker=34.0522,-118.2437"
+                width="100%"
+                height="100%"
+                style={{ border: 'none', borderRadius: '8px' }}
+                title="Service Providers Map"
+              ></iframe>
               
-              {/* Provider markers */}
-              {allProviders.map((provider) => (
-                <button
-                  key={provider.id}
-                  className="provider-marker"
-                  style={{
-                    left: `${15 + (provider.id * 12)}%`,
-                    top: `${25 + (provider.id * 8)}%`
-                  }}
-                  onClick={() => handleProviderClick(provider)}
-                >
-                  <MapPin className="marker-icon" />
-                  <div className="marker-pulse"></div>
-                </button>
-              ))}
+              {/* Provider markers overlaid on map */}
+              {allProviders.map((provider, index) => {
+                // Generate random positions within the map bounds
+                const randomLeft = 20 + (Math.random() * 60) // 20% to 80%
+                const randomTop = 20 + (Math.random() * 60)  // 20% to 80%
+                
+                return (
+                  <button
+                    key={provider.id}
+                    className="provider-marker"
+                    style={{
+                      left: `${randomLeft}%`,
+                      top: `${randomTop}%`
+                    }}
+                    onClick={() => handleProviderClick(provider)}
+                  >
+                    <MapPin className="marker-icon" />
+                    <div className="marker-pulse"></div>
+                  </button>
+                )
+              })}
             </div>
           </div>
 

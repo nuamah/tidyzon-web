@@ -46,11 +46,13 @@ const Header = () => {
       <div className={`mobile-nav ${isMenuOpen ? 'open' : ''}`}>
         {/* Header Section */}
         <div className="mobile-nav-header">
-          <img 
-            src="/assets/logo.png" 
-            alt="Tidyzon Logo" 
-            className="mobile-nav-logo"
-          />
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
+            <img 
+              src="/assets/logo.png" 
+              alt="Tidyzon Logo" 
+              className="mobile-nav-logo"
+            />
+          </Link>
           <button
             className="mobile-close-btn"
             onClick={() => setIsMenuOpen(false)}

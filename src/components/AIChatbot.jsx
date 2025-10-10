@@ -8,7 +8,7 @@ const AIChatbot = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Tidy A.I Assistant. I'm here to help you with any questions about Tidyzon's cleaning services. How can I assist you today?"
+      content: "Hi! I'm Tidyzon A.I Assistant. I'm here to help you with any questions about Tidyzon's cleaning services. How can I assist you today?"
     }
   ])
   const [inputMessage, setInputMessage] = useState('')
@@ -23,7 +23,7 @@ const AIChatbot = () => {
     scrollToBottom()
   }, [messages])
 
-  const SYSTEM_PROMPT = `You are Tidy A.I Assistant, a helpful AI assistant for Tidyzon, a professional mobile cleaning service company. 
+  const SYSTEM_PROMPT = `You are Tidyzon A.I Assistant, a helpful AI assistant for Tidyzon, a professional mobile cleaning service company. 
 
 COMPREHENSIVE COMPANY INFORMATION:
 
@@ -112,7 +112,7 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
         ) : (
           <>
             <Sparkles className="label-icon" />
-            <span className="button-text">Tidy A.I</span>
+            <span className="button-text">Tidyzon A.I</span>
             <MessageCircle className="chat-button-icon" />
           </>
         )}

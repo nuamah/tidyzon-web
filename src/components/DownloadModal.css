@@ -2,14 +2,26 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.8); /* Darker background for better visibility */
+  backdrop-filter: blur(12px); /* More blur for better focus */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  padding: 1rem;
+  padding: 2rem 1rem; /* More vertical padding on mobile */
   animation: fadeIn 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .modal-overlay {
+    padding: 2rem; /* More padding on desktop for better centering */
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal-overlay {
+    padding: 3rem; /* Even more padding on large screens */
+  }
 }
 
 @keyframes fadeIn {
@@ -23,14 +35,30 @@
 
 .modal-container {
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 20px;
   max-width: 700px;
   width: 100%;
-  max-height: 90vh;
+  max-height: 75vh; /* Reduced height on mobile */
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); /* Stronger shadow */
   animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto; /* Ensure centering */
+}
+
+@media (min-width: 768px) {
+  .modal-container {
+    max-height: 85vh; /* Slightly reduced for better fit */
+    border-radius: 24px;
+    max-width: 800px; /* Slightly wider on desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal-container {
+    max-width: 900px; /* Even wider on large screens */
+    max-height: 80vh;
+  }
 }
 
 @keyframes slideUp {
@@ -47,10 +75,10 @@
 /* Close Button */
 .modal-close {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 40px;
-  height: 40px;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
   background: rgba(0, 0, 0, 0.05);
   border: none;
   border-radius: 50%;
@@ -60,6 +88,15 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .modal-close {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .modal-close:hover {
@@ -75,21 +112,28 @@
 
 /* Modal Header */
 .modal-header {
-  padding: 3rem 2rem 2rem;
+  padding: 1.5rem 1.25rem 1.25rem;
   text-align: center;
   border-bottom: 1px solid #e2e8f0;
 }
 
+@media (min-width: 768px) {
+  .modal-header {
+    padding: 3rem 2rem 2rem;
+  }
+}
+
 .modal-title {
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #1e293b;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
   .modal-title {
     font-size: 2.5rem;
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -102,8 +146,15 @@
 
 .modal-subtitle {
   color: #64748b;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .modal-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 /* Tab Switcher */
@@ -111,8 +162,14 @@
   position: relative;
   display: flex;
   gap: 0.5rem;
-  padding: 1.5rem 2rem 0;
+  padding: 0.75rem 1.25rem 0;
   background: #f9fafb;
+}
+
+@media (min-width: 768px) {
+  .tab-switcher {
+    padding: 1.5rem 2rem 0;
+  }
 }
 
 .tab-button {
@@ -121,7 +178,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.875rem 0.5rem;
   background: transparent;
   border: none;
   border-radius: 12px;
@@ -131,13 +188,13 @@
   transition: all 0.3s ease;
   position: relative;
   z-index: 2;
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 640px) {
   .tab-button {
-    font-size: 0.8125rem;
-    padding: 0.875rem 0.5rem;
+    font-size: 0.9375rem;
+    padding: 1rem;
   }
 }
 
@@ -156,8 +213,15 @@
 }
 
 .tab-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 768px) {
+  .tab-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .tab-indicator {
@@ -184,25 +248,32 @@
 
 /* Tab Content */
 .tab-content {
-  padding: 2rem;
+  padding: 1.25rem;
   background: #f9fafb;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
   .tab-content {
-    padding: 1.5rem;
+    padding: 2rem;
   }
 }
 
 .app-section {
   background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
+  border-radius: 16px;
+  padding: 1.25rem;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
   .app-section {
     padding: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-section {
+    padding: 2.5rem;
+    border-radius: 20px;
   }
 }
 
@@ -224,18 +295,33 @@
 /* App Info */
 .app-info {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .app-info {
+    margin-bottom: 2.5rem;
+  }
 }
 
 .app-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  border-radius: 20px;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.75rem;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+  }
 }
 
 .app-icon::before {
@@ -257,35 +343,65 @@
 }
 
 .icon-large {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   color: #ffffff;
   position: relative;
   z-index: 1;
 }
 
+@media (min-width: 768px) {
+  .icon-large {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .app-title {
-  font-size: 1.75rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .app-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .app-description {
   color: #64748b;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .app-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Features List */
 .app-features {
   list-style: none;
   padding: 0;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  gap: 0.5rem;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .app-features {
+    margin: 0 0 2rem 0;
+    gap: 0.75rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -296,22 +412,29 @@
 
 .app-features li {
   color: #475569;
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .app-features li {
+    font-size: 0.9375rem;
+  }
 }
 
 /* Download Section */
 .download-section {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .download-section {
     grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
@@ -319,20 +442,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .store-section {
+    gap: 1rem;
+  }
 }
 
 /* QR Code */
 .qr-code-wrapper {
-  display: flex;
+  display: none; /* Hidden on mobile - can't scan on same device */
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.75rem;
   background: #ffffff;
   border: 2px solid #e2e8f0;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .qr-code-wrapper {
+    display: flex; /* Show QR codes on tablets and desktop */
+    padding: 1rem;
+    border-radius: 16px;
+  }
 }
 
 .qr-canvas {
@@ -342,9 +479,15 @@
 
 .qr-label {
   color: #64748b;
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .qr-label {
+    font-size: 0.8125rem;
+  }
 }
 
 /* Download Buttons */
@@ -353,14 +496,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
   background: #000000;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .download-btn {
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+  }
 }
 
 .download-btn:hover {
@@ -377,9 +528,16 @@
 }
 
 .store-icon {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .store-icon {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .store-text {
@@ -389,16 +547,28 @@
 }
 
 .store-label {
-  font-size: 0.625rem;
+  font-size: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   opacity: 0.8;
 }
 
+@media (min-width: 768px) {
+  .store-label {
+    font-size: 0.625rem;
+  }
+}
+
 .store-name {
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .store-name {
+    font-size: 1.125rem;
+  }
 }
 
 /* Scrollbar Styling for Modal */

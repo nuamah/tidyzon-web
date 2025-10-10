@@ -9,6 +9,14 @@
   padding: 8rem 0 4rem;
 }
 
+@media (max-width: 767px) {
+  .hero-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 6rem 0 2rem;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-section {
     height: 750px;
@@ -141,6 +149,13 @@
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .hero-container {
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-container {
     grid-template-columns: 1.1fr 0.9fr;
@@ -170,8 +185,16 @@
   color: #10b981;
   font-size: 0.875rem;
   font-weight: 600;
+  margin-top: 4rem; /* Added top margin to push badge down */
   margin-bottom: 2rem;
   animation: fadeInUp 0.6s ease-out;
+}
+
+@media (min-width: 768px) {
+  .hero-badge {
+    margin-top: 0; /* Reset top margin on larger screens */
+    margin-bottom: 2rem;
+  }
 }
 
 .badge-icon {
@@ -247,6 +270,13 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .hero-request-section {
+    margin: 1rem auto 0.5rem;
+    padding: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -554,18 +584,44 @@
   border-radius: 24px;
 }
 
+/* Mobile adjustments for hero image */
+@media (max-width: 767px) {
+  .hero-image-container {
+    transform: translateY(0);
+    margin-top: 0;
+  }
+  
+  .hero-image-wrapper {
+    border-radius: 16px;
+  }
+  
+  .hero-image {
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    max-height: 300px;
+  }
+}
+
 /* Floating Cards */
 .floating-card {
   position: absolute;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.40); /* More transparent to see image through */
+  backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 1rem 1.5rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-  display: flex;
+  display: none; /* Hidden by default on mobile */
   align-items: center;
   gap: 1rem;
   animation: floatCard 3s ease-in-out infinite;
+}
+
+/* Show floating cards only on larger screens */
+@media (min-width: 768px) {
+  .floating-card {
+    display: flex;
+  }
 }
 
 .card-1 {
@@ -595,13 +651,13 @@
 
 .card-title {
   font-weight: 600;
-  color: #1e293b;
+  color: #1a1a1a; /* Very dark gray for readability */
   font-size: 0.875rem;
 }
 
 .card-subtitle {
   font-size: 0.75rem;
-  color: #64748b;
+  color: #2d3748; /* Dark gray for subtle contrast */
 }
 
 /* Scroll Indicator */

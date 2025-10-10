@@ -14,6 +14,7 @@ import ReviewsPage from './pages/ReviewsPage'
 import ContactPage from './pages/ContactPage'
 import GetStartedPage from './pages/GetStartedPage'
 import TeamsPage from './pages/TeamsPage'
+import OpenPositionsPage from './pages/OpenPositionsPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import './App.css'
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/get-started" element={<GetStartedPage />} />
           <Route path="/teams" element={<TeamsPage />} />
+          <Route path="/open-positions" element={<OpenPositionsPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>

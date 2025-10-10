@@ -10,19 +10,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 5rem 1rem 1rem 1rem; /* Much more top padding to move modal down */
   backdrop-filter: blur(4px);
+}
+
+@media (min-width: 768px) {
+  .providers-modal-overlay {
+    padding: 1rem;
+  }
 }
 
 .providers-modal {
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 20px;
   max-width: 1200px;
   width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
+  max-height: 75vh; /* Reduced height on mobile */
+  overflow-y: auto; /* Allow entire modal to scroll */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: modalSlideIn 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .providers-modal {
+    max-height: 90vh;
+    border-radius: 24px;
+  }
 }
 
 @keyframes modalSlideIn {
@@ -39,40 +52,69 @@
 /* Modal Header */
 .providers-modal-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid #e2e8f0;
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   color: #ffffff;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .providers-modal-header {
+    align-items: center;
+    padding: 2rem;
+  }
 }
 
 .modal-header-content {
   flex: 1;
 }
 
-.modal-title {
-  font-size: 1.75rem;
+.providers-modal-header .modal-title {
+  font-size: 1.3rem !important; /* Force very small size */
   font-weight: 800;
-  margin: 0 0 0.25rem 0;
+  margin: 0;
+  padding-right: 3rem; /* Add padding to prevent overlap with close button */
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .providers-modal-header .modal-title {
+    font-size: 1.75rem !important;
+    padding-right: 0;
+    line-height: normal;
+  }
 }
 
 .modal-subtitle {
-  font-size: 1rem;
-  color: #ffffff;
-  margin: 0;
+  display: none; /* Hide the subtitle completely */
 }
 
 .modal-close-btn {
   background: rgba(255, 255, 255, 0.2);
   border: none;
-  border-radius: 12px;
-  padding: 0.75rem;
+  border-radius: 8px;
+  padding: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0.125rem;
+  right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .modal-close-btn {
+    position: relative;
+    top: auto;
+    right: auto;
+    border-radius: 12px;
+    padding: 0.75rem;
+  }
 }
 
 .modal-close-btn:hover {
@@ -81,70 +123,37 @@
 }
 
 .close-icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .close-icon {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 /* Map Container */
 .map-container {
-  height: 300px;
+  height: 200px; /* Reduced height on mobile */
   position: relative;
   overflow: hidden;
 }
 
-.mock-map {
+@media (min-width: 768px) {
+  .map-container {
+    height: 300px;
+  }
+}
+
+.real-map {
   width: 100%;
   height: 100%;
   position: relative;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
   border-radius: 8px;
   overflow: hidden;
-}
-
-.map-background {
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(90deg, #cbd5e1 1px, transparent 1px),
-    linear-gradient(#cbd5e1 1px, transparent 1px),
-    linear-gradient(45deg, rgba(148, 163, 184, 0.1) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(148, 163, 184, 0.1) 25%, transparent 25%);
-  background-size: 30px 30px, 30px 30px, 60px 60px, 60px 60px;
-  opacity: 0.4;
-}
-
-.map-pattern {
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 60% 30%, rgba(139, 92, 246, 0.06) 0%, transparent 35%),
-    radial-gradient(circle at 40% 70%, rgba(34, 197, 94, 0.06) 0%, transparent 35%);
-  position: relative;
-}
-
-.map-pattern::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 98px,
-      rgba(148, 163, 184, 0.1) 100px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 98px,
-      rgba(148, 163, 184, 0.1) 100px
-    );
 }
 
 /* Provider Markers */
@@ -161,7 +170,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  z-index: 1000; /* High z-index to appear over the map iframe */
 }
 
 .provider-marker:hover {
@@ -206,16 +215,27 @@
 
 /* Providers List */
 .providers-list {
-  padding: 2rem;
-  max-height: 400px;
-  overflow-y: auto;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .providers-list {
+    padding: 2rem;
+  }
 }
 
 .providers-list-title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .providers-list-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .providers-grid {
@@ -234,10 +254,17 @@
 .provider-card {
   background: #ffffff;
   border: 2px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 1.5rem;
+  border-radius: 14px;
+  padding: 1rem;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .provider-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
 }
 
 .provider-card:hover {
@@ -258,18 +285,30 @@
 }
 
 .provider-name {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1e293b;
   margin: 0 0 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .provider-name {
+    font-size: 1.125rem;
+  }
 }
 
 .provider-rating {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #64748b;
+}
+
+@media (min-width: 768px) {
+  .provider-rating {
+    font-size: 0.875rem;
+  }
 }
 
 .star-icon.filled {
@@ -284,9 +323,15 @@
 }
 
 .provider-price {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 700;
   color: rgb(82, 136, 40);
+}
+
+@media (min-width: 768px) {
+  .provider-price {
+    font-size: 1.125rem;
+  }
 }
 
 .provider-services {
@@ -299,11 +344,19 @@
 .service-tag {
   background: rgba(82, 136, 40, 0.1);
   color: rgb(82, 136, 40);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 16px;
   border: 1px solid rgba(82, 136, 40, 0.2);
+}
+
+@media (min-width: 768px) {
+  .service-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+  }
 }
 
 .provider-footer {
@@ -347,11 +400,18 @@
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.625rem 1.25rem;
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .select-provider-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 .select-provider-btn:hover {
@@ -359,26 +419,3 @@
   box-shadow: 0 4px 12px rgba(82, 136, 40, 0.3);
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .providers-modal {
-    margin: 0.5rem;
-    max-height: 95vh;
-  }
-  
-  .providers-modal-header {
-    padding: 1.5rem;
-  }
-  
-  .modal-title {
-    font-size: 1.5rem;
-  }
-  
-  .providers-list {
-    padding: 1.5rem;
-  }
-  
-  .map-container {
-    height: 250px;
-  }
-}

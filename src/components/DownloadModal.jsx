@@ -30,10 +30,14 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
   // Generate QR Codes
   useEffect(() => {
     if (isOpen) {
+      // Determine QR code size based on screen width
+      const isMobile = window.innerWidth < 768
+      const qrSize = isMobile ? 100 : 120
+
       // User App QR Codes
       if (userIosQRRef.current) {
         QRCode.toCanvas(userIosQRRef.current, appLinks.user.ios, {
-          width: 120,
+          width: qrSize,
           margin: 1,
           color: {
             dark: '#000000',
@@ -43,7 +47,7 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
       }
       if (userAndroidQRRef.current) {
         QRCode.toCanvas(userAndroidQRRef.current, appLinks.user.android, {
-          width: 120,
+          width: qrSize,
           margin: 1,
           color: {
             dark: '#000000',
@@ -54,7 +58,7 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
       // Provider App QR Codes
       if (providerIosQRRef.current) {
         QRCode.toCanvas(providerIosQRRef.current, appLinks.provider.ios, {
-          width: 120,
+          width: qrSize,
           margin: 1,
           color: {
             dark: '#000000',
@@ -64,7 +68,7 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
       }
       if (providerAndroidQRRef.current) {
         QRCode.toCanvas(providerAndroidQRRef.current, appLinks.provider.android, {
-          width: 120,
+          width: qrSize,
           margin: 1,
           color: {
             dark: '#000000',
@@ -154,17 +158,6 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
                   <Smartphone className="icon-large" />
                 </div>
                 <h3 className="app-title">Tidyzon User App</h3>
-                <p className="app-description">
-                  Book professional cleaning services instantly. Track your orders, manage schedules, and enjoy spotless spaces with just a few taps.
-                </p>
-                
-                {/* Features List */}
-                <ul className="app-features">
-                  <li>✓ Instant service booking</li>
-                  <li>✓ Real-time order tracking</li>
-                  <li>✓ Secure payments</li>
-                  <li>✓ Rate & review services</li>
-                </ul>
               </div>
 
               {/* Download Buttons with QR Codes */}
@@ -209,17 +202,6 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
                   <Users className="icon-large" />
                 </div>
                 <h3 className="app-title">Tidyzon Service Provider App</h3>
-                <p className="app-description">
-                  Join our network of professional service providers. Accept jobs, manage your schedule, and grow your cleaning business with Tidyzon.
-                </p>
-                
-                {/* Features List */}
-                <ul className="app-features">
-                  <li>✓ Flexible work schedule</li>
-                  <li>✓ Instant job notifications</li>
-                  <li>✓ Quick & secure payments</li>
-                  <li>✓ Build your reputation</li>
-                </ul>
               </div>
 
               {/* Download Buttons with QR Codes */}

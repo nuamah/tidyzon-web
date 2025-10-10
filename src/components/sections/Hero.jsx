@@ -254,7 +254,7 @@ const Hero = () => {
               <div className="location-input-container" ref={inputRef}>
                 <input 
                   type="text" 
-                  placeholder="Enter an address, city or ZIP code"
+                  placeholder="Enter service location"
                   className="location-input"
                   value={location || ''}
                   onChange={(e) => handleLocationChange(e.target.value)}

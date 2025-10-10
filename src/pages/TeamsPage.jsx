@@ -8,7 +8,7 @@ const TeamsPage = () => {
       id: 1,
       name: "Sarah Johnson",
       position: "Chief Executive Officer",
-      image: "/assets/tidyzon_welcome_05.png",
+      image: "/assets/team/micheal.jpg",
       bio: "Visionary leader with 15+ years in the service industry, driving Tidyzon's mission to revolutionize home and car cleaning services.",
       email: "sarah@tidyzon.com",
       linkedin: "https://linkedin.com/in/sarahjohnson",
@@ -41,7 +41,7 @@ const TeamsPage = () => {
       id: 4,
       name: "David Kim",
       position: "Lead Developer",
-      image: "/assets/tidyzon_welcome_05.png",
+      image: "/assets/team/george.jpg",
       bio: "Full-stack developer crafting the technology that powers our platform and enhances user experience.",
       email: "david@tidyzon.com",
       linkedin: "https://linkedin.com/in/davidkim",
@@ -51,7 +51,7 @@ const TeamsPage = () => {
       id: 5,
       name: "Lisa Thompson",
       position: "Marketing Director",
-      image: "/assets/tidyzon_welcome_05.png",
+      image: "/assets/team/iksoft.JPG",
       bio: "Creative marketer building brand awareness and connecting Tidyzon with customers who value quality service.",
       email: "lisa@tidyzon.com",
       linkedin: "https://linkedin.com/in/lisathompson",
@@ -209,7 +209,7 @@ const TeamsPage = () => {
                   <span>Make a real impact in the service industry</span>
                 </div>
               </div>
-              <a href="/contact" className="join-team-cta">
+              <a href="/open-positions" className="join-team-cta">
                 View Open Positions
                 <Award className="btn-icon" />
               </a>
