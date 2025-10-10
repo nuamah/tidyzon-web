@@ -60,13 +60,13 @@
 /* Chat Window */
 .ai-chat-window {
   position: fixed;
-  bottom: 7rem;
+  bottom: 8rem;
   right: 2rem;
   z-index: 1999; /* Below modals */
   width: 380px;
   max-width: calc(100vw - 2rem);
-  height: 550px;
-  max-height: calc(100vh - 10rem);
+  height: 650px;
+  max-height: calc(100vh - 9rem);
   background: #ffffff;
   border-radius: 24px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -78,23 +78,23 @@
 
 @media (max-width: 1023px) {
   .ai-chat-window {
-    bottom: 6rem; /* Move up to avoid covering bottom nav */
+    bottom: 7rem; /* Move up more to avoid covering bottom nav */
     right: 1rem;
     left: 1rem;
     width: auto;
-    max-height: calc(100vh - 8rem);
+    max-height: calc(100vh - 9rem);
     height: auto;
-    min-height: 400px;
+    min-height: 500px;
   }
 }
 
 @media (max-width: 480px) {
   .ai-chat-window {
-    bottom: 5.5rem; /* Extra spacing on small screens */
+    bottom: 6.5rem; /* Extra spacing on small screens */
     right: 0.75rem;
     left: 0.75rem;
-    max-height: calc(100vh - 7rem);
-    min-height: 350px;
+    max-height: calc(100vh - 8rem);
+    min-height: 450px;
   }
 }
 
