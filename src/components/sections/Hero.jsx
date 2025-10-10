@@ -12,6 +12,8 @@ const Hero = () => {
   const [suggestions, setSuggestions] = useState([])
   const [isGettingLocation, setIsGettingLocation] = useState(false)
   const inputRef = useRef(null)
+  const heroRef = useRef(null)
+  const [scrollY, setScrollY] = useState(0)
 
   // Predefined list of cities and ZIP codes for autocomplete
   const locationData = [
@@ -197,12 +199,36 @@ const Hero = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
+  // Parallax scrolling effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       <DownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    <section id="home" className="hero-section">
-      {/* Animated Background */}
+    <section id="home" className="hero-section" ref={heroRef}>
+      {/* Parallax Background Layers */}
       <div className="hero-background">
+        {/* Parallax layers */}
+        <div 
+          className="parallax-layer parallax-bg" 
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        ></div>
+        <div 
+          className="parallax-layer parallax-shapes" 
+          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+        ></div>
+        <div 
+          className="parallax-layer parallax-particles" 
+          style={{ transform: `translateY(${scrollY * 0.7}px)` }}
+        ></div>
+        
+        {/* Original animated orbs */}
         <div className="gradient-orb orb-1"></div>
         <div className="gradient-orb orb-2"></div>
         <div className="gradient-orb orb-3"></div>

@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Zap, Shield, Clock, Users, Award, HeartHandshake } from 'lucide-react'
 import './Features.css'
 
 const Features = () => {
+  const [scrollY, setScrollY] = useState(0)
+  const featuresRef = useRef(null)
+
+  // Parallax scrolling effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const features = [
     {
       icon: Zap,
@@ -37,8 +49,18 @@ const Features = () => {
   ]
 
   return (
-    <section className="features-section">
+    <section className="features-section" ref={featuresRef}>
       <div className="features-bg-pattern"></div>
+      
+      {/* Parallax background elements */}
+      <div 
+        className="parallax-bg-elements" 
+        style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+      >
+        <div className="floating-shape shape-1"></div>
+        <div className="floating-shape shape-2"></div>
+        <div className="floating-shape shape-3"></div>
+      </div>
       
       <div className="container">
         <div className="features-header">

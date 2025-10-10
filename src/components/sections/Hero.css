@@ -29,6 +29,47 @@
   z-index: 0;
 }
 
+/* Parallax Layers */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  will-change: transform;
+}
+
+.parallax-bg {
+  background: linear-gradient(135deg, rgba(82, 136, 40, 0.8) 0%, rgba(88, 99, 197, 0.8) 100%);
+  z-index: -3;
+}
+
+.parallax-shapes {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  z-index: -2;
+}
+
+.parallax-particles {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  z-index: -1;
+  animation: parallaxParticles 20s linear infinite;
+}
+
+@keyframes parallaxParticles {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-200px) translateX(-200px); }
+}
+
 .hero-background::before {
   content: '';
   position: absolute;

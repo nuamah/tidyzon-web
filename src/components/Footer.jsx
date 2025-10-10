@@ -71,10 +71,9 @@ const Footer = () => {
           <div className="footer-links">
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-list">
-              <li><a href="#services">Car Cleaning</a></li>
-              <li><a href="#services">Bin Sanitization</a></li>
-              <li><a href="#services">Home Cleaning</a></li>
-              <li><a href="#services">All Services</a></li>
+              <li><a href="/services">Car Cleaning</a></li>
+              <li><a href="/services">Bin Sanitization</a></li>
+              <li><a href="/services">All Services</a></li>
             </ul>
           </div>
 
@@ -82,10 +81,10 @@ const Footer = () => {
               <div className="footer-links">
                 <h4 className="footer-heading">Company</h4>
                 <ul className="footer-list">
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#careers">Careers</a></li>
-                  <li><a href="#blog">Blog</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/teams">Teams</a></li>
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/get-started">Get Started</a></li>
                   <li><a href="/terms">Terms & Conditions</a></li>
                   <li><a href="/privacy">Privacy Policy</a></li>
                 </ul>

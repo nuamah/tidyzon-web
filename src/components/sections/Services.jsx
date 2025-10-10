@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Car, Sparkles, ArrowRight, Check, Clock, X, Plus } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
@@ -9,6 +9,8 @@ const Services = () => {
   const [isAddonsModalOpen, setIsAddonsModalOpen] = useState(false)
   const [selectedAddonsPackage, setSelectedAddonsPackage] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [scrollY, setScrollY] = useState(0)
+  const servicesRef = useRef(null)
 
   const carPackages = [
     {
@@ -85,11 +87,30 @@ const Services = () => {
     setIsAddonsModalOpen(true)
   }
 
+  // Parallax scrolling effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <>
       <DownloadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
-      <section id="services" className="services-section">
+      <section id="services" className="services-section" ref={servicesRef}>
+        {/* Parallax background elements */}
+        <div 
+          className="parallax-bg-elements" 
+          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+        >
+          <div className="floating-shape shape-1"></div>
+          <div className="floating-shape shape-2"></div>
+          <div className="floating-shape shape-3"></div>
+        </div>
+        
         <div className="container">
           {/* Section Header */}
           <div className="section-header">
