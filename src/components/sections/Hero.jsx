@@ -308,6 +308,8 @@ const Hero = () => {
               src="/assets/heroImage.jpg"
               alt="Tidyzon Vehicle Cleaning"
               className="hero-image"
+              loading="eager"
+              decoding="async"
             />
             {/* Floating Cards */}
             <div className="floating-card card-1">

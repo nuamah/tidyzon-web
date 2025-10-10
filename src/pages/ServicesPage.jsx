@@ -271,9 +271,11 @@ const ServicesPage = () => {
             <div className="trash-bin-card">
               <div className="trash-bin-image">
                 <img 
-                  src="/assets/tidyzon_cleaner_01.png" 
+                  src="/assets/trashbin.jpg" 
                   alt="Trash Bin Cleaning Service" 
                   className="service-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="trash-bin-content">

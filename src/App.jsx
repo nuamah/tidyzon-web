@@ -13,6 +13,7 @@ import AboutPage from './pages/AboutPage'
 import ReviewsPage from './pages/ReviewsPage'
 import ContactPage from './pages/ContactPage'
 import GetStartedPage from './pages/GetStartedPage'
+import ProviderPage from './pages/ProviderPage'
 import TeamsPage from './pages/TeamsPage'
 import OpenPositionsPage from './pages/OpenPositionsPage'
 import TermsPage from './pages/TermsPage'
@@ -34,6 +35,7 @@ function App() {
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/get-started" element={<GetStartedPage />} />
+          <Route path="/provider" element={<ProviderPage />} />
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/open-positions" element={<OpenPositionsPage />} />
           <Route path="/terms" element={<TermsPage />} />

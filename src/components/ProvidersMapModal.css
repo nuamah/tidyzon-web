@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 1rem 1rem 1rem; /* Much more top padding to move modal down */
+  padding: 2rem 1rem; /* Reduced padding for better spacing */
   backdrop-filter: blur(4px);
 }
 
@@ -22,10 +22,10 @@
 
 .providers-modal {
   background: #ffffff;
-  border-radius: 20px;
-  max-width: 1200px;
+  border-radius: 16px;
+  max-width: 750px; /* Further reduced width for better proportions */
   width: 100%;
-  max-height: 75vh; /* Reduced height on mobile */
+  max-height: 70vh; /* Reduced height for more compact appearance */
   overflow-y: auto; /* Allow entire modal to scroll */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: modalSlideIn 0.3s ease-out;
@@ -33,8 +33,16 @@
 
 @media (min-width: 768px) {
   .providers-modal {
-    max-height: 90vh;
-    border-radius: 24px;
+    max-width: 850px; /* Compact width on tablets */
+    max-height: 75vh;
+    border-radius: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .providers-modal {
+    max-width: 950px; /* Moderate width on larger screens */
+    max-height: 80vh;
   }
 }
 
@@ -137,58 +145,356 @@
 
 /* Map Container */
 .map-container {
-  height: 200px; /* Reduced height on mobile */
+  height: 160px; /* More compact height on mobile */
   position: relative;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .map-container {
-    height: 300px;
+    height: 200px; /* Compact height on tablets */
   }
 }
 
-.real-map {
+@media (min-width: 1024px) {
+  .map-container {
+    height: 240px; /* Moderate height on larger screens */
+  }
+}
+
+/* Custom Map */
+.custom-map {
   width: 100%;
   height: 100%;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Streets */
+.street {
+  position: absolute;
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.street-main {
+  background: #64748b;
+  height: 8px;
+}
+
+.street-secondary {
+  background: #94a3b8;
+  height: 6px;
+}
+
+.street-tertiary {
+  background: #cbd5e1;
+  height: 4px;
+}
+
+/* Main streets */
+.street-1 {
+  top: 30%;
+  left: 0;
+  width: 100%;
+}
+
+.street-2 {
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+/* Secondary streets */
+.street-3 {
+  top: 15%;
+  left: 20%;
+  width: 60%;
+}
+
+.street-4 {
+  top: 60%;
+  left: 10%;
+  width: 80%;
+}
+
+.street-5 {
+  top: 0;
+  left: 25%;
+  width: 6px;
+  height: 100%;
+}
+
+/* Tertiary streets */
+.street-6 {
+  top: 45%;
+  left: 5%;
+  width: 40%;
+}
+
+.street-7 {
+  top: 75%;
+  left: 30%;
+  width: 50%;
+}
+
+.street-8 {
+  top: 0;
+  left: 75%;
+  width: 4px;
+  height: 70%;
+}
+
+.street-9 {
+  top: 20%;
+  left: 60%;
+  width: 30%;
+}
+
+.street-10 {
+  top: 85%;
+  left: 0;
+  width: 70%;
+}
+
+/* Buildings */
+.building {
+  position: absolute;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  border: 1px solid #94a3b8;
+  border-radius: 2px;
+}
+
+.building-1 {
+  top: 10%;
+  left: 15%;
+  width: 25px;
+  height: 35px;
+}
+
+.building-2 {
+  top: 5%;
+  right: 20%;
+  width: 30px;
+  height: 40px;
+}
+
+.building-3 {
+  top: 35%;
+  left: 70%;
+  width: 20px;
+  height: 25px;
+}
+
+.building-4 {
+  top: 50%;
+  left: 10%;
+  width: 35px;
+  height: 30px;
+}
+
+.building-5 {
+  top: 65%;
+  right: 15%;
+  width: 25px;
+  height: 35px;
+}
+
+.building-6 {
+  top: 80%;
+  left: 40%;
+  width: 20px;
+  height: 25px;
+}
+
+.building-7 {
+  top: 25%;
+  left: 45%;
+  width: 30px;
+  height: 20px;
+}
+
+.building-8 {
+  top: 70%;
+  left: 80%;
+  width: 25px;
+  height: 30px;
+}
+
+/* Parks */
+.park {
+  position: absolute;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 4px;
+  opacity: 0.7;
+}
+
+.park-1 {
+  top: 20%;
+  left: 5%;
+  width: 60px;
+  height: 40px;
+}
+
+.park-2 {
+  top: 55%;
+  right: 10%;
+  width: 45px;
+  height: 30px;
+}
+
+.park-3 {
+  bottom: 10%;
+  left: 60%;
+  width: 35px;
+  height: 25px;
+}
+
+/* Water features */
+.water {
+  position: absolute;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.water-1 {
+  top: 40%;
+  left: 80%;
+  width: 20px;
+  height: 15px;
+}
+
+.water-2 {
+  bottom: 20%;
+  left: 20%;
+  width: 25px;
+  height: 18px;
 }
 
 /* Provider Markers */
 .provider-marker {
   position: absolute;
-  background: #ffffff;
-  border: 3px solid rgb(82, 136, 40);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: transparent;
+  border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1000; /* High z-index to appear over the map iframe */
+  padding: 0;
 }
 
 .provider-marker:hover {
   transform: scale(1.2);
-  border-color: rgb(88, 99, 197);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.3));
 }
 
-.marker-icon {
-  width: 20px;
-  height: 20px;
-  color: rgb(82, 136, 40);
-  transition: color 0.3s ease;
+.car-marker-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
-.provider-marker:hover .marker-icon {
-  color: rgb(88, 99, 197);
+.provider-marker:hover .car-marker-icon {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4)) brightness(1.1);
 }
+
+/* Car Direction Classes */
+.car-right .car-marker-icon {
+  transform: rotate(0deg);
+}
+
+.car-left .car-marker-icon {
+  transform: rotate(180deg);
+}
+
+.car-up .car-marker-icon {
+  transform: rotate(-90deg);
+}
+
+.car-down .car-marker-icon {
+  transform: rotate(90deg);
+}
+
+/* Car Movement Animation */
+.provider-marker {
+  animation: carMovement 8s ease-in-out infinite;
+}
+
+.car-right {
+  animation-name: moveRight;
+}
+
+.car-left {
+  animation-name: moveLeft;
+}
+
+.car-up {
+  animation-name: moveUp;
+}
+
+.car-down {
+  animation-name: moveDown;
+}
+
+/* Movement Keyframes */
+@keyframes moveRight {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateX(-20px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(20px);
+  }
+}
+
+@keyframes moveLeft {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateX(20px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-20px);
+  }
+}
+
+@keyframes moveUp {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-15px);
+  }
+}
+
+@keyframes moveDown {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(-15px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(15px);
+  }
+}
+
+/* Staggered animation delays for more realistic movement */
+.provider-marker:nth-child(1) { animation-delay: 0s; }
+.provider-marker:nth-child(2) { animation-delay: 1s; }
+.provider-marker:nth-child(3) { animation-delay: 2s; }
+.provider-marker:nth-child(4) { animation-delay: 3s; }
+.provider-marker:nth-child(5) { animation-delay: 4s; }
+.provider-marker:nth-child(6) { animation-delay: 5s; }
 
 .marker-pulse {
   position: absolute;
@@ -215,12 +521,18 @@
 
 /* Providers List */
 .providers-list {
-  padding: 1.25rem;
+  padding: 1rem; /* Reduced padding for compactness */
 }
 
 @media (min-width: 768px) {
   .providers-list {
-    padding: 2rem;
+    padding: 1.5rem; /* Reduced padding on tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .providers-list {
+    padding: 2rem; /* Standard padding on larger screens */
   }
 }
 
@@ -254,15 +566,22 @@
 .provider-card {
   background: #ffffff;
   border: 2px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 0.875rem; /* Reduced padding for compactness */
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
   .provider-card {
-    padding: 1.5rem;
+    padding: 1.25rem; /* Reduced padding on tablets */
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .provider-card {
+    padding: 1.5rem; /* Standard padding on larger screens */
     border-radius: 16px;
   }
 }

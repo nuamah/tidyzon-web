@@ -110,11 +110,7 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
         {isOpen ? (
           <X className="chat-button-icon" />
         ) : (
-          <>
-            <Sparkles className="label-icon" />
-            <span className="button-text">Tidyzon A.I</span>
-            <MessageCircle className="chat-button-icon" />
-          </>
+          <MessageCircle className="chat-button-icon" />
         )}
       </button>
 

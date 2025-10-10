@@ -155,7 +155,7 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
             <div className="app-section animate-fade-in">
               <div className="app-info">
                 <div className="app-icon user-icon">
-                  <Smartphone className="icon-large" />
+                  <img src="/assets/hand icon 1.png" alt="User App Icon" className="app-icon-image" />
                 </div>
                 <h3 className="app-title">Tidyzon User App</h3>
               </div>
@@ -199,7 +199,7 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
             <div className="app-section animate-fade-in">
               <div className="app-info">
                 <div className="app-icon provider-icon">
-                  <Users className="icon-large" />
+                  <img src="/assets/blue on black.jpg" alt="Provider App Icon" className="app-icon-image" />
                 </div>
                 <h3 className="app-title">Tidyzon Service Provider App</h3>
               </div>

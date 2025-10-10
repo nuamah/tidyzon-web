@@ -922,7 +922,7 @@
 
 .trash-bin-image {
   flex: 0 0 350px;
-  height: 220px;
+  height: 280px;
   overflow: hidden;
   position: relative;
 }
@@ -931,7 +931,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
+  min-height: 100%;
 }
 
 .trash-bin-content {
@@ -991,7 +992,7 @@
   .trash-bin-image {
     flex: none;
     width: 100%;
-    height: 180px;
+    height: 220px;
   }
   
   .trash-bin-content {

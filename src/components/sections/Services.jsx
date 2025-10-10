@@ -267,9 +267,9 @@ const Services = () => {
                 <div className="dual-cta-content">
                   <h3 className="dual-cta-title">Become a service provider</h3>
                   <p className="dual-cta-subtitle">Sign up as a service provider</p>
-                  <button className="dual-cta-button" onClick={() => setIsModalOpen(true)}>
+                  <Link to="/provider" className="dual-cta-button">
                     Sign up
-                  </button>
+                  </Link>
                 </div>
                 <div className="dual-cta-image">
                   <img 
@@ -284,7 +284,7 @@ const Services = () => {
               <div className="dual-cta-card">
                 <div className="dual-cta-image">
                   <img 
-                    src="/assets/tidyzon_welcome_05.png" 
+                    src="/assets/newimage.jpg" 
                     alt="Customer Booking Service" 
                     className="dual-cta-img"
                   />
@@ -292,9 +292,9 @@ const Services = () => {
                 <div className="dual-cta-content">
                   <h3 className="dual-cta-title">Fast, reliable services at your doorstep, at your fingertips</h3>
                   <p className="dual-cta-subtitle">Sign up and book services</p>
-                  <button className="dual-cta-button" onClick={() => setIsModalOpen(true)}>
+                  <Link to="/get-started" className="dual-cta-button">
                     Sign up
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

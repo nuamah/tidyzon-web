@@ -1,3 +1,6 @@
+/* Import image optimization styles */
+@import './styles/image-optimization.css';
+
 /* Modern CSS Reset and Base Styles */
 *,
 *::before,

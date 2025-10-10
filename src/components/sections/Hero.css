@@ -185,7 +185,7 @@
   color: #10b981;
   font-size: 0.875rem;
   font-weight: 600;
-  margin-top: 4rem; /* Added top margin to push badge down */
+  margin-top: -2rem; /* Reduced top margin for better mobile spacing */
   margin-bottom: 2rem;
   animation: fadeInUp 0.6s ease-out;
 }
@@ -573,7 +573,6 @@
 .hero-image-wrapper {
   position: relative;
   border-radius: 24px;
-  overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
@@ -607,13 +606,12 @@
 .floating-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.40); /* More transparent to see image through */
-  backdrop-filter: blur(8px);
   border-radius: 16px;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
   display: none; /* Hidden by default on mobile */
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   animation: floatCard 3s ease-in-out infinite;
 }
 
@@ -626,13 +624,13 @@
 
 .card-1 {
   bottom: 10%;
-  left: -5%;
+  left: -20%;
   animation-delay: 0s;
 }
 
 .card-2 {
-  top: 15%;
-  right: -5%;
+  top: 10%;
+  right: -20%;
   animation-delay: 1.5s;
 }
 
@@ -652,11 +650,11 @@
 .card-title {
   font-weight: 600;
   color: #1a1a1a; /* Very dark gray for readability */
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .card-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   color: #2d3748; /* Dark gray for subtle contrast */
 }
 

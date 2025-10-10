@@ -6,32 +6,32 @@ const TeamsPage = () => {
   const executives = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      position: "Chief Executive Officer",
-      image: "/assets/team/micheal.jpg",
-      bio: "Visionary leader with 15+ years in the service industry, driving Tidyzon's mission to revolutionize home and car cleaning services.",
-      email: "sarah@tidyzon.com",
-      linkedin: "https://linkedin.com/in/sarahjohnson",
+      name: "Emmanuel Zielonka Berchie",
+      position: "Co-Founder",
+      image: "/assets/team/Emmanuel Zeolonki.jpg",
+      bio: "Visionary leader driving innovation and strategic growth in the service industry with a passion for excellence.",
+      email: "emmanuel@tidyzon.com",
+      linkedin: "https://linkedin.com/in/emmanuelzielonka",
       github: null
     },
     {
       id: 2,
-      name: "Michael Chen",
-      position: "Chief Technology Officer",
-      image: "/assets/tidyzon_welcome_05.png",
-      bio: "Tech innovator passionate about building scalable platforms that connect customers with trusted service providers seamlessly.",
+      name: "Micheal Akwasi Osei",
+      position: "Co-Founder",
+      image: "/assets/team/micheal.jpg",
+      bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",
       email: "michael@tidyzon.com",
-      linkedin: "https://linkedin.com/in/michaelchen",
-      github: "https://github.com/michaelchen"
+      linkedin: "https://linkedin.com/in/michealakwasiosei",
+      github: null
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      position: "Head of Operations",
-      image: "/assets/tidyzon_welcome_05.png",
-      bio: "Operations expert ensuring every service meets our high standards of quality and customer satisfaction.",
-      email: "emily@tidyzon.com",
-      linkedin: "https://linkedin.com/in/emilyrodriguez",
+      name: "Dr. Sanju Abraham",
+      position: "Team Leader / Supervisor",
+      image: "/assets/team/Sanju Abraham.jpg",
+      bio: "Serial startup CTO (engineering, AI, scaling orgs)",
+      email: "sanju@tidyzon.com",
+      linkedin: "https://linkedin.com/in/drsanjuabraham",
       github: null
     }
   ]
@@ -39,23 +39,23 @@ const TeamsPage = () => {
   const teamMembers = [
     {
       id: 4,
-      name: "David Kim",
-      position: "Lead Developer",
+      name: "Nuamah George",
+      position: "Developer",
       image: "/assets/team/george.jpg",
-      bio: "Full-stack developer crafting the technology that powers our platform and enhances user experience.",
-      email: "david@tidyzon.com",
-      linkedin: "https://linkedin.com/in/davidkim",
-      github: "https://github.com/davidkim"
+      bio: "Passionate developer building innovative solutions and maintaining high-quality code standards.",
+      email: "george@tidyzon.com",
+      linkedin: "https://linkedin.com/in/nuamahgeorge",
+      github: "https://github.com/nuamahgeorge"
     },
     {
       id: 5,
-      name: "Lisa Thompson",
-      position: "Marketing Director",
+      name: "Adu Amankwah Isaac",
+      position: "Developer",
       image: "/assets/team/iksoft.JPG",
-      bio: "Creative marketer building brand awareness and connecting Tidyzon with customers who value quality service.",
-      email: "lisa@tidyzon.com",
-      linkedin: "https://linkedin.com/in/lisathompson",
-      github: null
+      bio: "Skilled developer focused on creating seamless user experiences and robust backend systems.",
+      email: "business.iksofttechnologies@gmail.com",
+      linkedin: "https://www.linkedin.com/in/adu-amankwah-isaac-46842a185/",
+      github: "https://github.com/iksoft"
     },
     {
       id: 6,
@@ -65,6 +65,16 @@ const TeamsPage = () => {
       bio: "Customer advocate ensuring every interaction exceeds expectations and builds lasting relationships.",
       email: "james@tidyzon.com",
       linkedin: "https://linkedin.com/in/jameswilson",
+      github: null
+    },
+    {
+      id: 7,
+      name: "Lisa Thompson",
+      position: "Marketing Director",
+      image: "/assets/tidyzon_welcome_05.png",
+      bio: "Creative marketer building brand awareness and connecting Tidyzon with customers who value quality service.",
+      email: "lisa@tidyzon.com",
+      linkedin: "https://linkedin.com/in/lisathompson",
       github: null
     }
   ]
@@ -105,30 +115,15 @@ const TeamsPage = () => {
           <div className="team-grid executives-grid">
             {executives.map((member) => (
               <div key={member.id} className="team-card executive-card">
-                <div className="member-image-container">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="member-image"
-                  />
-                  <div className="member-overlay">
-                    <div className="social-links">
-                      <a href={`mailto:${member.email}`} className="social-link" title="Email">
-                        <Mail className="social-icon" />
-                      </a>
-                      {member.linkedin && (
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
-                          <Linkedin className="social-icon" />
-                        </a>
-                      )}
-                      {member.github && (
-                        <a href={member.github} target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
-                          <Github className="social-icon" />
-                        </a>
-                      )}
-                    </div>
+                  <div className="member-image-container">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="member-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                </div>
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
                   <p className="member-position">{member.position}</p>
@@ -150,30 +145,15 @@ const TeamsPage = () => {
           <div className="team-grid">
             {teamMembers.map((member) => (
               <div key={member.id} className="team-card">
-                <div className="member-image-container">
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="member-image"
-                  />
-                  <div className="member-overlay">
-                    <div className="social-links">
-                      <a href={`mailto:${member.email}`} className="social-link" title="Email">
-                        <Mail className="social-icon" />
-                      </a>
-                      {member.linkedin && (
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
-                          <Linkedin className="social-icon" />
-                        </a>
-                      )}
-                      {member.github && (
-                        <a href={member.github} target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
-                          <Github className="social-icon" />
-                        </a>
-                      )}
-                    </div>
+                  <div className="member-image-container">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="member-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
-                </div>
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
                   <p className="member-position">{member.position}</p>

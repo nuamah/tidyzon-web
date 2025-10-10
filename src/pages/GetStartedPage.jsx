@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { User, Users, ArrowRight, CheckCircle, Clock, Shield, Award, Mail, Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
+import { User, ArrowRight, CheckCircle, Clock, Shield, Award, Mail, Phone, MapPin, ChevronDown, ChevronUp } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import './GetStartedPage.css'
 
@@ -11,22 +11,22 @@ const GetStartedPage = () => {
   const howToGetStarted = [
     {
       icon: User,
-      title: "For Consumers: Create Your Account",
+      title: "Create Your User Account",
       description: "Begin by entering your personal details and setting up a secure password. Verify your email to activate your account.",
       color: "blue",
       tabIndex: 0
     },
     {
-      icon: Users,
-      title: "For Providers: Register Your Services",
-      description: "Fill out your profile with your service offerings, equipment details, and availability. Complete the background check and training modules.",
+      icon: CheckCircle,
+      title: "Browse Available Services",
+      description: "Explore our wide range of cleaning and maintenance services. Find exactly what you need for your home or business.",
       color: "green",
-      tabIndex: 1
+      tabIndex: 0
     },
     {
       icon: Award,
-      title: "Finalize and Start Using the App",
-      description: "Once your account is set up, explore the app to schedule services or accept tasks. Enjoy the convenience of Tidyzon!",
+      title: "Book and Enjoy Quality Service",
+      description: "Schedule services at your convenience and enjoy professional, reliable service delivery right to your doorstep.",
       color: "purple",
       tabIndex: 0
     }
@@ -55,58 +55,31 @@ const GetStartedPage = () => {
     }
   ]
 
-  const providerSteps = [
-    {
-      step: "1",
-      title: "Begin Provider Signup",
-      description: "To become a service provider on Tidyzon, start by visiting our signup page. Click on the 'Provider Signup' button to begin the process."
-    },
-    {
-      step: "2",
-      title: "Fill Out Profile Details",
-      description: "You will be prompted to fill out a form with your personal details, including your full name, contact information, and address. Ensure all information is accurate."
-    },
-    {
-      step: "3",
-      title: "Upload Verification Documents",
-      description: "Upload documents for verification, such as a valid ID and proof of residence. Complete our mandatory video-based training."
-    },
-    {
-      step: "4",
-      title: "Background Check & Approval",
-      description: "Once your background check is cleared, and you have the necessary equipment, you will receive a notification confirming your approval."
-    },
-    {
-      step: "5",
-      title: "Start Accepting Tasks",
-      description: "You can then start accepting tasks through our app and begin providing services to customers."
-    }
-  ]
 
   const faqs = [
     {
-      question: "How do I sign up as a consumer?",
-      answer: "To sign up as a consumer, visit our signup page and select 'Consumer Signup.' Fill in your details, including your name, email, and password. Once registered, you can start booking services immediately."
+      question: "How do I sign up as a user?",
+      answer: "To sign up as a user, visit our signup page and fill in your details, including your name, email, and password. Once registered, you can start booking services immediately."
     },
     {
-      question: "What documents are required for provider signup?",
-      answer: "For provider signup, you'll need to upload a valid ID, proof of residence, and any relevant certifications for your service area. Additional documents may be required based on your specific service type."
+      question: "What services can I book through Tidyzon?",
+      answer: "You can book a wide range of cleaning and maintenance services including house cleaning, car washing, window cleaning, and more. All services are provided by verified professionals."
     },
     {
-      question: "Is there a fee to join as a provider?",
-      answer: "There is no upfront fee to join as a provider on Tidyzon. We operate on a commission-based model where a small percentage is deducted from completed service payments."
+      question: "How do I schedule a service?",
+      answer: "Simply browse available services in the app, select your preferred time slot, and confirm your booking. You'll receive real-time updates about your service provider's arrival."
     },
     {
-      question: "How long does the provider approval process take?",
-      answer: "The provider approval process typically takes 1-3 business weeks after all required documents are submitted and background checks are completed."
+      question: "Can I cancel or reschedule my booking?",
+      answer: "Yes, you can cancel or reschedule your booking up to 2 hours before the scheduled time through the app. Cancellation policies may vary depending on the service type."
     },
     {
-      question: "Can I sign up using the mobile app?",
-      answer: "Yes! You can sign up as either a consumer or provider directly through our mobile app. The process is optimized for mobile devices for your convenience."
+      question: "How do I pay for services?",
+      answer: "You can pay securely through the app using credit/debit cards or digital wallets. Payment is processed after service completion, ensuring you're satisfied with the work."
     },
     {
-      question: "What if I forget my password?",
-      answer: "If you forget your password, use the 'Forgot Password' link on the login page. You'll receive an email with instructions to reset your password securely."
+      question: "What if I'm not satisfied with the service?",
+      answer: "If you're not satisfied with the service, please contact our customer support team within 24 hours. We'll work to resolve the issue and ensure your satisfaction."
     }
   ]
 
@@ -134,11 +107,11 @@ const GetStartedPage = () => {
             <div className="hero-content">
               <h1 className="hero-title">
                 Join Tidyzon: Your Gateway to 
-                <span className="gradient-text"> Seamless Service Solutions</span>
+                <span className="gradient-text"> Professional Services</span>
               </h1>
               <p className="hero-subtitle">
-                Sign up today to connect with top-notch service providers or become one yourself, 
-                delivering quality right to your doorstep.
+                Sign up today to access top-notch cleaning and maintenance services, 
+                delivered right to your doorstep by verified professionals.
               </p>
               <button className="hero-cta" onClick={() => setIsModalOpen(true)}>
                 Get Started Now
@@ -173,12 +146,12 @@ const GetStartedPage = () => {
           </div>
         </section>
 
-        {/* Consumer Signup Guide */}
+        {/* User Signup Guide */}
         <section className="consumer-guide">
           <div className="container">
             <div className="guide-header">
-              <h2 className="section-title">Consumer Signup Guide</h2>
-              <p className="section-subtitle">Step-by-Step Consumer Registration</p>
+              <h2 className="section-title">User Signup Guide</h2>
+              <p className="section-subtitle">Step-by-Step User Registration</p>
             </div>
             <div className="steps-container">
               {consumerSteps.map((step, index) => (
@@ -194,40 +167,12 @@ const GetStartedPage = () => {
           </div>
         </section>
 
-        {/* Provider Signup Instructions */}
-        <section className="provider-guide">
-          <div className="container">
-            <h2 className="section-title">Provider Signup Instructions</h2>
-            <div className="provider-content">
-              <div className="provider-text">
-                <p>
-                  To become a service provider on Tidyzon, start by visiting our signup page. Click on the 'Provider Signup' button to begin the process. You will be prompted to fill out a form with your personal details, including your full name, contact information, and address. Ensure all information is accurate to avoid delays in the approval process.
-                </p>
-                <p>
-                  After submitting your details, you will need to upload documents for verification, such as a valid ID and proof of residence. Next, complete our mandatory video-based training to familiarize yourself with our service standards. Once your background check is cleared, and you have the necessary equipment, you will receive a notification confirming your approval. You can then start accepting tasks through our app.
-                </p>
-              </div>
-              <div className="provider-steps">
-                {providerSteps.map((step, index) => (
-                  <div key={index} className="provider-step">
-                    <div className="provider-step-number">{step.step}</div>
-                    <div className="provider-step-content">
-                      <h4 className="provider-step-title">{step.title}</h4>
-                      <p className="provider-step-description">{step.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section className="faq-section">
           <div className="container">
-            <h2 className="section-title">Signup Process FAQs</h2>
+            <h2 className="section-title">User FAQs</h2>
             <p className="section-subtitle">
-              Here are some common questions about signing up as a consumer or provider on Tidyzon.
+              Here are some common questions about using Tidyzon as a user.
             </p>
             <div className="faq-container">
               {faqs.map((faq, index) => (
@@ -261,7 +206,7 @@ const GetStartedPage = () => {
               <div className="cta-glow-effect"></div>
               <h2 className="cta-title">Join the Tidyzon Community Today!</h2>
               <p className="cta-subtitle">
-                Don't miss out on the opportunity to connect with quality service providers or to offer your services to eager customers. Whether you're looking to book a service or provide one, Tidyzon is your gateway to seamless transactions and exceptional service.
+                Don't miss out on the opportunity to access quality cleaning and maintenance services. Join thousands of satisfied customers who trust Tidyzon for their home and business service needs.
               </p>
               <button className="cta-button" onClick={() => setIsModalOpen(true)}>
                 Sign Up Now

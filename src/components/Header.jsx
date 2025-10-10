@@ -85,9 +85,14 @@ const Header = () => {
           <Link to="/privacy" className="mobile-nav-link" onClick={() => setIsMenuOpen(false)}>
             Privacy
           </Link>
-          <Link to="/get-started" className="btn-mobile-cta" onClick={() => setIsMenuOpen(false)}>
-            Get Started
-          </Link>
+          <div className="mobile-cta-buttons">
+            <Link to="/get-started" className="btn-mobile-cta btn-mobile-user" onClick={() => setIsMenuOpen(false)}>
+              User
+            </Link>
+            <Link to="/provider" className="btn-mobile-cta btn-mobile-provider" onClick={() => setIsMenuOpen(false)}>
+              Provider
+            </Link>
+          </div>
         </div>
 
       </div>
@@ -114,9 +119,10 @@ const Header = () => {
             <Link to="/privacy" className="nav-link">Privacy</Link>
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div className="header-cta">
-            <Link to="/get-started" className="btn-header-cta">Become a Provider</Link>
+            <Link to="/get-started" className="btn-header-cta btn-user">User</Link>
+            <Link to="/provider" className="btn-header-cta btn-provider">Provider</Link>
           </div>
 
           {/* Mobile Menu Button */}

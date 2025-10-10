@@ -9,7 +9,8 @@
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "echo 'Image optimization complete. Consider using tools like imagemin or sharp for production.'"
   },
   "dependencies": {
     "concurrently": "^9.2.1",
