@@ -327,6 +327,14 @@ const Hero = () => {
               </div>
             </div>
           </div>
+          
+          {/* Skip the car wash line */}
+          <div className="hero-convenience-text">
+            <span className="bullet-text">
+              Skip the car wash line! No need to drive out!<br />
+              We come to you!
+            </span>
+          </div>
         </div>
       </div>
 

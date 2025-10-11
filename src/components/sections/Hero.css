@@ -576,6 +576,21 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+/* Convenience Text */
+.hero-convenience-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.bullet-text {
+  font-size: 1.125rem;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 .hero-image {
   width: 100%;
   height: auto;
@@ -599,6 +614,15 @@
     object-position: center top;
     border-radius: 16px;
     max-height: 300px;
+  }
+  
+  /* Mobile convenience text adjustments */
+  .hero-convenience-text {
+    margin-top: 1rem;
+  }
+  
+  .bullet-text {
+    font-size: 1rem;
   }
 }
 
@@ -665,6 +689,13 @@
   left: 50%;
   transform: translateX(-50%);
   animation: fadeIn 1s ease-out 1.2s both;
+}
+
+/* Hide scroll indicator on mobile */
+@media (max-width: 767px) {
+  .scroll-indicator {
+    display: none;
+  }
 }
 
 .scroll-mouse {
