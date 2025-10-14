@@ -63,7 +63,7 @@ const Testimonials = () => {
       <div className="container">
         <div className="testimonials-header">
           <h2 className="testimonials-title">
-            Loved by <span className="gradient-text-test">Thousands</span>
+            What our <span className="gradient-text-test">Customers</span> say
           </h2>
           <p className="testimonials-subtitle">
             Don't just take our word for it - hear what our customers have to say

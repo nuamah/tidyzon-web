@@ -1,9 +1,9 @@
 /* Animated Statistics Section */
 .animated-stats-section {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(135deg, rgba(82, 136, 40, 0.03) 0%, rgba(88, 99, 197, 0.03) 100%);
   overflow: hidden;
+  position: relative;
 }
 
 .animated-stats-section::before {
@@ -24,148 +24,122 @@
   z-index: 1;
 }
 
-.stats-header {
-  text-align: center;
-  margin-bottom: 4rem;
+.image-text-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.stats-title {
-  font-size: 2.5rem;
+.image-text-layout.image-right {
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-text-layout.image-left {
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-text-layout.image-left .image-section {
+  order: -1;
+}
+
+.content-section {
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2.75rem;
   font-weight: 800;
-  color: #1a1a1a;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
+  color: #1e293b;
 }
 
-.gradient-text {
+.section-title .gradient-text {
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: block;
 }
 
-.stats-subtitle {
+.section-description {
   font-size: 1.125rem;
-  color: #666666;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 2rem;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.stat-card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  animation: slideInUp 0.8s ease-out forwards;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.stat-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1.5rem;
+.section-buttons {
   display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-btn {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(82, 136, 40, 0.1);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover .stat-icon {
-  transform: scale(1.1);
-  background: rgba(82, 136, 40, 0.15);
-}
-
-.stat-icon .icon {
-  width: 28px;
-  height: 28px;
-}
-
-.stat-content {
-  position: relative;
-  z-index: 2;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-  transition: all 0.3s ease;
-}
-
-.stat-label {
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 12px;
   font-size: 1rem;
-  color: #666666;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.stat-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  border-radius: 50%;
-  opacity: 0;
-  filter: blur(40px);
-  transition: opacity 0.3s ease;
-  z-index: 1;
+.section-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.stat-card:hover .stat-glow {
-  opacity: 0.1;
+.btn-user {
+  background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(16, 185, 129) 100%);
+  color: white;
 }
 
-/* Animations */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.btn-user:hover {
+  background: linear-gradient(135deg, rgb(72, 126, 30) 0%, rgb(5, 150, 105) 100%);
 }
 
-@keyframes countUp {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.btn-provider {
+  background: linear-gradient(135deg, rgb(88, 99, 197) 0%, rgb(59, 130, 246) 100%);
+  color: white;
 }
 
-.stat-number {
-  animation: countUp 0.6s ease-out;
+.btn-provider:hover {
+  background: linear-gradient(135deg, rgb(78, 89, 187) 0%, rgb(37, 99, 235) 100%);
+}
+
+.btn-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.section-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.image-section {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.image-section:hover .section-image {
+  transform: scale(1.05);
 }
 
 /* Mobile Responsiveness */
@@ -174,50 +148,53 @@
     padding: 4rem 0;
   }
   
-  .stats-title {
+  .image-text-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .image-text-layout.image-left .image-section {
+    order: 0;
+  }
+  
+  .content-section {
+    padding: 1rem;
+  }
+  
+  .section-title {
     font-size: 2rem;
   }
   
-  .stats-subtitle {
+  .section-description {
     font-size: 1rem;
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+  .section-buttons {
+    flex-direction: column;
   }
   
-  .stat-card {
-    padding: 1.5rem;
+  .section-btn {
+    width: 100%;
+    justify-content: center;
   }
   
-  .stat-number {
-    font-size: 2.5rem;
+  .features-list li {
+    font-size: 0.9375rem;
+    padding: 0.75rem 0;
   }
   
-  .stat-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 1rem;
-  }
-  
-  .stat-icon .icon {
-    width: 24px;
-    height: 24px;
+  .check-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .section-title {
+    font-size: 1.75rem;
   }
   
-  .stat-card {
-    padding: 1.25rem;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
+  .section-description {
+    font-size: 0.9375rem;
   }
 }

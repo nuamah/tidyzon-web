@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, X, Plus } from 'lucide-react'
+import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import './ServicesPage.css'
 
 const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isAddonsModalOpen, setIsAddonsModalOpen] = useState(false)
-  const [selectedAddonsPackage, setSelectedAddonsPackage] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   const carPackages = [
@@ -19,11 +17,10 @@ const ServicesPage = () => {
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
+        'Towel dry',
+        'Wipe door jans',
         'Vacuum - Regular'
-      ]
+      ],
     },
     {
       id: 'deluxe',
@@ -34,55 +31,41 @@ const ServicesPage = () => {
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
-        'Tire shine, rimps and air',
+        'Towel dry',
         'Wipe door jans',
-        'Vacuum',
-        'Wash Mat',
-        'Dashboard Shine',
+        'Vacuum - Regular',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
         'Dash Clean',
-        'Clean cup holders',
-        'Shampoo and door panel'
-      ]
+        'Clean cup holders'
+      ],
     },
     {
       id: 'premium',
       name: 'Premium Package',
       title: 'PREMIUM WASH',
-      price: '$199.99',
+      price: '$249.99',
       duration: '4hrs 30mins',
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
-        'Tire shine, rimps and air',
+        'Towel dry',
         'Wipe door jans',
-        'Vacuum',
-        'Wash Mat',
-        'Dashboard Shine',
+        'Vacuum - Regular',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
         'Dash Clean',
         'Clean cup holders',
-        'Shampoo and door panel',
         'Machine wax'
-      ]
+      ],
     }
   ]
-
-
-  const handleShowAddons = (packageData) => {
-    setSelectedAddonsPackage(packageData)
-    setIsAddonsModalOpen(true)
-  }
 
   const whyChoose = [
     {
@@ -193,26 +176,27 @@ const ServicesPage = () => {
                   <div className="package-features">
                     <h4 className="features-title">Included Features:</h4>
                     <ul className="features-list">
-                      {pkg.features.map((feature, idx) => (
+                      {pkg.features.slice(0, 4).map((feature, idx) => (
                         <li key={idx} className="feature-item">
                           <Check className="check-icon" />
                           <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  <div className="addons-section">
-                    <div className="addons-header">
-                      <span className="addons-label">Add ons</span>
-                    </div>
-                    <button 
-                      className="see-addons-btn"
-                      onClick={() => handleShowAddons(pkg)}
-                    >
-                      <Plus className="plus-icon" />
-                      <span>See Add ons</span>
-                    </button>
+                    
+                    {pkg.features.length > 4 && (
+                      <>
+                        <div className="features-divider"></div>
+                        <ul className="features-list features-list-additional">
+                          {pkg.features.slice(4).map((feature, idx) => (
+                            <li key={idx} className="feature-item">
+                              <Check className="check-icon" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
                   </div>
 
                   <button 
@@ -229,41 +213,6 @@ const ServicesPage = () => {
             </div>
           </div>
         </section>
-
-        {/* Addons Modal */}
-        {isAddonsModalOpen && selectedAddonsPackage && (
-          <div className="addons-modal-backdrop" onClick={() => setIsAddonsModalOpen(false)}>
-            <div className="addons-modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close-btn" onClick={() => setIsAddonsModalOpen(false)}>
-                <X size={24} />
-              </button>
-              
-              <div className="modal-header">
-                <h2 className="modal-title">{selectedAddonsPackage.name}</h2>
-                <p className="modal-subtitle">All included add-ons</p>
-              </div>
-
-              <div className="addons-list-modal">
-                <h3 className="addons-modal-title">Add Ons Included:</h3>
-                <ul className="modal-addons-list">
-                  {selectedAddonsPackage.addons.map((addon, idx) => (
-                    <li key={idx} className="modal-addon-item">
-                      <Check className="check-icon" />
-                      <span>{addon}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="modal-actions">
-                <button className="modal-cta-btn" onClick={() => setIsModalOpen(true)}>
-                  Book This Package
-                  <ArrowRight className="btn-icon" />
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Trash Bin Package Section */}
         <section className="trash-bin-section">

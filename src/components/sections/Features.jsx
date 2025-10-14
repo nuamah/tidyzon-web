@@ -88,23 +88,23 @@ const Features = () => {
           })}
         </div>
 
-        {/* Stats Bar */}
-        <div className="stats-bar">
-          <div className="stat-box">
-            <div className="stat-value">10,000+</div>
-            <div className="stat-label">Happy Customers</div>
+        {/* Image Text Section */}
+        <div className="image-text-layout image-left">
+          <div className="image-section">
+            <img 
+              src="/assets/t1.jpg" 
+              alt="Tidyzon track record" 
+              className="section-image"
+              loading="lazy"
+            />
           </div>
-          <div className="stat-box">
-            <div className="stat-value">500+</div>
-            <div className="stat-label">Service Providers</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-value">50,000+</div>
-            <div className="stat-label">Services Completed</div>
-          </div>
-          <div className="stat-box">
-            <div className="stat-value">4.9/5</div>
-            <div className="stat-label">Average Rating</div>
+          <div className="content-section">
+            <h2 className="section-title">
+              Our <span className="gradient-text-feat">Track Record</span> Speaks
+            </h2>
+            <p className="section-description">
+              Your car deserves VIP treatment - The wash that comes to you.
+            </p>
           </div>
         </div>
       </div>

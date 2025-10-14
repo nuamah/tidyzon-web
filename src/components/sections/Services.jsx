@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Car, Sparkles, ArrowRight, Check, Clock, X, Plus } from 'lucide-react'
+import { Car, Sparkles, ArrowRight, Check, Clock } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import './Services.css'
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [isAddonsModalOpen, setIsAddonsModalOpen] = useState(false)
-  const [selectedAddonsPackage, setSelectedAddonsPackage] = useState(null)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [scrollY, setScrollY] = useState(0)
   const servicesRef = useRef(null)
@@ -22,11 +20,10 @@ const Services = () => {
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
+        'Towel dry',
+        'Wipe door jans',
         'Vacuum - Regular'
-      ]
+      ],
     },
     {
       id: 'deluxe',
@@ -37,20 +34,16 @@ const Services = () => {
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
-        'Tire shine, rimps and air',
+        'Towel dry',
         'Wipe door jans',
-        'Vacuum',
-        'Wash Mat',
-        'Dashboard Shine',
+        'Vacuum - Regular',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
         'Dash Clean',
-        'Clean cup holders',
-        'Shampoo and door panel'
+        'Clean cup holders'
       ],
       popular: true
     },
@@ -58,34 +51,25 @@ const Services = () => {
       id: 'premium',
       name: 'Premium Package',
       title: 'PREMIUM WASH',
-      price: '$199.99',
+      price: '$249.99',
       duration: '4hrs 30mins',
       features: [
         'Exterior hand wash',
         'Clean all windows',
-        'Towel dry'
-      ],
-      addons: [
-        'Tire shine, rimps and air',
+        'Towel dry',
         'Wipe door jans',
-        'Vacuum',
-        'Wash Mat',
-        'Dashboard Shine',
+        'Vacuum - Regular',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
         'Dash Clean',
         'Clean cup holders',
-        'Shampoo and door panel',
         'Machine wax'
-      ]
+      ],
     }
   ]
-
-  const handleShowAddons = (packageData) => {
-    setSelectedAddonsPackage(packageData)
-    setIsAddonsModalOpen(true)
-  }
 
   // Parallax scrolling effect
   useEffect(() => {
@@ -175,26 +159,27 @@ const Services = () => {
                 <div className="package-features">
                   <h4 className="features-title">Included Features:</h4>
                   <ul className="features-list">
-                    {pkg.features.map((feature, idx) => (
+                    {pkg.features.slice(0, 4).map((feature, idx) => (
                       <li key={idx} className="feature-item">
                         <Check className="check-icon" />
                         <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="addons-section">
-                  <div className="addons-header">
-                    <span className="addons-label">Add ons</span>
-                  </div>
-                  <button 
-                    className="see-addons-btn"
-                    onClick={() => handleShowAddons(pkg)}
-                  >
-                    <Plus className="plus-icon" />
-                    <span>See Add ons</span>
-                  </button>
+                  
+                  {pkg.features.length > 4 && (
+                    <>
+                      <div className="features-divider"></div>
+                      <ul className="features-list features-list-additional">
+                        {pkg.features.slice(4).map((feature, idx) => (
+                          <li key={idx} className="feature-item">
+                            <Check className="check-icon" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
                 </div>
 
                 <button 
@@ -209,41 +194,6 @@ const Services = () => {
               </div>
             ))}
           </div>
-
-          {/* Addons Modal */}
-          {isAddonsModalOpen && selectedAddonsPackage && (
-            <div className="addons-modal-backdrop" onClick={() => setIsAddonsModalOpen(false)}>
-              <div className="addons-modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="modal-close-btn" onClick={() => setIsAddonsModalOpen(false)}>
-                  <X size={24} />
-                </button>
-                
-                <div className="modal-header">
-                  <h2 className="modal-title">{selectedAddonsPackage.name}</h2>
-                  <p className="modal-subtitle">All included add-ons</p>
-                </div>
-
-                <div className="addons-list-modal">
-                  <h3 className="addons-modal-title">Add Ons Included:</h3>
-                  <ul className="modal-addons-list">
-                    {selectedAddonsPackage.addons.map((addon, idx) => (
-                      <li key={idx} className="modal-addon-item">
-                        <Check className="check-icon" />
-                        <span>{addon}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="modal-actions">
-                  <button className="modal-cta-btn" onClick={() => setIsModalOpen(true)}>
-                    Book This Package
-                    <ArrowRight className="btn-icon" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Bottom CTA */}
           <div className="services-cta">
