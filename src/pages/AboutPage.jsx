@@ -41,8 +41,10 @@ const AboutPage = () => {
               </div>
               <div className="story-image">
                 <img 
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                  alt="Tidyzon team collaboration"
+                  src="/assets/discover.jpg" 
+                  alt="Discover Tidyzon's journey"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

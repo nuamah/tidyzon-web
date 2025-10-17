@@ -103,7 +103,7 @@ const Features = () => {
               Our <span className="gradient-text-feat">Track Record</span> Speaks
             </h2>
             <p className="section-description">
-              Your car deserves VIP treatment - The wash that comes to you.
+              Anywhere! Anytime! Everywhere we bring the VIP treatment your car deserves to you.
             </p>
           </div>
         </div>

@@ -532,13 +532,13 @@ h6 {
 
 /* Selection Style */
 ::selection {
-  background-color: var(--accent-green);
-  color: var(--white);
+  background-color: var(--primary-green);
+  color: var(--black);
 }
 
 ::-moz-selection {
-  background-color: var(--accent-green);
-  color: var(--white);
+  background-color: var(--primary-green);
+  color: var(--black);
 }
 
 /* Loading Animation */

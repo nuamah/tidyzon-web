@@ -21,8 +21,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jans',
-        'Vacuum - Regular'
+        'Vacuum - Regular',
+        'Wipe door jans'
       ],
     },
     {
@@ -35,8 +35,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jans',
         'Vacuum - Regular',
+        'Wipe door jans',
         'Shampoo and door panel',
         'Shampoo seats & Carpets',
         'Air for dryer',
@@ -57,8 +57,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jans',
         'Vacuum - Regular',
+        'Wipe door jans',
         'Shampoo and door panel',
         'Shampoo seats & Carpets',
         'Air for dryer',
@@ -171,12 +171,22 @@ const Services = () => {
                     <>
                       <div className="features-divider"></div>
                       <ul className="features-list features-list-additional">
-                        {pkg.features.slice(4).map((feature, idx) => (
-                          <li key={idx} className="feature-item">
-                            <Check className="check-icon" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
+                        {pkg.features.slice(4).map((feature, idx) => {
+                          // Add divider between "Dash Clean" and "Clean cup holders" for Deluxe and Premium
+                          const shouldAddDivider = (pkg.id === 'deluxe' || pkg.id === 'premium') && 
+                                                 feature === 'Dash Clean' && 
+                                                 pkg.features[pkg.features.indexOf(feature) + 1] === 'Clean cup holders';
+                          
+                          return (
+                            <React.Fragment key={idx}>
+                              <li className="feature-item">
+                                <Check className="check-icon" />
+                                <span>{feature}</span>
+                              </li>
+                              {shouldAddDivider && <div className="features-divider"></div>}
+                            </React.Fragment>
+                          );
+                        })}
                       </ul>
                     </>
                   )}
