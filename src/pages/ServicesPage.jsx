@@ -177,7 +177,7 @@ const ServicesPage = () => {
                   <div className="package-features">
                     <h4 className="features-title">Included Features:</h4>
                     <ul className="features-list">
-                      {pkg.features.slice(0, 4).map((feature, idx) => (
+                      {pkg.features.slice(0, 3).map((feature, idx) => (
                         <li key={idx} className="feature-item">
                           <Check className="check-icon" />
                           <span>{feature}</span>
@@ -185,37 +185,29 @@ const ServicesPage = () => {
                       ))}
                     </ul>
                     
-                    {pkg.features.length > 4 && (
-                      <>
-                        <div className="features-divider"></div>
-                        <ul className="features-list features-list-additional">
-                          {pkg.features.slice(4).map((feature, idx) => {
-                            // For Deluxe: Add divider after "Vacuum - Regular" (separates section 2 from section 3)
-                            const shouldAddDividerAfterVacuumDeluxe = pkg.id === 'deluxe' && 
-                                                                    feature === 'Vacuum - Regular';
-                            
-                            // For Premium: Add divider after "Vacuum - Regular" (separates section 2 from section 3)
-                            const shouldAddDividerAfterVacuumPremium = pkg.id === 'premium' && 
-                                                                     feature === 'Vacuum - Regular';
-                            
-                            // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
-                            const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
-                                                                   feature === 'machine wax';
-                            
-                            return (
-                              <React.Fragment key={idx}>
-                                {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
-                                <li className="feature-item">
-                                  <Check className="check-icon" />
-                                  <span>{feature}</span>
-                                </li>
-                                {(shouldAddDividerAfterVacuumDeluxe || shouldAddDividerAfterVacuumPremium) && <div className="features-divider"></div>}
-                              </React.Fragment>
-                            );
-                          })}
-                        </ul>
-                      </>
-                    )}
+                    <div className="features-divider"></div>
+                    
+                    <ul className="features-list features-list-additional">
+                      {pkg.features.slice(3).map((feature, idx) => {
+                        // Add divider after "Vacuum - Regular" for all packages (separates section 2 from section 3)
+                        const shouldAddDividerAfterVacuum = feature === 'Vacuum - Regular';
+                        
+                        // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
+                        const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
+                                                               feature === 'machine wax';
+                        
+                        return (
+                          <React.Fragment key={idx}>
+                            {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
+                            <li className="feature-item">
+                              <Check className="check-icon" />
+                              <span>{feature}</span>
+                            </li>
+                            {shouldAddDividerAfterVacuum && <div className="features-divider"></div>}
+                          </React.Fragment>
+                        );
+                      })}
+                    </ul>
                   </div>
 
                   <button 
