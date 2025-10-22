@@ -40,7 +40,7 @@ const TIDYZON_KNOWLEDGE_BASE = {
           price: "$155.00",
           duration: "2 hours 30 minutes",
           popular: true,
-          features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets"]
+          features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Air for dryer", "Air for Vacuum", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets"]
         },
         {
           name: "Premium Wash",

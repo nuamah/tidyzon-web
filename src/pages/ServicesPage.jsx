@@ -34,6 +34,8 @@ const ServicesPage = () => {
         'Towel dry',
         'Vacuum - Regular',
         'Wipe door jambs',
+        'Air for dryer',
+        'Air for Vacuum',
         'Tire shine, rims and air',
         'Wash Mat',
         'Armoral and door panel',
