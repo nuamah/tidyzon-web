@@ -12,6 +12,16 @@ const TeamsPage = () => {
   const executives = [
     {
       id: 1,
+      name: "Dan Grasso",
+      position: "Co founder / Board Member",
+      image: "/assets/team/Dan Grasso.jpg",
+      bio: "Operations expert focused on optimizing processes, building efficient systems, and ensuring exceptional customer experiences.",
+      email: "dan@tidyzon.com",
+      linkedin: "https://linkedin.com/in/dangrasso",
+      github: null
+    },
+    {
+      id: 2,
       name: "Emmanuel Zielonka Berchie",
       position: "Co-Founder",
       image: "/assets/team/emma.jpeg",
@@ -21,7 +31,17 @@ const TeamsPage = () => {
       github: null
     },
     {
-      id: 2,
+      id: 3,
+      name: "Martin Zielonka",
+      position: "Co founder/ Board Member",
+      image: "/assets/team/Martin Zielonka.jpg",
+      bio: "Strategic leader with 15+ years of experience in scaling technology companies and driving operational excellence.",
+      email: "martin@tidyzon.com",
+      linkedin: "https://linkedin.com/in/martinzielonka",
+      github: null
+    },
+    {
+      id: 4,
       name: "Micheal Akwasi Osei",
       position: "Co-Founder / UI Blueprint",
       image: "/assets/team/micheal.jpg",
@@ -31,7 +51,7 @@ const TeamsPage = () => {
       github: null
     },
     {
-      id: 3,
+      id: 5,
       name: "Dr. Sanju Abraham",
       position: "Team Leader / Supervisor",
       image: "/assets/team/Sanju Abraham.jpg",
@@ -39,12 +59,22 @@ const TeamsPage = () => {
       email: "sanju@tidyzon.com",
       linkedin: "https://linkedin.com/in/drsanjuabraham",
       github: null
+    },
+    {
+      id: 6,
+      name: "Isaac Paintsil",
+      position: "Board Member",
+      image: "/assets/team/Isaac Pinstil.jpg",
+      bio: "Technology visionary passionate about building scalable platforms and leading engineering teams to deliver innovative solutions.",
+      email: "isaac@tidyzon.com",
+      linkedin: "https://linkedin.com/in/isaacpaintsil",
+      github: null
     }
   ]
 
   const teamMembers = [
     {
-      id: 4,
+      id: 7,
       name: "Nuamah George",
       position: "Team President / Developer",
       image: "/assets/team/george.jpg",
@@ -54,7 +84,7 @@ const TeamsPage = () => {
       github: "https://github.com/nuamahgeorge"
     },
     {
-      id: 5,
+      id: 8,
       name: "Adu Amankwah Isaac",
       position: "Team Assistance / Developer",
       image: "/assets/team/iksoft.JPG",
@@ -64,20 +94,20 @@ const TeamsPage = () => {
       github: "https://github.com/iksoft"
     },
     {
-      id: 6,
+      id: 9,
       name: "James Wilson",
       position: "Customer Success Manager",
-      image: "/assets/tidyzon_welcome_05.png",
+      image: null,
       bio: "Customer advocate ensuring every interaction exceeds expectations and builds lasting relationships.",
       email: "james@tidyzon.com",
       linkedin: "https://linkedin.com/in/jameswilson",
       github: null
     },
     {
-      id: 7,
+      id: 10,
       name: "Lisa Thompson",
       position: "Marketing Director",
-      image: "/assets/tidyzon_welcome_05.png",
+      image: null,
       bio: "Creative marketer building brand awareness and connecting Tidyzon with customers who value quality service.",
       email: "lisa@tidyzon.com",
       linkedin: "https://linkedin.com/in/lisathompson",
