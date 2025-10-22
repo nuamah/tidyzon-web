@@ -21,8 +21,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs'
+        'Wipe door jambs',
+        'Vacuum - Regular'
       ],
     },
     {
@@ -35,14 +35,12 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Vacuum - Regular',
         'Wipe door jambs',
+        'Vacuum - Regular',
         'Tire shine, rims and air',
         'Wash Mat',
-        'Dashboard Shine',
-        'Air for dryer',
-        'Air for Vacuum',
         'Armoral and door panel',
+        'Dash Clean',
         'Clean cup holders',
         'Shampoo and door panel',
         'Shampoo seats & Carpets'
@@ -59,18 +57,17 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Vacuum - Regular',
         'Wipe door jambs',
-        'Tire shine, rims and air',
-        'Wash Mat',
-        'Dashboard Shine',
+        'Vacuum - Regular',
         'Air for dryer',
         'Air for Vacuum',
+        'Tire shine, rims and air',
         'Armoral and door panel',
+        'Dash Clean',
         'Clean cup holders',
         'Shampoo and door panel',
         'Shampoo seats & Carpets',
-        'Machine wax'
+        'machine wax'
       ],
     }
   ]
@@ -176,18 +173,26 @@ const Services = () => {
                       <div className="features-divider"></div>
                       <ul className="features-list features-list-additional">
                         {pkg.features.slice(4).map((feature, idx) => {
-                          // Add divider between "Dash Clean" and "Clean cup holders" for Deluxe and Premium
-                          const shouldAddDivider = (pkg.id === 'deluxe' || pkg.id === 'premium') && 
-                                                 feature === 'Dash Clean' && 
-                                                 pkg.features[pkg.features.indexOf(feature) + 1] === 'Clean cup holders';
+                          // For Deluxe: Add divider after "Vacuum - Regular" (separates section 2 from section 3)
+                          const shouldAddDividerAfterVacuumDeluxe = pkg.id === 'deluxe' && 
+                                                                  feature === 'Vacuum - Regular';
+                          
+                          // For Premium: Add divider after "Vacuum - Regular" (separates section 2 from section 3)
+                          const shouldAddDividerAfterVacuumPremium = pkg.id === 'premium' && 
+                                                                   feature === 'Vacuum - Regular';
+                          
+                          // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
+                          const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
+                                                                 feature === 'machine wax';
                           
                           return (
                             <React.Fragment key={idx}>
+                              {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
                               <li className="feature-item">
                                 <Check className="check-icon" />
                                 <span>{feature}</span>
                               </li>
-                              {shouldAddDivider && <div className="features-divider"></div>}
+                              {(shouldAddDividerAfterVacuumDeluxe || shouldAddDividerAfterVacuumPremium) && <div className="features-divider"></div>}
                             </React.Fragment>
                           );
                         })}
