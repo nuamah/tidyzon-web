@@ -21,8 +21,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jambs',
-        'Vacuum - Regular'
+        'Vacuum - Regular',
+        'Wipe door jambs'
       ],
     },
     {
@@ -35,8 +35,8 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jambs',
         'Vacuum - Regular',
+        'Wipe door jambs',
         'Tire shine, rims and air',
         'Wash Mat',
         'Armoral and door panel',
@@ -57,11 +57,12 @@ const Services = () => {
         'Exterior hand wash',
         'Clean all windows',
         'Towel dry',
-        'Wipe door jambs',
         'Vacuum - Regular',
+        'Wipe door jambs',
+        'Tire shine, rims and air',
+        'Wash Mat',
         'Air for dryer',
         'Air for Vacuum',
-        'Tire shine, rims and air',
         'Armoral and door panel',
         'Dash Clean',
         'Clean cup holders',
@@ -172,8 +173,8 @@ const Services = () => {
                   
                   <ul className="features-list features-list-additional">
                     {pkg.features.slice(3).map((feature, idx) => {
-                      // Add divider after "Vacuum - Regular" for all packages (separates section 2 from section 3)
-                      const shouldAddDividerAfterVacuum = feature === 'Vacuum - Regular';
+                      // Add divider after "Wipe door jambs" for all packages (separates section 2 from section 3)
+                      const shouldAddDividerAfterWipeDoorJambs = feature === 'Wipe door jambs';
                       
                       // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
                       const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
@@ -186,7 +187,7 @@ const Services = () => {
                             <Check className="check-icon" />
                             <span>{feature}</span>
                           </li>
-                          {shouldAddDividerAfterVacuum && <div className="features-divider"></div>}
+                          {shouldAddDividerAfterWipeDoorJambs && <div className="features-divider"></div>}
                         </React.Fragment>
                       );
                     })}
