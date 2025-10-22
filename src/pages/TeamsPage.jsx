@@ -2,6 +2,12 @@ import React from 'react'
 import { Users, Award, Mail, Linkedin, Github } from 'lucide-react'
 import './TeamsPage.css'
 
+// Function to generate avatar initials
+const generateAvatar = (name) => {
+  const initials = name.split(' ').map(word => word.charAt(0)).join('').toUpperCase()
+  return initials
+}
+
 const TeamsPage = () => {
   const executives = [
     {
@@ -17,7 +23,7 @@ const TeamsPage = () => {
     {
       id: 2,
       name: "Micheal Akwasi Osei",
-      position: "Co-Founder",
+      position: "Co-Founder / UI Blueprint",
       image: "/assets/team/micheal.jpg",
       bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",
       email: "michael@tidyzon.com",
@@ -40,7 +46,7 @@ const TeamsPage = () => {
     {
       id: 4,
       name: "Nuamah George",
-      position: "Developer",
+      position: "Team President / Developer",
       image: "/assets/team/george.jpg",
       bio: "Passionate developer building innovative solutions and maintaining high-quality code standards.",
       email: "george@tidyzon.com",
@@ -50,7 +56,7 @@ const TeamsPage = () => {
     {
       id: 5,
       name: "Adu Amankwah Isaac",
-      position: "Developer",
+      position: "Team Assistance / Developer",
       image: "/assets/team/iksoft.JPG",
       bio: "Skilled developer focused on creating seamless user experiences and robust backend systems.",
       email: "business.iksofttechnologies@gmail.com",
@@ -116,13 +122,19 @@ const TeamsPage = () => {
             {executives.map((member) => (
               <div key={member.id} className="team-card executive-card">
                   <div className="member-image-container">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="member-image"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {member.image && !member.image.includes('tidyzon_welcome_05.png') ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="member-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="member-avatar">
+                        <span className="avatar-initials">{generateAvatar(member.name)}</span>
+                      </div>
+                    )}
                   </div>
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
@@ -146,13 +158,19 @@ const TeamsPage = () => {
             {teamMembers.map((member) => (
               <div key={member.id} className="team-card">
                   <div className="member-image-container">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="member-image"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {member.image && !member.image.includes('tidyzon_welcome_05.png') ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="member-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="member-avatar">
+                        <span className="avatar-initials">{generateAvatar(member.name)}</span>
+                      </div>
+                    )}
                   </div>
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>

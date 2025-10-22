@@ -33,23 +33,20 @@ const TIDYZON_KNOWLEDGE_BASE = {
           name: "Speed Wash",
           price: "$49.99",
           duration: "30 minutes",
-          features: ["Exterior hand wash", "Clean all windows", "Towel dry"],
-          addons: ["Vacuum - Regular"]
+          features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs"]
         },
         {
           name: "Deluxe Wash",
           price: "$155.00",
           duration: "2 hours 30 minutes",
           popular: true,
-          features: ["Exterior hand wash", "Clean all windows", "Towel dry"],
-          addons: ["Tire shine, rimps and air", "Wipe door jans", "Vacuum", "Wash Mat", "Dashboard Shine", "Air for dryer", "Air for Vacuum", "Armoral and door panel", "Dash Clean", "Clean cup holders", "Shampoo and door panel"]
+          features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Tire shine, rims and air", "Wash Mat", "Dashboard Shine", "Air for dryer", "Air for Vacuum", "Armoral and door panel", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets"]
         },
         {
           name: "Premium Wash",
-          price: "$199.99",
+          price: "$249.99",
           duration: "4 hours 30 minutes",
-          features: ["Exterior hand wash", "Clean all windows", "Towel dry"],
-          addons: ["Tire shine, rimps and air", "Wipe door jans", "Vacuum", "Wash Mat", "Dashboard Shine", "Air for dryer", "Air for Vacuum", "Armoral and door panel", "Dash Clean", "Clean cup holders", "Shampoo and door panel", "Machine wax"]
+          features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Tire shine, rims and air", "Wash Mat", "Dashboard Shine", "Air for dryer", "Air for Vacuum", "Armoral and door panel", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets", "Machine wax"]
         }
       ]
     },

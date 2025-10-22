@@ -19,7 +19,7 @@ const ServicesPage = () => {
         'Clean all windows',
         'Towel dry',
         'Vacuum - Regular',
-        'Wipe door jans'
+        'Wipe door jambs'
       ],
     },
     {
@@ -33,14 +33,16 @@ const ServicesPage = () => {
         'Clean all windows',
         'Towel dry',
         'Vacuum - Regular',
-        'Wipe door jans',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets',
+        'Wipe door jambs',
+        'Tire shine, rims and air',
+        'Wash Mat',
+        'Dashboard Shine',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
-        'Dash Clean',
-        'Clean cup holders'
+        'Clean cup holders',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets'
       ],
     },
     {
@@ -54,14 +56,16 @@ const ServicesPage = () => {
         'Clean all windows',
         'Towel dry',
         'Vacuum - Regular',
-        'Wipe door jans',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets',
+        'Wipe door jambs',
+        'Tire shine, rims and air',
+        'Wash Mat',
+        'Dashboard Shine',
         'Air for dryer',
         'Air for Vacuum',
         'Armoral and door panel',
-        'Dash Clean',
         'Clean cup holders',
+        'Shampoo and door panel',
+        'Shampoo seats & Carpets',
         'Machine wax'
       ],
     }

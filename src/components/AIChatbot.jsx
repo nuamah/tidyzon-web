@@ -74,22 +74,13 @@ FORMATTING GUIDELINES:
     setIsLoading(true)
 
     try {
-      const API_KEY = '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'
-      
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...newMessages
-          ],
-          max_tokens: 500,
-          temperature: 0.7
+          messages: newMessages
         })
       })
 
@@ -98,7 +89,7 @@ FORMATTING GUIDELINES:
       }
 
       const data = await response.json()
-      const assistantMessage = data.choices[0].message.content
+      const assistantMessage = data.message
       
       setMessages([...newMessages, { 
         role: 'assistant', 
