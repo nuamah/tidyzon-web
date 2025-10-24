@@ -14,7 +14,7 @@ const TeamsPage = () => {
       id: 1,
       name: "Dan Grasso",
       position: "Co founder / Board Member",
-      image: "/assets/team/Dan Grasso.jpg",
+      image: "/assets/team/Dan Grasso2.jpg",
       bio: "Operations expert focused on optimizing processes, building efficient systems, and ensuring exceptional customer experiences.",
       email: "dan@tidyzon.com",
       linkedin: "https://linkedin.com/in/dangrasso",
@@ -76,9 +76,9 @@ const TeamsPage = () => {
     {
       id: 7,
       name: "Nuamah George",
-      position: "Team President / Developer",
+      position: "Project Manager",
       image: "/assets/team/george.jpg",
-      bio: "Passionate developer building innovative solutions and maintaining high-quality code standards.",
+      bio: "Experienced project manager overseeing development workflows and ensuring timely delivery of high-quality solutions.",
       email: "george@tidyzon.com",
       linkedin: "https://linkedin.com/in/nuamahgeorge",
       github: "https://github.com/nuamahgeorge"
@@ -86,31 +86,81 @@ const TeamsPage = () => {
     {
       id: 8,
       name: "Adu Amankwah Isaac",
-      position: "Team Assistance / Developer",
-      image: "/assets/team/iksoft.JPG",
-      bio: "Skilled developer focused on creating seamless user experiences and robust backend systems.",
+      position: "Frontend Supervisor",
+      image: "/assets/team/iksoftImage.png",
+      bio: "Frontend supervisor leading the development of user interfaces and ensuring optimal user experiences across all platforms.",
       email: "business.iksofttechnologies@gmail.com",
       linkedin: "https://www.linkedin.com/in/adu-amankwah-isaac-46842a185/",
       github: "https://github.com/iksoft"
     },
     {
       id: 9,
-      name: "James Wilson",
-      position: "Customer Success Manager",
+      name: "Benedict Boadu-Boateng",
+      position: "Backend Developer",
       image: null,
-      bio: "Customer advocate ensuring every interaction exceeds expectations and builds lasting relationships.",
-      email: "james@tidyzon.com",
-      linkedin: "https://linkedin.com/in/jameswilson",
-      github: null
+      bio: "Skilled backend developer building robust server-side solutions and maintaining database integrity.",
+      email: "benedict@tidyzon.com",
+      linkedin: "https://linkedin.com/in/benedictboadu",
+      github: "https://github.com/benedictboadu"
     },
     {
       id: 10,
-      name: "Lisa Thompson",
-      position: "Marketing Director",
+      name: "Randy Otabil Odoom",
+      position: "Frontend Developer",
       image: null,
-      bio: "Creative marketer building brand awareness and connecting Tidyzon with customers who value quality service.",
-      email: "lisa@tidyzon.com",
-      linkedin: "https://linkedin.com/in/lisathompson",
+      bio: "Creative frontend developer crafting responsive user interfaces and implementing modern web technologies.",
+      email: "randy@tidyzon.com",
+      linkedin: "https://linkedin.com/in/randyotabil",
+      github: "https://github.com/randyotabil"
+    },
+    {
+      id: 11,
+      name: "Kwamena Essiful-Ansah",
+      position: "Backend Developer",
+      image: null,
+      bio: "Experienced backend developer specializing in scalable architecture and API development.",
+      email: "kwamena@tidyzon.com",
+      linkedin: "https://linkedin.com/in/kwamenaessiful",
+      github: "https://github.com/kwamenaessiful"
+    },
+    {
+      id: 12,
+      name: "John Kennedy Martey Tetteh",
+      position: "Frontend Developer",
+      image: null,
+      bio: "Frontend developer passionate about creating intuitive user experiences and implementing modern design patterns.",
+      email: "john@tidyzon.com",
+      linkedin: "https://linkedin.com/in/johnkennedy",
+      github: "https://github.com/johnkennedy"
+    },
+    {
+      id: 13,
+      name: "Awuah Maxwell Twerefour",
+      position: "Frontend Developer",
+      image: null,
+      bio: "Frontend developer focused on building responsive web applications and optimizing user interface performance.",
+      email: "maxwell@tidyzon.com",
+      linkedin: "https://linkedin.com/in/maxwelltwerefour",
+      github: "https://github.com/maxwelltwerefour"
+    },
+    {
+      id: 14,
+      name: "Patrick Asiedu",
+      position: "Frontend Developer",
+      image: null,
+      bio: "Frontend developer dedicated to creating seamless user experiences and implementing cutting-edge web technologies.",
+      email: "patrick@tidyzon.com",
+      linkedin: "https://linkedin.com/in/patrickasiedu",
+      github: "https://github.com/patrickasiedu"
+    },
+    {
+      id: 15,
+      name: "Frank Mensah",
+      position: "UI/UX Designer",
+      image: null,
+      bio: "Creative UI/UX designer crafting beautiful and functional designs that enhance user engagement and satisfaction.",
+      email: "frank@tidyzon.com",
+      linkedin: "https://linkedin.com/in/frankmensah",
       github: null
     }
   ]
