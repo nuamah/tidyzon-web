@@ -162,6 +162,36 @@ const TeamsPage = () => {
       email: "frank@tidyzon.com",
       linkedin: "https://linkedin.com/in/frankmensah",
       github: null
+    },
+    {
+      id: 16,
+      name: "Sonie",
+      position: "Team Assistant / Frontend Supervisor",
+      image: null,
+      bio: "Supports team operations and assists frontend delivery to ensure consistent UI quality.",
+      email: "sonie@tidyzon.com",
+      linkedin: null,
+      github: null
+    },
+    {
+      id: 17,
+      name: "Sammy",
+      position: "UI/UX Designer",
+      image: null,
+      bio: "Designs intuitive user interfaces and user journeys focused on clarity and usability.",
+      email: "sammy@tidyzon.com",
+      linkedin: null,
+      github: null
+    },
+    {
+      id: 18,
+      name: "Fred",
+      position: "Backend Developer",
+      image: null,
+      bio: "Builds reliable backend services and APIs with a focus on performance and security.",
+      email: "fred@tidyzon.com",
+      linkedin: null,
+      github: null
     }
   ]
 
