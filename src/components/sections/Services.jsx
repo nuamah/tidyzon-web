@@ -113,7 +113,7 @@ const Services = () => {
                 <span className="gradient-text-services">Choose Your Perfect Wash</span>
               </h2>
               <p className="section-subtitle">
-                Prices for wash packages depend on your vehicle type
+                Prices for wash packages depend on your vehicle type. Vehicle type like MVP, Truck will incur additional $10 each. Displayed prices are passenger cars only
               </p>
             </div>
             <div className="section-header-image">
