@@ -113,7 +113,7 @@ const Services = () => {
                 <span className="gradient-text-services">Choose Your Perfect Wash</span>
               </h2>
               <p className="section-subtitle">
-                Professional mobile car cleaning services with packages designed to fit your needs and budget.
+                Prices for wash packages depend on your vehicle type
               </p>
             </div>
             <div className="section-header-image">
