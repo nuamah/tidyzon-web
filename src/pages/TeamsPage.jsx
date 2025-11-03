@@ -43,7 +43,7 @@ const TeamsPage = () => {
     {
       id: 4,
       name: "Micheal Akwasi Osei",
-      position: "Co-Founder / UI Blueprint",
+      position: "Co-Founder / UI Blueprint / Board Member",
       image: "/assets/team/micheal.jpg",
       bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",
       email: "michael@tidyzon.com",
@@ -53,7 +53,7 @@ const TeamsPage = () => {
     {
       id: 5,
       name: "Dr. Sanju Abraham",
-      position: "Team Leader / Supervisor",
+      position: "Team Leader / Supervisor / Board Member",
       image: "/assets/team/Sanju Abraham.jpg",
       bio: "Serial startup CTO (engineering, AI, scaling orgs)",
       email: "sanju@tidyzon.com",
@@ -76,7 +76,7 @@ const TeamsPage = () => {
     {
       id: 7,
       name: "Nuamah George",
-      position: "Project Manager",
+      position: "Team President / Backend Developer",
       image: "/assets/team/george.jpg",
       bio: "Experienced project manager overseeing development workflows and ensuring timely delivery of high-quality solutions.",
       email: "george@tidyzon.com",
@@ -86,12 +86,22 @@ const TeamsPage = () => {
     {
       id: 8,
       name: "Adu Amankwah Isaac",
-      position: "Frontend Supervisor",
+      position: "Team Assistant / Frontend Supervisor",
       image: "/assets/team/iksoftImage.png",
       bio: "Frontend supervisor leading the development of user interfaces and ensuring optimal user experiences across all platforms.",
       email: "business.iksofttechnologies@gmail.com",
       linkedin: "https://www.linkedin.com/in/adu-amankwah-isaac-46842a185/",
       github: "https://github.com/iksoft"
+    },
+    {
+      id: 16,
+      name: "Sonie",
+      position: "Team Leader Assistant",
+      image: null,
+      bio: "Supports team operations and assists frontend delivery to ensure consistent UI quality.",
+      email: "sonie@tidyzon.com",
+      linkedin: null,
+      github: null
     },
     {
       id: 9,
@@ -161,16 +171,6 @@ const TeamsPage = () => {
       bio: "Creative UI/UX designer crafting beautiful and functional designs that enhance user engagement and satisfaction.",
       email: "frank@tidyzon.com",
       linkedin: "https://linkedin.com/in/frankmensah",
-      github: null
-    },
-    {
-      id: 16,
-      name: "Sonie",
-      position: "Team Assistant / Frontend Supervisor",
-      image: null,
-      bio: "Supports team operations and assists frontend delivery to ensure consistent UI quality.",
-      email: "sonie@tidyzon.com",
-      linkedin: null,
       github: null
     },
     {
