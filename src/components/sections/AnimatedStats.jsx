@@ -29,7 +29,7 @@ const AnimatedStats = () => {
           </div>
           <div className="image-section">
             <img 
-              src="/assets/g1.jpg" 
+              src="/assets/ttd.jpg" 
               alt="Join Tidyzon as a provider" 
               className="section-image"
               loading="lazy"

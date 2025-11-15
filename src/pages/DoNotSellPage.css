@@ -1,18 +1,18 @@
-/* Terms Page Styles */
-.terms-page {
+/* Do Not Sell Page Styles */
+.do-not-sell-page {
   min-height: 100vh;
   background: #ffffff;
 }
 
 /* Hero Section */
-.terms-hero {
+.do-not-sell-hero {
   padding: 8rem 0 4rem;
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.terms-hero::before {
+.do-not-sell-hero::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -24,7 +24,7 @@
   animation: float 20s ease-in-out infinite;
 }
 
-.terms-hero::after {
+.do-not-sell-hero::after {
   content: '';
   position: absolute;
   top: 0;
@@ -47,7 +47,7 @@
   }
 }
 
-.terms-hero-content {
+.do-not-sell-hero-content {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -55,7 +55,7 @@
   z-index: 1;
 }
 
-.terms-hero-title {
+.do-not-sell-hero-title {
   font-size: 3.5rem;
   font-weight: 900;
   color: #ffffff;
@@ -63,38 +63,38 @@
   letter-spacing: -0.02em;
 }
 
-.terms-hero-subtitle {
+.do-not-sell-hero-subtitle {
   font-size: 1.25rem;
   color: #94a3b8;
   font-weight: 500;
 }
 
-/* Terms Content */
-.terms-content {
+/* Content Section */
+.do-not-sell-content {
   padding: 4rem 0 6rem;
   background: #ffffff;
 }
 
-.terms-wrapper {
+.do-not-sell-wrapper {
   max-width: 850px;
   margin: 0 auto;
   padding: 0 2rem;
   background: #ffffff;
 }
 
-/* Terms Sections */
-.terms-section {
+/* Sections */
+.do-not-sell-section {
   margin-bottom: 3.5rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.terms-section:last-child {
+.do-not-sell-section:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.terms-section-title {
+.do-not-sell-section-title {
   font-size: 1.875rem;
   font-weight: 800;
   color: #1e293b;
@@ -104,21 +104,14 @@
   display: inline-block;
 }
 
-.terms-subsection-title {
+.do-not-sell-subsection-title {
   font-size: 1.375rem;
   font-weight: 700;
   color: #10b981;
   margin: 2.5rem 0 1.25rem 0;
 }
 
-.terms-subsection-subtitle {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #334155;
-  margin: 1.5rem 0 1rem 0;
-}
-
-.terms-text {
+.do-not-sell-text {
   color: #475569;
   line-height: 2;
   font-size: 1.0625rem;
@@ -126,17 +119,17 @@
   text-align: justify;
 }
 
-.terms-text:last-child {
+.do-not-sell-text:last-child {
   margin-bottom: 0;
 }
 
-.terms-list {
+.do-not-sell-list {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 1.5rem 1.5rem;
 }
 
-.terms-list li {
+.do-not-sell-list li {
   color: #475569;
   line-height: 2;
   font-size: 1.0625rem;
@@ -145,7 +138,7 @@
   position: relative;
 }
 
-.terms-list li::before {
+.do-not-sell-list li::before {
   content: '•';
   position: absolute;
   left: 0;
@@ -156,81 +149,86 @@
   line-height: 2;
 }
 
+/* Links */
+.do-not-sell-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.do-not-sell-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .terms-hero {
+  .do-not-sell-hero {
     padding: 6rem 0 3rem;
   }
   
-  .terms-hero-title {
+  .do-not-sell-hero-title {
     font-size: 2.5rem;
   }
   
-  .terms-hero-subtitle {
+  .do-not-sell-hero-subtitle {
     font-size: 1.125rem;
   }
   
-  .terms-wrapper {
+  .do-not-sell-wrapper {
     padding: 0 1.5rem;
   }
   
-  .terms-section {
+  .do-not-sell-section {
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
   }
   
-  .terms-section-title {
+  .do-not-sell-section-title {
     font-size: 1.625rem;
   }
   
-  .terms-subsection-title {
+  .do-not-sell-subsection-title {
     font-size: 1.25rem;
   }
   
-  .terms-subsection-subtitle {
-    font-size: 1.0625rem;
-  }
-  
-  .terms-text {
+  .do-not-sell-text {
     text-align: left;
   }
 }
 
 @media (max-width: 480px) {
-  .terms-hero-title {
+  .do-not-sell-hero-title {
     font-size: 2rem;
   }
   
-  .terms-wrapper {
+  .do-not-sell-wrapper {
     padding: 0 1rem;
   }
   
-  .terms-section {
+  .do-not-sell-section {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   
-  .terms-section-title {
+  .do-not-sell-section-title {
     font-size: 1.5rem;
   }
   
-  .terms-subsection-title {
+  .do-not-sell-subsection-title {
     font-size: 1.125rem;
   }
   
-  .terms-subsection-subtitle {
+  .do-not-sell-text {
     font-size: 1rem;
   }
   
-  .terms-text {
-    font-size: 1rem;
-  }
-  
-  .terms-list {
+  .do-not-sell-list {
     margin-left: 0.5rem;
   }
   
-  .terms-list li {
+  .do-not-sell-list li {
     font-size: 1rem;
   }
 }

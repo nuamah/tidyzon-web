@@ -1,0 +1,381 @@
+Tidyzon Privacy Policy (California Notice at Collection & Privacy Policy)
+
+Effective Date: Nov 1, 2025
+Legal Entity: Tidyzon, Inc. (“Tidyzon,” “we,” “us,” or “our”)
+Contact: privacy@tidyzon.com
+Applies To: Users of our consumer mobile apps and website; prospective and active service providers; and visitors who interact with Tidyzon’s online properties (collectively, “Services”). This Privacy Policy includes a California Notice at Collection and addresses rights under the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA).
+
+1) Overview & Scope
+This Policy explains how Tidyzon collects, uses, discloses, “sells,” and “shares” Personal Information (as the CCPA/CPRA defines those terms), our retention practices, and California residents’ rights. If you are a service provider (independent contractor) using the Tidyzon platform to receive and perform jobs (“Provider”), please also review Section 13 (Provider-Specific Disclosures).
+We provide an on-demand marketplace for residential services (e.g., mobile car washes and trash bin cleaning). To enable immediate and scheduled jobs, we use location data to match customers with nearby eligible Providers and to route and coordinate Services.
+
+2) Notice at Collection: Categories, Purpose, Retention, and Disclosure
+We collect the following categories of Personal Information from or about California consumers, for the purposes and retention periods summarized below. We may disclose these categories to the third parties indicated, for the business purposes described in Section 4. We do not collect or process Personal Information for purposes materially incompatible with those disclosed without providing additional notice.
+A. Categories Collected
+Category (CCPA/CPRA)
+Examples Collected by Tidyzon
+Source(s)
+Business / Commercial Purpose(s)
+Disclosed To
+Sold or Shared for Cross-Context Behavioral Advertising (“CCBA”)?
+Retention (criteria / typical period)
+
+
+Identifiers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Name, email, phone number, home or business address, vehicle details (make, model, color, license plate), user ID, device ID, IP address, geolocation data (if enabled), payment reference (e.g., last 4 digits, transaction ID), and images associated with booked services (e.g., before/after wash photos).
+ for Providers: driver’s license number;
+
+
+
+
+You; your devices; Providers
+Account creation, authentication, communications, fraud prevention, customer support
+Infrastructure vendors; fraud/abuse tools; support tools
+Not sold; may be shared for CCBA (ads/retargeting/analytics) unless you opt out
+For life of account + up to 3 years after last activity, unless longer for legal/compliance
+
+
+Customer Records
+(Cal. Civ. Code §1798.80)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Billing address; for Providers: bank account last 4 via payout processor; service history (date, time, provider, vehicle details, package purchased); photos or service documentation (before/after images, damage notes); loyalty or discount data (promo codes, referral credits); refund/chargeback records
+
+
+
+
+
+
+
+
+
+
+You; payment/payout processors; service providers; booking platform
+Provide Services; process payments; maintain accounting; manage disputes; administer loyalty programs
+Payment processors (e.g., Stripe); accountants; scheduling software providers
+Not sold; not shared for CCBA
+Transaction and service records retained 7 years (tax/audit); service photos and preferences retained 1–3 years or until account deletion
+Until preference changed or account deletion
+Protected Classifications (optional/rare)
+Only if voluntarily disclosed (e.g., language preferences, accessibility notes, veteran/senior status for discount eligibility)
+You
+Improve service accessibility; support eligibility for offers
+Support vendors (as needed)
+No
+Until preference changed or account deletion
+
+
+Commercial Information
+Service requests, jobs scheduled/completed, transaction history, purchased packages or add-ons (e.g., machine wax, interior detail), subscription or loyalty data, promo or referral code usage, customer feedback and ratings
+
+
+You; in-app activity
+Provide and improve services; analytics; loyalty and retention management
+Cloud/analytics vendors; customer support; CRM tools
+May be shared for CCBA (ads/retargeting/analytics) unless you opt out
+Life of account + 3 years after last activity
+
+
+Internet / Network Activity
+App/website interactions, logs, cookies, crash logs, device type, operating system, app version, GPS or IP-based location data, clickstream activity, push notification logs, referral source (ads, campaigns)
+
+
+
+
+
+
+
+
+
+
+
+Your device/browser; in-app activity
+Operate and secure the app; perform analytics; improve UX; optimize routes and marketing
+Analytics and security vendors; crash reporting tools; marketing platforms
+May be shared for CCBA (ads/retargeting/analytics) unless you opt out or send GPC
+24 months (typical); aggregated or anonymized thereafter
+
+
+Audio/Visual Information
+Customer support call recordings (where permitted/notice given); service photos or videos (before/after washes, damage documentation, quality checks); provider training or onboarding videos (vehicle service demonstrations); voluntary promotional photos or testimonials
+You; service providers
+Quality assurance, compliance, dispute resolution, training, marketing (if consented)
+Call recording and training platforms; quality-assurance vendors; marketing platforms (for consented media only)
+No
+24 months unless longer for disputes or compliance (app features may degrade if disabled)
+
+
+Geolocation Data
+Precise location when app in use (customer & Provider)
+Your mobile device (with permission)
+Match/dispatch nearby Providers; route optimization; proof of service
+Maps/geo vendors; fraud prevention
+Not sold; not shared for CCBA
+Only as needed for job; logs kept up to 18 months; precise location disabled if you opt out of location permissions 
+(app features may degrade)
+
+
+Inferences
+Service preferences; predicted demand; wash frequency; preferred service times; vehicle and package choices; responsiveness to offers; location-based demand patterns; provider performance analytics
+
+
+Derived from booking activity, app interactions, and historical service data
+Personalize experience; improve scheduling and promotions; optimize provider routing and service quality
+Analytics vendors; CRM and marketing tools
+May be shared for CCBA (ads/retargeting/analytics) unless you opt out
+24 months; aggregated or anonymized thereafter
+
+
+Sensitive Information
+Payment information (e.g., cardholder name, last 4 digits, transaction ID); account credentials (login email, hashed password); driver’s license or ID (for providers); precise service location (for mobile dispatch)
+You; service providers; payment processors
+Authenticate users; process payments; verify providers; deliver mobile services
+Payment processors (e.g., Stripe); authentication vendors; insurance/verification providers
+Not sold; may be shared for CCBA (analytics/ads) unless you opt out
+Retained for life of account + up to 3 years after last activity or as required for legal/compliance
+
+
+
+Note on Payment Cards. We use third-party payment processors (e.g., Stripe). Tidyzon does not receive full card numbers; we receive tokens and limited transaction metadata.
+
+3) Sources of Personal Information
+Directly from you (account registration, job requests, messages, calls).
+
+
+Your devices and browsers (app telemetry, cookies, SDKs, logs).
+
+
+Providers (e.g., job status updates, service notes, photos).
+
+
+Third parties (identity verification, background checks for Providers, fraud prevention, analytics, advertising partners, and social platforms if you engage with our campaigns).
+
+
+
+4) How We Use Personal Information
+We use Personal Information to:
+Provide and operate the Services (create accounts; enable discovery/matching; schedule and route jobs; process payments and payouts; send confirmations, receipts, and updates).
+
+
+Facilitate safety and trust (identity verification; background checks for Providers; fraud prevention; dispute resolution; enforcing terms).
+
+
+Communicate with you (service messages, support, in-app and push notifications, SMS—carrier rates may apply—email).
+
+
+Improve and develop the Services (analytics, debugging, personalization, research, and product development).
+
+
+Marketing and advertising (including cross-context behavioral advertising, unless you opt out; see Section 7).
+
+
+Comply with legal obligations (tax, accounting, regulatory requests, law enforcement, and to exercise or defend legal claims).
+
+
+We do not use or disclose Sensitive Personal Information for purposes other than those permitted by the CPRA (e.g., providing the Services, security, short-term transient use) unless we provide you with a “Right to Limit” choice where required (see Section 8).
+
+5) Disclosures of Personal Information (Business Purposes)
+We disclose Personal Information to the following categories of recipients for the above purposes:
+Service Providers / Contractors (cloud hosting, data storage, analytics, customer support tools, communications, mapping/geolocation, fraud prevention, background screening for Providers, payment processing).
+
+
+Business Partners (if you initiate a relationship, integration, or referral).
+
+
+Advertising/Analytics Partners (for measurement and CCBA; see Section 7).
+
+
+Transaction Parties (in the event of a merger, acquisition, financing, or sale).
+
+
+Legal/Compliance Recipients (law enforcement, regulators, courts, and counsel when required).
+
+
+We impose contractual obligations on Service Providers/Contractors that are consistent with the CPRA (e.g., purpose limitation, security, no secondary use).
+
+6) “Sale” and “Sharing” (Cross-Context Behavioral Advertising)
+Sale: Tidyzon does not sell Personal Information for monetary consideration.
+
+
+Sharing (CCBA): We may share specific identifiers, commercial, internet activity, or inference data with advertising/analytics partners for CCBA. California residents may opt out at any time (see Section 8). We honor browser-based Global Privacy Control (GPC) signals as a valid opt-out.
+
+
+Minors under 16: We do not knowingly sell or share Personal Information of consumers we know are under 16. If we learn a user is under 16, we will not sell/share their Personal Information absent the requisite opt-in (ages 13–15) or verified parental consent (under 13).
+
+7) Cookies, SDKs, and Tracking
+We and our partners use cookies, SDKs, pixels, and similar technologies to operate the Services, remember preferences, perform analytics, and deliver/measure advertising. You can adjust in-app permissions, device settings, and browser settings, and you may exercise the CPRA opt-out of sharing (Section 8). Some features may not function without certain cookies or location permissions.
+
+8) Your California Privacy Rights
+Subject to exceptions, California residents have the following rights. We will not discriminate against you for exercising any rights.
+Right to Know / Access the categories and specific pieces of Personal Information we collected, the sources, purposes, and categories of third-party disclosures.
+
+
+Right to Delete Personal Information we collected from you.
+
+
+Right to Correct Inaccurate Personal Information.
+
+
+Right to Opt-Out of Sale/Sharing for CCBA. We honor GPC signals.
+
+
+Right to Limit Use and Disclosure of Sensitive Personal Information (where SPI is used beyond service delivery/exempt purposes).
+
+
+Right to Portability (receive certain information in a portable format).
+
+
+Shine the Light (Cal. Civ. Code §1798.83): You may request information about our disclosure of Personal Information to third parties for their direct marketing in the prior calendar year.
+
+
+California Minors’ Eraser Right (Bus. & Prof. Code §22581): Eligible minors may request removal of publicly posted content they created.
+
+
+How to Exercise Your Rights
+Web Form: [Link to Privacy Request Portal / “Do Not Sell or Share My Personal Information”]
+
+
+Email: [privacy@tidyzon.com]
+
+
+Mail: [Tidyzon, Inc., 708 Saybrook Ct. Romeoville IL 60446]
+
+
+We will verify your request (which may include matching identifying information). You may authorize an agent to submit a request; we may require proof of authorization and verification of your identity. Household requests may require additional verification.
+
+9) Data Security
+We employ administrative, technical, and physical safeguards appropriate to the nature of the Personal Information we process (e.g., encryption in transit, access controls, least-privilege, monitoring). No system is 100% secure; you are responsible for safeguarding your account credentials. If we detect a security incident involving your information, we will notify you and regulators as required by law.
+
+10) Data Retention
+We retain Personal Information for as long as necessary to fulfill the purposes described above, including providing the Services, complying with legal, accounting, or reporting obligations, resolving disputes, and enforcing agreements, then securely delete or de-identify it. Typical periods are specified in the table in Section 2; when a fixed period is not feasible, we use criteria such as account status, legal limitation periods, and data sensitivity.
+
+
+11) International Data Transfers
+Our systems and vendors are primarily located in the United States. If Personal Information is transferred, stored, or processed outside your state or country, we will take steps to ensure an adequate level of protection consistent with applicable law.
+
+12) Children’s Privacy
+The Services are not directed to children under 13. We do not knowingly collect Personal Information from children under 13 without verifiable parental consent. If you believe a child under 13 has provided Personal Information to Tidyzon, contact us so we may delete it.
+
+13) Provider-Specific Disclosures (Independent Contractors)
+If you apply to, onboard with, or provide services through Tidyzon as a Provider, we may collect additional information, including:
+Eligibility & Screening: Government identifiers (e.g., driver’s license), date of birth, SSN (via background screening vendor), right-to-work status, insurance details, equipment photos, training assessments, and onboarding videos.
+
+
+Payouts & Tax: Banking details (tokenized/limited), EIN/SSN for tax reporting (via payment processor), Form 1099 information.
+
+
+Operations: Location data during active jobs; job progress photos; communications with customers and support.
+
+
+Purposes include verifying identity/eligibility, safety and compliance, dispatch/operations, payouts and tax reporting, dispute resolution, and legal compliance. We do not sell or share Provider SPI for CCBA. Provider data is retained in accordance with legal/tax/safety requirements (typically 5–7 years after the last activity or as required by law).
+
+14) Third-Party Links and Services
+Our Services may link to third-party sites or integrate third-party SDKs (e.g., maps, analytics, payments). Those parties’ privacy practices are governed by their own policies. We encourage you to review them (e.g., payment processors such as Stripe).
+
+15) Changes to This Policy
+We may update this Policy from time to time. The “Effective Date” will reflect the latest version. Material changes will be notified via the Services or by other reasonable means. Your continued use after an update signifies acceptance.
+
+16) How to Contact Us
+Questions or concerns may be sent to privacy@tidyzon.com. If you have an unresolved privacy concern regarding the handling of Personal Information, you may also contact your state attorney general or privacy regulator.
+
+17) California “Do Not Sell or Share” and “Limit SPI” Controls
+To exercise your rights:
+Do Not Sell or Share My Personal Information: [Insert Link/Button]
+
+
+Limit the Use of My Sensitive Personal Information: [Insert Link/Button]
+
+
+Global Privacy Control (GPC): We recognize and honor GPC signals as an opt-out of sharing for CCBA in our browser web experiences.
+
+
+
+18) Accessibility
+We are committed to ensuring this Policy is accessible. If you need this Policy in an alternative format, contact privacy@tidyzon.com.
+
+Plain-Language Summary (Non-Contractual)
+We collect information you give us (name, contact, address), information your device provides (location, app interactions), and information about jobs and payments.
+
+
+We use it to run Tidyzon (match you with Providers, process payments, improve the app, keep it safe), and to advertise unless you opt out.
+
+
+You can ask us to show you your data, delete it, correct it, or stop sharing it for ads. We honor GPC.
+
+
+We don’t sell your data for money. We may share certain data with ad/analytics partners unless you opt out.
+
+
+Providers have additional screening and payout data processed for safety and compliance.
+
+
+
+Add-This-Now Checklist (for Tidyzon)
+Replace placeholders (company address, email, effective date).
+
+
+Stand up: /privacy/requests portal with identity verification; add Do Not Sell or Share and Limit SPI UI.
+
+
+Implement GPC honoring on web; add in-app toggles for CCBA opt-out and SPI limits where applicable.
+
+
+Link this Policy in app stores, onboarding screens (“Notice at Collection”), and website footer.
+
+
+Ensure vendor contracts meet Service Provider/Contractor CPRA requirements (no secondary use/sale/share; assistance with consumer requests).
+
+
+Maintain a data retention schedule aligned with Section 2 table and legal holds.
+
+
+

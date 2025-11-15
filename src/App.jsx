@@ -18,6 +18,10 @@ import TeamsPage from './pages/TeamsPage'
 import OpenPositionsPage from './pages/OpenPositionsPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPage from './pages/PrivacyPage'
+import CaliforniaPrivacyPage from './pages/CaliforniaPrivacyPage'
+import DoNotSellPage from './pages/DoNotSellPage'
+import LimitSPIPage from './pages/LimitSPIPage'
+import PrivacyRequestsPage from './pages/PrivacyRequestsPage'
 import NotFoundPage from './pages/NotFoundPage'
 import './App.css'
 
@@ -41,6 +45,10 @@ function App() {
           <Route path="/open-positions" element={<OpenPositionsPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/california-privacy" element={<CaliforniaPrivacyPage />} />
+          <Route path="/privacy/do-not-sell-or-share" element={<DoNotSellPage />} />
+          <Route path="/privacy/limit-sensitive-info" element={<LimitSPIPage />} />
+          <Route path="/privacy/requests" element={<PrivacyRequestsPage />} />
           {/* Catch-all route for 404 pages */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

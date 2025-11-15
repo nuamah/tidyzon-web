@@ -1,0 +1,35 @@
+Preference Center — Do Not Sell or Share My Personal Information
+URL: /privacy/do-not-sell-or-share (link in app settings + footer).
+ Purpose: CPRA “sharing” (cross-context behavioral advertising) opt-out. We’ll also place toggles for analytics personalization and email marketing for completeness (not legally required for CPRA but good UX).
+Header:
+ Do Not Sell or Share My Personal Information (California)
+Intro copy:
+ Under the California Consumer Privacy Act (as amended), “sharing” includes using personal information for cross-context behavioral advertising (CCBA). Tidyzon does not sell personal information for money. We may share certain identifiers, app activity, and device data with ad/analytics partners to measure and personalize ads unless you opt out. Opting out does not affect basic operations (payments, security, or service delivery).
+GPC banner (auto-detect on web):
+ “We received a Global Privacy Control (GPC) signal from your browser. We have applied your opt-out of sharing to this device and browser. You can also apply it to your account below.”
+Account-scoped controls (logged-in view):
+[Toggle] Opt-out of “Sharing” (CCBA)
+ Status text: “When ON, we stop sharing your personal information with ad partners for cross-context advertising. We still use information for security, fraud prevention, measurement that doesn’t constitute CCBA, and service operations.”
+
+
+[Toggle] Limit Personalized Analytics (optional, non-CCPA)
+ Status text: “When ON, we reduce analytics personalization; we still collect minimal diagnostics to run and secure the app.”
+
+
+[Toggle] Marketing Emails & SMS (CAN-SPAM/CTIA hygiene)
+ Status text: “You’ll receive only transactional messages (e.g., receipts, service updates).”
+
+
+Device-only controls (logged-out web):
+ “We’ll store your choice in a browser cookie on this device. To make it apply to your account across devices, please sign in.”
+Confirmation toast (on save):
+ “Your privacy choices have been saved. It may take up to 15 minutes to propagate.”
+Footnotes:
+“Some partners may take additional time to reflect your choice.”
+
+
+“If you clear cookies or use a new device/browser, re-apply your choice or sign in to bind it to your account.”
+
+
+Footer links: [Privacy Policy] • [Limit SPI] • [Privacy Requests]
+

@@ -102,11 +102,11 @@ const Footer = () => {
               </li>
               <li>
                 <Phone className="contact-icon" />
-                <span>(555) 123-4567</span>
+                <span>(630) 788-9081</span>
               </li>
               <li>
                 <MapPin className="contact-icon" />
-                <span>123 Clean Street, Suite 100</span>
+                <span>708 Saybrook Ct. Romeoville IL 60446</span>
               </li>
             </ul>
 

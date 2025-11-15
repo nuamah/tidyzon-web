@@ -34,7 +34,7 @@ const TermsPage = () => {
             <div className="terms-section">
               <h2 className="terms-section-title">2. PLATFORM DESCRIPTION</h2>
               <p className="terms-text">
-                Tidyzon operates an online platform that connects customers with independent service providers who offer on-site services including, but not limited to, car washing and garbage/recycle can cleaning. All services are performed at the customer's location.
+                TidyZon operates an online platform that facilitates the connection between customers and independent service providers ("Providers") who offer on-site services(at your door step), including but not limited to vehicle washing and garbage or recycling bin cleaning. All services are performed at the customer's designated location by independent Providers, who operate as separate entities and are not employees, agents, or representatives of TidyZon.
               </p>
             </div>
 
@@ -83,17 +83,113 @@ const TermsPage = () => {
 
               <h3 className="terms-subsection-title">6.3 Service Provider Selection</h3>
               <p className="terms-text">
-                Service providers are independent contractors and not employees of Tidyzon. Tidyzon does not guarantee the availability of any particular service provider.
+                All service providers operating through the TidyZon platform are independent contractors, not employees, agents, or representatives of TidyZon. TidyZon does not control or direct the manner, method, or means by which service providers perform their work and assumes no responsibility for their actions, omissions, or performance. However, all service providers are required to adhere to TidyZon's strict community guidelines, which establish professional, safety, and quality standards that must be followed while providing services through the platform.
               </p>
 
               <h3 className="terms-subsection-title">6.5 Eligibility of Refunds</h3>
+              <p className="terms-text">TidyZon may issue refunds under the following conditions:</p>
+              
+              <h4 className="terms-subsection-subtitle">Service Not Performed</h4>
               <p className="terms-text">
-                Outline details of under what circumstances will we issue a refund.
+                The assigned Provider did not arrive or perform any portion of the scheduled service, and the customer reported the issue within the required timeframe.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">Incomplete Service</h4>
+              <p className="terms-text">
+                A significant portion of the service was not completed (e.g., only exterior wash completed when a full interior & exterior package was purchased), and the customer submits clear evidence within 24 hours of service completion.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">Service Quality Issues</h4>
+              <p className="terms-text">
+                If the completed service shows clear deficiencies inconsistent with the description of the purchased package, and the customer provides supporting photos within 24 hours, TidyZon may issue a partial or full refund at its discretion.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">Provider Cancellation</h4>
+              <p className="terms-text">
+                If the assigned Provider cancels and TidyZon cannot reassign another Provider, the customer will receive a full refund.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">Duplicate Charges / Billing Errors</h4>
+              <p className="terms-text">
+                Any accidental duplicate charge or billing error attributable to TidyZon will be fully refunded.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">Approved Weather-Related Cancellations</h4>
+              <p className="terms-text">
+                If unsafe or extreme weather prevents service and rescheduling is not possible, the customer may receive a refund.
               </p>
 
               <h3 className="terms-subsection-title">6.6 Background Verification</h3>
               <p className="terms-text">
-                We can talk about the fact that we are verifying our drivers for the safety of our customers. We can talk about exactly what we are getting verified.
+                TidyZon conducts background verification on all independent service providers ("Providers") who use the platform to offer mobile car-wash and related on-site services. These verification measures are implemented solely to enhance the safety and confidence of our customers. Providers are required to successfully complete TidyZon's verification process before accepting or performing any service requests through the platform.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">1. Identity Verification</h4>
+              <p className="terms-text">
+                TidyZon verifies the Provider's identity by reviewing government-issued identification. This process may include confirming:
+              </p>
+              <ul className="terms-list">
+                <li>Full legal name</li>
+                <li>Date of birth</li>
+                <li>Valid, non-expired photo identification</li>
+                <li>Current residential address</li>
+              </ul>
+
+              <h4 className="terms-subsection-subtitle">2. Driving & Motor Vehicle Record Screening</h4>
+              <p className="terms-text">
+                Because Providers travel to customer locations, TidyZon reviews each Provider's driving eligibility. This may include:
+              </p>
+              <ul className="terms-list">
+                <li>Verification of a valid driver's license</li>
+                <li>Review of past driving history</li>
+                <li>Confirmation that the Provider has no recent major violations, including but not limited to DUIs, reckless driving, or license suspensions</li>
+              </ul>
+
+              <h4 className="terms-subsection-subtitle">3. Criminal Background Check</h4>
+              <p className="terms-text">
+                To promote customer safety, TidyZon conducts a criminal-history screening through authorized third-party providers. This may include checks for:
+              </p>
+              <ul className="terms-list">
+                <li>Violent or assault-related offenses</li>
+                <li>Theft, fraud, or property-related crimes</li>
+                <li>Sexual offenses</li>
+                <li>Other criminal convictions deemed disqualifying under TidyZon's safety standards</li>
+              </ul>
+              <p className="terms-text">
+                Providers with disqualifying criminal histories may be denied access to the platform.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">4. Work Authorization or Business Verification</h4>
+              <p className="terms-text">
+                Providers must demonstrate legal eligibility to operate as independent contractors. This may include:
+              </p>
+              <ul className="terms-list">
+                <li>Proof of legal authorization to work, or</li>
+                <li>Proof of registration as a legally recognized business entity.</li>
+              </ul>
+
+              <h4 className="terms-subsection-subtitle">5. Insurance Compliance</h4>
+              <p className="terms-text">
+                Where applicable, TidyZon may require Providers to carry valid personal auto insurance or business liability insurance. Providers must supply proof of coverage when requested.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">6. Ongoing Monitoring</h4>
+              <p className="terms-text">
+                TidyZon reserves the right to periodically review or re-verify Provider information to ensure continued compliance with safety and eligibility obligations.
+              </p>
+
+              <h4 className="terms-subsection-subtitle">7. Provider Obligations</h4>
+              <p className="terms-text">Providers agree to:</p>
+              <ul className="terms-list">
+                <li>Submit truthful and accurate information during verification</li>
+                <li>Maintain valid documentation required for platform use</li>
+                <li>Notify TidyZon immediately of any changes affecting eligibility, including license issues, criminal charges, or loss of insurance</li>
+                <li>Cooperate with any re-verification process deemed necessary by TidyZon</li>
+              </ul>
+
+              <h4 className="terms-subsection-subtitle">8. No Guarantee or Warranty</h4>
+              <p className="terms-text">
+                While TidyZon performs these verification checks to enhance customer safety, TidyZon does not guarantee the character, performance, or conduct of any Provider. Providers operate as independent contractors and are not employees, agents, or representatives of TidyZon. TidyZon is not responsible for any actions taken by Providers outside the scope of the services arranged through the platform.
               </p>
             </div>
 
@@ -189,9 +285,6 @@ const TermsPage = () => {
               <h2 className="terms-section-title">16. DISPUTE RESOLUTION</h2>
               <p className="terms-text">
                 Any dispute arising from or relating to the subject matter of these Terms shall be finally settled in accordance with the laws of the State of Illinois. The courts located in Illinois will have exclusive jurisdiction over any dispute arising out of these Terms.
-              </p>
-              <p className="terms-text">
-                Choose between courts, arbitration, and mediation.
               </p>
             </div>
 

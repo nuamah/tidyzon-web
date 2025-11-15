@@ -1,0 +1,25 @@
+Preference Center — Limit the Use of My Sensitive Personal Information
+URL: /privacy/limit-sensitive-info
+ Purpose: CPRA “Right to Limit” SPI uses beyond exempt purposes (service delivery, security, short-term transient use, legal).
+Header:
+ Limit the Use of My Sensitive Personal Information (California)
+Intro copy:
+ Under California law, Sensitive Personal Information (SPI) includes data like precise geolocation, account log-in credentials, and certain identity data (e.g., background check information for Providers). Tidyzon uses SPI only as necessary to provide the service, maintain security, prevent fraud, and meet legal obligations. You may choose to limit any non-exempt uses.
+SPI categories we process:
+Precise geolocation (Consumers & Providers) for dispatch/navigation during active use
+
+
+Account log-in and security credentials
+
+
+Provider background check data (processed by our screening vendor)
+
+
+[Toggle] Limit non-exempt uses of my SPI
+ What this does: “We will not use SPI for purposes beyond service delivery, security/fraud prevention, and legal compliance. Note: If you limit precise location, certain features (instant jobs, accurate ETAs, provider availability) may not work. You can still schedule services with manual addresses.”
+Provider-specific notice (conditional block):
+ “If you’re a Provider, background check data is required for platform eligibility and legal/safety purposes. Limiting non-exempt uses will not remove screening requirements needed to participate on Tidyzon.”
+Confirmation toast:
+ “Your SPI limitation choice has been saved.”
+Footer links: [Privacy Policy] • [Do Not Sell or Share] • [Privacy Requests]
+

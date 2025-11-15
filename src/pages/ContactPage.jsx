@@ -38,13 +38,13 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: "Call Us",
-      value: "(555) 123-4567",
-      link: "tel:+15551234567"
+      value: "(630) 788-9081",
+      link: "tel:+16307889081"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      value: "123 Clean Street, Suite 100, City, ST 12345",
+      value: "708 Saybrook Ct. Romeoville IL 60446",
       link: "#"
     },
     {
@@ -171,7 +171,7 @@ const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="form-input"
-                        placeholder="(555) 123-4567"
+                        placeholder="(630) 788-9081"
                       />
                     </div>
                     <div className="form-group">
@@ -247,7 +247,7 @@ const ContactPage = () => {
         <section className="map-section">
           <div className="map-placeholder">
             <MapPin className="map-icon" />
-            <p className="map-text">Visit our office at 123 Clean Street, Suite 100</p>
+            <p className="map-text">Visit our office at 708 Saybrook Ct. Romeoville IL 60446</p>
           </div>
         </section>
       </div>

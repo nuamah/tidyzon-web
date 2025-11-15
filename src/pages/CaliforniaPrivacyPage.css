@@ -1,18 +1,18 @@
-/* Privacy Page Styles */
-.privacy-page {
+/* California Privacy Page Styles */
+.california-privacy-page {
   min-height: 100vh;
   background: #ffffff;
 }
 
 /* Hero Section */
-.privacy-hero {
+.california-privacy-hero {
   padding: 8rem 0 4rem;
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.privacy-hero::before {
+.california-privacy-hero::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -24,7 +24,7 @@
   animation: float 20s ease-in-out infinite;
 }
 
-.privacy-hero::after {
+.california-privacy-hero::after {
   content: '';
   position: absolute;
   top: 0;
@@ -47,7 +47,7 @@
   }
 }
 
-.privacy-hero-content {
+.california-privacy-hero-content {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -55,7 +55,7 @@
   z-index: 1;
 }
 
-.privacy-hero-title {
+.california-privacy-hero-title {
   font-size: 3.5rem;
   font-weight: 900;
   color: #ffffff;
@@ -63,38 +63,45 @@
   letter-spacing: -0.02em;
 }
 
-.privacy-hero-subtitle {
+.california-privacy-hero-subtitle {
   font-size: 1.25rem;
   color: #94a3b8;
   font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.california-privacy-hero-subtitle-small {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-weight: 400;
 }
 
 /* Privacy Content */
-.privacy-content {
+.california-privacy-content {
   padding: 4rem 0 6rem;
   background: #ffffff;
 }
 
-.privacy-wrapper {
-  max-width: 850px;
+.california-privacy-wrapper {
+  max-width: 950px;
   margin: 0 auto;
   padding: 0 2rem;
   background: #ffffff;
 }
 
 /* Privacy Sections */
-.privacy-section {
+.california-privacy-section {
   margin-bottom: 3.5rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
-.privacy-section:last-child {
+.california-privacy-section:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.privacy-section-title {
+.california-privacy-section-title {
   font-size: 1.875rem;
   font-weight: 800;
   color: #1e293b;
@@ -104,28 +111,14 @@
   display: inline-block;
 }
 
-.privacy-subsection-title {
+.california-privacy-subsection-title {
   font-size: 1.375rem;
   font-weight: 700;
   color: #3b82f6;
   margin: 2.5rem 0 1.25rem 0;
 }
 
-.privacy-subheading {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin: 2rem 0 1rem 0;
-}
-
-.privacy-subsection-subtitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #334155;
-  margin: 1.5rem 0 0.75rem 0;
-}
-
-.privacy-text {
+.california-privacy-text {
   color: #475569;
   line-height: 2;
   font-size: 1.0625rem;
@@ -133,17 +126,17 @@
   text-align: justify;
 }
 
-.privacy-text:last-child {
+.california-privacy-text:last-child {
   margin-bottom: 0;
 }
 
-.privacy-list {
+.california-privacy-list {
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 1.5rem 1.5rem;
 }
 
-.privacy-list li {
+.california-privacy-list li {
   color: #475569;
   line-height: 2;
   font-size: 1.0625rem;
@@ -152,7 +145,7 @@
   position: relative;
 }
 
-.privacy-list li::before {
+.california-privacy-list li::before {
   content: '•';
   position: absolute;
   left: 0;
@@ -163,22 +156,63 @@
   line-height: 2;
 }
 
-.contact-info {
-  background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
-  border-left: 4px solid #3b82f6;
-  border-radius: 8px;
-  padding: 2rem 2.5rem;
+/* Privacy Table */
+.privacy-table-wrapper {
+  overflow-x: auto;
   margin: 2rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
 }
 
-.contact-info p {
-  margin-bottom: 0.5rem;
+.privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 0.875rem;
+}
+
+.privacy-table thead {
+  background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
+  color: #ffffff;
+}
+
+.privacy-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.privacy-table th:last-child {
+  border-right: none;
+}
+
+.privacy-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
   color: #475569;
-  line-height: 1.8;
+  line-height: 1.6;
+  vertical-align: top;
 }
 
-.contact-info p:last-child {
-  margin-bottom: 0;
+.privacy-table td:last-child {
+  border-right: none;
+}
+
+.privacy-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.privacy-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.privacy-table strong {
+  color: #1e293b;
+  font-weight: 700;
 }
 
 /* Privacy Links */
@@ -196,95 +230,99 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .privacy-hero {
+  .california-privacy-hero {
     padding: 6rem 0 3rem;
   }
   
-  .privacy-hero-title {
+  .california-privacy-hero-title {
     font-size: 2.5rem;
   }
   
-  .privacy-hero-subtitle {
+  .california-privacy-hero-subtitle {
     font-size: 1.125rem;
   }
+
+  .california-privacy-hero-subtitle-small {
+    font-size: 0.9375rem;
+  }
   
-  .privacy-wrapper {
+  .california-privacy-wrapper {
     padding: 0 1.5rem;
   }
   
-  .privacy-section {
+  .california-privacy-section {
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
   }
   
-  .privacy-section-title {
+  .california-privacy-section-title {
     font-size: 1.625rem;
   }
   
-  .privacy-subsection-title {
+  .california-privacy-subsection-title {
     font-size: 1.25rem;
   }
   
-  .privacy-subheading {
-    font-size: 1.125rem;
-  }
-  
-  .privacy-subsection-subtitle {
-    font-size: 1.0625rem;
-  }
-  
-  .privacy-text {
+  .california-privacy-text {
     text-align: left;
+    font-size: 1rem;
   }
-  
-  .contact-info {
-    padding: 1.5rem 2rem;
+
+  .california-privacy-list li {
+    font-size: 1rem;
+  }
+
+  .privacy-table {
+    font-size: 0.75rem;
+  }
+
+  .privacy-table th,
+  .privacy-table td {
+    padding: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .privacy-hero-title {
+  .california-privacy-hero-title {
     font-size: 2rem;
   }
   
-  .privacy-wrapper {
+  .california-privacy-wrapper {
     padding: 0 1rem;
   }
   
-  .privacy-section {
+  .california-privacy-section {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
   
-  .privacy-section-title {
+  .california-privacy-section-title {
     font-size: 1.5rem;
   }
   
-  .privacy-subsection-title {
+  .california-privacy-subsection-title {
     font-size: 1.125rem;
   }
   
-  .privacy-subheading {
+  .california-privacy-text {
     font-size: 1rem;
   }
-  
-  .privacy-subsection-subtitle {
-    font-size: 1rem;
-  }
-  
-  .privacy-text {
-    font-size: 1rem;
-  }
-  
-  .privacy-list {
+
+  .california-privacy-list {
     margin-left: 0.5rem;
   }
-  
-  .privacy-list li {
+
+  .california-privacy-list li {
     font-size: 1rem;
   }
-  
-  .contact-info {
-    padding: 1rem 1.5rem;
+
+  .privacy-table {
+    font-size: 0.6875rem;
+  }
+
+  .privacy-table th,
+  .privacy-table td {
+    padding: 0.5rem;
   }
 }
+

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './PrivacyPage.css'
 
 const PrivacyPage = () => {
@@ -9,7 +10,7 @@ const PrivacyPage = () => {
         <div className="container">
           <div className="privacy-hero-content">
             <h1 className="privacy-hero-title">Privacy Policy</h1>
-            <p className="privacy-hero-subtitle">Last Updated: March 2, 2025</p>
+            <p className="privacy-hero-subtitle">Last Updated: Nov 13, 2025</p>
           </div>
         </div>
       </section>
@@ -43,23 +44,180 @@ const PrivacyPage = () => {
               </p>
               
               <h4 className="privacy-subheading">For Customers:</h4>
-              <ul className="privacy-list">
-                <li>Personal identification information (name, email address, phone number)</li>
-                <li>Physical address where services will be performed</li>
-                <li>Vehicle information (make, model, photos) for car washing services</li>
-                <li>Information about your property (e.g., availability of outside water faucet)</li>
-                <li>Communications with us and Service Providers through the Platform</li>
-              </ul>
               
-              <h4 className="privacy-subheading">For Service Providers:</h4>
+              <h5 className="privacy-subsection-subtitle">Personal Identification Information</h5>
               <ul className="privacy-list">
-                <li>Personal identification information (name, email address, phone number)</li>
-                <li>Social Security Number or Tax Identification Number (for tax and payment purposes)</li>
-                <li>Banking information for payment processing</li>
-                <li>Qualification information (e.g., skills, experience, certifications)</li>
-                <li>Location data when you are available to provide services</li>
-                <li>Communications with us and Customers through the Platform</li>
-                <li>Results of an independent 3rd party background check</li>
+                <li>Full name</li>
+                <li>Email address</li>
+                <li>Phone number</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Service Location Information</h5>
+              <ul className="privacy-list">
+                <li>Service address</li>
+                <li>Access instructions (e.g., gate codes, parking details)</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Vehicle Information</h5>
+              <ul className="privacy-list">
+                <li>Make, model, year</li>
+                <li>License plate (optional)</li>
+                <li>Photos provided for quotes, damage identification, or before/after documentation</li>
+                <li>Service preferences for each vehicle</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Property Information</h5>
+              <ul className="privacy-list">
+                <li>Details relevant to performing services (driveway access, water faucet availability, etc.)</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Payment & Billing Information</h5>
+              <p className="privacy-text">
+                (Processed through secure third-party payment processors; TidyZon does not store full card numbers.)
+              </p>
+              <ul className="privacy-list">
+                <li>Payment method type (e.g., card type, last four digits)</li>
+                <li>Billing address</li>
+                <li>Transaction history</li>
+                <li>Payment confirmations or failure notices</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Account & Authentication Information</h5>
+              <ul className="privacy-list">
+                <li>Username and encrypted password</li>
+                <li>Verification codes (SMS/email)</li>
+                <li>Login timestamps</li>
+                <li>Account preferences and settings</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Appointment & Service Details</h5>
+              <ul className="privacy-list">
+                <li>Selected service packages and add-ons</li>
+                <li>Preferred date/time</li>
+                <li>Assigned service provider</li>
+                <li>Notes or instructions added to the service</li>
+                <li>Rescheduling or cancellation history</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Photos, Videos, and Uploaded Media</h5>
+              <ul className="privacy-list">
+                <li>Vehicle photos, videos, or notes you upload</li>
+                <li>Media shared through support channels or messaging features</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Communications & Interaction Data</h5>
+              <ul className="privacy-list">
+                <li>Messages sent through the Platform</li>
+                <li>Communications with TidyZon customer support</li>
+                <li>Service feedback, complaints, and ratings</li>
+                <li>Reviews of service providers</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Device, Technical, and Location Information</h5>
+              <p className="privacy-text">Automatically collected when accessing the Platform:</p>
+              <ul className="privacy-list">
+                <li>Device type, browser, operating system</li>
+                <li>IP address</li>
+                <li>Cookie identifiers</li>
+                <li>Approximate geolocation</li>
+                <li>Usage analytics (pages viewed, time spent, features accessed)</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Safety & Verification Data</h5>
+              <ul className="privacy-list">
+                <li>Address or service eligibility confirmations</li>
+                <li>Fraud-prevention checks</li>
+                <li>Vehicle ownership or authorization confirmations (if applicable)</li>
+              </ul>
+
+              <h4 className="privacy-subheading">For Service Providers:</h4>
+              
+              <h5 className="privacy-subsection-subtitle">Personal Identification Information</h5>
+              <ul className="privacy-list">
+                <li>Full legal name</li>
+                <li>Date of birth</li>
+                <li>Email address</li>
+                <li>Phone number</li>
+                <li>Residential address</li>
+                <li>Government-issued photo ID</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Tax & Financial Information</h5>
+              <ul className="privacy-list">
+                <li>Social Security Number or Tax Identification Number</li>
+                <li>W-9 or other tax forms</li>
+                <li>Bank account details for payouts</li>
+                <li>Earnings history, payment adjustments, and incentive amounts</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Account & Authentication Information</h5>
+              <ul className="privacy-list">
+                <li>Username and encrypted password</li>
+                <li>Verification codes</li>
+                <li>Login timestamps</li>
+                <li>Profile information</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Driving & Vehicle Information</h5>
+              <ul className="privacy-list">
+                <li>Driver's license number, state, and expiration date</li>
+                <li>Motor vehicle record results</li>
+                <li>Vehicle make, model, year, and registration</li>
+                <li>Proof of auto insurance</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Business & Compliance Documentation</h5>
+              <ul className="privacy-list">
+                <li>Business registration documents (if applicable)</li>
+                <li>Certificates or qualifications</li>
+                <li>Proof of liability insurance</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Location & Availability Data</h5>
+              <ul className="privacy-list">
+                <li>Real-time GPS data while "Available"</li>
+                <li>Historical service-route data</li>
+                <li>Service acceptance/decline history</li>
+                <li>Hours of availability</li>
+                <li>Job completion timestamps</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Work Documentation & Media</h5>
+              <ul className="privacy-list">
+                <li>Before/after photos of services</li>
+                <li>Photos documenting issues, safety concerns, or vehicle damage</li>
+                <li>Notes or logs submitted via the Platform</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Provider Communications</h5>
+              <ul className="privacy-list">
+                <li>Messages exchanged with Customers</li>
+                <li>Messages exchanged with TidyZon support</li>
+                <li>Dispute resolution records or appeals</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Ratings, Reviews & Performance Metrics</h5>
+              <ul className="privacy-list">
+                <li>Customer ratings and written reviews</li>
+                <li>Reliability metrics (acceptance rate, cancellations, no-shows)</li>
+                <li>Internal quality and safety evaluations</li>
+                <li>Compliance history</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Device & Technical Metadata</h5>
+              <ul className="privacy-list">
+                <li>IP address</li>
+                <li>Device type, operating system, browser</li>
+                <li>App usage logs and analytics</li>
+                <li>Cookie identifiers</li>
+              </ul>
+
+              <h5 className="privacy-subsection-subtitle">Safety & Background Check Information</h5>
+              <ul className="privacy-list">
+                <li>Third-party background check results</li>
+                <li>Driving history screening results</li>
+                <li>Insurance verification</li>
+                <li>Safety incident reports or violations</li>
               </ul>
 
               <h3 className="privacy-subsection-title">2.2 Information We Collect Automatically</h3>
@@ -266,7 +424,7 @@ const PrivacyPage = () => {
             <div className="privacy-section">
               <h2 className="privacy-section-title">14. CALIFORNIA PRIVACY RIGHTS</h2>
               <p className="privacy-text">
-                If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. To learn more about your California privacy rights, visit our [California Privacy Notice for California Residents] [Insert Link].
+                If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. To learn more about your California privacy rights, visit our <Link to="/california-privacy" className="privacy-link">California Privacy Notice for California Residents</Link>.
               </p>
               
               <h3 className="privacy-subsection-title">14.1 California "Shine the Light" Law</h3>
