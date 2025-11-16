@@ -161,7 +161,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   // Contact Information
   contact: {
     email: "info@tidyzon.com",
-    supportEmail: "support@tidyzon.com",
+    supportEmail: "info@tidyzon.com",
     phone: "(555) 123-4567",
     address: "123 Clean Street, Suite 100, City, ST 12345",
     businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM",

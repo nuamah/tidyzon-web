@@ -105,7 +105,7 @@ const TIDYZON_KNOWLEDGE_BASE = {
   },
   contact: {
     email: "info@tidyzon.com",
-    supportEmail: "support@tidyzon.com",
+    supportEmail: "info@tidyzon.com",
     phone: "(555) 123-4567",
     address: "123 Clean Street, Suite 100, City, ST 12345",
     businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM"
@@ -158,7 +158,7 @@ IMPORTANT RESTRICTIONS:
 - Do not engage in controversial discussions
 - Always maintain a professional, friendly, and helpful tone
 - Use the comprehensive knowledge base above to provide accurate, detailed answers
-- If you don't know something about Tidyzon's services, suggest contacting support at support@tidyzon.com
+- If you don't know something about Tidyzon's services, suggest contacting support at info@tidyzon.com
 
 Be concise, helpful, and always try to guide users toward booking a service, downloading the app, or learning more about what Tidyzon offers.`
 
@@ -188,7 +188,7 @@ app.post('/api/chat', async (req, res) => {
     console.error('OpenAI API Error:', error)
     res.status(500).json({ 
       error: 'Failed to process chat request',
-      message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at support@tidyzon.com."
+      message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at info@tidyzon.com."
     })
   }
 })

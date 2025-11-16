@@ -141,12 +141,12 @@
 .privacy-requests-list li::before {
   content: '•';
   position: absolute;
-  left: 0;
+  left: 0.5rem;
   top: 0;
   color: #10b981;
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 2;
+  line-height: 1.2;
 }
 
 /* Method Cards */

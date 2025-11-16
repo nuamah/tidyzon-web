@@ -308,7 +308,7 @@ const TermsPage = () => {
             <div className="terms-section">
               <h2 className="terms-section-title">19. CONTACT INFORMATION</h2>
               <p className="terms-text">
-                If you have any questions about these Terms, please contact us at support@tidyzon.com.
+                If you have any questions about these Terms, please contact us at info@tidyzon.com.
               </p>
               <p className="terms-text">
                 By using Tidyzon's Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.

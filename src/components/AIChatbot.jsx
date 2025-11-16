@@ -49,7 +49,7 @@ IMPORTANT RESTRICTIONS:
 - Do not engage in controversial discussions
 - Always maintain a professional, friendly, and helpful tone
 - Use the comprehensive knowledge base above to provide accurate, detailed answers
-- If you don't know something about Tidyzon's services, suggest contacting support at support@tidyzon.com
+- If you don't know something about Tidyzon's services, suggest contacting support at info@tidyzon.com
 
 Be concise, helpful, and always try to guide users toward booking a service, downloading the app, or learning more about what Tidyzon offers.
 
@@ -99,7 +99,7 @@ FORMATTING GUIDELINES:
       console.error('Chat error:', error)
       setMessages([...newMessages, { 
         role: 'assistant', 
-        content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact our support team at support@tidyzon.com." 
+        content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact our support team at info@tidyzon.com." 
       }])
     } finally {
       setIsLoading(false)
