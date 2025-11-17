@@ -27,10 +27,9 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           features: [
             "Exterior hand wash",
             "Clean all windows", 
-            "Towel dry"
-          ],
-          addons: [
-            "Vacuum - Regular"
+            "Towel dry",
+            "Vacuum - Regular",
+            "Wipe door jambs"
           ]
         },
         {
@@ -42,44 +41,40 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           features: [
             "Exterior hand wash",
             "Clean all windows",
-            "Towel dry"
-          ],
-          addons: [
-            "Tire shine, rimps and air",
-            "Wipe door jans",
-            "Vacuum",
-            "Wash Mat",
-            "Dashboard Shine",
+            "Towel dry",
+            "Vacuum - Regular",
+            "Wipe door jambs",
             "Air for dryer",
             "Air for Vacuum",
+            "Tire shine, rims and air",
+            "Wash Mat",
             "Armoral and door panel",
-            "Dash Clean",
+            "Dash Clean and Shine",
             "Clean cup holders",
-            "Shampoo and door panel"
+            "Shampoo and door panel",
+            "Shampoo seats & Carpets"
           ]
         },
         {
           id: "premium",
           name: "Premium Wash", 
-          price: "$199.99",
+          price: "$249.99",
           duration: "4 hours 30 minutes",
           features: [
             "Exterior hand wash",
             "Clean all windows",
-            "Towel dry"
-          ],
-          addons: [
-            "Tire shine, rimps and air",
-            "Wipe door jans",
-            "Vacuum",
-            "Wash Mat",
-            "Dashboard Shine",
+            "Towel dry",
+            "Vacuum - Regular",
+            "Wipe door jambs",
             "Air for dryer",
             "Air for Vacuum",
+            "Tire shine, rims and air",
+            "Wash Mat",
             "Armoral and door panel",
-            "Dash Clean",
+            "Dash Clean and Shine",
             "Clean cup holders",
             "Shampoo and door panel",
+            "Shampoo seats & Carpets",
             "Machine wax"
           ]
         }
@@ -162,8 +157,8 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   contact: {
     email: "info@tidyzon.com",
     supportEmail: "info@tidyzon.com",
-    phone: "(555) 123-4567",
-    address: "123 Clean Street, Suite 100, City, ST 12345",
+    phone: "(630) 788-9081",
+    address: "708 Saybrook Ct. Romeoville IL 60446",
     businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM",
     responseTime: "Within 24 hours"
   },
@@ -344,33 +339,222 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   ]
 }
 
-// Helper function to search the knowledge base
-export const searchKnowledgeBase = (query) => {
-  const searchTerm = query.toLowerCase()
-  const results = []
+// Intelligent search function that finds relevant answers
+export const findAnswer = (query) => {
+  const searchTerm = query.toLowerCase().trim()
   
-  // Search through all sections
-  Object.keys(TIDYZON_KNOWLEDGE_BASE).forEach(section => {
-    const sectionData = TIDYZON_KNOWLEDGE_BASE[section]
+  // Keywords mapping for intelligent responses
+  const keywordMap = {
+    // Services
+    'service': 'services',
+    'services': 'services',
+    'package': 'services',
+    'packages': 'services',
+    'pricing': 'services',
+    'price': 'services',
+    'cost': 'services',
+    'wash': 'services',
+    'cleaning': 'services',
+    'car': 'services',
+    'vehicle': 'services',
+    'speed': 'services',
+    'deluxe': 'services',
+    'premium': 'services',
+    'trash': 'services',
+    'bin': 'services',
+    'home': 'services',
     
-    if (typeof sectionData === 'object') {
-      if (Array.isArray(sectionData)) {
-        sectionData.forEach(item => {
-          if (JSON.stringify(item).toLowerCase().includes(searchTerm)) {
-            results.push({ section, item })
-          }
-        })
-      } else {
-        if (JSON.stringify(sectionData).toLowerCase().includes(searchTerm)) {
-          results.push({ section, data: sectionData })
-        }
-      }
-    } else if (typeof sectionData === 'string' && sectionData.toLowerCase().includes(searchTerm)) {
-      results.push({ section, data: sectionData })
-    }
-  })
+    // Contact
+    'contact': 'contact',
+    'email': 'contact',
+    'phone': 'contact',
+    'call': 'contact',
+    'address': 'contact',
+    'location': 'contact',
+    'reach': 'contact',
+    'support': 'contact',
+    'help': 'contact',
+    
+    // Team
+    'team': 'team',
+    'member': 'team',
+    'staff': 'team',
+    'employee': 'team',
+    'who': 'team',
+    
+    // Apps
+    'app': 'apps',
+    'download': 'apps',
+    'mobile': 'apps',
+    'application': 'apps',
+    'ios': 'apps',
+    'android': 'apps',
+    
+    // Booking
+    'book': 'booking',
+    'booking': 'booking',
+    'schedule': 'booking',
+    'order': 'booking',
+    'how to': 'booking',
+    
+    // FAQ
+    'question': 'faqs',
+    'faq': 'faqs',
+    'insurance': 'faqs',
+    'cancel': 'faqs',
+    'reschedule': 'faqs',
+    'payment': 'faqs',
+    'guarantee': 'faqs',
+    'provider': 'faqs',
+  }
   
-  return results
+  // Extract keywords from query
+  const keywords = searchTerm.split(/\s+/).filter(word => word.length > 2)
+  const matchedKeywords = keywords.filter(word => keywordMap[word])
+  
+  // Find best matching section
+  let bestMatch = null
+  let bestScore = 0
+  
+  // Check for specific package names
+  if (searchTerm.includes('speed wash') || searchTerm.includes('speed')) {
+    const speedPackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'speed')
+    if (speedPackage) {
+      return {
+        type: 'package',
+        data: speedPackage,
+        answer: formatPackageAnswer(speedPackage)
+      }
+    }
+  }
+  
+  if (searchTerm.includes('deluxe') || searchTerm.includes('deluxe wash')) {
+    const deluxePackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'deluxe')
+    if (deluxePackage) {
+      return {
+        type: 'package',
+        data: deluxePackage,
+        answer: formatPackageAnswer(deluxePackage)
+      }
+    }
+  }
+  
+  if (searchTerm.includes('premium') || searchTerm.includes('premium wash')) {
+    const premiumPackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'premium')
+    if (premiumPackage) {
+      return {
+        type: 'package',
+        data: premiumPackage,
+        answer: formatPackageAnswer(premiumPackage)
+      }
+    }
+  }
+  
+  // Check FAQs first
+  for (const faq of TIDYZON_KNOWLEDGE_BASE.faqs) {
+    const questionWords = faq.question.toLowerCase().split(/\s+/)
+    const answerWords = faq.answer.toLowerCase().split(/\s+/)
+    const allWords = [...questionWords, ...answerWords]
+    
+    const matchCount = keywords.filter(word => 
+      allWords.some(faqWord => faqWord.includes(word) || word.includes(faqWord))
+    ).length
+    
+    if (matchCount > bestScore) {
+      bestScore = matchCount
+      bestMatch = {
+        type: 'faq',
+        data: faq,
+        answer: faq.answer
+      }
+    }
+  }
+  
+  // If good FAQ match, return it
+  if (bestScore >= 2) {
+    return bestMatch
+  }
+  
+  // Check for contact info
+  if (matchedKeywords.some(k => ['contact', 'email', 'phone', 'call', 'address', 'location', 'support', 'help'].includes(k))) {
+    const contact = TIDYZON_KNOWLEDGE_BASE.contact
+    return {
+      type: 'contact',
+      data: contact,
+      answer: `You can reach us at:\n\n**Email:** ${contact.email}\n**Phone:** ${contact.phone}\n**Address:** ${contact.address}\n**Business Hours:** ${contact.businessHours}`
+    }
+  }
+  
+  // Check for services overview
+  if (matchedKeywords.some(k => ['service', 'services', 'package', 'packages', 'pricing', 'price', 'cost', 'wash', 'cleaning'].includes(k))) {
+    const services = TIDYZON_KNOWLEDGE_BASE.services
+    let answer = "**Our Services:**\n\n"
+    
+    // Car cleaning packages
+    answer += "**Car Cleaning Packages:**\n"
+    services.carCleaning.packages.forEach(pkg => {
+      answer += `• **${pkg.name}** - ${pkg.price} (${pkg.duration})\n`
+    })
+    
+    answer += `\n**Trash Bin Cleaning:** ${services.trashBinCleaning.price} (${services.trashBinCleaning.duration})\n`
+    answer += `\n**Home Cleaning:** ${services.homeCleaning.status}\n`
+    
+    return {
+      type: 'services',
+      data: services,
+      answer: answer
+    }
+  }
+  
+  // Check for apps
+  if (matchedKeywords.some(k => ['app', 'download', 'mobile', 'application', 'ios', 'android'].includes(k))) {
+    const apps = TIDYZON_KNOWLEDGE_BASE.apps
+    return {
+      type: 'apps',
+      data: apps,
+      answer: `**Tidyzon User App:**\n${apps.userApp.description}\n\n**Features:**\n${apps.userApp.features.map(f => `• ${f}`).join('\n')}\n\n**Tidyzon Provider App:**\n${apps.providerApp.description}\n\n**Features:**\n${apps.providerApp.features.map(f => `• ${f}`).join('\n')}`
+    }
+  }
+  
+  // Check for booking info
+  if (matchedKeywords.some(k => ['book', 'booking', 'schedule', 'order', 'how to'].includes(k))) {
+    const booking = TIDYZON_KNOWLEDGE_BASE.booking
+    return {
+      type: 'booking',
+      data: booking,
+      answer: `**How to Book a Service:**\n\n${booking.steps.map((step, i) => `${i + 1}. ${step}`).join('\n')}\n\n**Requirements:**\n${booking.requirements.map(req => `• ${req}`).join('\n')}`
+    }
+  }
+  
+  // Default response
+  if (bestMatch) {
+    return bestMatch
+  }
+  
+  // Generic helpful response
+  return {
+    type: 'general',
+    answer: `I'm here to help with information about Tidyzon's services! You can ask me about:\n\n• **Services & Pricing** - Our car cleaning packages, trash bin cleaning, and more\n• **Contact Information** - How to reach us\n• **Booking** - How to book a service\n• **Mobile Apps** - Download our user or provider apps\n• **FAQs** - Common questions and answers\n\nOr contact us directly at ${TIDYZON_KNOWLEDGE_BASE.contact.email} or ${TIDYZON_KNOWLEDGE_BASE.contact.phone}`
+  }
+}
+
+// Helper to format package answers
+const formatPackageAnswer = (pkg) => {
+  let answer = `**${pkg.name}**\n\n`
+  answer += `**Price:** ${pkg.price}\n`
+  answer += `**Duration:** ${pkg.duration}\n\n`
+  
+  if (pkg.features && pkg.features.length > 0) {
+    answer += `**Features:**\n${pkg.features.map(f => `• ${f}`).join('\n')}`
+  }
+  
+  return answer
+}
+
+// Legacy search function for compatibility
+export const searchKnowledgeBase = (query) => {
+  const result = findAnswer(query)
+  return result ? [result] : []
 }
 
 export default TIDYZON_KNOWLEDGE_BASE

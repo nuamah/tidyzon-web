@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, Loader, Sparkles } from 'lucide-react'
-import { TIDYZON_KNOWLEDGE_BASE, searchKnowledgeBase } from '../data/tidyzon-knowledge-base'
+import { MessageCircle, X, Send, Loader } from 'lucide-react'
+import { findAnswer, TIDYZON_KNOWLEDGE_BASE } from '../data/tidyzon-knowledge-base'
 import './AIChatbot.css'
 
 const AIChatbot = () => {
@@ -8,7 +8,7 @@ const AIChatbot = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi! I'm Tidy A.I. How can I help you today?"
+      content: "Hi! I'm Tidy A.I. Assistant. How can I help you today? You can ask me about our services, pricing, booking, contact information, or anything else about Tidyzon!"
     }
   ])
   const [inputMessage, setInputMessage] = useState('')
@@ -36,34 +36,7 @@ const AIChatbot = () => {
     }
   }, [isOpen])
 
-  const SYSTEM_PROMPT = `You are Tidyzon A.I Assistant, a helpful AI assistant for Tidyzon, a professional mobile cleaning service company. 
-
-COMPREHENSIVE COMPANY INFORMATION:
-
-${JSON.stringify(TIDYZON_KNOWLEDGE_BASE, null, 2)}
-
-IMPORTANT RESTRICTIONS:
-- ONLY answer questions related to Tidyzon, its services, pricing, booking process, team members, and general cleaning topics
-- If asked about unrelated topics, politely redirect: "I'm specifically designed to help with Tidyzon's cleaning services. Is there anything about our car cleaning, bin sanitization, team, or upcoming home cleaning services I can help you with?"
-- Do not provide medical, legal, or financial advice
-- Do not engage in controversial discussions
-- Always maintain a professional, friendly, and helpful tone
-- Use the comprehensive knowledge base above to provide accurate, detailed answers
-- If you don't know something about Tidyzon's services, suggest contacting support at info@tidyzon.com
-
-Be concise, helpful, and always try to guide users toward booking a service, downloading the app, or learning more about what Tidyzon offers.
-
-FORMATTING GUIDELINES:
-- Use clear paragraphs separated by double line breaks for better readability
-- When listing items, use bullet points with clear descriptions
-- Include section titles (short phrases ending with colons) to organize information
-- Structure service information with clear headings like "Our Services:", "Pricing:", "Benefits:", etc.
-- Use **bold text** for important terms, service names, and key features
-- Use *italic text* for emphasis and special notes
-- Keep responses well-organized and easy to scan
-- Use simple, conversational language`
-
-  const handleSendMessage = async () => {
+  const handleSendMessage = () => {
     if (!inputMessage.trim() || isLoading) return
 
     const userMessage = inputMessage.trim()
@@ -73,37 +46,37 @@ FORMATTING GUIDELINES:
     setMessages(newMessages)
     setIsLoading(true)
 
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          messages: newMessages
-        })
-      })
+    // Simulate a small delay for better UX
+    setTimeout(() => {
+      // Check for off-topic questions
+      const lowerMessage = userMessage.toLowerCase()
+      const offTopicKeywords = ['weather', 'joke', 'politics', 'religion', 'sports', 'news', 'movie', 'music', 'recipe']
+      const isOffTopic = offTopicKeywords.some(keyword => lowerMessage.includes(keyword))
 
-      if (!response.ok) {
-        throw new Error('Failed to get response')
+      if (isOffTopic) {
+        setMessages([...newMessages, { 
+          role: 'assistant', 
+          content: "I'm specifically designed to help with Tidyzon's cleaning services. Is there anything about our car cleaning, trash bin sanitization, booking process, or contact information I can help you with?" 
+        }])
+        setIsLoading(false)
+        return
       }
 
-      const data = await response.json()
-      const assistantMessage = data.message
-      
+      // Find answer from knowledge base
+      const result = findAnswer(userMessage)
+      let assistantMessage = result.answer || "I'm here to help! You can ask me about our services, pricing, how to book, contact information, or download our mobile apps. For more specific questions, please contact us at info@tidyzon.com or call (630) 788-9081."
+
+      // Add helpful context if answer is generic
+      if (result.type === 'general') {
+        assistantMessage += `\n\nFeel free to ask me about:\n• Our car cleaning packages (Speed Wash, Deluxe Wash, Premium Wash)\n• Trash bin cleaning services\n• How to book a service\n• Contact information\n• Mobile apps`
+      }
+
       setMessages([...newMessages, { 
         role: 'assistant', 
         content: assistantMessage 
       }])
-    } catch (error) {
-      console.error('Chat error:', error)
-      setMessages([...newMessages, { 
-        role: 'assistant', 
-        content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact our support team at info@tidyzon.com." 
-      }])
-    } finally {
       setIsLoading(false)
-    }
+    }, 300) // Small delay to show loading state
   }
 
   const handleKeyPress = (e) => {
@@ -178,7 +151,7 @@ FORMATTING GUIDELINES:
 
   return (
     <>
-      {/* Chat Button with Label */}
+      {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="ai-chat-button-merged"

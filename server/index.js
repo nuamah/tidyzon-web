@@ -11,9 +11,14 @@ const PORT = process.env.PORT || 3001
 app.use(cors())
 app.use(express.json())
 
-const openai = new OpenAI({
+// Validate OpenAI API Key
+if (!process.env.OPENAI_API_KEY) {
+  console.warn('Warning: OPENAI_API_KEY is not set in environment variables. AI chatbot functionality will be disabled.')
+}
+
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-})
+}) : null
 
 // Comprehensive Tidyzon Knowledge Base
 const TIDYZON_KNOWLEDGE_BASE = {
@@ -164,12 +169,24 @@ Be concise, helpful, and always try to guide users toward booking a service, dow
 
 app.post('/api/chat', async (req, res) => {
   try {
+    console.log('Received chat request')
     const { messages } = req.body
 
     if (!messages || !Array.isArray(messages)) {
-      return res.status(400).json({ error: 'Invalid messages format' })
+      console.error('Invalid messages format:', messages)
+      return res.status(400).json({ error: 'Invalid messages format', message: 'Invalid request format' })
     }
 
+    // Check if OpenAI API key is configured
+    if (!openai || !process.env.OPENAI_API_KEY) {
+      console.warn('OpenAI API key not configured')
+      return res.status(503).json({ 
+        error: 'AI service unavailable',
+        message: "I apologize, but the AI chatbot service is currently unavailable. Please contact us at info@tidyzon.com for assistance."
+      })
+    }
+
+    console.log('Calling OpenAI API...')
     // Create chat completion with OpenAI
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
@@ -182,23 +199,65 @@ app.post('/api/chat', async (req, res) => {
     })
 
     const assistantMessage = completion.choices[0].message.content
+    console.log('OpenAI API call successful')
 
-    res.json({ message: assistantMessage })
+    return res.json({ message: assistantMessage })
   } catch (error) {
     console.error('OpenAI API Error:', error)
-    res.status(500).json({ 
+    console.error('Error stack:', error.stack)
+    
+    // Provide more specific error messages
+    let errorMessage = "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at info@tidyzon.com."
+    
+    if (error.message && error.message.includes('API key')) {
+      errorMessage = "The AI service is currently unavailable due to configuration issues. Please contact us at info@tidyzon.com for assistance."
+    } else if (error.response) {
+      // OpenAI API error response
+      console.error('OpenAI API Response Error:', error.response.status, error.response.data)
+      if (error.response.status === 401) {
+        errorMessage = "The AI service is currently unavailable due to authentication issues. Please contact us at info@tidyzon.com for assistance."
+      }
+    }
+    
+    return res.status(500).json({ 
       error: 'Failed to process chat request',
-      message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at info@tidyzon.com."
+      message: errorMessage
     })
   }
 })
 
-// Health check endpoint
+// Health check endpoint - should always work
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' })
+  res.json({ 
+    status: 'ok',
+    apiKeyConfigured: !!process.env.OPENAI_API_KEY
+  })
+})
+
+// Error handling middleware - must be after all routes
+app.use((err, req, res, next) => {
+  console.error('Express Error:', err)
+  res.status(500).json({ 
+    error: 'Internal server error',
+    message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at info@tidyzon.com."
+  })
+})
+
+// 404 handler for undefined routes
+app.use((req, res) => {
+  res.status(404).json({ 
+    error: 'Not found',
+    message: 'The requested endpoint was not found.'
+  })
 })
 
 app.listen(PORT, () => {
   console.log(`Tidyzon AI Chatbot server running on port ${PORT}`)
+  if (!process.env.OPENAI_API_KEY) {
+    console.warn('⚠️  WARNING: OPENAI_API_KEY is not set. AI chatbot will not work.')
+    console.warn('   Please create a .env file in the project root with: OPENAI_API_KEY=your_key_here')
+  } else {
+    console.log('✅ OpenAI API key is configured')
+  }
 })
 
