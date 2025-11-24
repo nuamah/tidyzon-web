@@ -24,7 +24,7 @@ const TeamsPage = () => {
       id: 2,
       name: "Emmanuel Zielonka Berchie",
       position: "Co-Founder / Board Member",
-      image: "/assets/team/emma.jpeg",
+      image: "/assets/team/emmaNew.jpg",
       bio: "Visionary leader driving innovation and strategic growth in the service industry with a passion for excellence.",
       email: "emmanuel@tidyzon.com",
       linkedin: "https://linkedin.com/in/emmanuelzielonka",

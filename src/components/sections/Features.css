@@ -338,10 +338,18 @@
 
 /* Mobile Responsiveness for Image Text Layout */
 @media (max-width: 768px) {
+  .features-section {
+    padding: 4rem 0;
+  }
+  
   .image-text-layout {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
     margin-top: 3rem;
+  }
+  
+  .image-text-layout.image-left {
+    grid-template-columns: 1fr;
   }
   
   .image-text-layout.image-left .image-section {
@@ -349,24 +357,61 @@
   }
   
   .content-section {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
   }
   
   .section-title {
     font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
   
   .section-description {
     font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  .image-section {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .section-image {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    object-fit: cover;
   }
 }
 
 @media (max-width: 480px) {
+  .features-section {
+    padding: 3rem 0;
+  }
+  
+  .image-text-layout {
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .content-section {
+    padding: 1rem 0.75rem;
+  }
+  
   .section-title {
     font-size: 1.75rem;
+    margin-bottom: 0.875rem;
   }
   
   .section-description {
     font-size: 0.9375rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .section-image {
+    min-height: 200px;
   }
 }

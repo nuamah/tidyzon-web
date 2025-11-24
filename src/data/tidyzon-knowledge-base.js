@@ -339,216 +339,396 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   ]
 }
 
-// Intelligent search function that finds relevant answers
+// Enhanced intelligent search function with professional response structure
 export const findAnswer = (query) => {
   const searchTerm = query.toLowerCase().trim()
+  const words = searchTerm.split(/\s+/).filter(w => w.length > 1)
   
-  // Keywords mapping for intelligent responses
-  const keywordMap = {
-    // Services
-    'service': 'services',
-    'services': 'services',
-    'package': 'services',
-    'packages': 'services',
-    'pricing': 'services',
-    'price': 'services',
-    'cost': 'services',
-    'wash': 'services',
-    'cleaning': 'services',
-    'car': 'services',
-    'vehicle': 'services',
-    'speed': 'services',
-    'deluxe': 'services',
-    'premium': 'services',
-    'trash': 'services',
-    'bin': 'services',
-    'home': 'services',
-    
-    // Contact
-    'contact': 'contact',
-    'email': 'contact',
-    'phone': 'contact',
-    'call': 'contact',
-    'address': 'contact',
-    'location': 'contact',
-    'reach': 'contact',
-    'support': 'contact',
-    'help': 'contact',
-    
-    // Team
-    'team': 'team',
-    'member': 'team',
-    'staff': 'team',
-    'employee': 'team',
-    'who': 'team',
-    
-    // Apps
-    'app': 'apps',
-    'download': 'apps',
-    'mobile': 'apps',
-    'application': 'apps',
-    'ios': 'apps',
-    'android': 'apps',
-    
-    // Booking
-    'book': 'booking',
-    'booking': 'booking',
-    'schedule': 'booking',
-    'order': 'booking',
-    'how to': 'booking',
-    
-    // FAQ
-    'question': 'faqs',
-    'faq': 'faqs',
-    'insurance': 'faqs',
-    'cancel': 'faqs',
-    'reschedule': 'faqs',
-    'payment': 'faqs',
-    'guarantee': 'faqs',
-    'provider': 'faqs',
+  // Comprehensive keyword mapping with synonyms
+  const keywordCategories = {
+    services: ['service', 'services', 'package', 'packages', 'pricing', 'price', 'prices', 'cost', 'costs', 'wash', 'washing', 'cleaning', 'clean', 'car', 'cars', 'vehicle', 'vehicles', 'auto', 'automobile', 'speed', 'deluxe', 'premium', 'trash', 'bin', 'bins', 'sanitization', 'home', 'house', 'residential'],
+    contact: ['contact', 'email', 'emails', 'phone', 'telephone', 'call', 'calling', 'address', 'location', 'locations', 'reach', 'reachable', 'support', 'help', 'assistance', 'helpdesk', 'customer service', 'get in touch', 'reach out', 'where are you', 'how to contact'],
+    booking: ['book', 'booking', 'bookings', 'schedule', 'scheduling', 'appointment', 'appointments', 'order', 'ordering', 'reserve', 'reservation', 'how to book', 'how do i book', 'how can i book', 'sign up', 'register', 'registration'],
+    apps: ['app', 'apps', 'application', 'applications', 'download', 'downloading', 'mobile', 'phone app', 'ios', 'android', 'iphone', 'ipad', 'google play', 'app store', 'install'],
+    provider: ['provider', 'providers', 'become a provider', 'work for', 'join as provider', 'service provider', 'contractor', 'independent contractor', 'earn money', 'make money'],
+    faq: ['question', 'questions', 'faq', 'faqs', 'insurance', 'insured', 'cancel', 'cancellation', 'canceled', 'reschedule', 'rescheduling', 'payment', 'payments', 'pay', 'guarantee', 'guarantees', 'refund', 'refunds', 'areas', 'locations', 'products', 'equipment'],
+    team: ['team', 'teams', 'member', 'members', 'staff', 'employee', 'employees', 'who', 'people', 'founder', 'founders', 'leadership', 'executive']
   }
   
-  // Extract keywords from query
-  const keywords = searchTerm.split(/\s+/).filter(word => word.length > 2)
-  const matchedKeywords = keywords.filter(word => keywordMap[word])
+  // Score each category based on keyword matches
+  const categoryScores = {}
+  Object.keys(keywordCategories).forEach(category => {
+    categoryScores[category] = 0
+    keywordCategories[category].forEach(keyword => {
+      if (searchTerm.includes(keyword)) {
+        categoryScores[category] += 1
+      }
+    })
+  })
   
-  // Find best matching section
-  let bestMatch = null
-  let bestScore = 0
+  // Find the highest scoring category
+  const topCategory = Object.keys(categoryScores).reduce((a, b) => 
+    categoryScores[a] > categoryScores[b] ? a : b
+  )
+  const topScore = categoryScores[topCategory]
   
-  // Check for specific package names
-  if (searchTerm.includes('speed wash') || searchTerm.includes('speed')) {
-    const speedPackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'speed')
-    if (speedPackage) {
-      return {
-        type: 'package',
-        data: speedPackage,
-        answer: formatPackageAnswer(speedPackage)
+  // Specific package detection with variations
+  const packagePatterns = {
+    speed: ['speed', 'speed wash', 'basic', 'quick', 'fast', 'economy', 'standard'],
+    deluxe: ['deluxe', 'deluxe wash', 'mid', 'middle', 'intermediate', 'popular'],
+    premium: ['premium', 'premium wash', 'full', 'complete', 'comprehensive', 'top', 'best', 'luxury']
+  }
+  
+  // Check for specific package queries
+  for (const [packageId, patterns] of Object.entries(packagePatterns)) {
+    if (patterns.some(pattern => searchTerm.includes(pattern))) {
+      const pkg = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === packageId)
+      if (pkg) {
+        return {
+          type: 'package',
+          data: pkg,
+          answer: formatPackageAnswerProfessional(pkg)
+        }
       }
     }
   }
   
-  if (searchTerm.includes('deluxe') || searchTerm.includes('deluxe wash')) {
-    const deluxePackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'deluxe')
-    if (deluxePackage) {
-      return {
-        type: 'package',
-        data: deluxePackage,
-        answer: formatPackageAnswer(deluxePackage)
-      }
-    }
-  }
+  // Enhanced FAQ matching with better scoring
+  let bestFaqMatch = null
+  let bestFaqScore = 0
   
-  if (searchTerm.includes('premium') || searchTerm.includes('premium wash')) {
-    const premiumPackage = TIDYZON_KNOWLEDGE_BASE.services.carCleaning.packages.find(p => p.id === 'premium')
-    if (premiumPackage) {
-      return {
-        type: 'package',
-        data: premiumPackage,
-        answer: formatPackageAnswer(premiumPackage)
-      }
-    }
-  }
-  
-  // Check FAQs first
   for (const faq of TIDYZON_KNOWLEDGE_BASE.faqs) {
-    const questionWords = faq.question.toLowerCase().split(/\s+/)
-    const answerWords = faq.answer.toLowerCase().split(/\s+/)
-    const allWords = [...questionWords, ...answerWords]
+    const questionLower = faq.question.toLowerCase()
+    const answerLower = faq.answer.toLowerCase()
+    const allText = `${questionLower} ${answerLower}`
     
-    const matchCount = keywords.filter(word => 
-      allWords.some(faqWord => faqWord.includes(word) || word.includes(faqWord))
-    ).length
+    // Count exact word matches
+    let score = 0
+    words.forEach(word => {
+      if (allText.includes(word)) {
+        score += 2 // Exact word match
+      }
+      // Check for partial matches
+      if (allText.split(/\s+/).some(textWord => textWord.includes(word) || word.includes(textWord))) {
+        score += 1
+      }
+    })
     
-    if (matchCount > bestScore) {
-      bestScore = matchCount
-      bestMatch = {
+    if (score > bestFaqScore) {
+      bestFaqScore = score
+      bestFaqMatch = {
         type: 'faq',
         data: faq,
-        answer: faq.answer
+        answer: formatFaqAnswer(faq)
       }
     }
   }
   
-  // If good FAQ match, return it
-  if (bestScore >= 2) {
-    return bestMatch
+  // Return FAQ if good match
+  if (bestFaqScore >= 3) {
+    return bestFaqMatch
   }
   
-  // Check for contact info
-  if (matchedKeywords.some(k => ['contact', 'email', 'phone', 'call', 'address', 'location', 'support', 'help'].includes(k))) {
+  // Contact information queries
+  if (topCategory === 'contact' && topScore > 0) {
     const contact = TIDYZON_KNOWLEDGE_BASE.contact
     return {
       type: 'contact',
       data: contact,
-      answer: `You can reach us at:\n\n**Email:** ${contact.email}\n**Phone:** ${contact.phone}\n**Address:** ${contact.address}\n**Business Hours:** ${contact.businessHours}`
+      answer: formatContactAnswer(contact)
     }
   }
   
-  // Check for services overview
-  if (matchedKeywords.some(k => ['service', 'services', 'package', 'packages', 'pricing', 'price', 'cost', 'wash', 'cleaning'].includes(k))) {
-    const services = TIDYZON_KNOWLEDGE_BASE.services
-    let answer = "**Our Services:**\n\n"
-    
-    // Car cleaning packages
-    answer += "**Car Cleaning Packages:**\n"
-    services.carCleaning.packages.forEach(pkg => {
-      answer += `• **${pkg.name}** - ${pkg.price} (${pkg.duration})\n`
-    })
-    
-    answer += `\n**Trash Bin Cleaning:** ${services.trashBinCleaning.price} (${services.trashBinCleaning.duration})\n`
-    answer += `\n**Home Cleaning:** ${services.homeCleaning.status}\n`
-    
+  // Services overview queries
+  if (topCategory === 'services' && topScore > 0) {
     return {
       type: 'services',
-      data: services,
-      answer: answer
+      data: TIDYZON_KNOWLEDGE_BASE.services,
+      answer: formatServicesAnswer(TIDYZON_KNOWLEDGE_BASE.services)
     }
   }
   
-  // Check for apps
-  if (matchedKeywords.some(k => ['app', 'download', 'mobile', 'application', 'ios', 'android'].includes(k))) {
+  // Provider queries
+  if (topCategory === 'provider' && topScore > 0) {
+    return {
+      type: 'provider',
+      data: TIDYZON_KNOWLEDGE_BASE.providerRequirements,
+      answer: formatProviderAnswer()
+    }
+  }
+  
+  // Apps queries
+  if (topCategory === 'apps' && topScore > 0) {
     const apps = TIDYZON_KNOWLEDGE_BASE.apps
     return {
       type: 'apps',
       data: apps,
-      answer: `**Tidyzon User App:**\n${apps.userApp.description}\n\n**Features:**\n${apps.userApp.features.map(f => `• ${f}`).join('\n')}\n\n**Tidyzon Provider App:**\n${apps.providerApp.description}\n\n**Features:**\n${apps.providerApp.features.map(f => `• ${f}`).join('\n')}`
+      answer: formatAppsAnswer(apps)
     }
   }
   
-  // Check for booking info
-  if (matchedKeywords.some(k => ['book', 'booking', 'schedule', 'order', 'how to'].includes(k))) {
+  // Booking queries
+  if (topCategory === 'booking' && topScore > 0) {
     const booking = TIDYZON_KNOWLEDGE_BASE.booking
     return {
       type: 'booking',
       data: booking,
-      answer: `**How to Book a Service:**\n\n${booking.steps.map((step, i) => `${i + 1}. ${step}`).join('\n')}\n\n**Requirements:**\n${booking.requirements.map(req => `• ${req}`).join('\n')}`
+      answer: formatBookingAnswer(booking)
     }
   }
   
-  // Default response
-  if (bestMatch) {
-    return bestMatch
+  // Team queries
+  if (topCategory === 'team' && topScore > 0) {
+    return {
+      type: 'team',
+      data: TIDYZON_KNOWLEDGE_BASE.team,
+      answer: formatTeamAnswer()
+    }
   }
   
-  // Generic helpful response
+  // Return best FAQ match if available
+  if (bestFaqMatch && bestFaqScore > 0) {
+    return bestFaqMatch
+  }
+  
+  // Default professional response
   return {
     type: 'general',
-    answer: `I'm here to help with information about Tidyzon's services! You can ask me about:\n\n• **Services & Pricing** - Our car cleaning packages, trash bin cleaning, and more\n• **Contact Information** - How to reach us\n• **Booking** - How to book a service\n• **Mobile Apps** - Download our user or provider apps\n• **FAQs** - Common questions and answers\n\nOr contact us directly at ${TIDYZON_KNOWLEDGE_BASE.contact.email} or ${TIDYZON_KNOWLEDGE_BASE.contact.phone}`
+    answer: formatGeneralAnswer()
   }
 }
 
-// Helper to format package answers
-const formatPackageAnswer = (pkg) => {
-  let answer = `**${pkg.name}**\n\n`
-  answer += `**Price:** ${pkg.price}\n`
-  answer += `**Duration:** ${pkg.duration}\n\n`
+// Professional formatting functions for structured responses
+
+const formatPackageAnswerProfessional = (pkg) => {
+  let answer = `**${pkg.name} Package**\n\n`
+  answer += `**Investment:** ${pkg.price}\n`
+  answer += `**Service Duration:** ${pkg.duration}\n\n`
   
   if (pkg.features && pkg.features.length > 0) {
-    answer += `**Features:**\n${pkg.features.map(f => `• ${f}`).join('\n')}`
+    answer += `**What's Included:**\n\n`
+    pkg.features.forEach((feature, index) => {
+      answer += `${index + 1}. ${feature}\n`
+    })
   }
   
+  answer += `\n**Next Steps:**\n`
+  answer += `• Download our mobile app to book this package\n`
+  answer += `• Select your preferred date and time\n`
+  answer += `• Our verified provider will arrive at your location\n\n`
+  answer += `*Note: Prices shown are for passenger cars. MVP and Truck vehicles incur an additional $10 charge.*\n\n`
+  answer += `For questions or to book directly, contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or call **${TIDYZON_KNOWLEDGE_BASE.contact.phone}**`
+  
   return answer
+}
+
+const formatContactAnswer = (contact) => {
+  let answer = `**Contact Information**\n\n`
+  answer += `We're here to help! Here's how you can reach us:\n\n`
+  answer += `**Email:** ${contact.email}\n`
+  answer += `**Phone:** ${contact.phone}\n`
+  answer += `**Physical Address:**\n${contact.address}\n\n`
+  answer += `**Business Hours:**\n${contact.businessHours}\n\n`
+  answer += `**Response Time:**\nWe typically respond to inquiries within ${contact.responseTime.toLowerCase()}.\n\n`
+  answer += `**Preferred Contact Method:**\nFor fastest response, please email us at **${contact.email}** or call during business hours.`
+  
+  return answer
+}
+
+const formatServicesAnswer = (services) => {
+  let answer = `**Our Professional Cleaning Services**\n\n`
+  answer += `At Tidyzon, we offer comprehensive cleaning solutions designed to meet your needs:\n\n`
+  
+  answer += `**🚗 Car Cleaning Packages**\n\n`
+  answer += `Choose from our three professional packages:\n\n`
+  
+  services.carCleaning.packages.forEach((pkg, index) => {
+    const popularBadge = pkg.popular ? ' *Most Popular*' : ''
+    answer += `${index + 1}. **${pkg.name}**${popularBadge}\n`
+    answer += `   • Price: ${pkg.price}\n`
+    answer += `   • Duration: ${pkg.duration}\n`
+    answer += `   • Features: ${pkg.features.length} services included\n\n`
+  })
+  
+  answer += `*Note: Prices are for passenger cars. MVP and Truck vehicles require an additional $10 fee.*\n\n`
+  
+  answer += `**🗑️ Trash Bin Cleaning**\n\n`
+  answer += `• Price: ${services.trashBinCleaning.price}\n`
+  answer += `• Duration: ${services.trashBinCleaning.duration}\n`
+  answer += `• Professional sanitization with eco-friendly solutions\n\n`
+  
+  answer += `**🏠 Home Cleaning**\n\n`
+  answer += `${services.homeCleaning.status} - ${services.homeCleaning.description}\n\n`
+  
+  answer += `**Why Choose Tidyzon?**\n\n`
+  TIDYZON_KNOWLEDGE_BASE.whyChoose.forEach(item => {
+    answer += `• **${item.title}** - ${item.description}\n`
+  })
+  
+  answer += `\n**Ready to Book?**\n`
+  answer += `Download our app or contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or **${TIDYZON_KNOWLEDGE_BASE.contact.phone}**`
+  
+  return answer
+}
+
+const formatBookingAnswer = (booking) => {
+  let answer = `**How to Book a Service with Tidyzon**\n\n`
+  answer += `Booking is quick and easy! Follow these simple steps:\n\n`
+  
+  booking.steps.forEach((step, index) => {
+    answer += `**Step ${index + 1}:** ${step}\n`
+  })
+  
+  answer += `\n**What You'll Need:**\n\n`
+  booking.requirements.forEach(req => {
+    answer += `✓ ${req}\n`
+  })
+  
+  answer += `\n**Additional Information:**\n\n`
+  answer += `• **Same-Day Booking:** Most services are available same-day or within 24 hours\n`
+  answer += `• **Flexible Scheduling:** Choose a time that works best for you\n`
+  answer += `• **Secure Payments:** All major credit cards and digital payment methods accepted\n`
+  answer += `• **Real-Time Tracking:** Track your service provider's arrival in real-time\n\n`
+  
+  answer += `**Get Started Now:**\n`
+  answer += `Download our mobile app from the App Store or Google Play, or contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** for assistance.`
+  
+  return answer
+}
+
+const formatAppsAnswer = (apps) => {
+  let answer = `**Tidyzon Mobile Applications**\n\n`
+  answer += `We offer two powerful mobile apps to enhance your experience:\n\n`
+  
+  answer += `**📱 Tidyzon User App**\n\n`
+  answer += `${apps.userApp.description}\n\n`
+  answer += `**Key Features:**\n`
+  apps.userApp.features.forEach(feature => {
+    answer += `• ${feature}\n`
+  })
+  answer += `\n**Download:**\n`
+  answer += `• iOS: Available on the App Store\n`
+  answer += `• Android: Available on Google Play\n\n`
+  
+  answer += `**👷 Tidyzon Provider App**\n\n`
+  answer += `${apps.providerApp.description}\n\n`
+  answer += `**Key Features:**\n`
+  apps.providerApp.features.forEach(feature => {
+    answer += `• ${feature}\n`
+  })
+  answer += `\n**Download:**\n`
+  answer += `• iOS: Available on the App Store\n`
+  answer += `• Android: Available on Google Play\n\n`
+  
+  answer += `**Need Help?**\n`
+  answer += `For app support or questions, contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or **${TIDYZON_KNOWLEDGE_BASE.contact.phone}**`
+  
+  return answer
+}
+
+const formatProviderAnswer = () => {
+  let answer = `**Become a Tidyzon Service Provider**\n\n`
+  answer += `Join our network of professional service providers and start earning today!\n\n`
+  
+  answer += `**Requirements to Get Started:**\n\n`
+  TIDYZON_KNOWLEDGE_BASE.providerRequirements.forEach((req, index) => {
+    answer += `${index + 1}. ${req}\n`
+  })
+  
+  answer += `\n**Benefits of Being a Tidyzon Provider:**\n\n`
+  answer += `• Flexible work schedule - work when you want\n`
+  answer += `• Competitive earnings with tips\n`
+  answer += `• Instant job notifications\n`
+  answer += `• Quick and secure payments\n`
+  answer += `• Build your reputation through reviews\n`
+  answer += `• Support from our team\n\n`
+  
+  answer += `**How to Apply:**\n\n`
+  answer += `1. Download the Tidyzon Provider App\n`
+  answer += `2. Complete the application process\n`
+  answer += `3. Pass background verification\n`
+  answer += `4. Complete mandatory training\n`
+  answer += `5. Start accepting jobs!\n\n`
+  
+  answer += `**Get Started:**\n`
+  answer += `Visit our website or contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or **${TIDYZON_KNOWLEDGE_BASE.contact.phone}** to learn more.`
+  
+  return answer
+}
+
+const formatFaqAnswer = (faq) => {
+  let answer = `**${faq.question}**\n\n`
+  answer += `${faq.answer}\n\n`
+  answer += `**Need More Help?**\n`
+  answer += `If you have additional questions, feel free to contact us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or call **${TIDYZON_KNOWLEDGE_BASE.contact.phone}**. We're here to assist you!`
+  
+  return answer
+}
+
+const formatTeamAnswer = () => {
+  let answer = `**Meet the Tidyzon Team**\n\n`
+  answer += `Our dedicated team of professionals is committed to delivering exceptional service:\n\n`
+  
+  answer += `**Executive Leadership:**\n\n`
+  TIDYZON_KNOWLEDGE_BASE.team.executives.forEach(exec => {
+    answer += `• **${exec.name}** - ${exec.position}\n`
+  })
+  
+  answer += `\n**Our Team:**\n\n`
+  TIDYZON_KNOWLEDGE_BASE.team.team.forEach(member => {
+    answer += `• **${member.name}** - ${member.position}\n`
+  })
+  
+  answer += `\n**Learn More:**\n`
+  answer += `Visit our Teams page to see full profiles and learn more about our team members.\n\n`
+  answer += `**Contact:**\n`
+  answer += `For team-related inquiries, email us at **${TIDYZON_KNOWLEDGE_BASE.contact.email}**`
+  
+  return answer
+}
+
+const formatGeneralAnswer = () => {
+  let answer = `**Welcome to Tidyzon!**\n\n`
+  answer += `I'm here to help you with information about Tidyzon's professional cleaning services. Here's what I can assist you with:\n\n`
+  
+  answer += `**📋 Services & Pricing**\n`
+  answer += `• Car cleaning packages (Speed, Deluxe, Premium)\n`
+  answer += `• Trash bin sanitization\n`
+  answer += `• Home cleaning (coming soon)\n\n`
+  
+  answer += `**📞 Contact Information**\n`
+  answer += `• Email: ${TIDYZON_KNOWLEDGE_BASE.contact.email}\n`
+  answer += `• Phone: ${TIDYZON_KNOWLEDGE_BASE.contact.phone}\n`
+  answer += `• Address: ${TIDYZON_KNOWLEDGE_BASE.contact.address}\n\n`
+  
+  answer += `**📱 Mobile Apps**\n`
+  answer += `• User app for booking services\n`
+  answer += `• Provider app for service providers\n\n`
+  
+  answer += `**❓ Frequently Asked Questions**\n`
+  answer += `• Booking process\n`
+  answer += `• Payment methods\n`
+  answer += `• Cancellation policies\n`
+  answer += `• Provider information\n\n`
+  
+  answer += `**💼 Become a Provider**\n`
+  answer += `• Requirements and application process\n`
+  answer += `• Benefits and earnings\n\n`
+  
+  answer += `**How can I help you today?**\n`
+  answer += `Try asking me about:\n`
+  answer += `• "What services do you offer?"\n`
+  answer += `• "How much does the Deluxe package cost?"\n`
+  answer += `• "How do I book a service?"\n`
+  answer += `• "What's your phone number?"\n\n`
+  answer += `Or contact us directly at **${TIDYZON_KNOWLEDGE_BASE.contact.email}** or **${TIDYZON_KNOWLEDGE_BASE.contact.phone}**`
+  
+  return answer
+}
+
+// Legacy function for backward compatibility
+const formatPackageAnswer = (pkg) => {
+  return formatPackageAnswerProfessional(pkg)
 }
 
 // Legacy search function for compatibility
