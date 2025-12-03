@@ -77,12 +77,27 @@ const Features = () => {
             const IconComponent = feature.icon
             return (
               <div key={index} className="feature-card">
-                <div className="feature-icon-container">
-                  <div className="feature-icon-bg"></div>
-                  <IconComponent className="feature-icon" />
+                {/* Desktop Layout */}
+                <div className="feature-desktop-layout">
+                  <div className="feature-icon-container">
+                    <div className="feature-icon-bg"></div>
+                    <IconComponent className="feature-icon" />
+                  </div>
+                  <h3 className="feature-card-title">{feature.title}</h3>
+                  <p className="feature-card-description">{feature.description}</p>
                 </div>
-                <h3 className="feature-card-title">{feature.title}</h3>
-                <p className="feature-card-description">{feature.description}</p>
+
+                {/* Mobile Layout */}
+                <div className="feature-mobile-layout">
+                  <div className="feature-icon-container-mobile">
+                    <div className="feature-icon-bg-mobile"></div>
+                    <IconComponent className="feature-icon-mobile" />
+                  </div>
+                  <div className="feature-mobile-content">
+                    <h3 className="feature-card-title-mobile">{feature.title}</h3>
+                    <p className="feature-card-description-mobile">{feature.description}</p>
+                  </div>
+                </div>
               </div>
             )
           })}

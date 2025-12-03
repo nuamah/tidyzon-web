@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Car, Sparkles, ArrowRight, Check, Clock } from 'lucide-react'
+import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import './Services.css'
 
@@ -8,6 +8,7 @@ const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [scrollY, setScrollY] = useState(0)
+  const [expandedPackage, setExpandedPackage] = useState('deluxe') // Default to deluxe (most popular)
   const servicesRef = useRef(null)
 
   const carPackages = [
@@ -127,86 +128,126 @@ const Services = () => {
 
           {/* Packages Grid */}
           <div className="packages-grid">
-            {carPackages.map((pkg, index) => (
-              <div 
-                key={pkg.id}
-                className={`pricing-card ${pkg.popular ? 'popular' : ''}`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
-              >
-                {pkg.popular && (
-                  <div className="popular-badge">
-                    <Sparkles className="popular-icon" />
-                    <span>Most Popular</span>
+            {carPackages.map((pkg, index) => {
+              const isExpanded = expandedPackage === pkg.id
+              
+              return (
+                <div 
+                  key={pkg.id}
+                  className={`pricing-card ${pkg.popular ? 'popular' : ''} ${isExpanded ? 'expanded' : ''}`}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
+                  {/* Desktop Layout - Original Structure */}
+                  <div className="package-desktop-layout">
+                    {pkg.popular && (
+                      <div className="popular-badge">
+                        <Sparkles className="popular-icon" />
+                        <span>Most Popular</span>
+                      </div>
+                    )}
+                    <div className="package-icon-wrapper">
+                      <Car className="package-icon" />
+                    </div>
+
+                    <div className="package-header">
+                      <h3 className="package-name">{pkg.name}</h3>
+                      <p className="package-title">{pkg.title}</p>
+                    </div>
+
+                    <div className="package-pricing">
+                      <span className="package-price">{pkg.price}</span>
+                      <span className="price-label">per wash</span>
+                    </div>
                   </div>
-                )}
 
-                <div className="package-icon-wrapper">
-                  <Car className="package-icon" />
-                </div>
+                  {/* Mobile Accordion Header - Always visible, clickable */}
+                  <div 
+                    className="package-accordion-header"
+                    onClick={() => setExpandedPackage(isExpanded ? null : pkg.id)}
+                  >
+                    <div className="package-header-left">
+                      <div className="package-icon-wrapper-mobile">
+                        <Car className="package-icon" />
+                      </div>
+                      <div className="package-header-content">
+                        <p className="package-title-mobile">{pkg.title}</p>
+                        <div className="package-pricing-mobile">
+                          <span className="package-price-mobile">{pkg.price}</span>
+                          <span className="price-label-mobile">per wash</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="package-header-right">
+                      {pkg.popular && (
+                        <div className="popular-badge-mobile">
+                          <Sparkles className="popular-icon" />
+                          <span>Most popular</span>
+                        </div>
+                      )}
+                      <ChevronDown className={`accordion-chevron ${isExpanded ? 'expanded' : ''}`} />
+                    </div>
+                  </div>
 
-                <div className="package-header">
-                  <h3 className="package-name">{pkg.name}</h3>
-                  <p className="package-title">{pkg.title}</p>
-                </div>
+                  {/* Accordion Content - Collapsible on mobile */}
+                  <div className={`package-accordion-content ${isExpanded ? 'expanded' : ''}`}>
+                    <div className="package-duration">
+                      <Clock className="duration-icon" />
+                      <span>{pkg.duration}</span>
+                    </div>
 
-                <div className="package-pricing">
-                  <span className="package-price">{pkg.price}</span>
-                  <span className="price-label">per wash</span>
-                </div>
-
-                <div className="package-duration">
-                  <Clock className="duration-icon" />
-                  <span>{pkg.duration}</span>
-                </div>
-
-                <div className="package-features">
-                  <h4 className="features-title">Included Features:</h4>
-                  <ul className="features-list">
-                    {pkg.features.slice(0, 3).map((feature, idx) => (
-                      <li key={idx} className="feature-item">
-                        <Check className="check-icon" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="features-divider"></div>
-                  
-                  <ul className="features-list features-list-additional">
-                    {pkg.features.slice(3).map((feature, idx) => {
-                      // Add divider after "Wipe door jambs" for all packages (separates section 2 from section 3)
-                      const shouldAddDividerAfterWipeDoorJambs = feature === 'Wipe door jambs';
-                      
-                      // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
-                      const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
-                                                             feature === 'machine wax';
-                      
-                      return (
-                        <React.Fragment key={idx}>
-                          {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
-                          <li className="feature-item">
+                    <div className="package-features">
+                      <h4 className="features-title">Included Features:</h4>
+                      <ul className="features-list">
+                        {pkg.features.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="feature-item">
                             <Check className="check-icon" />
                             <span>{feature}</span>
                           </li>
-                          {shouldAddDividerAfterWipeDoorJambs && <div className="features-divider"></div>}
-                        </React.Fragment>
-                      );
-                    })}
-                  </ul>
+                        ))}
+                      </ul>
+                      
+                      <div className="features-divider"></div>
+                      
+                      <ul className="features-list features-list-additional">
+                        {pkg.features.slice(3).map((feature, idx) => {
+                          // Add divider after "Wipe door jambs" for all packages (separates section 2 from section 3)
+                          const shouldAddDividerAfterWipeDoorJambs = feature === 'Wipe door jambs';
+                          
+                          // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
+                          const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
+                                                                 feature === 'machine wax';
+                          
+                          return (
+                            <React.Fragment key={idx}>
+                              {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
+                              <li className="feature-item">
+                                <Check className="check-icon" />
+                                <span>{feature}</span>
+                              </li>
+                              {shouldAddDividerAfterWipeDoorJambs && <div className="features-divider"></div>}
+                            </React.Fragment>
+                          );
+                        })}
+                      </ul>
+                    </div>
+
+                    <button 
+                      className={`pricing-cta-btn ${hoveredIndex === index ? 'hovered' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setIsModalOpen(true)
+                      }}
+                    >
+                      <span>Continue</span>
+                      <ArrowRight className="cta-arrow" />
+                    </button>
+                  </div>
+
+                  <div className="card-glow"></div>
                 </div>
-
-                <button 
-                  className={`pricing-cta-btn ${hoveredIndex === index ? 'hovered' : ''}`}
-                  onClick={() => setIsModalOpen(true)}
-                >
-                  <span>Continue</span>
-                  <ArrowRight className="cta-arrow" />
-                </button>
-
-                <div className="card-glow"></div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* Bottom CTA */}
