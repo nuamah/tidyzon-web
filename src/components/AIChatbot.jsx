@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { MessageCircle, X, Send, Loader } from 'lucide-react'
 import OpenAI from 'openai'
 import { TIDYZON_KNOWLEDGE_BASE, findAnswer } from '../data/tidyzon-knowledge-base'
@@ -19,41 +19,49 @@ const AIChatbot = () => {
   const messagesEndRef = useRef(null)
 
   // Initialize OpenAI client - Get API key from environment
-  // Try multiple ways to get the API key
-  const apiKey = import.meta.env.VITE_OPENAI_API_KEY || 
-                 import.meta.env.OPENAI_API_KEY ||
-                 (typeof process !== 'undefined' && process.env?.VITE_OPENAI_API_KEY)
+  // Get API key from Vite environment variables
+  const apiKey = import.meta.env.VITE_OPENAI_API_KEY
   
   // Debug: Log API key status on component mount
   useEffect(() => {
     console.log('🔍 Checking API Key...')
     console.log('Environment mode:', import.meta.env.MODE)
-    console.log('import.meta.env keys:', Object.keys(import.meta.env))
-    console.log('VITE_OPENAI_API_KEY value:', import.meta.env.VITE_OPENAI_API_KEY ? 'EXISTS' : 'NOT FOUND')
-    console.log('API Key exists:', !!apiKey)
+    console.log('VITE_OPENAI_API_KEY exists:', !!import.meta.env.VITE_OPENAI_API_KEY)
     
-    if (apiKey && apiKey.length > 0) {
-      console.log('✅ API Key found (first 15 chars):', apiKey.substring(0, 15) + '...')
-      console.log('✅ API Key length:', apiKey.length)
+    if (apiKey && apiKey.length > 0 && apiKey.startsWith('sk-')) {
+      console.log('✅ API Key found and appears valid (length:', apiKey.length, ')')
+      console.log('✅ API Key prefix:', apiKey.substring(0, 7) + '...')
+      console.log('✅ OpenAI client will be initialized')
       setApiAvailable(true)
+      setQuotaExceeded(false) // Reset quota status on mount
+    } else if (apiKey && apiKey.length > 0 && (apiKey === 'your_key_here' || !apiKey.startsWith('sk-'))) {
+      console.warn('⚠️ API Key appears to be a placeholder or invalid')
+      setApiAvailable(false)
     } else {
-      console.warn('⚠️ API Key NOT found!')
-      console.warn('All import.meta.env keys:', Object.keys(import.meta.env))
-      console.warn('VITE_ prefixed vars:', Object.keys(import.meta.env).filter(k => k.startsWith('VITE_')))
-      console.warn('💡 IMPORTANT:')
+      console.warn('⚠️ API Key NOT found or invalid!')
+      console.warn('💡 To enable AI features:')
       console.warn('   1. Make sure .env file is in project root (same folder as package.json)')
-      console.warn('   2. .env file must contain: VITE_OPENAI_API_KEY=your_key_here')
+      console.warn('   2. .env file must contain: VITE_OPENAI_API_KEY=sk-your-actual-key')
       console.warn('   3. STOP the dev server (Ctrl+C) and RESTART it (npm run dev)')
       console.warn('   4. Vite only reads .env files when the server STARTS')
+      console.warn('📚 Chatbot will use local knowledge base instead')
       setApiAvailable(false)
     }
   }, [apiKey])
 
-  const openai = apiKey ? new OpenAI({
-    apiKey: apiKey,
-    dangerouslyAllowBrowser: true, // Required for browser usage
-    maxRetries: 0 // Disable retries to avoid multiple 429 errors
-  }) : null
+  // Initialize OpenAI client only when API key is available
+  const openai = useMemo(() => {
+    if (apiKey && apiKey.startsWith('sk-')) {
+      console.log('🔧 Initializing OpenAI client with API key')
+      return new OpenAI({
+        apiKey: apiKey,
+        dangerouslyAllowBrowser: true, // Required for browser usage
+        maxRetries: 0 // Disable retries to avoid multiple 429 errors
+      })
+    }
+    console.log('⚠️ OpenAI client not initialized - no valid API key')
+    return null
+  }, [apiKey])
 
   // Check API availability when chat opens
   useEffect(() => {
@@ -169,61 +177,125 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
     setMessages(newMessages)
     setIsLoading(true)
 
-    // Try OpenAI API first if available and quota hasn't been exceeded
-    if (apiAvailable && openai && !quotaExceeded) {
+    // Debug: Log current state
+    console.log('🔍 DEBUG - handleSendMessage called')
+    console.log('🔍 apiKey exists:', !!apiKey)
+    console.log('🔍 apiKey starts with sk-:', apiKey?.startsWith('sk-'))
+    console.log('🔍 apiKey value:', apiKey ? apiKey.substring(0, 20) + '...' : 'undefined')
+    console.log('🔍 openai client exists:', !!openai)
+    console.log('🔍 quotaExceeded:', quotaExceeded)
+    console.log('🔍 apiAvailable:', apiAvailable)
+    console.log('🔍 import.meta.env.VITE_OPENAI_API_KEY:', import.meta.env.VITE_OPENAI_API_KEY ? import.meta.env.VITE_OPENAI_API_KEY.substring(0, 20) + '...' : 'NOT FOUND')
+
+    // ALWAYS try OpenAI API first if API key exists and quota hasn't been exceeded
+    // Check apiKey directly from env as fallback
+    const effectiveApiKey = apiKey || import.meta.env.VITE_OPENAI_API_KEY
+    
+    // Create OpenAI client on the fly if it doesn't exist but we have a key
+    let effectiveOpenai = openai
+    if (!effectiveOpenai && effectiveApiKey && effectiveApiKey.startsWith('sk-')) {
+      console.log('🔧 Creating OpenAI client on-the-fly')
+      effectiveOpenai = new OpenAI({
+        apiKey: effectiveApiKey,
+        dangerouslyAllowBrowser: true,
+        maxRetries: 0
+      })
+    }
+    
+    const shouldUseAPI = effectiveApiKey && effectiveApiKey.startsWith('sk-') && effectiveOpenai && !quotaExceeded
+    
+    console.log('🔍 effectiveApiKey:', effectiveApiKey ? effectiveApiKey.substring(0, 20) + '...' : 'undefined')
+    console.log('🔍 effectiveOpenai exists:', !!effectiveOpenai)
+    console.log('🔍 shouldUseAPI:', shouldUseAPI)
+    
+    if (shouldUseAPI) {
+      console.log('✅ All conditions met - Attempting OpenAI API call')
+      console.log('🤖 Attempting OpenAI API call with key:', effectiveApiKey.substring(0, 15) + '...')
       console.log('🤖 Sending message to OpenAI API:', userMessage)
+      console.log('🤖 System prompt length:', SYSTEM_PROMPT.length, 'characters')
+      console.log('🤖 Messages being sent:', newMessages.length, 'messages')
 
       try {
-        const completion = await openai.chat.completions.create({
-          model: 'gpt-3.5-turbo',
+        const modelName = 'gpt-3.5-turbo'
+        console.log('🚀 Making OpenAI API request now...')
+        console.log('📋 Using model:', modelName)
+        const completion = await effectiveOpenai.chat.completions.create({
+          model: modelName,
           messages: [
             { role: 'system', content: SYSTEM_PROMPT },
             ...newMessages
           ],
-          max_tokens: 800,
+          max_tokens: 1000,
           temperature: 0.7,
         })
+        console.log('✅ OpenAI API request completed successfully')
 
         const assistantMessage = completion.choices[0].message.content
-        console.log('✅ OpenAI API Response received:', assistantMessage.substring(0, 200))
+        console.log('✅ OpenAI API Response received successfully!')
+        console.log('✅ Response length:', assistantMessage.length, 'characters')
+        console.log('✅ Response preview:', assistantMessage.substring(0, 200))
+        
+        // Mark API as available since we got a successful response
+        setApiAvailable(true)
+        setQuotaExceeded(false)
         
         setMessages([...newMessages, { 
           role: 'assistant', 
           content: assistantMessage 
         }])
         setIsLoading(false)
-        return
+        return // Exit early on success
       } catch (error) {
         console.error('❌ OpenAI API Error:', error)
+        console.error('❌ Error name:', error.name)
+        console.error('❌ Error message:', error.message)
+        console.error('❌ Error status:', error.status)
+        
         const errorMessage = (error.message || '').toLowerCase()
-        const errorType = error.constructor?.name || ''
+        const errorType = error.constructor?.name || error.name || ''
         const statusCode = error.status || error.response?.status || ''
         
         // Handle quota/rate limit errors - fall back to local knowledge base
-        // Check for quota, rate limit, 429 status, or RateLimitError type
         if (errorMessage.includes('quota') || 
             errorMessage.includes('rate limit') || 
             errorMessage.includes('429') ||
             errorType.includes('RateLimit') ||
             statusCode === 429) {
-          console.log('⚠️ API quota/rate limit exceeded, disabling API and using local knowledge base')
-          setQuotaExceeded(true) // Disable future API calls
-          setApiAvailable(false) // Mark API as unavailable
+          console.log('⚠️ API quota/rate limit exceeded (429 error)')
+          console.log('⚠️ Model being used: gpt-3.5-turbo')
+          console.log('⚠️ Falling back to local knowledge base')
+          setQuotaExceeded(true)
+          setApiAvailable(false)
           // Continue to local knowledge base fallback below
         } else if (errorMessage.includes('api key') || 
                    errorMessage.includes('authentication') ||
                    errorMessage.includes('401') ||
-                   errorType.includes('Authentication')) {
-          console.log('⚠️ API key issue, falling back to local knowledge base')
+                   errorType.includes('Authentication') ||
+                   statusCode === 401) {
+          console.log('⚠️ API key authentication issue, will use local knowledge base')
           setApiAvailable(false)
           // Continue to local knowledge base fallback below
         } else {
-          // For other errors, try local knowledge base as fallback
-          console.log('⚠️ API error, falling back to local knowledge base:', errorMessage)
+          // For other errors (network, timeout, etc.), try local knowledge base as fallback
+          console.log('⚠️ API error occurred, falling back to local knowledge base:', errorMessage)
+          console.log('⚠️ Error type:', errorType, 'Status:', statusCode)
         }
       }
-    } else if (quotaExceeded) {
-      console.log('📚 Skipping API call (quota exceeded), using local knowledge base')
+    } else {
+      console.log('❌ OpenAI API call NOT attempted. Reasons:')
+      if (!apiKey || !apiKey.startsWith('sk-')) {
+        console.log('   ❌ No valid API key found')
+        console.log('   ❌ apiKey value:', apiKey || 'undefined')
+        console.log('   ❌ import.meta.env.VITE_OPENAI_API_KEY:', import.meta.env.VITE_OPENAI_API_KEY ? 'EXISTS' : 'NOT FOUND')
+      }
+      if (quotaExceeded) {
+        console.log('   ❌ API quota exceeded')
+      }
+      if (!openai) {
+        console.log('   ❌ OpenAI client not initialized')
+        console.log('   ❌ This means apiKey check failed during useMemo initialization')
+      }
+      console.log('📚 Falling back to local knowledge base')
     }
 
     // Fallback to local knowledge base
@@ -244,10 +316,7 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
         assistantMessage = result?.answer || `I'm here to help! You can ask me about:\n\n• Our car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n\nFor detailed assistance, please contact us at info@tidyzon.com or call (630) 788-9081.`
       }
       
-      // Add a note if we're using fallback due to API issues (but not for greetings to keep it friendly)
-      if (apiAvailable && openai && !isGreeting) {
-        assistantMessage = `*Note: Using local knowledge base due to API limitations. For more detailed assistance, please contact us at info@tidyzon.com or call (630) 788-9081.*\n\n${assistantMessage}`
-      }
+      // Don't add fallback note - user wants API to be primary method
       
       console.log('✅ Local knowledge base response generated, length:', assistantMessage.length)
       
@@ -352,7 +421,7 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
               <div className="chat-title-section">
                 <h3 className="chat-title">Tidy A.I Assistant</h3>
                 <p className="chat-status">
-                  {apiAvailable ? 'AI-Powered' : 'AI Unavailable'}
+                  {apiAvailable ? 'AI-Powered' : 'Knowledge Base'}
                 </p>
               </div>
             </div>
@@ -394,14 +463,14 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder={apiAvailable ? "Type your message..." : "AI unavailable - Contact us at info@tidyzon.com"}
+              placeholder={apiAvailable ? "Type your message..." : "Type your message (using knowledge base)..."}
               className="chat-input"
               rows="1"
-              disabled={isLoading || !apiAvailable}
+              disabled={isLoading}
             />
             <button
               onClick={handleSendMessage}
-              disabled={!inputMessage.trim() || isLoading || !apiAvailable}
+              disabled={!inputMessage.trim() || isLoading}
               className="chat-send-btn"
               aria-label="Send message"
             >

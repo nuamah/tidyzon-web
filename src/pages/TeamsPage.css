@@ -196,15 +196,18 @@
 
 .member-image-container {
   position: relative;
+  width: 100%;
   height: 300px;
   overflow: hidden;
   border-radius: 12px;
+  background: #f3f4f6;
 }
 
 .member-image {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
+  object-position: center;
   border-radius: 12px;
   transition: transform 0.3s ease;
 }
