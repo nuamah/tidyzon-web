@@ -164,7 +164,11 @@ const Services = () => {
                   {/* Mobile Accordion Header - Always visible, clickable */}
                   <div 
                     className="package-accordion-header"
-                    onClick={() => setExpandedPackage(isExpanded ? null : pkg.id)}
+                    onClick={() => {
+                      // If clicking the same package that's already expanded, close it
+                      // Otherwise, open the clicked package (this automatically closes any other open package)
+                      setExpandedPackage(isExpanded ? null : pkg.id)
+                    }}
                   >
                     <div className="package-header-left">
                       <div className="package-icon-wrapper-mobile">

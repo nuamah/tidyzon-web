@@ -416,6 +416,13 @@
   .pricing-card {
     padding: 0.875rem 1rem;
     border-radius: 16px;
+    border: none !important; /* Remove all borders on mobile */
+  }
+
+  /* Remove green border for popular packages on mobile */
+  .pricing-card.popular {
+    border: none !important;
+    background: #ffffff; /* Remove gradient background on mobile */
   }
 
   .package-desktop-layout {
@@ -573,6 +580,39 @@
 
   .package-accordion-content * {
     pointer-events: auto;
+  }
+
+  /* Disable all hover effects on mobile */
+  .pricing-card:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-card.popular:hover {
+    transform: none;
+  }
+
+  .pricing-card:hover .package-icon-wrapper {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    transform: none;
+  }
+
+  .pricing-card:hover .package-icon {
+    color: #10b981;
+  }
+
+  .pricing-cta-btn:hover {
+    transform: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-cta-btn:hover .cta-arrow {
+    transform: none;
+  }
+
+  .pricing-card:hover .card-glow {
+    opacity: 0;
   }
 }
 
