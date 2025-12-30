@@ -594,6 +594,23 @@
     border-color: transparent !important;
   }
 
+  /* Completely disable the card glow splash effect on mobile */
+  .card-glow {
+    display: none !important;
+  }
+
+  /* Remove hover state from button when hovered class is applied */
+  .pricing-cta-btn.hovered,
+  .pricing-cta-btn:hover {
+    transform: none !important;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4) !important;
+  }
+
+  .pricing-cta-btn.hovered .cta-arrow,
+  .pricing-cta-btn:hover .cta-arrow {
+    transform: none !important;
+  }
+
   .pricing-card:hover .package-icon-wrapper {
     background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
     transform: none !important;
@@ -610,6 +627,12 @@
 
   .pricing-cta-btn:hover .cta-arrow {
     transform: none !important;
+  }
+
+  /* Remove hover effects on CTA button itself */
+  .pricing-cta-btn:hover {
+    transform: none !important;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4) !important;
   }
 
   .pricing-card:hover .card-glow {

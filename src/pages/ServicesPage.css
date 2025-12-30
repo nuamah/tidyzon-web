@@ -1177,6 +1177,28 @@
   .package-accordion-content * {
     pointer-events: auto;
   }
+
+  /* Remove all hover effects from pricing button on mobile */
+  .pricing-cta-btn:hover,
+  .pricing-cta-btn.hovered {
+    transform: none !important;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4) !important;
+  }
+
+  .pricing-cta-btn:hover .cta-arrow,
+  .pricing-cta-btn.hovered .cta-arrow {
+    transform: none !important;
+  }
+
+  /* Disable splash effect on mobile */
+  .pricing-cta-btn::before {
+    display: none !important;
+  }
+
+  .pricing-cta-btn.hovered::before {
+    width: 0 !important;
+    height: 0 !important;
+  }
 }
 
 @media (max-width: 768px) {
