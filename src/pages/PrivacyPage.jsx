@@ -1,8 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './PrivacyPage.css'
 
 const PrivacyPage = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Scroll to hash anchor if present
+    if (location.hash) {
+      const element = document.querySelector(location.hash)
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+      }
+    } else {
+      // Scroll to top if no hash
+      window.scrollTo(0, 0)
+    }
+  }, [location])
+
   return (
     <div className="privacy-page">
       {/* Hero Section */}
@@ -321,9 +338,79 @@ const PrivacyPage = () => {
               </p>
             </div>
 
+            {/* SMS Privacy */}
+            <div id="sms-privacy" className="privacy-section">
+              <h2 className="privacy-section-title">6. SMS AND TEXT MESSAGE PRIVACY</h2>
+              <p className="privacy-text">
+                This section explains how Tidyzon handles your phone number and SMS-related data when you opt in to receive text messages from us.
+              </p>
+              
+              <h3 className="privacy-subsection-title">6.1 What We Collect for SMS</h3>
+              <p className="privacy-text">When you opt in to receive SMS messages, we collect:</p>
+              <ul className="privacy-list">
+                <li>Phone number</li>
+                <li>Opt-in and opt-out records (timestamp, source, and method)</li>
+                <li>Message metadata (timestamps, delivery status)</li>
+                <li>Message content needed to provide the service (example: OTP, booking updates, support threads)</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">6.2 How We Use SMS Data</h3>
+              <p className="privacy-text">We use SMS-related data to:</p>
+              <ul className="privacy-list">
+                <li>Provide security and account access (example: OTP)</li>
+                <li>Send booking and service updates you request</li>
+                <li>Provide customer support</li>
+                <li>Prevent fraud and abuse</li>
+                <li>Meet legal and compliance obligations</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">6.3 Sharing of SMS Data</h3>
+              <p className="privacy-text">We may share limited SMS-related data with:</p>
+              <ul className="privacy-list">
+                <li>Messaging and infrastructure vendors that deliver messages on our behalf</li>
+                <li>Providers and contractors only as needed to fulfill a booking</li>
+                <li>Authorities, when required by law</li>
+              </ul>
+              <p className="privacy-text">
+                Vendors must protect your information and may use it only to provide services to Tidyzon.
+              </p>
+
+              <h3 className="privacy-subsection-title">6.4 No Selling or Marketing Sharing</h3>
+              <ul className="privacy-list">
+                <li>Tidyzon does not sell your phone number.</li>
+                <li>Tidyzon does not share mobile information for third-party marketing or promotional purposes.</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">6.5 SMS Data Retention</h3>
+              <p className="privacy-text">We keep SMS-related data only as long as needed for:</p>
+              <ul className="privacy-list">
+                <li>Service delivery</li>
+                <li>Security and fraud prevention</li>
+                <li>Compliance and dispute resolution</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">6.6 Your SMS Choices</h3>
+              <ul className="privacy-list">
+                <li>Reply STOP to opt out.</li>
+                <li>Manage notification preferences in the app.</li>
+                <li>Request access, correction, or deletion where applicable by contacting support.</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">6.7 Your SMS Rights</h3>
+              <p className="privacy-text">Depending on your location, you may have the right to:</p>
+              <ul className="privacy-list">
+                <li>Access, correct, or delete your SMS-related personal information</li>
+                <li>Withdraw consent for SMS communications</li>
+                <li>Request information about SMS data usage and sharing</li>
+              </ul>
+              <p className="privacy-text">
+                Requests can be made through the TidyZon app or customer support. For more information about our SMS program terms, please see our <Link to="/terms#sms-terms" className="privacy-link">SMS Terms & Conditions</Link>.
+              </p>
+            </div>
+
             {/* Payment Information */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">6. PAYMENT INFORMATION</h2>
+              <h2 className="privacy-section-title">7. PAYMENT INFORMATION</h2>
               <p className="privacy-text">
                 We use Stripe as our payment processor. When you provide payment information, you are providing it directly to Stripe, and Tidyzon does not store your full payment details. Please review Stripe's privacy policy to understand how they handle your payment information.
               </p>
@@ -331,7 +418,7 @@ const PrivacyPage = () => {
 
             {/* Data Retention */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">7. DATA RETENTION</h2>
+              <h2 className="privacy-section-title">8. DATA RETENTION</h2>
               <p className="privacy-text">
                 We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When determining how long to retain information, we consider the amount, nature, and sensitivity of the information, the potential risk of harm from unauthorized use or disclosure, and whether we can achieve the purposes of processing through other means.
               </p>
@@ -339,7 +426,7 @@ const PrivacyPage = () => {
 
             {/* Data Security */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">8. DATA SECURITY</h2>
+              <h2 className="privacy-section-title">9. DATA SECURITY</h2>
               <p className="privacy-text">
                 We have implemented appropriate technical and organizational measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. However, no method of transmission over the Internet or electronic storage is 100% secure. Therefore, while we strive to protect your personal information, we cannot guarantee its absolute security.
               </p>
@@ -347,30 +434,30 @@ const PrivacyPage = () => {
 
             {/* Your Rights and Choices */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">9. YOUR RIGHTS AND CHOICES</h2>
+              <h2 className="privacy-section-title">10. YOUR RIGHTS AND CHOICES</h2>
               <p className="privacy-text">Depending on your location, you may have certain rights regarding your personal information:</p>
               
-              <h3 className="privacy-subsection-title">9.1 Account Information</h3>
+              <h3 className="privacy-subsection-title">10.1 Account Information</h3>
               <p className="privacy-text">
                 You can review and change your personal information by logging into your account and visiting your account profile page.
               </p>
 
-              <h3 className="privacy-subsection-title">9.2 Location Data</h3>
+              <h3 className="privacy-subsection-title">10.2 Location Data</h3>
               <p className="privacy-text">
                 You can choose whether to allow our mobile application to collect and use real-time information about your device's location through your device's settings. If you block the use of location information, some parts of our Platform may be inaccessible or have limited functionality.
               </p>
 
-              <h3 className="privacy-subsection-title">9.3 Promotional Communications</h3>
+              <h3 className="privacy-subsection-title">10.3 Promotional Communications</h3>
               <p className="privacy-text">
                 You can opt out of receiving promotional emails from us by following the instructions in those emails. If you opt out, we may still send you non-promotional communications, such as those about your account or our ongoing business relations.
               </p>
 
-              <h3 className="privacy-subsection-title">9.4 Do Not Track</h3>
+              <h3 className="privacy-subsection-title">10.4 Do Not Track</h3>
               <p className="privacy-text">
                 Some browsers have a "Do Not Track" feature that lets you tell websites that you do not want to have your online activities tracked. Our Platform does not currently respond to browser "Do Not Track" signals.
               </p>
 
-              <h3 className="privacy-subsection-title">9.5 Privacy Rights</h3>
+              <h3 className="privacy-subsection-title">10.5 Privacy Rights</h3>
               <p className="privacy-text">Depending on your location, you may have the right to:</p>
               <ul className="privacy-list">
                 <li>Access the personal information we have about you</li>
@@ -387,7 +474,7 @@ const PrivacyPage = () => {
 
             {/* Children's Privacy */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">10. CHILDREN'S PRIVACY</h2>
+              <h2 className="privacy-section-title">11. CHILDREN'S PRIVACY</h2>
               <p className="privacy-text">
                 Our Platform is not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18. If you are a parent or guardian and believe we have collected information from your child, please contact us immediately.
               </p>
@@ -395,7 +482,7 @@ const PrivacyPage = () => {
 
             {/* International Data Transfers */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">11. INTERNATIONAL DATA TRANSFERS</h2>
+              <h2 className="privacy-section-title">12. INTERNATIONAL DATA TRANSFERS</h2>
               <p className="privacy-text">
                 Our Platform is operated in the United States. If you are located outside of the United States, please be aware that information we collect will be transferred to, processed, and stored in the United States. By using our Platform, you consent to the transfer, processing, and storage of your information in the United States, where different data protection laws may apply.
               </p>
@@ -403,7 +490,7 @@ const PrivacyPage = () => {
 
             {/* Changes to Privacy Policy */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">12. CHANGES TO THIS PRIVACY POLICY</h2>
+              <h2 className="privacy-section-title">13. CHANGES TO THIS PRIVACY POLICY</h2>
               <p className="privacy-text">
                 We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. We will provide more prominent notice of material changes, which may include email notification. Your continued use of the Platform after we post changes to the Privacy Policy means you accept those changes.
               </p>
@@ -411,7 +498,7 @@ const PrivacyPage = () => {
 
             {/* Contact Us */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">13. CONTACT US</h2>
+              <h2 className="privacy-section-title">14. CONTACT US</h2>
               <p className="privacy-text">If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
               <div className="contact-info">
                 <p className="privacy-text"><strong>Tidyzon, Inc.</strong></p>
@@ -422,12 +509,12 @@ const PrivacyPage = () => {
 
             {/* California Privacy Rights */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">14. CALIFORNIA PRIVACY RIGHTS</h2>
+              <h2 className="privacy-section-title">15. CALIFORNIA PRIVACY RIGHTS</h2>
               <p className="privacy-text">
                 If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. To learn more about your California privacy rights, visit our <Link to="/california-privacy" className="privacy-link">California Privacy Notice for California Residents</Link>.
               </p>
               
-              <h3 className="privacy-subsection-title">14.1 California "Shine the Light" Law</h3>
+              <h3 className="privacy-subsection-title">15.1 California "Shine the Light" Law</h3>
               <p className="privacy-text">
                 California's "Shine the Light" law (Civil Code Section § 1798.83) permits users of our Platform that are California residents to request certain information regarding our disclosure of personal information to third parties for their direct marketing purposes. To make such a request, please send an email or write to us at the address provided in Section 13.
               </p>
@@ -435,7 +522,7 @@ const PrivacyPage = () => {
 
             {/* Nevada Privacy Rights */}
             <div className="privacy-section">
-              <h2 className="privacy-section-title">15. NEVADA PRIVACY RIGHTS</h2>
+              <h2 className="privacy-section-title">16. NEVADA PRIVACY RIGHTS</h2>
               <p className="privacy-text">
                 Nevada residents have the right to opt out of the sale of certain personal information to third parties who intend to license or sell that personal information. You can exercise this right by contacting us at the address provided in Section 13 with the subject line "Nevada Do Not Sell Request" and providing us with your name and the email address associated with your account.
               </p>

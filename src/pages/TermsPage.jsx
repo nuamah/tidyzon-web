@@ -1,9 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 import './TermsPage.css'
 
 const TermsPage = () => {
+  const location = useLocation()
+
+  useEffect(() => {
+    // Scroll to hash anchor if present
+    if (location.hash) {
+      const element = document.querySelector(location.hash)
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, 100)
+      }
+    } else {
+      // Scroll to top if no hash
+      window.scrollTo(0, 0)
+    }
+  }, [location])
+
   return (
     <div className="terms-page">
       {/* Hero Section */}
