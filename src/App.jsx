@@ -17,6 +17,7 @@ import ProviderPage from './pages/ProviderPage'
 import TeamsPage from './pages/TeamsPage'
 import OpenPositionsPage from './pages/OpenPositionsPage'
 import TermsPage from './pages/TermsPage'
+import CustomerServiceAgreementPage from './pages/CustomerServiceAgreementPage'
 import PrivacyPage from './pages/PrivacyPage'
 import CaliforniaPrivacyPage from './pages/CaliforniaPrivacyPage'
 import DoNotSellPage from './pages/DoNotSellPage'
@@ -44,6 +45,7 @@ function App() {
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/open-positions" element={<OpenPositionsPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/customer-service-agreement" element={<CustomerServiceAgreementPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/california-privacy" element={<CaliforniaPrivacyPage />} />
           <Route path="/privacy/do-not-sell-or-share" element={<DoNotSellPage />} />
