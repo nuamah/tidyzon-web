@@ -357,25 +357,33 @@ const TermsPage = () => {
             <div className="terms-section">
               <h2 className="terms-section-title">8. CUSTOMER SERVICE AGREEMENT</h2>
               <p className="terms-text">
-                Review the Customer Service Agreement governing use of our services (<Link to="/customer-service-agreement" className="terms-link">CUSTOMER SERVICE AGREEMENT</Link>).
+                Review the Customer Service Agreement governing use of our services (<Link to="/customer-service-agreement" className="terms-link">Customer service agreement</Link>).
+              </p>
+            </div>
+
+            {/* Service Provider Agreement */}
+            <div className="terms-section">
+              <h2 className="terms-section-title">9. SERVICE PROVIDER AGREEMENT</h2>
+              <p className="terms-text">
+                Review the Service Provider Agreement governing use of our services (<Link to="/service-provider-agreement" className="terms-link">Service provider agreement</Link>).
               </p>
             </div>
 
             {/* Payment Terms */}
             <div className="terms-section">
-              <h2 className="terms-section-title">9. PAYMENT TERMS</h2>
+              <h2 className="terms-section-title">10. PAYMENT TERMS</h2>
               
-              <h3 className="terms-subsection-title">9.1 Pricing</h3>
+              <h3 className="terms-subsection-title">10.1 Pricing</h3>
               <p className="terms-text">
                 Service prices will be displayed on the Platform before you confirm your booking. Prices may vary based on service type, location, and other factors.
               </p>
 
-              <h3 className="terms-subsection-title">9.2 Payment Processing</h3>
+              <h3 className="terms-subsection-title">10.2 Payment Processing</h3>
               <p className="terms-text">
                 All payments are processed through Stripe, a third-party payment processor. Tidyzon does not store your payment information or details specific to payments. By making a payment, you agree to Stripe's terms of service and privacy policy.
               </p>
 
-              <h3 className="terms-subsection-title">9.3 Refunds</h3>
+              <h3 className="terms-subsection-title">10.3 Refunds</h3>
               <p className="terms-text">
                 Refund policies will be specified at the time of booking. Generally, if no service provider accepts your service request, you will not be charged.
               </p>
@@ -383,7 +391,7 @@ const TermsPage = () => {
 
             {/* Limitation of Liability */}
             <div className="terms-section">
-              <h2 className="terms-section-title">10. LIMITATION OF LIABILITY</h2>
+              <h2 className="terms-section-title">11. LIMITATION OF LIABILITY</h2>
               <p className="terms-text">
                 TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL TIDYZON BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE PLATFORM OR SERVICES.
               </p>
@@ -394,7 +402,7 @@ const TermsPage = () => {
 
             {/* Disclaimer of Warranties */}
             <div className="terms-section">
-              <h2 className="terms-section-title">11. DISCLAIMER OF WARRANTIES</h2>
+              <h2 className="terms-section-title">12. DISCLAIMER OF WARRANTIES</h2>
               <p className="terms-text">
                 THE PLATFORM AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
               </p>
@@ -402,7 +410,7 @@ const TermsPage = () => {
 
             {/* Indemnification */}
             <div className="terms-section">
-              <h2 className="terms-section-title">12. INDEMNIFICATION</h2>
+              <h2 className="terms-section-title">13. INDEMNIFICATION</h2>
               <p className="terms-text">
                 You agree to indemnify, defend, and hold harmless Tidyzon and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in any way connected with your access to or use of the Platform or Services.
               </p>
@@ -410,7 +418,7 @@ const TermsPage = () => {
 
             {/* Third-Party Services */}
             <div className="terms-section">
-              <h2 className="terms-section-title">13. THIRD-PARTY SERVICES</h2>
+              <h2 className="terms-section-title">14. THIRD-PARTY SERVICES</h2>
               <p className="terms-text">
                 Our Platform may contain links to third-party websites or services that are not owned or controlled by Tidyzon. Tidyzon has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services.
               </p>
@@ -418,7 +426,7 @@ const TermsPage = () => {
 
             {/* Data Collection and Privacy */}
             <div className="terms-section">
-              <h2 className="terms-section-title">14. DATA COLLECTION AND PRIVACY</h2>
+              <h2 className="terms-section-title">15. DATA COLLECTION AND PRIVACY</h2>
               <p className="terms-text">
                 Your use of our Platform is also governed by our Privacy Policy, which is incorporated by reference into these Terms. Please review our Privacy Policy to understand our practices.
               </p>
@@ -426,7 +434,7 @@ const TermsPage = () => {
 
             {/* Modifications to Terms */}
             <div className="terms-section">
-              <h2 className="terms-section-title">15. MODIFICATIONS TO TERMS</h2>
+              <h2 className="terms-section-title">16. MODIFICATIONS TO TERMS</h2>
               <p className="terms-text">
                 Tidyzon reserves the right to modify these Terms at any time. We will provide notice of any material changes through the Platform or by other means. Your continued use of the Platform after such modifications will constitute your acknowledgment and agreement to the modified Terms.
               </p>
@@ -434,7 +442,7 @@ const TermsPage = () => {
 
             {/* Termination */}
             <div className="terms-section">
-              <h2 className="terms-section-title">16. TERMINATION</h2>
+              <h2 className="terms-section-title">17. TERMINATION</h2>
               <p className="terms-text">
                 Tidyzon reserves the right to terminate or suspend your account and access to the Platform at any time, without prior notice or liability, for any reason.
               </p>
@@ -442,7 +450,7 @@ const TermsPage = () => {
 
             {/* Governing Law */}
             <div className="terms-section">
-              <h2 className="terms-section-title">17. GOVERNING LAW</h2>
+              <h2 className="terms-section-title">18. GOVERNING LAW</h2>
               <p className="terms-text">
                 These Terms shall be governed by and construed in accordance with the laws of the State of Illinois, without regard to its conflict of law provisions.
               </p>
@@ -450,7 +458,7 @@ const TermsPage = () => {
 
             {/* Dispute Resolution */}
             <div className="terms-section">
-              <h2 className="terms-section-title">18. DISPUTE RESOLUTION</h2>
+              <h2 className="terms-section-title">19. DISPUTE RESOLUTION</h2>
               <p className="terms-text">
                 Any dispute arising from or relating to the subject matter of these Terms shall be finally settled in accordance with the laws of the State of Illinois. The courts located in Illinois will have exclusive jurisdiction over any dispute arising out of these Terms.
               </p>
@@ -458,7 +466,7 @@ const TermsPage = () => {
 
             {/* Severability */}
             <div className="terms-section">
-              <h2 className="terms-section-title">19. SEVERABILITY</h2>
+              <h2 className="terms-section-title">20. SEVERABILITY</h2>
               <p className="terms-text">
                 If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
               </p>
@@ -466,7 +474,7 @@ const TermsPage = () => {
 
             {/* Entire Agreement */}
             <div className="terms-section">
-              <h2 className="terms-section-title">20. ENTIRE AGREEMENT</h2>
+              <h2 className="terms-section-title">21. ENTIRE AGREEMENT</h2>
               <p className="terms-text">
                 These Terms constitute the entire agreement between you and Tidyzon regarding the Platform and supersede all prior and contemporaneous written or oral agreements.
               </p>
@@ -474,7 +482,7 @@ const TermsPage = () => {
 
             {/* Contact Information */}
             <div className="terms-section">
-              <h2 className="terms-section-title">21. CONTACT INFORMATION</h2>
+              <h2 className="terms-section-title">22. CONTACT INFORMATION</h2>
               <p className="terms-text">
                 If you have any questions about these Terms, please contact us at info@tidyzon.com.
               </p>
