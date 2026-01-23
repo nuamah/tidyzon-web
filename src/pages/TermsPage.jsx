@@ -195,9 +195,9 @@ const TermsPage = () => {
 
             {/* SMS Terms */}
             <div id="sms-terms" className="terms-section">
-              <h2 className="terms-section-title">7. TIDYZON SMS TERMS & CONDITIONS</h2>
+              <h2 className="terms-section-title">7. SMS TERMS & CONDITIONS</h2>
               <p className="terms-text">
-                <strong>Effective date: 12/23/2025</strong>
+               
               </p>
               <p className="terms-text">
                 These SMS Program Terms apply to SMS and MMS text messages sent by Tidyzon, including messages sent using an autodialer or other automated technology. Tidyzon may send messages from multiple phone numbers or short codes.
