@@ -341,12 +341,13 @@ const PrivacyPage = () => {
             {/* SMS Privacy */}
             <div id="sms-privacy" className="privacy-section">
               <h2 className="privacy-section-title">6. SMS AND TEXT MESSAGE PRIVACY</h2>
-              <p className="privacy-text">
-                This section explains how Tidyzon handles your phone number and SMS-related data when you opt in to receive text messages from us.
-              </p>
               
-              <h3 className="privacy-subsection-title">6.1 What We Collect for SMS</h3>
-              <p className="privacy-text">When you opt in to receive SMS messages, we collect:</p>
+              <h3 className="privacy-subsection-title">TidyZon SMS Privacy Policy</h3>
+              <p className="privacy-text">
+                This notice explains how Tidyzon handles your phone number and SMS related data.
+              </p>
+
+              <h4 className="privacy-subsection-subtitle">What we collect for SMS</h4>
               <ul className="privacy-list">
                 <li>Phone number</li>
                 <li>Opt-in and opt-out records (timestamp, source, and method)</li>
@@ -354,8 +355,7 @@ const PrivacyPage = () => {
                 <li>Message content needed to provide the service (example: OTP, booking updates, support threads)</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">6.2 How We Use SMS Data</h3>
-              <p className="privacy-text">We use SMS-related data to:</p>
+              <h4 className="privacy-subsection-subtitle">How we use it</h4>
               <ul className="privacy-list">
                 <li>Provide security and account access (example: OTP)</li>
                 <li>Send booking and service updates you request</li>
@@ -364,47 +364,52 @@ const PrivacyPage = () => {
                 <li>Meet legal and compliance obligations</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">6.3 Sharing of SMS Data</h3>
-              <p className="privacy-text">We may share limited SMS-related data with:</p>
+              <h4 className="privacy-subsection-subtitle">Sharing</h4>
+              <p className="privacy-text">We may share limited SMS related data with:</p>
               <ul className="privacy-list">
                 <li>Messaging and infrastructure vendors that deliver messages on our behalf</li>
-                <li>Providers and contractors only as needed to fulfill a booking</li>
+                <li>Providers and contractors are only needed to fulfill a booking</li>
                 <li>Authorities, when required by law</li>
               </ul>
               <p className="privacy-text">
                 Vendors must protect your information and may use it only to provide services to Tidyzon.
               </p>
 
-              <h3 className="privacy-subsection-title">6.4 No Selling or Marketing Sharing</h3>
+              <h4 className="privacy-subsection-subtitle">No selling, no marketing, sharing of mobile data</h4>
               <ul className="privacy-list">
                 <li>Tidyzon does not sell your phone number.</li>
                 <li>Tidyzon does not share mobile information for third-party marketing or promotional purposes.</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">6.5 SMS Data Retention</h3>
-              <p className="privacy-text">We keep SMS-related data only as long as needed for:</p>
+              <h4 className="privacy-subsection-subtitle">Retention</h4>
+              <p className="privacy-text">We keep SMS related data only as long as needed for:</p>
               <ul className="privacy-list">
                 <li>Service delivery</li>
                 <li>Security and fraud prevention</li>
                 <li>Compliance and dispute resolution</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">6.6 Your SMS Choices</h3>
+              <h4 className="privacy-subsection-subtitle">Your choices</h4>
               <ul className="privacy-list">
                 <li>Reply STOP to opt out.</li>
                 <li>Manage notification preferences in the app.</li>
                 <li>Request access, correction, or deletion where applicable by contacting support.</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">6.7 Your SMS Rights</h3>
+              <h4 className="privacy-subsection-subtitle">Your Rights</h4>
               <p className="privacy-text">Depending on your location, you may have the right to:</p>
               <ul className="privacy-list">
-                <li>Access, correct, or delete your SMS-related personal information</li>
+                <li>Access, correct, or delete your personal information</li>
                 <li>Withdraw consent for SMS communications</li>
-                <li>Request information about SMS data usage and sharing</li>
+                <li>Request information about data usage and sharing</li>
               </ul>
               <p className="privacy-text">
-                Requests can be made through the TidyZon app or customer support. For more information about our SMS program terms, please see our <Link to="/terms#sms-terms" className="privacy-link">SMS Terms & Conditions</Link>.
+                Requests can be made through the TidyZon app or customer support.
+              </p>
+
+              <h4 className="privacy-subsection-subtitle">Changes to This Policy</h4>
+              <p className="privacy-text">
+                TidyZon may update this Privacy Policy from time to time. Continued use of the app constitutes acceptance of the revised policy.
               </p>
             </div>
 

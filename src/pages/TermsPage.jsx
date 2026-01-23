@@ -296,77 +296,7 @@ const TermsPage = () => {
 
               <h3 className="terms-subsection-title">10) Privacy</h3>
               <p className="terms-text">
-                Tidyzon handles phone numbers and SMS data as described in the Tidyzon Privacy Policy and the Tidyzon SMS Privacy Notice below.
-              </p>
-
-              <h3 className="terms-subsection-title">TidyZon SMS Privacy Policy</h3>
-              <p className="terms-text">
-                This notice explains how Tidyzon handles your phone number and SMS related data.
-              </p>
-
-              <h4 className="terms-subsection-subtitle">What we collect for SMS</h4>
-              <ul className="terms-list">
-                <li>Phone number</li>
-                <li>Opt-in and opt-out records (timestamp, source, and method)</li>
-                <li>Message metadata (timestamps, delivery status)</li>
-                <li>Message content needed to provide the service (example: OTP, booking updates, support threads)</li>
-              </ul>
-
-              <h4 className="terms-subsection-subtitle">How we use it</h4>
-              <ul className="terms-list">
-                <li>Provide security and account access (example: OTP)</li>
-                <li>Send booking and service updates you request</li>
-                <li>Provide customer support</li>
-                <li>Prevent fraud and abuse</li>
-                <li>Meet legal and compliance obligations</li>
-              </ul>
-
-              <h4 className="terms-subsection-subtitle">Sharing</h4>
-              <p className="terms-text">We may share limited SMS related data with:</p>
-              <ul className="terms-list">
-                <li>Messaging and infrastructure vendors that deliver messages on our behalf</li>
-                <li>Providers and contractors are only needed to fulfill a booking</li>
-                <li>Authorities, when required by law</li>
-              </ul>
-              <p className="terms-text">
-                Vendors must protect your information and may use it only to provide services to Tidyzon.
-              </p>
-
-              <h4 className="terms-subsection-subtitle">No selling, no marketing, sharing of mobile data</h4>
-              <ul className="terms-list">
-                <li>Tidyzon does not sell your phone number.</li>
-                <li>Tidyzon does not share mobile information for third-party marketing or promotional purposes.</li>
-              </ul>
-
-              <h4 className="terms-subsection-subtitle">Retention</h4>
-              <p className="terms-text">We keep SMS related data only as long as needed for:</p>
-              <ul className="terms-list">
-                <li>Service delivery</li>
-                <li>Security and fraud prevention</li>
-                <li>Compliance and dispute resolution</li>
-              </ul>
-
-              <h4 className="terms-subsection-subtitle">Your choices</h4>
-              <ul className="terms-list">
-                <li>Reply STOP to opt out.</li>
-                <li>Manage notification preferences in the app.</li>
-                <li>Request access, correction, or deletion where applicable by contacting support.</li>
-              </ul>
-
-              <h4 className="terms-subsection-subtitle">Your Rights</h4>
-              <p className="terms-text">Depending on your location, you may have the right to:</p>
-              <ul className="terms-list">
-                <li>Access, correct, or delete your personal information</li>
-                <li>Withdraw consent for SMS communications</li>
-                <li>Request information about data usage and sharing</li>
-              </ul>
-              <p className="terms-text">
-                Requests can be made through the TidyZon app or customer support.
-              </p>
-
-              <h4 className="terms-subsection-subtitle">Changes to This Policy</h4>
-              <p className="terms-text">
-                TidyZon may update this Privacy Policy from time to time. Continued use of the app constitutes acceptance of the revised policy.
+                Tidyzon handles phone numbers and SMS data as described in the <Link to="/privacy#sms-privacy" className="terms-link">Tidyzon Privacy Policy</Link>.
               </p>
             </div>
 
