@@ -1019,6 +1019,19 @@
   .pricing-card {
     padding: 0.875rem 1rem;
     border-radius: 16px;
+    border: 2px solid #e2e8f0 !important;
+    transition: border-color 0.3s ease;
+  }
+
+  /* Green border for expanded/selected package on mobile */
+  .pricing-card.expanded {
+    border: 2px solid rgb(82, 136, 40) !important;
+    box-shadow: 0 0 0 2px rgba(82, 136, 40, 0.1);
+  }
+
+  /* Ensure expanded border shows even for popular packages */
+  .pricing-card.popular.expanded {
+    border: 2px solid rgb(82, 136, 40) !important;
   }
 
   .package-desktop-layout {
