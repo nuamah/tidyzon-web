@@ -13,6 +13,14 @@ const Services = () => {
 
   const carPackages = [
     {
+      id: 'speed-interior',
+      name: 'Speed Interior',
+      title: 'SPEED WASH - INTERIOR ONLY',
+      price: '$29.99',
+      duration: '20mins',
+      features: ['Vacuum - Regular', 'Wipe door jambs'],
+    },
+    {
       id: 'speed',
       name: 'Speed Package',
       title: 'SPEED WASH',
