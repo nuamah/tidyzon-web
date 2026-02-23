@@ -20,8 +20,8 @@ const ServicesPage = () => {
     },
     {
       id: 'speed',
-      name: 'Speed Wash - Full Package',
-      title: 'SPEED WASH',
+      name: 'Speed Wash',
+      title: 'SPEED WASH - FULL PACKAGE',
       price: '$49.99',
       duration: '30mins',
       features: [
