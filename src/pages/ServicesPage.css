@@ -260,30 +260,91 @@
   margin: 0;
 }
 
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+/* Carousel: 3 cards visible on desktop, arrows to slide to 4th */
+.pricing-carousel-outer {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .pricing-grid {
+@media (max-width: 1023px) {
+  .pricing-carousel-outer {
+    overflow: visible;
+  }
+  .pricing-carousel-arrow {
+    display: none;
+  }
+  .pricing-carousel-track {
+    width: 100% !important;
+    transform: none !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pricing-carousel-track {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .pricing-carousel-outer {
+    overflow: hidden;
+    padding: 0 3rem;
+  }
+  .pricing-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 133.333%;
+    transition: transform 0.35s ease-out;
   }
 }
 
-@media (min-width: 1200px) {
-  .pricing-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.pricing-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-carousel-arrow:hover:not(:disabled) {
+  border-color: #10b981;
+  background: #f0fdf4;
+  color: #10b981;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
+}
+
+.pricing-carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pricing-carousel-arrow-left {
+  left: 0;
+}
+
+.pricing-carousel-arrow-right {
+  right: 0;
+}
+
+.pricing-carousel-arrow-icon {
+  width: 24px;
+  height: 24px;
 }
 
 /* Pricing Card */

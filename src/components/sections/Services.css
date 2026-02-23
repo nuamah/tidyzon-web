@@ -338,30 +338,90 @@
   transform: translateX(4px);
 }
 
-/* Packages Grid */
-.packages-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+/* Packages Carousel: 3 cards visible on desktop, arrows to slide to 4th */
+.packages-carousel-outer {
+  position: relative;
   margin-bottom: 4rem;
 }
 
-@media (min-width: 768px) {
-  .packages-grid {
+@media (max-width: 1023px) {
+  .packages-carousel-outer {
+    overflow: visible;
+  }
+  .packages-carousel-arrow {
+    display: none;
+  }
+  .packages-carousel-track {
+    width: 100% !important;
+    transform: none !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .packages-carousel-track {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .packages-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .packages-carousel-outer {
+    overflow: hidden;
+    padding: 0 3rem;
+  }
+  .packages-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 133.333%;
+    transition: transform 0.35s ease-out;
   }
 }
 
-@media (min-width: 1200px) {
-  .packages-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.packages-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.packages-carousel-arrow:hover:not(:disabled) {
+  border-color: #10b981;
+  background: #f0fdf4;
+  color: #10b981;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
+}
+
+.packages-carousel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.packages-carousel-arrow-left {
+  left: 0;
+}
+
+.packages-carousel-arrow-right {
+  right: 0;
+}
+
+.packages-carousel-arrow-icon {
+  width: 24px;
+  height: 24px;
 }
 
 /* Pricing Card */

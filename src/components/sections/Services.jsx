@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown } from 'lucide-react'
+import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import './Services.css'
 
@@ -9,6 +9,7 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [scrollY, setScrollY] = useState(0)
   const [expandedPackage, setExpandedPackage] = useState('deluxe') // Default to deluxe (most popular)
+  const [carouselIndex, setCarouselIndex] = useState(0)
   const servicesRef = useRef(null)
 
   const carPackages = [
@@ -84,6 +85,8 @@ const Services = () => {
     }
   ]
 
+  const maxCarouselIndex = Math.max(0, carPackages.length - 3)
+
   // Parallax scrolling effect
   useEffect(() => {
     const handleScroll = () => {
@@ -134,8 +137,21 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Packages Grid */}
-          <div className="packages-grid">
+          {/* Packages Carousel */}
+          <div className="packages-carousel-outer">
+            <button
+              type="button"
+              className="packages-carousel-arrow packages-carousel-arrow-left"
+              onClick={() => setCarouselIndex((i) => Math.max(0, i - 1))}
+              disabled={carouselIndex === 0}
+              aria-label="Previous packages"
+            >
+              <ChevronLeft className="packages-carousel-arrow-icon" />
+            </button>
+            <div
+              className="packages-carousel-track"
+              style={{ transform: `translateX(-${carouselIndex * 25}%)` }}
+            >
             {carPackages.map((pkg, index) => {
               const isExpanded = expandedPackage === pkg.id
               
@@ -260,6 +276,16 @@ const Services = () => {
                 </div>
               )
             })}
+            </div>
+            <button
+              type="button"
+              className="packages-carousel-arrow packages-carousel-arrow-right"
+              onClick={() => setCarouselIndex((i) => Math.min(maxCarouselIndex, i + 1))}
+              disabled={carouselIndex >= maxCarouselIndex}
+              aria-label="Next packages"
+            >
+              <ChevronRight className="packages-carousel-arrow-icon" />
+            </button>
           </div>
 
           {/* Bottom CTA */}

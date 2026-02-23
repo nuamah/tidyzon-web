@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, ChevronDown } from 'lucide-react'
+import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import './ServicesPage.css'
 
@@ -7,6 +7,7 @@ const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [expandedPackage, setExpandedPackage] = useState('deluxe') // Default to deluxe (most popular)
+  const [carouselIndex, setCarouselIndex] = useState(0)
 
   const carPackages = [
     {
@@ -80,6 +81,8 @@ const ServicesPage = () => {
       ],
     }
   ]
+
+  const maxCarouselIndex = Math.max(0, carPackages.length - 3)
 
   const whyChoose = [
     {
@@ -157,7 +160,20 @@ const ServicesPage = () => {
               <p className="pricing-subtitle">Bundle wash (All add ons inclusive)</p>
             </div>
 
-            <div className="pricing-grid">
+            <div className="pricing-carousel-outer">
+              <button
+                type="button"
+                className="pricing-carousel-arrow pricing-carousel-arrow-left"
+                onClick={() => setCarouselIndex((i) => Math.max(0, i - 1))}
+                disabled={carouselIndex === 0}
+                aria-label="Previous packages"
+              >
+                <ChevronLeft className="pricing-carousel-arrow-icon" />
+              </button>
+              <div
+                className="pricing-carousel-track"
+                style={{ transform: `translateX(-${carouselIndex * 25}%)` }}
+              >
               {carPackages.map((pkg, index) => {
                 const isExpanded = expandedPackage === pkg.id
                 
@@ -274,6 +290,16 @@ const ServicesPage = () => {
                   </div>
                 )
               })}
+              </div>
+              <button
+                type="button"
+                className="pricing-carousel-arrow pricing-carousel-arrow-right"
+                onClick={() => setCarouselIndex((i) => Math.min(maxCarouselIndex, i + 1))}
+                disabled={carouselIndex >= maxCarouselIndex}
+                aria-label="Next packages"
+              >
+                <ChevronRight className="pricing-carousel-arrow-icon" />
+              </button>
             </div>
           </div>
         </section>
