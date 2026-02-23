@@ -172,7 +172,7 @@ const ServicesPage = () => {
               </button>
               <div
                 className="pricing-carousel-track"
-                style={{ transform: `translateX(-${carouselIndex * 25}%)` }}
+                style={{ transform: `translateX(-${carouselIndex * 30}%)` }}
               >
               {carPackages.map((pkg, index) => {
                 const isExpanded = expandedPackage === pkg.id

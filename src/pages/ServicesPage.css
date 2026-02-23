@@ -260,11 +260,13 @@
   margin: 0;
 }
 
-/* Carousel: 3 cards visible on desktop, arrows to slide to 4th */
+/* Carousel: 3 cards visible, scrollable with arrows; full width so not cut off at sides */
 .pricing-carousel-outer {
   position: relative;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  width: calc(100% + 2rem);
   max-width: 1200px;
-  margin: 0 auto;
 }
 
 @media (max-width: 1023px) {
@@ -289,16 +291,24 @@
   }
 }
 
+/* Full viewport width so left/right not cut off; scrollable with arrows */
 @media (min-width: 1024px) {
   .pricing-carousel-outer {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
     overflow: hidden;
-    padding: 0 3rem;
+    padding: 0 1rem;
   }
   .pricing-carousel-track {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    width: 133.333%;
+    gap: 1.5rem;
+    /* 120% width = each card ~30% of viewport, so 3 full + peek of 4th */
+    width: 120%;
+    max-width: none;
+    margin: 0;
     transition: transform 0.35s ease-out;
   }
 }
