@@ -82,7 +82,19 @@ const Services = () => {
         'Shampoo seats & Carpets',
         'machine wax'
       ],
-    }
+    },
+    {
+      id: 'biofluids',
+      name: 'Biofluids / Detail',
+      title: 'BIOFLUIDS / DETAIL',
+      price: '$299.99',
+      duration: '2hrs',
+      features: ['Wipe dash', 'Door Panels', 'Vacuum Regular', 'Wash Windows', 'Wash mats'],
+      featuresLabel: 'Inclusive',
+      addOnsIncluded: [
+        { name: 'Add Exterior Wash', price: '$19.99', originalPrice: '$50.00', duration: '30mins' },
+      ],
+    },
   ]
 
   const maxCarouselIndex = Math.max(0, carPackages.length - 3)
@@ -150,7 +162,7 @@ const Services = () => {
             </button>
             <div
               className="packages-carousel-track"
-              style={{ transform: `translateX(-${carouselIndex * 30}%)` }}
+              style={{ transform: `translateX(-${carouselIndex * (100 / 5)}%)` }}
             >
             {carPackages.map((pkg, index) => {
               const isExpanded = expandedPackage === pkg.id
@@ -164,6 +176,9 @@ const Services = () => {
                 >
                   {/* Desktop Layout - Original Structure */}
                   <div className="package-desktop-layout">
+                    {pkg.addOn && (
+                      <div className="package-addon-badge">Add ons</div>
+                    )}
                     {pkg.popular && (
                       <div className="popular-badge">
                         <Sparkles className="popular-icon" />
@@ -177,9 +192,15 @@ const Services = () => {
                     <div className="package-header">
                       <h3 className="package-name">{pkg.name}</h3>
                       <p className="package-title">{pkg.title}</p>
+                      {pkg.description && (
+                        <p className="package-description">{pkg.description}</p>
+                      )}
                     </div>
 
                     <div className="package-pricing">
+                      {pkg.originalPrice && (
+                        <span className="package-original-price">{pkg.originalPrice}</span>
+                      )}
                       <span className="package-price">{pkg.price}</span>
                       <span className="price-label">per wash</span>
                     </div>
@@ -201,12 +222,18 @@ const Services = () => {
                       <div className="package-header-content">
                         <p className="package-title-mobile">{pkg.title}</p>
                         <div className="package-pricing-mobile">
+                          {pkg.originalPrice && (
+                            <span className="package-original-price-mobile">{pkg.originalPrice}</span>
+                          )}
                           <span className="package-price-mobile">{pkg.price}</span>
                           <span className="price-label-mobile">per wash</span>
                         </div>
                       </div>
                     </div>
                     <div className="package-header-right">
+                      {pkg.addOn && (
+                        <div className="package-addon-badge-mobile">Add ons</div>
+                      )}
                       {pkg.popular && (
                         <div className="popular-badge-mobile">
                           <Sparkles className="popular-icon" />
@@ -224,8 +251,9 @@ const Services = () => {
                       <span>{pkg.duration}</span>
                     </div>
 
+                    {pkg.features.length > 0 && (
                     <div className="package-features">
-                      <h4 className="features-title">Included Features:</h4>
+                      <h4 className="features-title">{pkg.featuresLabel || 'Included Features:'}</h4>
                       <ul className="features-list">
                         {pkg.features.slice(0, 3).map((feature, idx) => (
                           <li key={idx} className="feature-item">
@@ -235,6 +263,8 @@ const Services = () => {
                         ))}
                       </ul>
                       
+                      {pkg.features.length > 3 && (
+                      <>
                       <div className="features-divider"></div>
                       
                       <ul className="features-list features-list-additional">
@@ -258,7 +288,31 @@ const Services = () => {
                           );
                         })}
                       </ul>
+                      </>
+                      )}
                     </div>
+                    )}
+
+                    {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
+                      <div className="package-addons-included">
+                        <h4 className="package-addons-included-label">Add ons</h4>
+                        <ul className="package-addons-included-list">
+                          {pkg.addOnsIncluded.map((addon, idx) => (
+                            <li key={idx} className="package-addon-included-item">
+                              <span className="package-addon-included-name">{addon.name}</span>
+                              <span className="package-addon-included-meta">
+                                {addon.originalPrice && (
+                                  <span className="package-original-price">{addon.originalPrice}</span>
+                                )}
+                                <span className="package-addon-included-price">{addon.price}</span>
+                                <Clock className="duration-icon package-addon-duration-icon" />
+                                <span>{addon.duration}</span>
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
 
                     <button 
                       className={`pricing-cta-btn ${hoveredIndex === index ? 'hovered' : ''}`}

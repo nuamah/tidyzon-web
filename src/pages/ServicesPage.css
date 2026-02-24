@@ -303,10 +303,10 @@
   }
   .pricing-carousel-track {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
-    /* 120% width = each card ~30% of viewport, so 3 full + peek of 4th */
-    width: 120%;
+    /* 5 cards in one row: 150% = ~30% per card so 3 + peek visible */
+    width: 150%;
     max-width: none;
     margin: 0;
     transition: transform 0.35s ease-out;
@@ -432,6 +432,111 @@
 .popular-icon {
   width: 14px;
   height: 14px;
+}
+
+/* Add-on badge */
+.package-addon-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  padding: 0.35rem 0.75rem;
+  background: #334155;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.package-description {
+  font-size: 0.8125rem;
+  color: #64748b;
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
+}
+
+.package-original-price {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #dc2626;
+  text-decoration: line-through;
+}
+
+.package-addon-badge-mobile {
+  padding: 0.2rem 0.5rem;
+  background: #334155;
+  color: #ffffff;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.package-original-price-mobile {
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+  color: #dc2626;
+  text-decoration: line-through;
+}
+
+/* Add ons included (inside a package card) */
+.package-addons-included {
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.package-addons-included-label {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #334155;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.package-addons-included-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.package-addon-included-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  color: #475569;
+  font-size: 0.9375rem;
+}
+
+.package-addon-included-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.package-addon-included-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.package-addon-included-price {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.package-addon-duration-icon {
+  width: 16px;
+  height: 16px;
+  color: #10b981;
+  margin-left: 0.25rem;
 }
 
 /* Desktop: Show original layout, hide accordion elements */
