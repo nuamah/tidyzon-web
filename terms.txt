@@ -1,0 +1,159 @@
+TIDYZON TERMS AND CONDITIONS
+Last Updated: March 2, 2025
+1. INTRODUCTION
+Welcome to Tidyzon ("Company", "we", "our", "us"). These Terms and Conditions ("Terms") govern your access to and use of the Tidyzon website, mobile application, and services (collectively, the "Platform").
+By accessing or using our Platform, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access the Platform.
+2. PLATFORM DESCRIPTION
+TidyZon operates an online platform that facilitates the connection between customers and independent service providers (“Providers”) who offer on-site services(at your door step), including but not limited to vehicle washing and garbage or recycling bin cleaning. All services are performed at the customer’s designated location by independent Providers, who operate as separate entities and are not employees, agents, or representatives of TidyZon.
+3. ELIGIBILITY
+You must be at least 18 years of age and capable of forming a binding contract with Tidyzon to use our Platform. By using our Platform, you represent and warrant that you meet these requirements.
+4. ACCOUNT REGISTRATION
+To use certain features of the Platform, you must register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete.
+5. USER CONDUCT
+When using our Platform, you agree not to:
+Violate any applicable laws or regulations
+Infringe upon the rights of others
+Submit false or misleading information
+Interfere with the proper operation of the Platform
+Engage in any conduct that restricts or inhibits any other user from using the Platform
+6. SERVICE REQUESTS
+6.1 Requesting Services
+Customers may request services through our Platform for immediate service or scheduled service. Service availability is subject to service provider availability and acceptance.
+6.2 Cancellations
+Cancellation policies will be provided at the time of booking. Certain cancellations may be subject to fees.
+6.3 Service Provider Selection.
+All service providers operating through the TidyZon platform are independent contractors, not employees, agents, or representatives of TidyZon. TidyZon does not control or direct the manner, method, or means by which service providers perform their work and assumes no responsibility for their actions, omissions, or performance. However, all service providers are required to adhere to TidyZon’s strict community guidelines, which establish professional, safety, and quality standards that must be followed while providing services through the platform..
+
+6.5 Eligibility of Refunds
+TidyZon may issue refunds under the following conditions:
+Service Not Performed
+ The assigned Provider did not arrive or perform any portion of the scheduled service, and the customer reported the issue within the required timeframe.
+
+
+Incomplete Service
+ A significant portion of the service was not completed (e.g., only exterior wash completed when a full interior & exterior package was purchased), and the customer submits clear evidence within 24 hours of service completion.
+
+
+Service Quality Issues
+ If the completed service shows clear deficiencies inconsistent with the description of the purchased package, and the customer provides supporting photos within 24 hours, TidyZon may issue a partial or full refund at its discretion.
+
+
+Provider Cancellation
+ If the assigned Provider cancels and TidyZon cannot reassign another Provider, the customer will receive a full refund.
+
+
+Duplicate Charges / Billing Errors
+ Any accidental duplicate charge or billing error attributable to TidyZon will be fully refunded.
+
+
+Approved Weather-Related Cancellations
+ If unsafe or extreme weather prevents service and rescheduling is not possible, the customer may receive a refund.
+
+
+6.6 Background Verification
+TidyZon conducts background verification on all independent service providers (“Providers”) who use the platform to offer mobile car-wash and related on-site services. These verification measures are implemented solely to enhance the safety and confidence of our customers. Providers are required to successfully complete TidyZon’s verification process before accepting or performing any service requests through the platform.
+1. Identity Verification
+TidyZon verifies the Provider’s identity by reviewing government-issued identification. This process may include confirming:
+Full legal name
+
+
+Date of birth
+
+
+Valid, non-expired photo identification
+
+
+Current residential address
+
+
+2. Driving & Motor Vehicle Record Screening
+Because Providers travel to customer locations, TidyZon reviews each Provider’s driving eligibility. This may include:
+Verification of a valid driver’s license
+
+
+Review of past driving history
+
+
+Confirmation that the Provider has no recent major violations, including but not limited to DUIs, reckless driving, or license suspensions
+
+
+3. Criminal Background Check
+To promote customer safety, TidyZon conducts a criminal-history screening through authorized third-party providers. This may include checks for:
+Violent or assault-related offenses
+
+
+Theft, fraud, or property-related crimes
+
+
+Sexual offenses
+
+
+Other criminal convictions deemed disqualifying under TidyZon’s safety standards
+ Providers with disqualifying criminal histories may be denied access to the platform.
+
+
+4. Work Authorization or Business Verification
+Providers must demonstrate legal eligibility to operate as independent contractors. This may include:
+Proof of legal authorization to work, or
+
+
+Proof of registration as a legally recognized business entity.
+
+
+5. Insurance Compliance
+Where applicable, TidyZon may require Providers to carry valid personal auto insurance or business liability insurance. Providers must supply proof of coverage when requested.
+6. Ongoing Monitoring
+TidyZon reserves the right to periodically review or re-verify Provider information to ensure continued compliance with safety and eligibility obligations.
+7. Provider Obligations
+Providers agree to:
+Submit truthful and accurate information during verification
+
+
+Maintain valid documentation required for platform use
+
+
+Notify TidyZon immediately of any changes affecting eligibility, including license issues, criminal charges, or loss of insurance
+
+
+Cooperate with any re-verification process deemed necessary by TidyZon
+
+
+8. No Guarantee or Warranty
+While TidyZon performs these verification checks to enhance customer safety, TidyZon does not guarantee the character, performance, or conduct of any Provider. Providers operate as independent contractors and are not employees, agents, or representatives of TidyZon. TidyZon is not responsible for any actions taken by Providers outside the scope of the services arranged through the platform.
+.
+
+7. PAYMENT TERMS
+7.1 Pricing
+Service prices will be displayed on the Platform before you confirm your booking. Prices may vary based on service type, location, and other factors.
+7.2 Payment Processing
+All payments are processed through Stripe, a third-party payment processor. Tidyzon does not store your payment information or details specific to payments. By making a payment, you agree to Stripe's terms of service and privacy policy.
+7.3 Refunds
+Refund policies will be specified at the time of booking. Generally, if no service provider accepts your service request, you will not be charged. 
+8. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL TIDYZON BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE PLATFORM OR SERVICES.
+TIDYZON'S TOTAL LIABILITY TO YOU FOR ANY DAMAGES SHALL NOT EXCEED THE AMOUNT PAID BY YOU FOR THE SERVICE THAT GAVE RISE TO SUCH LIABILITY.
+9. DISCLAIMER OF WARRANTIES
+THE PLATFORM AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+10. INDEMNIFICATION
+You agree to indemnify, defend, and hold harmless Tidyzon and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in any way connected with your access to or use of the Platform or Services.
+11. THIRD-PARTY SERVICES
+Our Platform may contain links to third-party websites or services that are not owned or controlled by Tidyzon. Tidyzon has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services.
+12. DATA COLLECTION AND PRIVACY
+Your use of our Platform is also governed by our Privacy Policy, which is incorporated by reference into these Terms. Please review our Privacy Policy to understand our practices.
+13. MODIFICATIONS TO TERMS
+Tidyzon reserves the right to modify these Terms at any time. We will provide notice of any material changes through the Platform or by other means. Your continued use of the Platform after such modifications will constitute your acknowledgment and agreement to the modified Terms.
+14. TERMINATION
+Tidyzon reserves the right to terminate or suspend your account and access to the Platform at any time, without prior notice or liability, for any reason.
+15. GOVERNING LAW
+These Terms shall be governed by and construed in accordance with the laws of the State of Illinois, without regard to its conflict of law provisions.
+16. DISPUTE RESOLUTION
+Any dispute arising from or relating to the subject matter of these Terms shall be finally settled in accordance with the laws of the State of Illinois. The courts located in Illinois will have exclusive jurisdiction over any dispute arising out of these Terms.
+
+17. SEVERABILITY
+If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
+18. ENTIRE AGREEMENT
+These Terms constitute the entire agreement between you and Tidyzon regarding the Platform and supersede all prior and contemporaneous written or oral agreements.
+19. CONTACT INFORMATION
+If you have any questions about these Terms, please contact us at support@tidyzon.com.
+By using Tidyzon's Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
+
