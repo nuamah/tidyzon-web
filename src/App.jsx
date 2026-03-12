@@ -6,21 +6,16 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 import AboutPage from './pages/AboutPage'
 import CaliforniaPrivacyPage from './pages/CaliforniaPrivacyPage'
-import ContactPage from './pages/ContactPage'
-import CustomerServiceAgreementPage from './pages/CustomerServiceAgreementPage'
 import DoNotSellPage from './pages/DoNotSellPage'
 import GetStartedPage from './pages/GetStartedPage'
 import LimitSPIPage from './pages/LimitSPIPage'
 import NotFoundPage from './pages/NotFoundPage'
 import OpenPositionsPage from './pages/OpenPositionsPage'
-import PrivacyPage from './pages/PrivacyPage'
 import PrivacyRequestsPage from './pages/PrivacyRequestsPage'
 import ProviderPage from './pages/ProviderPage'
 import ReviewsPage from './pages/ReviewsPage'
-import ServiceProviderAgreementPage from './pages/ServiceProviderAgreementPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamsPage from './pages/TeamsPage'
-import TermsPage from './pages/TermsPage'
 import './App.css'
 
 const App = () => {
@@ -38,16 +33,11 @@ const App = () => {
             <Route path="/get-started" element={<GetStartedPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/open-positions" element={<OpenPositionsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/help" element={<ContactPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/privacy" element={<PrivacyRequestsPage />} />
             <Route path="/privacy/requests" element={<PrivacyRequestsPage />} />
             <Route path="/privacy/do-not-sell-or-share" element={<DoNotSellPage />} />
             <Route path="/privacy/limit-sensitive-info" element={<LimitSPIPage />} />
             <Route path="/california-privacy" element={<CaliforniaPrivacyPage />} />
-            <Route path="/customer-service-agreement" element={<CustomerServiceAgreementPage />} />
-            <Route path="/service-provider-agreement" element={<ServiceProviderAgreementPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
