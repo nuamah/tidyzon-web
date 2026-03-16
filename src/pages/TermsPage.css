@@ -55,35 +55,6 @@
   z-index: 1;
 }
 
-.terms-back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.625rem 1.25rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.terms-back-button:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateX(-4px);
-}
-
-.terms-back-button .back-icon {
-  width: 1rem;
-  height: 1rem;
-}
-
 .terms-hero-title {
   font-size: 3.5rem;
   font-weight: 900;
@@ -109,35 +80,6 @@
   margin: 0 auto;
   padding: 0 2rem;
   background: #ffffff;
-  position: relative;
-}
-
-.terms-back-button-content {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  padding: 0.625rem 1.25rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.terms-back-button-content:hover {
-  color: #1e293b;
-  background: #e2e8f0;
-  border-color: #cbd5e1;
-  transform: translateX(-4px);
-}
-
-.terms-back-button-content .back-icon {
-  width: 1rem;
-  height: 1rem;
 }
 
 /* Terms Sections */
@@ -167,13 +109,6 @@
   font-weight: 700;
   color: #10b981;
   margin: 2.5rem 0 1.25rem 0;
-}
-
-.terms-subsection-subtitle {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #334155;
-  margin: 1.5rem 0 1rem 0;
 }
 
 .terms-text {
@@ -206,70 +141,18 @@
 .terms-list li::before {
   content: '•';
   position: absolute;
-  left: 0.5rem;
+  left: 0;
   top: 0;
   color: #10b981;
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 1.2;
-}
-
-.terms-link {
-  color: #10b981;
-  text-decoration: underline;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.terms-link:hover {
-  color: #059669;
-}
-
-/* Scroll to Top Button at Bottom */
-.terms-scroll-to-top-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid #e2e8f0;
-}
-
-.terms-scroll-to-top-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #ffffff;
-  background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.terms-scroll-to-top-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.terms-scroll-to-top-btn .scroll-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  line-height: 2;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .terms-hero {
     padding: 6rem 0 3rem;
-  }
-  
-  .terms-back-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.8125rem;
-    margin-bottom: 1.5rem;
   }
   
   .terms-hero-title {
@@ -282,12 +165,6 @@
   
   .terms-wrapper {
     padding: 0 1.5rem;
-  }
-  
-  .terms-back-button-content {
-    padding: 0.5rem 1rem;
-    font-size: 0.8125rem;
-    margin-bottom: 1.5rem;
   }
   
   .terms-section {
@@ -303,17 +180,8 @@
     font-size: 1.25rem;
   }
   
-  .terms-subsection-subtitle {
-    font-size: 1.0625rem;
-  }
-  
   .terms-text {
     text-align: left;
-  }
-  
-  .terms-scroll-to-top-btn {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9375rem;
   }
 }
 
@@ -339,10 +207,6 @@
     font-size: 1.125rem;
   }
   
-  .terms-subsection-subtitle {
-    font-size: 1rem;
-  }
-  
   .terms-text {
     font-size: 1rem;
   }
@@ -353,15 +217,5 @@
   
   .terms-list li {
     font-size: 1rem;
-  }
-  
-  .terms-scroll-to-top-btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.875rem;
-  }
-  
-  .terms-scroll-to-top-btn .scroll-icon {
-    width: 1rem;
-    height: 1rem;
   }
 }

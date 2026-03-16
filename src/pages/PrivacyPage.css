@@ -118,13 +118,6 @@
   margin: 2rem 0 1rem 0;
 }
 
-.privacy-subsection-subtitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #334155;
-  margin: 1.5rem 0 0.75rem 0;
-}
-
 .privacy-text {
   color: #475569;
   line-height: 2;
@@ -155,12 +148,12 @@
 .privacy-list li::before {
   content: '•';
   position: absolute;
-  left: 0.5rem;
+  left: 0;
   top: 0;
   color: #3b82f6;
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 .contact-info {
@@ -179,19 +172,6 @@
 
 .contact-info p:last-child {
   margin-bottom: 0;
-}
-
-/* Privacy Links */
-.privacy-link {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.privacy-link:hover {
-  color: #2563eb;
-  text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -229,10 +209,6 @@
     font-size: 1.125rem;
   }
   
-  .privacy-subsection-subtitle {
-    font-size: 1.0625rem;
-  }
-  
   .privacy-text {
     text-align: left;
   }
@@ -265,10 +241,6 @@
   }
   
   .privacy-subheading {
-    font-size: 1rem;
-  }
-  
-  .privacy-subsection-subtitle {
     font-size: 1rem;
   }
   
