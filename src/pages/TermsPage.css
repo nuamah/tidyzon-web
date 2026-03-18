@@ -158,6 +158,82 @@
   line-height: 2;
 }
 
+/* Back & scroll-to-top (Service Provider / Customer agreement pages) */
+.terms-back-button-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.65rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.terms-back-button-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+}
+
+.terms-back-button-content:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+.terms-back-button-content .back-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.terms-scroll-to-top-container {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: center;
+}
+
+.terms-scroll-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(88, 99, 197, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.terms-scroll-to-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 99, 197, 0.4);
+}
+
+.terms-scroll-to-top-btn:focus-visible {
+  outline: 2px solid #5863c5;
+  outline-offset: 2px;
+}
+
+.terms-scroll-to-top-btn .scroll-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .terms-hero {

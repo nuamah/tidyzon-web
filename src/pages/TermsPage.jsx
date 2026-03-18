@@ -29,6 +29,13 @@ const TermsPage = () => {
               <p className="terms-text">
                 By accessing or using our Platform, you agree to be bound by these Terms, including our <a href="#sms-terms" className="terms-inline-link">SMS Terms &amp; Conditions</a> when you use text messaging features. If you disagree with any part of these Terms, you may not access the Platform.
               </p>
+              <p className="terms-text">
+                Depending on how you use the Platform, additional agreements may apply: our{' '}
+                <Link to="/customer-service-agreement" className="terms-inline-link">Customer Service Agreement</Link>{' '}
+                (for customers who book services) and our{' '}
+                <Link to="/service-provider-agreement" className="terms-inline-link">Service Provider Agreement</Link>{' '}
+                (for independent contractors who provide services). The Privacy Policy describes how we handle personal information—it does not replace these agreements.
+              </p>
             </div>
 
             {/* Platform Description */}
@@ -84,7 +91,8 @@ const TermsPage = () => {
 
               <h3 className="terms-subsection-title">6.3 Service Provider Selection</h3>
               <p className="terms-text">
-                Service providers are independent contractors and not employees of Tidyzon. Tidyzon does not guarantee the availability of any particular service provider.
+                Service providers are independent contractors and not employees of Tidyzon. Tidyzon does not guarantee the availability of any particular service provider. Anyone who provides services through the Platform is bound by the{' '}
+                <Link to="/service-provider-agreement" className="terms-inline-link">Service Provider Agreement</Link>.
               </p>
 
               <h3 className="terms-subsection-title">6.5 Eligibility of Refunds</h3>

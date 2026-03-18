@@ -89,6 +89,8 @@ const Footer = () => {
                   <li><Link to="/provider">Become a Provider</Link></li>
                   <li><Link to="/terms">Terms & Conditions</Link></li>
                   <li><Link to="/privacy">Privacy Policy</Link></li>
+                  <li><Link to="/customer-service-agreement">Customer Service Agreement</Link></li>
+                  <li><Link to="/service-provider-agreement">Service Provider Agreement</Link></li>
                 </ul>
               </div>
 
@@ -155,6 +157,8 @@ const Footer = () => {
           <div className="footer-legal">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
+            <Link to="/customer-service-agreement">Customer Agreement</Link>
+            <Link to="/service-provider-agreement">Provider Agreement</Link>
           </div>
         </div>
       </div>
