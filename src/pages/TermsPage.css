@@ -78,8 +78,17 @@
 .terms-wrapper {
   max-width: 850px;
   margin: 0 auto;
-  padding: 0 2rem;
-  background: #ffffff;
+}
+
+.terms-inline-link {
+  color: #059669;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.terms-inline-link:hover {
+  color: #047857;
 }
 
 /* Terms Sections */

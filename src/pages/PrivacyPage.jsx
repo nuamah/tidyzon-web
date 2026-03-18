@@ -18,7 +18,7 @@ const PrivacyPage = () => {
       <section className="privacy-content">
         <div className="container">
           <div className="privacy-wrapper">
-            
+
             {/* Introduction */}
             <div className="privacy-section">
               <h2 className="privacy-section-title">1. INTRODUCTION</h2>
@@ -50,6 +50,9 @@ const PrivacyPage = () => {
                 <li>Information about your property (e.g., availability of outside water faucet)</li>
                 <li>Communications with us and Service Providers through the Platform</li>
               </ul>
+              <p className="privacy-text">
+                For how we use your phone number for text messages (SMS/MMS), see our <a href="#sms-privacy" className="privacy-inline-link">SMS Privacy Notice</a>.
+              </p>
               
               <h4 className="privacy-subheading">For Service Providers:</h4>
               <ul className="privacy-list">
@@ -121,6 +124,9 @@ const PrivacyPage = () => {
                 <li>Comply with legal obligations</li>
                 <li>Enforce our Terms and Conditions and other agreements</li>
               </ul>
+              <p className="privacy-text">
+                When you opt in to text messages, our use of your phone number and SMS data is described in our <a href="#sms-privacy" className="privacy-inline-link">SMS Privacy Notice</a>.
+              </p>
             </div>
 
             {/* How We Share Information */}
@@ -179,6 +185,79 @@ const PrivacyPage = () => {
               </p>
             </div>
 
+            {/* SMS Privacy Notice */}
+            <div id="sms-privacy" className="privacy-section">
+              <h2 className="privacy-section-title">SMS PRIVACY NOTICE</h2>
+              <p className="privacy-text">
+                This notice explains how Tidyzon handles your phone number and SMS-related data when you opt in to text messages.
+              </p>
+
+              <h3 className="privacy-subsection-title">What we collect for SMS</h3>
+              <ul className="privacy-list">
+                <li>Phone number</li>
+                <li>Opt-in and opt-out records (timestamp, source, and method)</li>
+                <li>Message metadata (timestamps, delivery status)</li>
+                <li>Message content needed to provide the service (e.g., OTP, booking updates, support threads)</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">How we use it</h3>
+              <ul className="privacy-list">
+                <li>Provide security and account access (e.g., OTP)</li>
+                <li>Send booking and service updates you request</li>
+                <li>Provide customer support</li>
+                <li>Prevent fraud and abuse</li>
+                <li>Meet legal and compliance obligations</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">Sharing</h3>
+              <p className="privacy-text">We may share limited SMS-related data with:</p>
+              <ul className="privacy-list">
+                <li>Messaging and infrastructure vendors that deliver messages on our behalf</li>
+                <li>Providers and contractors only as needed to fulfill a booking</li>
+                <li>Authorities, when required by law</li>
+              </ul>
+              <p className="privacy-text">
+                Vendors must protect your information and may use it only to provide services to Tidyzon.
+              </p>
+
+              <h3 className="privacy-subsection-title">No selling, no marketing use of mobile data</h3>
+              <ul className="privacy-list">
+                <li>Tidyzon does not sell your phone number.</li>
+                <li>Tidyzon does not share mobile information for third-party marketing or promotional purposes.</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">Retention</h3>
+              <p className="privacy-text">We keep SMS-related data only as long as needed for:</p>
+              <ul className="privacy-list">
+                <li>Service delivery</li>
+                <li>Security and fraud prevention</li>
+                <li>Compliance and dispute resolution</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">Your choices</h3>
+              <ul className="privacy-list">
+                <li>Reply STOP to opt out of SMS.</li>
+                <li>Manage notification preferences in the app.</li>
+                <li>Request access, correction, or deletion where applicable by contacting support.</li>
+              </ul>
+
+              <h3 className="privacy-subsection-title">Your rights</h3>
+              <p className="privacy-text">Depending on your location, you may have the right to:</p>
+              <ul className="privacy-list">
+                <li>Access, correct, or delete your personal information</li>
+                <li>Withdraw consent for SMS communications</li>
+                <li>Request information about data usage and sharing</li>
+              </ul>
+              <p className="privacy-text">
+                Requests can be made through the Tidyzon app or customer support.
+              </p>
+
+              <h3 className="privacy-subsection-title">Changes to this notice</h3>
+              <p className="privacy-text">
+                Tidyzon may update this SMS Privacy Notice from time to time. Continued use of the app after changes constitutes acceptance of the revised notice.
+              </p>
+            </div>
+
             {/* Data Security */}
             <div className="privacy-section">
               <h2 className="privacy-section-title">8. DATA SECURITY</h2>
@@ -223,7 +302,7 @@ const PrivacyPage = () => {
                 <li>Withdraw consent where processing is based on consent</li>
               </ul>
               <p className="privacy-text">
-                To exercise these rights, please contact us using the information provided in Section 13.
+                For choices and rights specific to SMS, see our <a href="#sms-privacy" className="privacy-inline-link">SMS Privacy Notice</a>. To exercise other rights, please contact us using the information provided in Section 13.
               </p>
             </div>
 
