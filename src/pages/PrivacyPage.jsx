@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './PrivacyPage.css'
 
 const PrivacyPage = () => {
@@ -345,7 +346,8 @@ const PrivacyPage = () => {
             <div className="privacy-section">
               <h2 className="privacy-section-title">14. CALIFORNIA PRIVACY RIGHTS</h2>
               <p className="privacy-text">
-                If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. To learn more about your California privacy rights, visit our [California Privacy Notice for California Residents] [Insert Link].
+                If you are a California resident, California law may provide you with additional rights regarding our use of your personal information. To learn more about your California privacy rights, visit our{' '}
+                <Link to="/california-privacy" className="privacy-inline-link">California Privacy Notice for California Residents</Link>.
               </p>
               
               <h3 className="privacy-subsection-title">14.1 California "Shine the Light" Law</h3>
