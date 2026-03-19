@@ -91,6 +91,11 @@
   color: #047857;
 }
 
+/* Anchor targets (Contact FAQ links, fixed header offset) */
+#sms-terms {
+  scroll-margin-top: 6rem;
+}
+
 /* Terms Sections */
 .terms-section {
   margin-bottom: 3.5rem;

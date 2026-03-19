@@ -91,6 +91,11 @@
   color: #047857;
 }
 
+/* Anchor targets (Contact FAQ links, fixed header offset) */
+#sms-privacy {
+  scroll-margin-top: 6rem;
+}
+
 /* Privacy Sections */
 .privacy-section {
   margin-bottom: 3.5rem;

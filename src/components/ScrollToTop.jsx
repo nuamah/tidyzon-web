@@ -4,12 +4,29 @@ import { ArrowUp } from 'lucide-react'
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
 
-  // Scroll to top on route change
+  // Scroll to hash target (e.g. /terms#sms-terms) or top on route change
   useEffect(() => {
+    if (hash) {
+      const id = decodeURIComponent(hash.replace(/^#/, ''))
+      const scrollToTarget = () => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+      const raf = requestAnimationFrame(scrollToTarget)
+      const t1 = setTimeout(scrollToTarget, 150)
+      const t2 = setTimeout(scrollToTarget, 350)
+      return () => {
+        cancelAnimationFrame(raf)
+        clearTimeout(t1)
+        clearTimeout(t2)
+      }
+    }
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [pathname, hash])
 
   // Show button when page is scrolled down
   const toggleVisibility = () => {
