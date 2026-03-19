@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap — update the domain if yours differs (see docs/SEO.md)
+Sitemap: https://tidyzon.com/sitemap.xml

@@ -21,12 +21,14 @@ import ServiceProviderAgreementPage from './pages/ServiceProviderAgreementPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamsPage from './pages/TeamsPage'
 import TermsPage from './pages/TermsPage'
+import RouteSEO from './components/RouteSEO'
 import './App.css'
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="App">
+        <RouteSEO />
         <Header />
         <main>
           <Routes>

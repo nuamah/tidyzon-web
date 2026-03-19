@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://tidyzon.com with your production URL if different -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tidyzon.com/</loc><changefreq>weekly</changefreq><priority>1</priority></url>
+  <url><loc>https://tidyzon.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tidyzon.com/services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tidyzon.com/teams</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tidyzon.com/provider</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tidyzon.com/get-started</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://tidyzon.com/reviews</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tidyzon.com/open-positions</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tidyzon.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tidyzon.com/help</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tidyzon.com/terms</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tidyzon.com/privacy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tidyzon.com/privacy/requests</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://tidyzon.com/privacy/do-not-sell-or-share</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://tidyzon.com/privacy/limit-sensitive-info</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://tidyzon.com/california-privacy</loc><changefreq>monthly</changefreq><priority>0.45</priority></url>
+  <url><loc>https://tidyzon.com/customer-service-agreement</loc><changefreq>yearly</changefreq><priority>0.35</priority></url>
+  <url><loc>https://tidyzon.com/service-provider-agreement</loc><changefreq>yearly</changefreq><priority>0.35</priority></url>
+</urlset>

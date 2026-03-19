@@ -1,11 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { Home, ArrowLeft, Search, AlertCircle } from 'lucide-react'
 import './NotFoundPage.css'
 
 const NotFoundPage = () => {
   return (
     <div className="not-found-page">
+      <Helmet>
+        <title>Page not found | Tidyzon</title>
+        <meta name="description" content="This page could not be found. Return to Tidyzon home or contact support." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="not-found-container">
         {/* Background Elements */}
         <div className="not-found-bg-elements">
