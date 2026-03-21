@@ -4,7 +4,7 @@ Last Updated: March 2, 2025
 Welcome to Tidyzon ("Company", "we", "our", "us"). These Terms and Conditions ("Terms") govern your access to and use of the Tidyzon website, mobile application, and services (collectively, the "Platform").
 By accessing or using our Platform, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access the Platform.
 2. PLATFORM DESCRIPTION
-TidyZon operates an online platform that facilitates the connection between customers and independent service providers (“Providers”) who offer on-site services(at your door step), including but not limited to vehicle washing and garbage or recycling bin cleaning. All services are performed at the customer’s designated location by independent Providers, who operate as separate entities and are not employees, agents, or representatives of TidyZon.
+Tidyzon operates an online platform that facilitates the connection between customers and independent service providers (“Providers”) who offer on-site services(at your door step), including but not limited to vehicle washing and garbage or recycling bin cleaning. All services are performed at the customer’s designated location by independent Providers, who operate as separate entities and are not employees, agents, or representatives of Tidyzon.
 3. ELIGIBILITY
 You must be at least 18 years of age and capable of forming a binding contract with Tidyzon to use our Platform. By using our Platform, you represent and warrant that you meet these requirements.
 4. ACCOUNT REGISTRATION
@@ -22,10 +22,10 @@ Customers may request services through our Platform for immediate service or sch
 6.2 Cancellations
 Cancellation policies will be provided at the time of booking. Certain cancellations may be subject to fees.
 6.3 Service Provider Selection.
-All service providers operating through the TidyZon platform are independent contractors, not employees, agents, or representatives of TidyZon. TidyZon does not control or direct the manner, method, or means by which service providers perform their work and assumes no responsibility for their actions, omissions, or performance. However, all service providers are required to adhere to TidyZon’s strict community guidelines, which establish professional, safety, and quality standards that must be followed while providing services through the platform..
+All service providers operating through the Tidyzon platform are independent contractors, not employees, agents, or representatives of Tidyzon. Tidyzon does not control or direct the manner, method, or means by which service providers perform their work and assumes no responsibility for their actions, omissions, or performance. However, all service providers are required to adhere to Tidyzon’s strict community guidelines, which establish professional, safety, and quality standards that must be followed while providing services through the platform..
 
 6.5 Eligibility of Refunds
-TidyZon may issue refunds under the following conditions:
+Tidyzon may issue refunds under the following conditions:
 Service Not Performed
  The assigned Provider did not arrive or perform any portion of the scheduled service, and the customer reported the issue within the required timeframe.
 
@@ -35,15 +35,15 @@ Incomplete Service
 
 
 Service Quality Issues
- If the completed service shows clear deficiencies inconsistent with the description of the purchased package, and the customer provides supporting photos within 24 hours, TidyZon may issue a partial or full refund at its discretion.
+ If the completed service shows clear deficiencies inconsistent with the description of the purchased package, and the customer provides supporting photos within 24 hours, Tidyzon may issue a partial or full refund at its discretion.
 
 
 Provider Cancellation
- If the assigned Provider cancels and TidyZon cannot reassign another Provider, the customer will receive a full refund.
+ If the assigned Provider cancels and Tidyzon cannot reassign another Provider, the customer will receive a full refund.
 
 
 Duplicate Charges / Billing Errors
- Any accidental duplicate charge or billing error attributable to TidyZon will be fully refunded.
+ Any accidental duplicate charge or billing error attributable to Tidyzon will be fully refunded.
 
 
 Approved Weather-Related Cancellations
@@ -51,9 +51,9 @@ Approved Weather-Related Cancellations
 
 
 6.6 Background Verification
-TidyZon conducts background verification on all independent service providers (“Providers”) who use the platform to offer mobile car-wash and related on-site services. These verification measures are implemented solely to enhance the safety and confidence of our customers. Providers are required to successfully complete TidyZon’s verification process before accepting or performing any service requests through the platform.
+Tidyzon conducts background verification on all independent service providers (“Providers”) who use the platform to offer mobile car-wash and related on-site services. These verification measures are implemented solely to enhance the safety and confidence of our customers. Providers are required to successfully complete Tidyzon’s verification process before accepting or performing any service requests through the platform.
 1. Identity Verification
-TidyZon verifies the Provider’s identity by reviewing government-issued identification. This process may include confirming:
+Tidyzon verifies the Provider’s identity by reviewing government-issued identification. This process may include confirming:
 Full legal name
 
 
@@ -67,7 +67,7 @@ Current residential address
 
 
 2. Driving & Motor Vehicle Record Screening
-Because Providers travel to customer locations, TidyZon reviews each Provider’s driving eligibility. This may include:
+Because Providers travel to customer locations, Tidyzon reviews each Provider’s driving eligibility. This may include:
 Verification of a valid driver’s license
 
 
@@ -78,7 +78,7 @@ Confirmation that the Provider has no recent major violations, including but not
 
 
 3. Criminal Background Check
-To promote customer safety, TidyZon conducts a criminal-history screening through authorized third-party providers. This may include checks for:
+To promote customer safety, Tidyzon conducts a criminal-history screening through authorized third-party providers. This may include checks for:
 Violent or assault-related offenses
 
 
@@ -88,7 +88,7 @@ Theft, fraud, or property-related crimes
 Sexual offenses
 
 
-Other criminal convictions deemed disqualifying under TidyZon’s safety standards
+Other criminal convictions deemed disqualifying under Tidyzon’s safety standards
  Providers with disqualifying criminal histories may be denied access to the platform.
 
 
@@ -101,9 +101,9 @@ Proof of registration as a legally recognized business entity.
 
 
 5. Insurance Compliance
-Where applicable, TidyZon may require Providers to carry valid personal auto insurance or business liability insurance. Providers must supply proof of coverage when requested.
+Where applicable, Tidyzon may require Providers to carry valid personal auto insurance or business liability insurance. Providers must supply proof of coverage when requested.
 6. Ongoing Monitoring
-TidyZon reserves the right to periodically review or re-verify Provider information to ensure continued compliance with safety and eligibility obligations.
+Tidyzon reserves the right to periodically review or re-verify Provider information to ensure continued compliance with safety and eligibility obligations.
 7. Provider Obligations
 Providers agree to:
 Submit truthful and accurate information during verification
@@ -112,14 +112,14 @@ Submit truthful and accurate information during verification
 Maintain valid documentation required for platform use
 
 
-Notify TidyZon immediately of any changes affecting eligibility, including license issues, criminal charges, or loss of insurance
+Notify Tidyzon immediately of any changes affecting eligibility, including license issues, criminal charges, or loss of insurance
 
 
-Cooperate with any re-verification process deemed necessary by TidyZon
+Cooperate with any re-verification process deemed necessary by Tidyzon
 
 
 8. No Guarantee or Warranty
-While TidyZon performs these verification checks to enhance customer safety, TidyZon does not guarantee the character, performance, or conduct of any Provider. Providers operate as independent contractors and are not employees, agents, or representatives of TidyZon. TidyZon is not responsible for any actions taken by Providers outside the scope of the services arranged through the platform.
+While Tidyzon performs these verification checks to enhance customer safety, Tidyzon does not guarantee the character, performance, or conduct of any Provider. Providers operate as independent contractors and are not employees, agents, or representatives of Tidyzon. Tidyzon is not responsible for any actions taken by Providers outside the scope of the services arranged through the platform.
 .
 
 7. PAYMENT TERMS

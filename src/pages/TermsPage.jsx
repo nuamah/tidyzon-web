@@ -193,7 +193,7 @@ const TermsPage = () => {
                 Tidyzon handles phone numbers and SMS data as described in the Tidyzon Privacy Policy and our <Link to="/privacy#sms-privacy" className="terms-inline-link">SMS Privacy Notice</Link>.
               </p>
 
-              <h3 className="terms-subsection-title">TidyZon SMS Privacy Policy</h3>
+              <h3 className="terms-subsection-title">Tidyzon SMS Privacy Policy</h3>
               <p className="terms-text">
                 This notice explains how Tidyzon handles your phone number and SMS related data.
               </p>
@@ -255,12 +255,12 @@ const TermsPage = () => {
                 <li>Request information about data usage and sharing</li>
               </ul>
               <p className="terms-text">
-                Requests can be made through the TidyZon app or customer support.
+                Requests can be made through the Tidyzon app or customer support.
               </p>
 
               <h4 className="terms-subsection-subtitle">Changes to This Policy</h4>
               <p className="terms-text">
-                TidyZon may update this Privacy Policy from time to time. Continued use of the app constitutes acceptance of the revised policy.
+                Tidyzon may update this Privacy Policy from time to time. Continued use of the app constitutes acceptance of the revised policy.
               </p>
             </div>
 

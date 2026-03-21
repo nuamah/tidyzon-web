@@ -43,7 +43,7 @@ Details relevant to performing services (driveway access, water faucet availabil
 
 
 Payment & Billing Information
-(Processed through secure third-party payment processors; TidyZon does not store full card numbers.)
+(Processed through secure third-party payment processors; Tidyzon does not store full card numbers.)
 Payment method type (e.g., card type, last four digits)
 
 
@@ -96,7 +96,7 @@ Communications & Interaction Data
 Messages sent through the Platform
 
 
-Communications with TidyZon customer support
+Communications with Tidyzon customer support
 
 
 Service feedback, complaints, and ratings
@@ -230,7 +230,7 @@ Provider Communications
 Messages exchanged with Customers
 
 
-Messages exchanged with TidyZon support
+Messages exchanged with Tidyzon support
 
 
 Dispute resolution records or appeals
