@@ -3,8 +3,12 @@ import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import './ContactPage.css'
 
+const API_BASE = import.meta.env.VITE_API_URL || ''
+
 const ContactPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'loading' | 'success' | 'error' | null
+  const [submitMessage, setSubmitMessage] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,17 +18,36 @@ const ContactPage = () => {
   })
 
   const handleChange = (e) => {
+    if (submitStatus) setSubmitStatus(null)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for contacting us! We will get back to you soon.')
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    setSubmitStatus('loading')
+    setSubmitMessage('')
+    try {
+      const res = await fetch(`${API_BASE}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        setSubmitStatus('error')
+        setSubmitMessage(data.message || data.error || 'Something went wrong. Please try again.')
+        return
+      }
+      setSubmitStatus('success')
+      setSubmitMessage(data.message || 'Thank you! We will get back to you soon.')
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
+    } catch {
+      setSubmitStatus('error')
+      setSubmitMessage('Could not reach the server. If you are developing locally, run the API with npm run server.')
+    }
   }
 
   const contactInfo = [
@@ -202,9 +225,24 @@ const ContactPage = () => {
                     ></textarea>
                   </div>
 
-                  <button type="submit" className="form-submit-btn">
+                  {submitStatus === 'success' && (
+                    <div className="form-feedback form-feedback--success" role="status">
+                      {submitMessage}
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="form-feedback form-feedback--error" role="alert">
+                      {submitMessage}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="form-submit-btn"
+                    disabled={submitStatus === 'loading'}
+                  >
                     <Send className="submit-icon" />
-                    <span>Send Message</span>
+                    <span>{submitStatus === 'loading' ? 'Sending…' : 'Send Message'}</span>
                   </button>
                 </form>
 

@@ -55,6 +55,34 @@ npm run dev
 
 4. Open your browser and visit the local URL shown in the terminal (typically `http://localhost:5173`)
 
+### Backend API (chat + contact form)
+
+The Express server in `server/` powers the AI chat and the **Contact** form email (SMTP).
+
+- **Run frontend + API together (recommended for local dev):**
+  ```bash
+  npm run dev:all
+  ```
+  This starts Vite (port 5173) and the API (port 3001). Vite proxies `/api/*` to the API.
+
+- **Or run separately:** `npm run dev` in one terminal and `npm run server` in another.
+
+**Contact form (SMTP)** — copy `env.example` to `.env` in the project root and set:
+
+| Variable | Purpose |
+|----------|---------|
+| `SMTP_HOST` | e.g. `smtp.gmail.com` |
+| `SMTP_PORT` | `587` (STARTTLS) or `465` (set `SMTP_SECURE=true`) |
+| `SMTP_USER` | Google Workspace account used to authenticate (e.g. `info@tidyzon.com`) |
+| `SMTP_PASS` | [App Password](https://support.google.com/accounts/answer/185833) (never commit real values) |
+| `MAIL_FROM` | From address shown to recipients (e.g. `support@tidyzon.com`) |
+| `MAIL_FROM_NAME` | Display name (e.g. `Tidyzon Support`) |
+| `MAIL_TO` | Inbox that receives contact submissions (defaults to `MAIL_FROM`) |
+
+Submissions send **two** emails: one to your team (with **Reply-To** set to the visitor) and a branded confirmation to the sender.
+
+**Production:** deploy the static site and the Node server (or use a serverless mail provider). Point `VITE_API_URL` to your API base URL if the frontend and API are on different origins.
+
 ## 🏗️ Build for Production
 
 Create an optimized production build:

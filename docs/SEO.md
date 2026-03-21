@@ -31,6 +31,24 @@ For **maximum** SEO (faster, richer snippets), consider later: **prerendering** 
 ## Google Search Console
 
 1. Add the **property** (domain or URL prefix).
-2. Submit **`/sitemap.xml`**.
+2. Submit **`https://tidyzon.com/sitemap.xml`** (or your production origin + `/sitemap.xml`).
 3. Request indexing for key URLs if needed.
 4. Fix any **Mobile usability** / **Core Web Vitals** issues reported there.
+
+### “Search instead for Tidyzon” (brand disambiguation)
+
+If Google suggests a different brand (e.g. autocorrect), **don’t only click the wrong result**. When you see **“Search instead for Tidyzon”** (or similar), use it, then **click through to your real site**. Repeated correct clicks help teach Google that users want **Tidyzon** and your domain.
+
+### Organization schema (`index.html`)
+
+The site ships with **JSON-LD `Organization`** in `index.html`, including **`sameAs`** for official social profiles. Update those URLs if your handles differ, and add more profiles (e.g. LinkedIn, YouTube) to `sameAs` when you have real links.
+
+### Brand citations (off-site)
+
+- Use the exact name **Tidyzon** on Instagram, Facebook, LinkedIn, etc., and **link back** to `https://tidyzon.com`.
+- A **Google Business Profile** for the brand (even for online-first businesses) can reinforce the name and reduce “did you mean” suggestions over time.
+
+## Vercel
+
+- **Domains:** In **Settings → Domains**, assign **`tidyzon.com`** (and `www` if used) to **Production**, not only preview URLs.
+- **Canonical:** Set **`VITE_SITE_URL=https://tidyzon.com`** (no trailing slash) in production env so **Helmet** canonicals and OG URLs match the live domain, not `*.vercel.app`.

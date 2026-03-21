@@ -2,6 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import OpenAI from 'openai'
+import nodemailer from 'nodemailer'
+import {
+  buildTeamNotificationHtml,
+  buildTeamNotificationText,
+  buildSenderConfirmationHtml,
+  buildSenderConfirmationText,
+} from './mail/contactMail.js'
 
 dotenv.config()
 
@@ -350,6 +357,96 @@ IMPORTANT GUIDELINES:
 
 Remember: Be thorough, helpful, and always use the knowledge base to provide accurate, detailed information.`
 
+// --- Contact form (SMTP) ---
+const MAX_LEN = { name: 120, email: 254, phone: 40, subject: 200, message: 8000 }
+
+function getMailTransporter() {
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com'
+  const port = Number(process.env.SMTP_PORT) || 587
+  const secure = process.env.SMTP_SECURE === 'true' || port === 465
+  const user = process.env.SMTP_USER
+  const pass = process.env.SMTP_PASS
+  if (!user || !pass) return null
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass },
+  })
+}
+
+function isValidEmail(s) {
+  return typeof s === 'string' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim())
+}
+
+app.post('/api/contact', async (req, res) => {
+  try {
+    const raw = req.body || {}
+    const name = typeof raw.name === 'string' ? raw.name.trim() : ''
+    const email = typeof raw.email === 'string' ? raw.email.trim() : ''
+    const phone = typeof raw.phone === 'string' ? raw.phone.trim() : ''
+    const subject = typeof raw.subject === 'string' ? raw.subject.trim() : ''
+    const message = typeof raw.message === 'string' ? raw.message.trim() : ''
+
+    if (!name || name.length > MAX_LEN.name) {
+      return res.status(400).json({ error: 'Invalid name', message: 'Please enter your name.' })
+    }
+    if (!isValidEmail(email) || email.length > MAX_LEN.email) {
+      return res.status(400).json({ error: 'Invalid email', message: 'Please enter a valid email address.' })
+    }
+    if (!subject || subject.length > MAX_LEN.subject) {
+      return res.status(400).json({ error: 'Invalid subject', message: 'Please enter a subject.' })
+    }
+    if (!message || message.length > MAX_LEN.message) {
+      return res.status(400).json({ error: 'Invalid message', message: 'Please enter a message.' })
+    }
+    if (phone.length > MAX_LEN.phone) {
+      return res.status(400).json({ error: 'Invalid phone', message: 'Phone number is too long.' })
+    }
+
+    const transporter = getMailTransporter()
+    if (!transporter) {
+      console.warn('Contact form: SMTP not configured (SMTP_USER / SMTP_PASS)')
+      return res.status(503).json({
+        error: 'Mail unavailable',
+        message: 'Contact form is temporarily unavailable. Please email support@tidyzon.com directly.',
+      })
+    }
+
+    const mailFrom = process.env.MAIL_FROM || 'support@tidyzon.com'
+    const mailFromName = process.env.MAIL_FROM_NAME || 'Tidyzon Support'
+    const mailTo = process.env.MAIL_TO || mailFrom
+    const fromAddr = { name: mailFromName, address: mailFrom }
+
+    const payload = { name, email, phone, subject, message }
+
+    await transporter.sendMail({
+      from: fromAddr,
+      to: mailTo,
+      replyTo: email,
+      subject: `[Tidyzon Contact] ${subject}`,
+      text: buildTeamNotificationText(payload),
+      html: buildTeamNotificationHtml(payload),
+    })
+
+    await transporter.sendMail({
+      from: fromAddr,
+      to: email,
+      subject: 'We received your message — Tidyzon',
+      text: buildSenderConfirmationText({ name, subject }),
+      html: buildSenderConfirmationHtml({ name, subject }),
+    })
+
+    return res.status(200).json({ ok: true, message: 'Message sent successfully.' })
+  } catch (err) {
+    console.error('Contact form error:', err)
+    return res.status(500).json({
+      error: 'Send failed',
+      message: 'We could not send your message. Please try again or email support@tidyzon.com.',
+    })
+  }
+})
+
 app.post('/api/chat', async (req, res) => {
   try {
     console.log('📨 Received chat request')
@@ -433,6 +530,7 @@ app.get('/api/health', (req, res) => {
     const healthData = { 
       status: 'ok',
       apiKeyConfigured: !!process.env.OPENAI_API_KEY,
+      smtpConfigured: !!(process.env.SMTP_USER && process.env.SMTP_PASS),
       timestamp: new Date().toISOString(),
       server: 'running'
     }
@@ -471,6 +569,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Tidyzon AI Chatbot server running on port ${PORT}`)
   console.log(`📡 Health check available at: http://localhost:${PORT}/api/health`)
   console.log(`💬 Chat endpoint available at: http://localhost:${PORT}/api/chat`)
+  console.log(`✉️  Contact endpoint available at: http://localhost:${PORT}/api/contact`)
   
   if (!process.env.OPENAI_API_KEY) {
     console.warn('⚠️  WARNING: OPENAI_API_KEY is not set. AI chatbot will not work.')

@@ -6,4 +6,12 @@ export default defineConfig({
   plugins: [react()],
   // Explicitly ensure env variables are loaded
   envPrefix: 'VITE_',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
 })

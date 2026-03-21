@@ -257,14 +257,40 @@
   box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
 }
 
-.form-submit-btn:hover {
+.form-submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 20px 35px -5px rgba(16, 185, 129, 0.5);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .submit-icon {
   width: 20px;
   height: 20px;
+}
+
+.form-feedback {
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.form-feedback--success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+
+.form-feedback--error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #b91c1c;
 }
 
 /* FAQ Column */
