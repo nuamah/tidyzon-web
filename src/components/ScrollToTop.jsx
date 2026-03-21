@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 
 /** Paths that handle their own scroll position (e.g. privacy content at an anchor) */
-const SKIP_SCROLL_TO_TOP = new Set(['/support/otp-out'])
+const SKIP_SCROLL_TO_TOP = new Set(['/support/opt-out'])
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)

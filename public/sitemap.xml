@@ -11,7 +11,7 @@
   <url><loc>https://tidyzon.com/open-positions</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tidyzon.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tidyzon.com/help</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://tidyzon.com/support/otp-out</loc><changefreq>yearly</changefreq><priority>0.45</priority></url>
+  <url><loc>https://tidyzon.com/support/opt-out</loc><changefreq>yearly</changefreq><priority>0.45</priority></url>
   <url><loc>https://tidyzon.com/terms</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://tidyzon.com/privacy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://tidyzon.com/privacy/requests</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>

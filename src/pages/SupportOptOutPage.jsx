@@ -5,10 +5,10 @@ import PrivacyPage from './PrivacyPage'
 export const SMS_PRIVACY_YOUR_CHOICES_ID = 'sms-privacy-your-choices'
 
 /**
- * Support URL: /support/otp-out
+ * Support URL: /support/opt-out
  * Shows the Privacy Policy with the URL unchanged (not /privacy) and scrolls to §8.6 Your choices.
  */
-const SupportOtpOutPage = () => {
+const SupportOptOutPage = () => {
   useEffect(() => {
     const scrollToSection = () => {
       document.getElementById(SMS_PRIVACY_YOUR_CHOICES_ID)?.scrollIntoView({
@@ -29,4 +29,4 @@ const SupportOtpOutPage = () => {
   return <PrivacyPage />
 }
 
-export default SupportOtpOutPage
+export default SupportOptOutPage

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -21,7 +21,7 @@ import ServiceProviderAgreementPage from './pages/ServiceProviderAgreementPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamsPage from './pages/TeamsPage'
 import TermsPage from './pages/TermsPage'
-import SupportOtpOutPage from './pages/SupportOtpOutPage'
+import SupportOptOutPage from './pages/SupportOptOutPage'
 import RouteSEO from './components/RouteSEO'
 import './App.css'
 
@@ -44,7 +44,8 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/help" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />
-            <Route path="/support/otp-out" element={<SupportOtpOutPage />} />
+            <Route path="/support/opt-out" element={<SupportOptOutPage />} />
+            <Route path="/support/otp-out" element={<Navigate to="/support/opt-out" replace />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/privacy/requests" element={<PrivacyRequestsPage />} />
             <Route path="/privacy/do-not-sell-or-share" element={<DoNotSellPage />} />
