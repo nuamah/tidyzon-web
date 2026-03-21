@@ -44,8 +44,16 @@ const TIDYZON_KNOWLEDGE_BASE = {
       description: "Professional mobile car cleaning services with packages designed to fit your needs and budget. Prices for wash packages depend on your vehicle type. Vehicle type like MVP, Truck will incur additional $10 each. Displayed prices are passenger cars only.",
       packages: [
         {
+          id: "speed-interior",
+          name: "Speed Package (Interior only)",
+          price: "$29.99",
+          duration: "20 minutes",
+          features: ["Vacuum - Regular", "Wipe door jambs"],
+          excludedFeatures: ["Deep stain", "Pet removal", "Excessive trash removal", "Heavy dirt"]
+        },
+        {
           id: "speed",
-          name: "Speed Wash",
+          name: "Speed Package",
           price: "$49.99",
           duration: "30 minutes",
           features: ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs"]

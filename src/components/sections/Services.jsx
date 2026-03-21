@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import './Services.css'
 
@@ -16,15 +16,22 @@ const Services = () => {
     {
       id: 'speed-interior',
       name: 'Speed Package',
-      title: 'SPEED WASH - INTERIOR ONLY',
+      title: 'SPEED PACKAGE - INTERIOR ONLY',
       price: '$29.99',
-      duration: '15mins',
+      duration: '20mins',
+      pricingLabel: 'Pricing per wash',
       features: ['Vacuum - Regular', 'Wipe door jambs'],
+      excludedFeatures: [
+        'Deep stain',
+        'Pet removal',
+        'Excessive trash removal',
+        'Heavy dirt',
+      ],
     },
     {
       id: 'speed',
-      name: 'Speed Wash',
-      title: 'SPEED WASH - FULL PACKAGE',
+      name: 'Speed Package',
+      title: 'SPEED PACKAGE - FULL PACKAGE',
       price: '$49.99',
       duration: '30mins',
       features: [
@@ -201,8 +208,11 @@ const Services = () => {
                       {pkg.originalPrice && (
                         <span className="package-original-price">{pkg.originalPrice}</span>
                       )}
+                      {pkg.pricingLabel && (
+                        <span className="package-pricing-sublabel">{pkg.pricingLabel}</span>
+                      )}
                       <span className="package-price">{pkg.price}</span>
-                      <span className="price-label">per wash</span>
+                      {!pkg.pricingLabel && <span className="price-label">per wash</span>}
                     </div>
                   </div>
 
@@ -225,8 +235,11 @@ const Services = () => {
                           {pkg.originalPrice && (
                             <span className="package-original-price-mobile">{pkg.originalPrice}</span>
                           )}
+                          {pkg.pricingLabel && (
+                            <span className="package-pricing-sublabel package-pricing-sublabel--mobile">{pkg.pricingLabel}</span>
+                          )}
                           <span className="package-price-mobile">{pkg.price}</span>
-                          <span className="price-label-mobile">per wash</span>
+                          {!pkg.pricingLabel && <span className="price-label-mobile">per wash</span>}
                         </div>
                       </div>
                     </div>
@@ -291,6 +304,20 @@ const Services = () => {
                       </>
                       )}
                     </div>
+                    )}
+
+                    {pkg.excludedFeatures && pkg.excludedFeatures.length > 0 && (
+                      <div className="package-excluded">
+                        <span className="package-excluded-badge">Do not include</span>
+                        <ul className="package-excluded-list">
+                          {pkg.excludedFeatures.map((item, idx) => (
+                            <li key={idx} className="package-excluded-item">
+                              <X className="package-excluded-icon" aria-hidden />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
 
                     {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (

@@ -20,8 +20,24 @@ export const TIDYZON_KNOWLEDGE_BASE = {
       description: "Professional mobile car cleaning services with packages designed to fit your needs and budget.",
       packages: [
         {
+          id: "speed-interior",
+          name: "Speed Package (Interior only)",
+          price: "$29.99",
+          duration: "20 minutes",
+          features: [
+            "Vacuum - Regular",
+            "Wipe door jambs"
+          ],
+          excludedFeatures: [
+            "Deep stain",
+            "Pet removal",
+            "Excessive trash removal",
+            "Heavy dirt"
+          ]
+        },
+        {
           id: "speed",
-          name: "Speed Wash",
+          name: "Speed Package",
           price: "$49.99",
           duration: "30 minutes",
           features: [
@@ -374,7 +390,8 @@ export const findAnswer = (query) => {
   
   // Specific package detection with variations
   const packagePatterns = {
-    speed: ['speed', 'speed wash', 'basic', 'quick', 'fast', 'economy', 'standard'],
+    'speed-interior': ['interior only', 'interior-only', 'speed interior', 'interior package', '$29.99', '29.99 interior'],
+    speed: ['speed', 'speed package', 'speed wash', 'basic', 'quick', 'fast', 'economy', 'standard'],
     deluxe: ['deluxe', 'deluxe wash', 'mid', 'middle', 'intermediate', 'popular'],
     premium: ['premium', 'premium wash', 'full', 'complete', 'comprehensive', 'top', 'best', 'luxury']
   }
@@ -501,7 +518,7 @@ export const findAnswer = (query) => {
 // Professional formatting functions for structured responses
 
 const formatPackageAnswerProfessional = (pkg) => {
-  let answer = `**${pkg.name} Package**\n\n`
+  let answer = `**${pkg.name}**\n\n`
   answer += `**Investment:** ${pkg.price}\n`
   answer += `**Service Duration:** ${pkg.duration}\n\n`
   
@@ -509,6 +526,13 @@ const formatPackageAnswerProfessional = (pkg) => {
     answer += `**What's Included:**\n\n`
     pkg.features.forEach((feature, index) => {
       answer += `${index + 1}. ${feature}\n`
+    })
+  }
+
+  if (pkg.excludedFeatures && pkg.excludedFeatures.length > 0) {
+    answer += `\n**Does not include:**\n\n`
+    pkg.excludedFeatures.forEach((item) => {
+      answer += `• ${item}\n`
     })
   }
   

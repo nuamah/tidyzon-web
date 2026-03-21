@@ -1004,6 +1004,21 @@
   border-bottom: 2px solid #e2e8f0;
 }
 
+.package-pricing-sublabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #64748b;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.package-pricing-sublabel--mobile {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
 .package-price {
   display: block;
   font-size: 2.5rem;
@@ -1088,6 +1103,49 @@
   width: 18px;
   height: 18px;
   color: #10b981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Excluded / not included (e.g. interior-only package) */
+.package-excluded {
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.package-excluded-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: #64748b;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.package-excluded-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.package-excluded-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  color: #475569;
+  font-size: 0.9375rem;
+}
+
+.package-excluded-icon {
+  width: 18px;
+  height: 18px;
+  color: #ef4444;
   flex-shrink: 0;
   margin-top: 2px;
 }

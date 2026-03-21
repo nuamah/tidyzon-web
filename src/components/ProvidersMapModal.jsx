@@ -11,7 +11,7 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
   const allProviders = [
     {
       id: 1,
-      name: "Speed Wash",
+      name: "Speed Package",
       rating: 4.9,
       distance: "0.3 miles",
       services: ["Exterior hand wash", "Clean all windows", "Towel dry"],
