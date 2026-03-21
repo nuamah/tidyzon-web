@@ -31,8 +31,8 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'info@tidyzon.com',
-      link: 'mailto:info@tidyzon.com'
+      value: 'support@tidyzon.com',
+      link: 'mailto:support@tidyzon.com'
     },
     {
       icon: Phone,

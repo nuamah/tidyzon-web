@@ -155,8 +155,8 @@ export const TIDYZON_KNOWLEDGE_BASE = {
 
   // Contact Information
   contact: {
-    email: "info@tidyzon.com",
-    supportEmail: "info@tidyzon.com",
+    email: "support@tidyzon.com",
+    supportEmail: "support@tidyzon.com",
     phone: "(630) 788-9081",
     address: "708 Saybrook Ct. Romeoville IL 60446",
     businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM",

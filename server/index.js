@@ -134,8 +134,8 @@ const TIDYZON_KNOWLEDGE_BASE = {
     ]
   },
   contact: {
-    email: "info@tidyzon.com",
-    supportEmail: "info@tidyzon.com",
+    email: "support@tidyzon.com",
+    supportEmail: "support@tidyzon.com",
     phone: "(630) 788-9081",
     address: "708 Saybrook Ct. Romeoville IL 60446",
     businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM",
@@ -316,7 +316,7 @@ IMPORTANT GUIDELINES:
    - Compare packages when relevant
 
 3. **Contact Information**: Always provide:
-   - Email: info@tidyzon.com
+   - Email: support@tidyzon.com
    - Phone: (630) 788-9081
    - Address: 708 Saybrook Ct. Romeoville IL 60446
    - Business Hours: Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM
@@ -334,7 +334,7 @@ IMPORTANT GUIDELINES:
 
 7. **Tone**: Be professional, friendly, enthusiastic, and helpful. Show genuine interest in helping users.
 
-8. **Accuracy**: Always reference the knowledge base. If information isn't in the knowledge base, suggest contacting info@tidyzon.com.
+8. **Accuracy**: Always reference the knowledge base. If information isn't in the knowledge base, suggest contacting support@tidyzon.com.
 
 9. **Goal**: Guide users toward:
    - Booking a service
@@ -368,7 +368,7 @@ app.post('/api/chat', async (req, res) => {
       console.warn('⚠️ OpenAI API key not configured')
       return res.status(503).json({ 
         error: 'AI service unavailable',
-        message: "I apologize, but the AI chatbot service is currently unavailable. Please contact us at info@tidyzon.com for assistance."
+        message: "I apologize, but the AI chatbot service is currently unavailable. Please contact us at support@tidyzon.com for assistance."
       })
     }
 
@@ -401,10 +401,10 @@ app.post('/api/chat', async (req, res) => {
     }
     
     // Provide more specific error messages
-    let errorMessage = "I apologize, but I'm having trouble processing your request right now. Please try again later or contact us at info@tidyzon.com."
+    let errorMessage = "I apologize, but I'm having trouble processing your request right now. Please try again later or contact us at support@tidyzon.com."
     
     if (error.message && (error.message.includes('API key') || error.message.includes('authentication'))) {
-      errorMessage = "The AI service is currently unavailable due to API key configuration issues. Please contact us at info@tidyzon.com for assistance."
+      errorMessage = "The AI service is currently unavailable due to API key configuration issues. Please contact us at support@tidyzon.com for assistance."
     } else if (error.response) {
       // OpenAI API error response
       console.error('❌ OpenAI API Response Error Status:', error.response.status)
@@ -412,9 +412,9 @@ app.post('/api/chat', async (req, res) => {
       if (error.response.status === 401) {
         errorMessage = "The AI service is currently unavailable due to authentication issues. Please check your API key configuration."
       } else if (error.response.status === 429) {
-        errorMessage = "The AI service is currently experiencing high demand. Please try again in a moment or contact us at info@tidyzon.com."
+        errorMessage = "The AI service is currently experiencing high demand. Please try again in a moment or contact us at support@tidyzon.com."
       } else if (error.response.status === 500) {
-        errorMessage = "The AI service encountered an internal error. Please try again or contact us at info@tidyzon.com."
+        errorMessage = "The AI service encountered an internal error. Please try again or contact us at support@tidyzon.com."
       }
     } else if (error.code === 'ECONNREFUSED' || error.message.includes('fetch')) {
       errorMessage = "Unable to connect to the AI service. Please ensure the server is running and try again."
@@ -454,7 +454,7 @@ app.use((err, req, res, next) => {
   console.error('Express Error:', err)
   res.status(500).json({ 
     error: 'Internal server error',
-    message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at info@tidyzon.com."
+    message: "I apologize, but I'm having trouble processing your request right now. Please try again later or contact our support team at support@tidyzon.com."
   })
 })
 

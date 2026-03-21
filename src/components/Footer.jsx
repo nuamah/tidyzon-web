@@ -100,7 +100,7 @@ const Footer = () => {
             <ul className="contact-list">
               <li>
                 <Mail className="contact-icon" />
-                <span>info@tidyzon.com</span>
+                <span>support@tidyzon.com</span>
               </li>
               <li>
                 <Phone className="contact-icon" />

@@ -31,7 +31,7 @@ const AIChatbotModal = ({ isOpen, onClose }) => {
         if (!data.apiKeyConfigured) {
           setMessages([{
             role: 'assistant',
-            content: "Hello! I'm Tidy A.I. Assistant. The AI service is currently being set up. For now, please contact us directly at info@tidyzon.com or call (630) 788-9081 for assistance. We're here to help with all your cleaning service needs!"
+            content: "Hello! I'm Tidy A.I. Assistant. The AI service is currently being set up. For now, please contact us directly at support@tidyzon.com or call (630) 788-9081 for assistance. We're here to help with all your cleaning service needs!"
           }])
         }
       } else {
@@ -42,7 +42,7 @@ const AIChatbotModal = ({ isOpen, onClose }) => {
       setApiAvailable(false)
       setMessages([{
         role: 'assistant',
-        content: "Hello! I'm Tidy A.I. Assistant. The server is currently unavailable. Please contact us at info@tidyzon.com or call (630) 788-9081 for assistance."
+        content: "Hello! I'm Tidy A.I. Assistant. The server is currently unavailable. Please contact us at support@tidyzon.com or call (630) 788-9081 for assistance."
       }])
     }
   }
@@ -101,7 +101,7 @@ const AIChatbotModal = ({ isOpen, onClose }) => {
         throw new Error(errorMessage)
       }
 
-      const assistantMessage = data.message || data.response || 'I apologize, but I encountered an error. Please try again or contact us at info@tidyzon.com'
+      const assistantMessage = data.message || data.response || 'I apologize, but I encountered an error. Please try again or contact us at support@tidyzon.com'
       console.log('✅ AI Response received:', assistantMessage.substring(0, 200))
       
       setMessages([...newMessages, { 
@@ -119,18 +119,18 @@ const AIChatbotModal = ({ isOpen, onClose }) => {
       if (errorMessage.includes('unavailable') || errorMessage.includes('configuration') || errorMessage.includes('API key')) {
         setMessages([...newMessages, { 
           role: 'assistant', 
-          content: "I'm currently being set up and unavailable right now. Please contact us directly at info@tidyzon.com or call (630) 788-9081 for assistance. We're here to help with all your cleaning service needs!" 
+          content: "I'm currently being set up and unavailable right now. Please contact us directly at support@tidyzon.com or call (630) 788-9081 for assistance. We're here to help with all your cleaning service needs!" 
         }])
         setApiAvailable(false)
       } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
         setMessages([...newMessages, { 
           role: 'assistant', 
-          content: "I'm having trouble connecting to the server. Please make sure the backend server is running on port 3001. Contact us at info@tidyzon.com or call (630) 788-9081 for assistance." 
+          content: "I'm having trouble connecting to the server. Please make sure the backend server is running on port 3001. Contact us at support@tidyzon.com or call (630) 788-9081 for assistance." 
         }])
       } else {
         setMessages([...newMessages, { 
           role: 'assistant', 
-          content: `I apologize, but I encountered an error: ${errorMessage}. Please try again or contact us at info@tidyzon.com or call (630) 788-9081 for assistance.` 
+          content: `I apologize, but I encountered an error: ${errorMessage}. Please try again or contact us at support@tidyzon.com or call (630) 788-9081 for assistance.` 
         }])
       }
     } finally {
@@ -253,7 +253,7 @@ const AIChatbotModal = ({ isOpen, onClose }) => {
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder={apiAvailable ? "Type your message..." : "AI unavailable - Contact us at info@tidyzon.com"}
+            placeholder={apiAvailable ? "Type your message..." : "AI unavailable - Contact us at support@tidyzon.com"}
             className="chat-input"
             rows="1"
             disabled={isLoading || !apiAvailable}

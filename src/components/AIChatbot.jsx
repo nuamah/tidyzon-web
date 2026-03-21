@@ -79,7 +79,7 @@ const AIChatbot = () => {
         setApiAvailable(false)
         setMessages([{
           role: 'assistant',
-          content: "Hello! I'm Tidy A.I. Assistant. I can help you with information about our services, pricing, booking, contact details, and more using our knowledge base. How can I assist you today?\n\n*Note: For more detailed AI-powered responses, the OpenAI API key can be configured. For immediate assistance, contact us at info@tidyzon.com or call (630) 788-9081."
+          content: "Hello! I'm Tidy A.I. Assistant. I can help you with information about our services, pricing, booking, contact details, and more using our knowledge base. How can I assist you today?\n\n*Note: For more detailed AI-powered responses, the OpenAI API key can be configured. For immediate assistance, contact us at support@tidyzon.com or call (630) 788-9081."
         }])
       }
     }
@@ -133,7 +133,7 @@ IMPORTANT GUIDELINES:
    - Compare packages when relevant
 
 3. **Contact Information**: Always provide:
-   - Email: info@tidyzon.com
+   - Email: support@tidyzon.com
    - Phone: (630) 788-9081
    - Address: 708 Saybrook Ct. Romeoville IL 60446
    - Business Hours: Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM
@@ -151,7 +151,7 @@ IMPORTANT GUIDELINES:
 
 7. **Tone**: Be professional, friendly, enthusiastic, and helpful. Show genuine interest in helping users.
 
-8. **Accuracy**: Always reference the knowledge base. If information isn't in the knowledge base, suggest contacting info@tidyzon.com.
+8. **Accuracy**: Always reference the knowledge base. If information isn't in the knowledge base, suggest contacting support@tidyzon.com.
 
 9. **Goal**: Guide users toward:
    - Booking a service
@@ -309,11 +309,11 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
       let assistantMessage
       if (isGreeting) {
         // Friendly greeting response
-        assistantMessage = `Hello! 👋 I'm Tidy A.I. Assistant. I'm here to help you with information about Tidyzon's professional cleaning services.\n\n**What I can help you with:**\n• Car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n• Frequently asked questions\n\n**How can I assist you today?**\n\nTry asking me:\n• "What services do you offer?"\n• "How much does the Deluxe package cost?"\n• "How do I book a service?"\n• "What's your phone number?"\n\nFor immediate assistance, contact us at **info@tidyzon.com** or call **(630) 788-9081**.`
+        assistantMessage = `Hello! 👋 I'm Tidy A.I. Assistant. I'm here to help you with information about Tidyzon's professional cleaning services.\n\n**What I can help you with:**\n• Car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n• Frequently asked questions\n\n**How can I assist you today?**\n\nTry asking me:\n• "What services do you offer?"\n• "How much does the Deluxe package cost?"\n• "How do I book a service?"\n• "What's your phone number?"\n\nFor immediate assistance, contact us at **support@tidyzon.com** or call **(630) 788-9081**.`
       } else {
         // Use knowledge base for other queries
         const result = findAnswer(userMessage)
-        assistantMessage = result?.answer || `I'm here to help! You can ask me about:\n\n• Our car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n\nFor detailed assistance, please contact us at info@tidyzon.com or call (630) 788-9081.`
+        assistantMessage = result?.answer || `I'm here to help! You can ask me about:\n\n• Our car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n\nFor detailed assistance, please contact us at support@tidyzon.com or call (630) 788-9081.`
       }
       
       // Don't add fallback note - user wants API to be primary method
@@ -328,7 +328,7 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
       console.error('❌ Local knowledge base error:', fallbackError)
       setMessages([...newMessages, { 
         role: 'assistant', 
-        content: `I apologize, but I'm having trouble processing your request right now. Please contact us directly at info@tidyzon.com or call (630) 788-9081 for assistance.` 
+        content: `I apologize, but I'm having trouble processing your request right now. Please contact us directly at support@tidyzon.com or call (630) 788-9081 for assistance.` 
       }])
     } finally {
       setIsLoading(false)
