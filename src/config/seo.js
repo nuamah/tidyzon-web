@@ -14,4 +14,4 @@ export const ogImagePath = '/assets/tidyzon_hero_02.png'
 export function absoluteUrl(path = '/') {
   const p = path.startsWith('/') ? path : `/${path}`
   return `${SITE_URL}${p}`
-}0
+}

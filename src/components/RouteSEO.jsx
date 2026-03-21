@@ -41,7 +41,7 @@ const ROUTES = {
   '/contact': {
     title: 'Contact & help',
     description:
-      'Contact Tidyzon by email, phone, or message. FAQs, SMS terms, and support information.',
+      'Contact Tidyzon by email, phone, or message. FAQs and support information.',
   },
   '/help': {
     title: 'Help',
@@ -95,28 +95,30 @@ const DEFAULT_META = ROUTES['/']
 const RouteSEO = () => {
   const { pathname } = useLocation()
   const meta = ROUTES[pathname] || DEFAULT_META
-  const title = meta.title.includes('Tidyzon') ? meta.title : `${meta.title} | Tidyzon`
+  const rawTitle = meta?.title ?? DEFAULT_META.title
+  const title = rawTitle.includes('Tidyzon') ? rawTitle : `${rawTitle} | Tidyzon`
   const canonical = absoluteUrl(pathname)
   const ogImage = absoluteUrl(ogImagePath)
 
+  const description = meta?.description ?? DEFAULT_META.description
+
   return (
     <Helmet prioritizeSeoTags>
-      <html lang="en" />
       <title>{title}</title>
-      <meta name="description" content={meta.description} />
+      <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
 
       <meta property="og:site_name" content="Tidyzon" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={title} />
-      <meta property="og:description" content={meta.description} />
+      <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:locale" content="en_US" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={meta.description} />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
       <meta name="robots" content="index, follow" />
