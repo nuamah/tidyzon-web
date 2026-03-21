@@ -241,7 +241,7 @@ const PrivacyPage = () => {
                 <li>Compliance and dispute resolution</li>
               </ul>
 
-              <h3 className="privacy-subsection-title">8.6 Your choices</h3>
+              <h3 id="sms-privacy-your-choices" className="privacy-subsection-title">8.6 Your choices</h3>
               <ul className="privacy-list">
                 <li>Reply STOP to opt out.</li>
                 <li>Manage notification preferences in the app.</li>

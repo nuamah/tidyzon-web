@@ -21,6 +21,7 @@ import ServiceProviderAgreementPage from './pages/ServiceProviderAgreementPage'
 import ServicesPage from './pages/ServicesPage'
 import TeamsPage from './pages/TeamsPage'
 import TermsPage from './pages/TermsPage'
+import SupportOtpOutPage from './pages/SupportOtpOutPage'
 import RouteSEO from './components/RouteSEO'
 import './App.css'
 
@@ -43,6 +44,7 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/help" element={<ContactPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/support/otp-out" element={<SupportOtpOutPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/privacy/requests" element={<PrivacyRequestsPage />} />
             <Route path="/privacy/do-not-sell-or-share" element={<DoNotSellPage />} />

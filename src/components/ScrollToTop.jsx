@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ArrowUp } from 'lucide-react'
 
+/** Paths that handle their own scroll position (e.g. privacy content at an anchor) */
+const SKIP_SCROLL_TO_TOP = new Set(['/support/otp-out'])
+
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
   const { pathname, hash } = useLocation()
@@ -25,7 +28,9 @@ const ScrollToTop = () => {
         clearTimeout(t2)
       }
     }
-    window.scrollTo(0, 0)
+    if (!SKIP_SCROLL_TO_TOP.has(pathname)) {
+      window.scrollTo(0, 0)
+    }
   }, [pathname, hash])
 
   // Show button when page is scrolled down

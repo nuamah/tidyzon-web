@@ -57,6 +57,11 @@ const ROUTES = {
     description:
       'How Tidyzon collects, uses, and protects your personal information, including SMS privacy (Section 8).',
   },
+  '/support/otp-out': {
+    title: 'SMS opt-out & your choices',
+    description:
+      'How to opt out of Tidyzon SMS messages and manage choices under Section 8.6 of our Privacy Policy.',
+  },
   '/privacy/requests': {
     title: 'Privacy requests',
     description: 'Submit privacy rights requests to Tidyzon under applicable laws.',
