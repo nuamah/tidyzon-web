@@ -311,25 +311,6 @@
   font-size: 0.9375rem;
 }
 
-.faq-link {
-  padding-left: 1rem;
-  margin-top: 0.5rem;
-  display: inline-block;
-}
-
-.faq-link a {
-  color: #059669;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.faq-link a:hover {
-  color: #047857;
-  text-decoration: underline;
-}
-
 .download-app-cta {
   padding: 2rem;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);

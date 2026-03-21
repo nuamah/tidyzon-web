@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import './ContactPage.css'
@@ -56,16 +55,6 @@ const ContactPage = () => {
   ]
 
   const faqs = [
-    {
-      question: 'SMS Terms',
-      linkUrl: '/terms#sms-terms',
-      linkLabel: 'View SMS Terms'
-    },
-    {
-      question: 'SMS Privacy',
-      linkUrl: '/privacy#sms-privacy',
-      linkLabel: 'View SMS Privacy'
-    },
     {
       question: 'How quickly can I book a service?',
       answer: 'You can book a service instantly through our app. Most services are available same-day or within 24 hours.'
@@ -234,13 +223,7 @@ const ContactPage = () => {
                   {faqs.map((faq, index) => (
                     <div key={index} className="faq-item">
                       <h4 className="faq-question">{faq.question}</h4>
-                      {faq.linkUrl ? (
-                        <div className="faq-link">
-                          <Link to={faq.linkUrl}>{faq.linkLabel}</Link>
-                        </div>
-                      ) : (
-                        <p className="faq-answer">{faq.answer}</p>
-                      )}
+                      <p className="faq-answer">{faq.answer}</p>
                     </div>
                   ))}
                 </div>
