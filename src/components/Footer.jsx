@@ -104,7 +104,7 @@ const Footer = () => {
               </li>
               <li>
                 <Phone className="contact-icon" />
-                <span>(630) 788-9081</span>
+                <span>(815) 608-1632</span>
               </li>
               <li>
                 <MapPin className="contact-icon" />

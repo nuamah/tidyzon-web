@@ -23,7 +23,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           id: "speed-interior",
           name: "Speed Package (Interior only)",
           price: "$29.99",
-          duration: "20 minutes",
+          duration: "15 minutes",
           features: [
             "Vacuum - Regular",
             "Wipe door jambs"
@@ -173,9 +173,9 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   contact: {
     email: "support@tidyzon.com",
     supportEmail: "support@tidyzon.com",
-    phone: "(630) 788-9081",
+    phone: "(815) 608-1632",
     address: "708 Saybrook Ct. Romeoville IL 60446",
-    businessHours: "Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM",
+    businessHours: "Mon-Fri: 7AM - 7PM",
     responseTime: "Within 24 hours"
   },
 

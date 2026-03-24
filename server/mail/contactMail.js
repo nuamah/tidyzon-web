@@ -111,7 +111,7 @@ export function buildSenderConfirmationHtml({ name, subject }) {
     <p style="margin:0 0 8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:${brand.primary};">We received your message</p>
     <h1 style="margin:0 0 16px;font-size:20px;font-weight:700;color:${brand.text};">Thank you, ${escapeHtml(name)}!</h1>
     <p style="margin:0 0 16px;">Thanks for contacting <strong>Tidyzon</strong>. We’ve received your inquiry regarding <strong>${escapeHtml(subject)}</strong> and our team will get back to you as soon as possible — usually within one business day.</p>
-    <p style="margin:0 0 16px;">If your request is urgent, you can also reach us at <a href="mailto:support@tidyzon.com" style="color:${brand.accent};text-decoration:none;font-weight:600;">support@tidyzon.com</a> or call <a href="tel:+16307889081" style="color:${brand.accent};text-decoration:none;font-weight:600;">(630) 788-9081</a>.</p>
+    <p style="margin:0 0 16px;">If your request is urgent, you can also reach us at <a href="mailto:support@tidyzon.com" style="color:${brand.accent};text-decoration:none;font-weight:600;">support@tidyzon.com</a> or call <a href="tel:+18156081632" style="color:${brand.accent};text-decoration:none;font-weight:600;">(815) 608-1632</a>.</p>
     <div style="background:${brand.bg};border-left:4px solid ${brand.primary};border-radius:0 8px 8px 0;padding:14px 16px;margin:20px 0;">
       <p style="margin:0;font-size:14px;color:${brand.text};line-height:1.5;">We appreciate your interest in our cleaning and home services. We look forward to speaking with you soon.</p>
     </div>
@@ -132,7 +132,7 @@ export function buildSenderConfirmationText({ name, subject }) {
     '',
     "We've received your message and our team will respond as soon as possible — usually within one business day.",
     '',
-    'Urgent? Email support@tidyzon.com or call (630) 788-9081.',
+    'Urgent? Email support@tidyzon.com or call (815) 608-1632.',
     '',
     '— Tidyzon Support',
     'Tidyzon LLC | support@tidyzon.com | tidyzon.com',

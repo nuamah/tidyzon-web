@@ -60,8 +60,8 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      value: '(630) 788-9081',
-      link: 'tel:+16307889081'
+      value: '(815) 608-1632',
+      link: 'tel:+18156081632'
     },
     {
       icon: MapPin,
@@ -72,7 +72,7 @@ const ContactPage = () => {
     {
       icon: Clock,
       title: 'Business Hours',
-      value: 'Mon-Fri: 7AM-7PM, Sat-Sun: 9AM-6PM',
+      value: 'Mon-Fri: 7AM - 7PM',
       link: '#'
     }
   ]
@@ -193,7 +193,7 @@ const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="form-input"
-                        placeholder="(630) 788-9081"
+                        placeholder="(815) 608-1632"
                       />
                     </div>
                     <div className="form-group">

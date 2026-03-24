@@ -18,7 +18,7 @@ const Services = () => {
       name: 'Speed Package',
       title: 'SPEED PACKAGE - INTERIOR ONLY',
       price: '$29.99',
-      duration: '20mins',
+      duration: '15mins',
       pricingLabel: 'Pricing per wash',
       features: ['Vacuum - Regular', 'Wipe door jambs'],
       excludedFeatures: [
