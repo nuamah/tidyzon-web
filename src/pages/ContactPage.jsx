@@ -72,7 +72,7 @@ const ContactPage = () => {
     {
       icon: Clock,
       title: 'Business Hours',
-      value: 'Mon-Fri: 7AM - 7PM',
+      value: 'Mon-Sun: 7AM - 7PM',
       link: '#'
     }
   ]

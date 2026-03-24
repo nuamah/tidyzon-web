@@ -175,7 +175,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
     supportEmail: "support@tidyzon.com",
     phone: "(815) 608-1632",
     address: "708 Saybrook Ct. Romeoville IL 60446",
-    businessHours: "Mon-Fri: 7AM - 7PM",
+    businessHours: "Mon-Sun: 7AM - 7PM",
     responseTime: "Within 24 hours"
   },
 
