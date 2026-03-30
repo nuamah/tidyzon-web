@@ -274,7 +274,6 @@ const Hero = () => {
                 </button>
                 
                 {/* Autocomplete Suggestions */}
-                {console.log('Show suggestions:', showSuggestions, 'Count:', suggestions.length)}
                 {showSuggestions && suggestions.length > 0 && (
                   <div className="suggestions-dropdown">
                     {suggestions.map((suggestion, index) => (
@@ -294,6 +293,8 @@ const Hero = () => {
                 className="request-arrow-btn" 
                 onClick={() => setIsProvidersModalOpen(true)}
                 disabled={!location || !location.trim()}
+                type="button"
+                aria-label="Request service providers for this location"
               >
                 <ArrowRight className="arrow-icon" />
               </button>

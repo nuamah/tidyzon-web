@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import PostHogAutoCapture from './components/PostHogAutoCapture'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 import AboutPage from './pages/AboutPage'
@@ -32,6 +33,7 @@ const App = () => {
       <HelmetProvider>
       <div className="App">
         <RouteSEO />
+        <PostHogAutoCapture />
         <Header />
         <main>
           <Routes>

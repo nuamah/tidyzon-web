@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
+import { trackRequestSchedule } from '../lib/analytics'
 import './ContactPage.css'
 
 const API_BASE = import.meta.env.VITE_API_URL || ''
@@ -29,6 +30,13 @@ const ContactPage = () => {
     e.preventDefault()
     setSubmitStatus('loading')
     setSubmitMessage('')
+    trackRequestSchedule({
+      from: 'Contact',
+      fullName: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+    })
     try {
       const res = await fetch(`${API_BASE}/api/contact`, {
         method: 'POST',

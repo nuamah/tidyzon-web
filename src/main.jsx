@@ -9,14 +9,17 @@ const posthogOptions = {
   defaults: '2026-01-30',
 }
 
+const posthogToken = import.meta.env.VITE_PUBLIC_POSTHOG_PROJECT_TOKEN
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <PostHogProvider
-      apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_PROJECT_TOKEN}
-      options={posthogOptions}
-    >
+    {posthogToken ? (
+      <PostHogProvider apiKey={posthogToken} options={posthogOptions}>
+        <App />
+      </PostHogProvider>
+    ) : (
       <App />
-    </PostHogProvider>
+    )}
   </React.StrictMode>,
 )
 

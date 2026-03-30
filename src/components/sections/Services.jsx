@@ -266,7 +266,7 @@ const Services = () => {
 
                     {pkg.features.length > 0 && (
                     <div className="package-features">
-                      <h4 className="features-title">{pkg.featuresLabel || 'Included Features:'}</h4>
+                      <p className="features-title">{pkg.featuresLabel || 'Included Features:'}</p>
                       <ul className="features-list">
                         {pkg.features.slice(0, 3).map((feature, idx) => (
                           <li key={idx} className="feature-item">
@@ -291,12 +291,12 @@ const Services = () => {
                           
                           return (
                             <React.Fragment key={idx}>
-                              {shouldAddDividerBeforeMachineWax && <div className="features-divider"></div>}
+                              {shouldAddDividerBeforeMachineWax && <li className="features-divider" role="separator" aria-hidden="true"></li>}
                               <li className="feature-item">
                                 <Check className="check-icon" />
                                 <span>{feature}</span>
                               </li>
-                              {shouldAddDividerAfterWipeDoorJambs && <div className="features-divider"></div>}
+                              {shouldAddDividerAfterWipeDoorJambs && <li className="features-divider" role="separator" aria-hidden="true"></li>}
                             </React.Fragment>
                           );
                         })}
