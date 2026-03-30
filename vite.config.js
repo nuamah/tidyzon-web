@@ -1,9 +1,34 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+/** Put entry stylesheets before the module script so CSS is discovered before JS (shorter critical path). */
+function htmlCssBeforeModuleScript() {
+  return {
+    name: 'html-css-before-module-script',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        const linkStyles = [...html.matchAll(/<link[^>]+rel="stylesheet"[^>]*>/gi)].map((m) => m[0])
+        if (!linkStyles.length) return html
+
+        let next = html
+        for (const l of linkStyles) {
+          next = next.replace(l, '')
+        }
+
+        const scriptIdx = next.indexOf('<script type="module"')
+        if (scriptIdx === -1) return html
+
+        const injected = linkStyles.join('\n    ')
+        return `${next.slice(0, scriptIdx)}${injected}\n    ${next.slice(scriptIdx)}`
+      },
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), htmlCssBeforeModuleScript()],
   // Explicitly ensure env variables are loaded
   envPrefix: 'VITE_',
   build: {

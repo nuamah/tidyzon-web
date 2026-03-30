@@ -1,3 +1,5 @@
+@import '@fontsource-variable/inter/index.css';
+
 /* Import image optimization styles */
 @import './styles/image-optimization.css';
 
