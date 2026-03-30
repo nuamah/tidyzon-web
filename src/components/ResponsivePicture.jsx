@@ -1,10 +1,11 @@
 import React from 'react'
 
 /**
- * WebP with JPEG/PNG fallback for smaller transfer + LCP (mobile).
+ * WebP + JPEG with optional responsive srcset (1× / 2× widths).
  */
 export default function ResponsivePicture({
-  webpSrc,
+  webpSrcSet,
+  fallbackSrcSet,
   fallbackSrc,
   alt,
   className,
@@ -17,6 +18,7 @@ export default function ResponsivePicture({
 }) {
   const imgProps = {
     src: fallbackSrc,
+    srcSet: fallbackSrcSet,
     alt,
     className,
     width,
@@ -29,7 +31,7 @@ export default function ResponsivePicture({
 
   return (
     <picture>
-      <source type="image/webp" srcSet={webpSrc} sizes={sizes} />
+      <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
       <img {...imgProps} />
     </picture>
   )

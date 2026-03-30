@@ -149,9 +149,11 @@ const Services = () => {
               </p>
             </div>
             <div className="section-header-image">
-              <img 
-                src="/assets/tidyzon_vehicle_02.png" 
-                alt="Tidyzon Car Cleaning Service" 
+              <ResponsivePicture
+                webpSrcSet="/assets/tidyzon_vehicle_02-525.webp 525w, /assets/tidyzon_vehicle_02-1050.webp 1050w"
+                fallbackSrcSet="/assets/tidyzon_vehicle_02-525.jpg 525w, /assets/tidyzon_vehicle_02-1050.jpg 1050w"
+                fallbackSrc="/assets/tidyzon_vehicle_02-525.jpg"
+                alt="Tidyzon Car Cleaning Service"
                 className="cleaner-image"
                 width={525}
                 height={350}
@@ -403,8 +405,9 @@ const Services = () => {
                 </div>
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    webpSrc="/assets/tidyzon_cleaner_01.webp"
-                    fallbackSrc="/assets/tidyzon_cleaner_01.jpg"
+                    webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
+                    fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
+                    fallbackSrc="/assets/tidyzon_cleaner_01-606.jpg"
                     alt="Service Providers Team"
                     className="dual-cta-img"
                     width={606}
@@ -420,8 +423,9 @@ const Services = () => {
               <div className="dual-cta-card">
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    webpSrc="/assets/newimage.webp"
-                    fallbackSrc="/assets/newimage.jpg"
+                    webpSrcSet="/assets/newimage-606.webp 606w, /assets/newimage-1212.webp 1212w"
+                    fallbackSrcSet="/assets/newimage-606.jpg 606w, /assets/newimage-1212.jpg 1212w"
+                    fallbackSrc="/assets/newimage-606.jpg"
                     alt="Customer Booking Service"
                     className="dual-cta-img"
                     width={606}

@@ -1,7 +1,6 @@
 /**
- * Resize + WebP for hero + marketing images (~2× mobile display width).
- * Photo fallbacks use JPEG. Re-run after replacing sources in public/assets.
- * For vehicle/cleaner, source PNGs can be re-downloaded from production if needed.
+ * Responsive WebP + JPEG at 1× and 2× display widths (mobile-first).
+ * Keep master sources (e.g. heroImage.jpg) in public/assets; run: npm run optimize-images
  */
 import sharp from 'sharp'
 import path from 'path'
@@ -11,54 +10,52 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const assets = path.join(__dirname, '..', 'public', 'assets')
 
-const jobs = [
-  { input: 'heroImage.jpg', width: 1330, webp: 'heroImage.webp', out: 'heroImage.jpg', format: 'jpeg' },
-  {
-    input: 'tidyzon_vehicle_02.jpg',
-    width: 1050,
-    webp: 'tidyzon_vehicle_02.webp',
-    out: 'tidyzon_vehicle_02.jpg',
-    format: 'jpeg',
-  },
-  {
-    input: 'tidyzon_cleaner_01.jpg',
-    width: 1212,
-    webp: 'tidyzon_cleaner_01.webp',
-    out: 'tidyzon_cleaner_01.jpg',
-    format: 'jpeg',
-  },
-  { input: 'newimage.jpg', width: 1212, webp: 'newimage.webp', out: 'newimage.jpg', format: 'jpeg' },
+const WEBP_Q = 82
+const JPEG_Q = 82
+
+/** @type {{ input: string, widths: number[], base: string }[]} */
+const sets = [
+  { input: 'heroImage.jpg', widths: [665, 1330], base: 'heroImage' },
+  { input: 'tidyzon_vehicle_02.jpg', widths: [525, 1050], base: 'tidyzon_vehicle_02' },
+  { input: 'tidyzon_cleaner_01.jpg', widths: [606, 1212], base: 'tidyzon_cleaner_01' },
+  { input: 'newimage.jpg', widths: [606, 1212], base: 'newimage' },
 ]
 
-async function writeResized(inputPath, width, format, destPath) {
-  const tmp = `${destPath}.tmp`
-  const pipeline = sharp(inputPath).resize({ width, withoutEnlargement: true })
-  if (format === 'jpeg') {
-    await pipeline.jpeg({ quality: 82, mozjpeg: true }).toFile(tmp)
+async function writeTmpThenRename(tmp, finalPath) {
+  await unlink(finalPath).catch(() => {})
+  await rename(tmp, finalPath)
+}
+
+async function emitVariant(inputPath, width, base, ext) {
+  const out = path.join(assets, `${base}-${width}.${ext}`)
+  const tmp = `${out}.tmp`
+  if (ext === 'webp') {
+    await sharp(inputPath)
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: WEBP_Q, effort: 6 })
+      .toFile(tmp)
   } else {
-    await pipeline.png({ compressionLevel: 9, adaptiveFiltering: true }).toFile(tmp)
+    await sharp(inputPath)
+      .resize({ width, withoutEnlargement: true })
+      .jpeg({ quality: JPEG_Q, mozjpeg: true })
+      .toFile(tmp)
   }
-  await unlink(destPath).catch(() => {})
-  await rename(tmp, destPath)
+  await writeTmpThenRename(tmp, out)
 }
 
 async function run() {
-  for (const j of jobs) {
-    const inputPath = path.join(assets, j.input)
-    const outWebp = path.join(assets, j.webp)
-    const outDest = path.join(assets, j.out)
+  for (const set of sets) {
+    const inputPath = path.join(assets, set.input)
+    for (const w of set.widths) {
+      await emitVariant(inputPath, w, set.base, 'webp')
+      await emitVariant(inputPath, w, set.base, 'jpg')
+      console.log('OK', set.base, w, 'webp + jpg')
+    }
+  }
 
-    const tmpWebp = `${outWebp}.tmp`
-    await sharp(inputPath)
-      .resize({ width: j.width, withoutEnlargement: true })
-      .webp({ quality: 82, effort: 6 })
-      .toFile(tmpWebp)
-    await unlink(outWebp).catch(() => {})
-    await rename(tmpWebp, outWebp)
-
-    await writeResized(inputPath, j.width, j.format, outDest)
-
-    console.log('OK', j.input, '→', j.webp, '+', j.out)
+  const oldFlatWebp = ['heroImage.webp', 'tidyzon_vehicle_02.webp', 'tidyzon_cleaner_01.webp', 'newimage.webp']
+  for (const f of oldFlatWebp) {
+    await unlink(path.join(assets, f)).catch(() => {})
   }
 }
 

@@ -71,8 +71,9 @@ const TrustedSection = () => {
           <div className="trusted-image">
             <div className="image-container">
               <ResponsivePicture
-                webpSrc="/assets/tidyzon_cleaner_01.webp"
-                fallbackSrc="/assets/tidyzon_cleaner_01.jpg"
+                webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
+                fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
+                fallbackSrc="/assets/tidyzon_cleaner_01-606.jpg"
                 alt="Professional cleaning service in action"
                 className="main-image"
                 width={606}

@@ -307,8 +307,9 @@ const Hero = () => {
         <div className="hero-image-container">
           <div className="hero-image-wrapper">
             <ResponsivePicture
-              webpSrc="/assets/heroImage.webp"
-              fallbackSrc="/assets/heroImage.jpg"
+              webpSrcSet="/assets/heroImage-665.webp 665w, /assets/heroImage-1330.webp 1330w"
+              fallbackSrcSet="/assets/heroImage-665.jpg 665w, /assets/heroImage-1330.jpg 1330w"
+              fallbackSrc="/assets/heroImage-665.jpg"
               alt="Tidyzon Vehicle Cleaning"
               className="hero-image"
               width={665}

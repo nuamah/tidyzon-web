@@ -1,9 +1,12 @@
+import { readFileSync, writeFileSync, existsSync } from 'fs'
+import { join } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 /**
  * - Early modulepreload for the entry script (parallel with CSS fetch).
  * - Stylesheets before the module tag so CSS is not chained after script parse order.
+ * - Stylesheets loaded non-blocking (preload as style + onload) to satisfy render-blocking audit.
  */
 function htmlOptimizeHead() {
   return {
@@ -40,15 +43,58 @@ function htmlOptimizeHead() {
           }
         }
 
+        // Non-blocking CSS (FCP/LCP lab): preload then apply on load
+        next = next.replace(
+          /<link rel="stylesheet" crossorigin href="([^"]+)"\s*\/?>/g,
+          (_, href) =>
+            `<link rel="preload" crossorigin href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'" />\n    <noscript><link rel="stylesheet" crossorigin href="${href}" /></noscript>`,
+        )
+
         return next
       },
     },
   }
 }
 
+/** Post-build: preload local woff2 files referenced by the main CSS (reduces font chain latency). */
+function injectFontPreloads() {
+  return {
+    name: 'inject-font-preloads',
+    writeBundle(options) {
+      const dir = options.dir
+      if (!dir) return
+      const indexPath = join(dir, 'index.html')
+      if (!existsSync(indexPath)) return
+      let html = readFileSync(indexPath, 'utf8')
+      if (html.includes('data-font-preloads')) return
+      const cssMatch = html.match(/href="(\/assets\/index-[^"]+\.css)"/)
+      if (!cssMatch) return
+      const cssPath = join(dir, cssMatch[1].replace(/^\//, ''))
+      if (!existsSync(cssPath)) return
+      const css = readFileSync(cssPath, 'utf8')
+      const urls = new Set()
+      for (const m of css.matchAll(/url\((\/assets\/[^)]+\.woff2)\)/g)) {
+        urls.add(m[1])
+      }
+      if (urls.size === 0) return
+      const preloads = [...urls]
+        .map(
+          (u) =>
+            `    <link rel="preload" href="${u}" as="font" type="font/woff2" crossorigin />`,
+        )
+        .join('\n')
+      html = html.replace(
+        '<meta charset="UTF-8" />',
+        `<meta charset="UTF-8" />\n<!-- data-font-preloads -->\n${preloads}`,
+      )
+      writeFileSync(indexPath, html)
+    },
+  }
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), htmlOptimizeHead()],
+  plugins: [react(), htmlOptimizeHead(), injectFontPreloads()],
   // Explicitly ensure env variables are loaded
   envPrefix: 'VITE_',
   build: {
