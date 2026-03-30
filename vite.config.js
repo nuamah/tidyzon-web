@@ -117,10 +117,13 @@ export default defineConfig(({ mode }) => ({
           if (id.includes('react-dom') || id.includes('/react/') || id.includes('\\react\\')) {
             return 'react-vendor'
           }
-          if (id.includes('react-helmet')) return 'react-vendor'
+          // SEO meta: separate from react-vendor so Lighthouse attributes less weight to the core runtime chunk.
+          if (id.includes('react-helmet-async') || id.includes('react-helmet')) return 'helmet-async'
           if (id.includes('react-router')) return 'router'
           if (id.includes('posthog')) return 'posthog'
           if (id.includes('lucide-react')) return 'icons'
+          // Keep QR library out of the shared vendor chunk so it only loads when `import('qrcode')` runs.
+          if (id.includes('node_modules/qrcode')) return 'qrcode'
           return 'vendor'
         },
       },

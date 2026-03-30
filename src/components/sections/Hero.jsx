@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { ArrowRight, Play, Sparkles, MapPin, Navigation } from 'lucide-react'
+import { ArrowRight, Sparkles, MapPin, Navigation } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import ProvidersMapModal from '../ProvidersMapModal'
 import ResponsivePicture from '../ResponsivePicture'

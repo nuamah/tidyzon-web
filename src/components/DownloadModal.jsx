@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { X, Smartphone, Users, Apple } from 'lucide-react'
-import QRCode from 'qrcode'
 import './DownloadModal.css'
 
 const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => {
@@ -27,55 +26,27 @@ const DownloadModal = ({ isOpen, onClose, activeTab: initialActiveTab = 0 }) => 
     }
   }
 
-  // Generate QR Codes
+  // QR codes: dynamic import so `qrcode` is not on the critical path (separate chunk until modal opens).
   useEffect(() => {
-    if (isOpen) {
-      // Determine QR code size based on screen width
+    if (!isOpen) return
+    let cancelled = false
+    import('qrcode').then(({ default: QRCode }) => {
+      if (cancelled) return
       const isMobile = window.innerWidth < 768
       const qrSize = isMobile ? 100 : 120
-
-      // User App QR Codes
-      if (userIosQRRef.current) {
-        QRCode.toCanvas(userIosQRRef.current, appLinks.user.ios, {
-          width: qrSize,
-          margin: 1,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        })
+      const opts = {
+        width: qrSize,
+        margin: 1,
+        color: { dark: '#000000', light: '#FFFFFF' },
       }
-      if (userAndroidQRRef.current) {
-        QRCode.toCanvas(userAndroidQRRef.current, appLinks.user.android, {
-          width: qrSize,
-          margin: 1,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        })
-      }
-      // Provider App QR Codes
-      if (providerIosQRRef.current) {
-        QRCode.toCanvas(providerIosQRRef.current, appLinks.provider.ios, {
-          width: qrSize,
-          margin: 1,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        })
-      }
-      if (providerAndroidQRRef.current) {
-        QRCode.toCanvas(providerAndroidQRRef.current, appLinks.provider.android, {
-          width: qrSize,
-          margin: 1,
-          color: {
-            dark: '#000000',
-            light: '#FFFFFF'
-          }
-        })
-      }
+      if (userIosQRRef.current) QRCode.toCanvas(userIosQRRef.current, appLinks.user.ios, opts)
+      if (userAndroidQRRef.current) QRCode.toCanvas(userAndroidQRRef.current, appLinks.user.android, opts)
+      if (providerIosQRRef.current) QRCode.toCanvas(providerIosQRRef.current, appLinks.provider.ios, opts)
+      if (providerAndroidQRRef.current)
+        QRCode.toCanvas(providerAndroidQRRef.current, appLinks.provider.android, opts)
+    })
+    return () => {
+      cancelled = true
     }
   }, [isOpen, appLinks.user.ios, appLinks.user.android, appLinks.provider.ios, appLinks.provider.android])
 
