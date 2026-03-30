@@ -336,7 +336,7 @@ const ServicesPage = () => {
 
                       {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
                         <div className="package-addons-included">
-                          <h4 className="package-addons-included-label">Add ons</h4>
+                          <p className="package-addons-included-label">Add ons</p>
                           <ul className="package-addons-included-list">
                             {pkg.addOnsIncluded.map((addon, idx) => (
                               <li key={idx} className="package-addon-included-item">

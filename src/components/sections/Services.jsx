@@ -152,6 +152,11 @@ const Services = () => {
                 src="/assets/tidyzon_vehicle_02.png" 
                 alt="Tidyzon Car Cleaning Service" 
                 className="cleaner-image"
+                width={525}
+                height={350}
+                sizes="(max-width: 768px) 90vw, 525px"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -322,7 +327,7 @@ const Services = () => {
 
                     {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
                       <div className="package-addons-included">
-                        <h4 className="package-addons-included-label">Add ons</h4>
+                        <p className="package-addons-included-label">Add ons</p>
                         <ul className="package-addons-included-list">
                           {pkg.addOnsIncluded.map((addon, idx) => (
                             <li key={idx} className="package-addon-included-item">
@@ -400,6 +405,11 @@ const Services = () => {
                     src="/assets/tidyzon_cleaner_01.png" 
                     alt="Service Providers Team" 
                     className="dual-cta-img"
+                    width={606}
+                    height={404}
+                    sizes="(max-width: 768px) 100vw, 606px"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -411,6 +421,11 @@ const Services = () => {
                     src="/assets/newimage.jpg" 
                     alt="Customer Booking Service" 
                     className="dual-cta-img"
+                    width={606}
+                    height={404}
+                    sizes="(max-width: 768px) 100vw, 606px"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="dual-cta-content">

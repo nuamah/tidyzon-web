@@ -309,8 +309,12 @@ const Hero = () => {
               src="/assets/heroImage.jpg"
               alt="Tidyzon Vehicle Cleaning"
               className="hero-image"
+              width={665}
+              height={443}
+              sizes="(max-width: 768px) 100vw, 665px"
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
             {/* Floating Cards */}
             <div className="floating-card card-1">

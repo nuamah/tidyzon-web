@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
@@ -6,26 +6,31 @@ import Footer from './components/Footer'
 import PostHogAutoCapture from './components/PostHogAutoCapture'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
-import AboutPage from './pages/AboutPage'
-import CaliforniaPrivacyPage from './pages/CaliforniaPrivacyPage'
-import ContactPage from './pages/ContactPage'
-import CustomerServiceAgreementPage from './pages/CustomerServiceAgreementPage'
-import DoNotSellPage from './pages/DoNotSellPage'
-import GetStartedPage from './pages/GetStartedPage'
-import LimitSPIPage from './pages/LimitSPIPage'
-import NotFoundPage from './pages/NotFoundPage'
-import OpenPositionsPage from './pages/OpenPositionsPage'
-import PrivacyPage from './pages/PrivacyPage'
-import PrivacyRequestsPage from './pages/PrivacyRequestsPage'
-import ProviderPage from './pages/ProviderPage'
-import ReviewsPage from './pages/ReviewsPage'
-import ServiceProviderAgreementPage from './pages/ServiceProviderAgreementPage'
-import ServicesPage from './pages/ServicesPage'
-import TeamsPage from './pages/TeamsPage'
-import TermsPage from './pages/TermsPage'
-import SupportOptOutPage from './pages/SupportOptOutPage'
 import RouteSEO from './components/RouteSEO'
 import './App.css'
+
+const AboutPage = lazy(() => import('./pages/AboutPage'))
+const CaliforniaPrivacyPage = lazy(() => import('./pages/CaliforniaPrivacyPage'))
+const ContactPage = lazy(() => import('./pages/ContactPage'))
+const CustomerServiceAgreementPage = lazy(() => import('./pages/CustomerServiceAgreementPage'))
+const DoNotSellPage = lazy(() => import('./pages/DoNotSellPage'))
+const GetStartedPage = lazy(() => import('./pages/GetStartedPage'))
+const LimitSPIPage = lazy(() => import('./pages/LimitSPIPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const OpenPositionsPage = lazy(() => import('./pages/OpenPositionsPage'))
+const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
+const PrivacyRequestsPage = lazy(() => import('./pages/PrivacyRequestsPage'))
+const ProviderPage = lazy(() => import('./pages/ProviderPage'))
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage'))
+const ServiceProviderAgreementPage = lazy(() => import('./pages/ServiceProviderAgreementPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const TeamsPage = lazy(() => import('./pages/TeamsPage'))
+const TermsPage = lazy(() => import('./pages/TermsPage'))
+const SupportOptOutPage = lazy(() => import('./pages/SupportOptOutPage'))
+
+const RouteFallback = () => (
+  <div className="route-fallback" aria-busy="true" aria-live="polite" />
+)
 
 const App = () => {
   return (
@@ -36,6 +41,7 @@ const App = () => {
         <PostHogAutoCapture />
         <Header />
         <main>
+          <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutPage />} />
@@ -59,6 +65,7 @@ const App = () => {
             <Route path="/service-provider-agreement" element={<ServiceProviderAgreementPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
+          </Suspense>
         </main>
         <Footer />
         <ScrollToTop />

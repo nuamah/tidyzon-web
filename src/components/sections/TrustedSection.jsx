@@ -73,6 +73,9 @@ const TrustedSection = () => {
                 src="/assets/tidyzon_cleaner_01.png" 
                 alt="Professional cleaning service in action"
                 className="main-image"
+                width={606}
+                height={404}
+                sizes="(max-width: 768px) 100vw, 606px"
                 loading="lazy"
                 decoding="async"
               />
