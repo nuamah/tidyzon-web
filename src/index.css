@@ -1,4 +1,4 @@
-@import '@fontsource-variable/inter/index.css';
+@import './styles/inter-subset.css';
 
 /* Import image optimization styles */
 @import './styles/image-optimization.css';

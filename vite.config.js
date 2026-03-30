@@ -1,26 +1,41 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-/** Put entry stylesheets before the module script so CSS is discovered before JS (shorter critical path). */
-function htmlCssBeforeModuleScript() {
+/**
+ * - Early modulepreload for the entry script (parallel with CSS fetch).
+ * - Stylesheets before the module tag so CSS is not chained after script parse order.
+ */
+function htmlOptimizeHead() {
   return {
-    name: 'html-css-before-module-script',
+    name: 'html-optimize-head',
     transformIndexHtml: {
       order: 'post',
       handler(html) {
-        const linkStyles = [...html.matchAll(/<link[^>]+rel="stylesheet"[^>]*>/gi)].map((m) => m[0])
-        if (!linkStyles.length) return html
-
         let next = html
-        for (const l of linkStyles) {
-          next = next.replace(l, '')
+
+        const entryMatch = next.match(/<script[^>]+type="module"[^>]+src="([^"]+)"[^>]*>/)
+        const entrySrc = entryMatch?.[1]
+        if (entrySrc && !next.includes(`href="${entrySrc}"`)) {
+          const preload = `<link rel="modulepreload" crossorigin href="${entrySrc}" />`
+          next = next.replace(
+            /<meta charset="UTF-8" \/>/,
+            (m) => `${m}\n    ${preload}`,
+          )
         }
 
-        const scriptIdx = next.indexOf('<script type="module"')
-        if (scriptIdx === -1) return html
+        const linkStyles = [...next.matchAll(/<link[^>]+rel="stylesheet"[^>]*>/gi)].map((m) => m[0])
+        if (linkStyles.length) {
+          for (const l of linkStyles) {
+            next = next.replace(l, '')
+          }
+          const scriptIdx = next.indexOf('<script type="module"')
+          if (scriptIdx !== -1) {
+            const injected = linkStyles.join('\n    ')
+            next = `${next.slice(0, scriptIdx)}${injected}\n    ${next.slice(scriptIdx)}`
+          }
+        }
 
-        const injected = linkStyles.join('\n    ')
-        return `${next.slice(0, scriptIdx)}${injected}\n    ${next.slice(scriptIdx)}`
+        return next
       },
     },
   }
@@ -28,7 +43,7 @@ function htmlCssBeforeModuleScript() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), htmlCssBeforeModuleScript()],
+  plugins: [react(), htmlOptimizeHead()],
   // Explicitly ensure env variables are loaded
   envPrefix: 'VITE_',
   build: {
@@ -38,9 +53,13 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (!id.includes('node_modules')) return
+          // Keep scheduler & react-tied deps with React to avoid TDZ / "Cannot access before initialization" in vendor chunk.
+          if (id.includes('scheduler')) return 'react-vendor'
+          if (id.includes('use-sync-external-store')) return 'react-vendor'
           if (id.includes('react-dom') || id.includes('/react/') || id.includes('\\react\\')) {
             return 'react-vendor'
           }
+          if (id.includes('react-helmet')) return 'react-vendor'
           if (id.includes('react-router')) return 'router'
           if (id.includes('posthog')) return 'posthog'
           if (id.includes('lucide-react')) return 'icons'

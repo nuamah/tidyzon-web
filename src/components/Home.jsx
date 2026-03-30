@@ -7,13 +7,13 @@ import Testimonials from './sections/Testimonials'
 
 const Home = () => {
   return (
-    <main>
+    <div className="home-page">
       <Hero />
       <Services />
       <AnimatedStats />
       <Features />
       <Testimonials />
-    </main>
+    </div>
   )
 }
 

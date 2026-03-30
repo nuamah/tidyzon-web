@@ -42,7 +42,7 @@ const App = () => {
         <RouteSEO />
         <PostHogAutoCapture />
         <Header />
-        <main>
+        <main id="main-content">
           <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />

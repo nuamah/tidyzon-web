@@ -47,13 +47,15 @@
     </script>
   </head>
   <body>
-    <!-- Static shell so lab tools get a first paint before JS (helps avoid NO_FCP / all-metric errors). Replaced on React mount. -->
+    <!-- Static shell: main landmark + first paint before JS. Replaced on React mount. -->
     <div id="root">
-      <p
-        style="margin:0;padding:1rem;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:1rem;color:#334155;background:#fff"
-      >
-        Tidyzon
-      </p>
+      <main id="main-content">
+        <p
+          style="margin:0;padding:1rem;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:1rem;color:#334155;background:#fff"
+        >
+          Tidyzon
+        </p>
+      </main>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
