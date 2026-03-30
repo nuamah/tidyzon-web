@@ -1,5 +1,6 @@
 import React from 'react'
 import { CheckCircle, Users, Shield, Star } from 'lucide-react'
+import ResponsivePicture from '../ResponsivePicture'
 import './TrustedSection.css'
 
 const TrustedSection = () => {
@@ -69,8 +70,9 @@ const TrustedSection = () => {
           {/* Image Content - Right Side */}
           <div className="trusted-image">
             <div className="image-container">
-              <img 
-                src="/assets/tidyzon_cleaner_01.png" 
+              <ResponsivePicture
+                webpSrc="/assets/tidyzon_cleaner_01.webp"
+                fallbackSrc="/assets/tidyzon_cleaner_01.jpg"
                 alt="Professional cleaning service in action"
                 className="main-image"
                 width={606}

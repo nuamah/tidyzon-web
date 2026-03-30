@@ -79,6 +79,11 @@
   align-items: center;
 }
 
+.section-header-image picture {
+  display: block;
+  max-width: 100%;
+}
+
 .cleaner-image {
   max-width: 100%;
   height: auto;
@@ -708,7 +713,7 @@
 
   .price-label-mobile {
     font-size: 0.625rem;
-    color: #94a3b8;
+    color: #475569;
   }
 
   .popular-badge-mobile {
@@ -1583,6 +1588,12 @@
   height: 200px;
   border-radius: 12px;
   overflow: hidden;
+}
+
+.dual-cta-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .dual-cta-img {

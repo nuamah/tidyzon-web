@@ -576,6 +576,11 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
+.hero-image-wrapper picture {
+  display: block;
+  width: 100%;
+}
+
 /* Convenience Text */
 .hero-convenience-text {
   margin-top: 1.5rem;

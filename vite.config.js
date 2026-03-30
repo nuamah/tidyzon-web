@@ -17,10 +17,15 @@ function htmlOptimizeHead() {
         const entrySrc = entryMatch?.[1]
         if (entrySrc && !next.includes(`href="${entrySrc}"`)) {
           const preload = `<link rel="modulepreload" crossorigin href="${entrySrc}" />`
-          next = next.replace(
-            /<meta charset="UTF-8" \/>/,
-            (m) => `${m}\n    ${preload}`,
-          )
+          const imagePreload = next.match(/<link[^>]+rel="preload"[^>]+as="image"[^>]*\/?>/i)
+          if (imagePreload) {
+            next = next.replace(imagePreload[0], `${imagePreload[0]}\n    ${preload}`)
+          } else {
+            next = next.replace(
+              /<meta charset="UTF-8" \/>/,
+              (m) => `${m}\n    ${preload}`,
+            )
+          }
         }
 
         const linkStyles = [...next.matchAll(/<link[^>]+rel="stylesheet"[^>]*>/gi)].map((m) => m[0])

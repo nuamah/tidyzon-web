@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
+import ResponsivePicture from '../ResponsivePicture'
 import './Services.css'
 
 const Services = () => {
@@ -401,9 +402,10 @@ const Services = () => {
                   </Link>
                 </div>
                 <div className="dual-cta-image">
-                  <img 
-                    src="/assets/tidyzon_cleaner_01.png" 
-                    alt="Service Providers Team" 
+                  <ResponsivePicture
+                    webpSrc="/assets/tidyzon_cleaner_01.webp"
+                    fallbackSrc="/assets/tidyzon_cleaner_01.jpg"
+                    alt="Service Providers Team"
                     className="dual-cta-img"
                     width={606}
                     height={404}
@@ -417,9 +419,10 @@ const Services = () => {
               {/* Book Services */}
               <div className="dual-cta-card">
                 <div className="dual-cta-image">
-                  <img 
-                    src="/assets/newimage.jpg" 
-                    alt="Customer Booking Service" 
+                  <ResponsivePicture
+                    webpSrc="/assets/newimage.webp"
+                    fallbackSrc="/assets/newimage.jpg"
+                    alt="Customer Booking Service"
                     className="dual-cta-img"
                     width={606}
                     height={404}

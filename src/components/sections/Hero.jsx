@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { ArrowRight, Play, Sparkles, MapPin, Navigation } from 'lucide-react'
 import DownloadModal from '../DownloadModal'
 import ProvidersMapModal from '../ProvidersMapModal'
+import ResponsivePicture from '../ResponsivePicture'
 import './Hero.css'
 
 const Hero = () => {
@@ -305,8 +306,9 @@ const Hero = () => {
         {/* Hero Image/Illustration */}
         <div className="hero-image-container">
           <div className="hero-image-wrapper">
-            <img 
-              src="/assets/heroImage.jpg"
+            <ResponsivePicture
+              webpSrc="/assets/heroImage.webp"
+              fallbackSrc="/assets/heroImage.jpg"
               alt="Tidyzon Vehicle Cleaning"
               className="hero-image"
               width={665}
