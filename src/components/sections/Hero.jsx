@@ -307,9 +307,9 @@ const Hero = () => {
         <div className="hero-image-container">
           <div className="hero-image-wrapper">
             <ResponsivePicture
-              avifSrcSet="/assets/heroImage-665.avif 665w, /assets/heroImage-800.avif 800w, /assets/heroImage-1000.avif 1000w, /assets/heroImage-1330.avif 1330w"
-              webpSrcSet="/assets/heroImage-665.webp 665w, /assets/heroImage-800.webp 800w, /assets/heroImage-1000.webp 1000w, /assets/heroImage-1330.webp 1330w"
-              fallbackSrcSet="/assets/heroImage-665.jpg 665w, /assets/heroImage-800.jpg 800w, /assets/heroImage-1000.jpg 1000w, /assets/heroImage-1330.jpg 1330w"
+              avifSrcSet="/assets/heroImage-665.avif 665w, /assets/heroImage-800.avif 800w, /assets/heroImage-1000.avif 1000w, /assets/heroImage-1024.avif 1024w, /assets/heroImage-1330.avif 1330w"
+              webpSrcSet="/assets/heroImage-665.webp 665w, /assets/heroImage-800.webp 800w, /assets/heroImage-1000.webp 1000w, /assets/heroImage-1024.webp 1024w, /assets/heroImage-1330.webp 1330w"
+              fallbackSrcSet="/assets/heroImage-665.jpg 665w, /assets/heroImage-800.jpg 800w, /assets/heroImage-1000.jpg 1000w, /assets/heroImage-1024.jpg 1024w, /assets/heroImage-1330.jpg 1330w"
               fallbackSrc="/assets/heroImage-665.jpg"
               alt="Tidyzon Vehicle Cleaning"
               className="hero-image"

@@ -24,8 +24,8 @@ function avifQualityForWidth(w) {
 /** @type {{ input: string, widths: number[], base: string }[]} */
 const sets = [
   // Middle width (~800–900px) covers common mobile 2× DPR without jumping to the 2× layout asset.
-  // 1000w: desktop ~500px CSS × 2 DPR without jumping to 1330w
-  { input: 'heroImage.jpg', widths: [665, 800, 1000, 1330], base: 'heroImage' },
+  // 1024w: ~500px column × 2 DPR ≈ 1008px — fills gap between 1000w and 1330w (Lighthouse “oversized” fix)
+  { input: 'heroImage.jpg', widths: [665, 800, 1000, 1024, 1330], base: 'heroImage' },
   { input: 'tidyzon_vehicle_02.jpg', widths: [525, 800, 1050], base: 'tidyzon_vehicle_02' },
   // 800w: ~360–400px slot × 2 DPR lands between 606 and 900 (saves vs jumping to 900.webp)
   { input: 'tidyzon_cleaner_01.jpg', widths: [606, 800, 900, 1212], base: 'tidyzon_cleaner_01' },
