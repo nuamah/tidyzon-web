@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import PostHogAutoCapture from './components/PostHogAutoCapture'
+import PostHogInit from './components/PostHogInit'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './components/Home'
 import RouteSEO from './components/RouteSEO'
@@ -37,6 +38,7 @@ const App = () => {
     <BrowserRouter>
       <HelmetProvider>
       <div className="App">
+        <PostHogInit />
         <RouteSEO />
         <PostHogAutoCapture />
         <Header />

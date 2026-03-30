@@ -1,6 +1,8 @@
-import posthog from 'posthog-js'
-
 export const DEFAULT_SERVICE_LOCATION = '1205 W. Home Ave, Chicago, IL 60932'
+
+function loadPosthog() {
+  return import('posthog-js').then((m) => m.default)
+}
 
 export function getFromValue(pathname) {
   if (!pathname || pathname === '/') return 'Home'
@@ -12,11 +14,13 @@ export function getFromValue(pathname) {
 }
 
 export function captureEvent(eventName, properties = {}) {
-  try {
-    posthog.capture(eventName, properties)
-  } catch (err) {
-    console.warn('PostHog capture failed:', err)
-  }
+  void loadPosthog().then((posthog) => {
+    try {
+      posthog.capture(eventName, properties)
+    } catch (err) {
+      console.warn('PostHog capture failed:', err)
+    }
+  })
 }
 
 export function trackSignupProvider(from) {
