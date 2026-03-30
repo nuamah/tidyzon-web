@@ -406,8 +406,9 @@ const Services = () => {
                 </div>
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-900.webp 900w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
-                    fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-900.jpg 900w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
+                    avifSrcSet="/assets/tidyzon_cleaner_01-606.avif 606w, /assets/tidyzon_cleaner_01-800.avif 800w, /assets/tidyzon_cleaner_01-900.avif 900w, /assets/tidyzon_cleaner_01-1212.avif 1212w"
+                    webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-800.webp 800w, /assets/tidyzon_cleaner_01-900.webp 900w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
+                    fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-800.jpg 800w, /assets/tidyzon_cleaner_01-900.jpg 900w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
                     fallbackSrc="/assets/tidyzon_cleaner_01-606.jpg"
                     alt="Service Providers Team"
                     className="dual-cta-img"
@@ -424,9 +425,9 @@ const Services = () => {
               <div className="dual-cta-card">
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    avifSrcSet="/assets/newimage-606.avif 606w, /assets/newimage-900.avif 900w, /assets/newimage-1212.avif 1212w"
-                    webpSrcSet="/assets/newimage-606.webp 606w, /assets/newimage-900.webp 900w, /assets/newimage-1212.webp 1212w"
-                    fallbackSrcSet="/assets/newimage-606.jpg 606w, /assets/newimage-900.jpg 900w, /assets/newimage-1212.jpg 1212w"
+                    avifSrcSet="/assets/newimage-606.avif 606w, /assets/newimage-800.avif 800w, /assets/newimage-900.avif 900w, /assets/newimage-1212.avif 1212w"
+                    webpSrcSet="/assets/newimage-606.webp 606w, /assets/newimage-800.webp 800w, /assets/newimage-900.webp 900w, /assets/newimage-1212.webp 1212w"
+                    fallbackSrcSet="/assets/newimage-606.jpg 606w, /assets/newimage-800.jpg 800w, /assets/newimage-900.jpg 900w, /assets/newimage-1212.jpg 1212w"
                     fallbackSrc="/assets/newimage-606.jpg"
                     alt="Customer Booking Service"
                     className="dual-cta-img"

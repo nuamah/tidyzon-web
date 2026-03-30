@@ -96,10 +96,14 @@ function injectFontPreloads() {
 }
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), htmlOptimizeHead(), injectFontPreloads()],
   // Explicitly ensure env variables are loaded
   envPrefix: 'VITE_',
+  esbuild: {
+    drop: mode === 'production' ? ['console', 'debugger'] : [],
+    legalComments: 'none',
+  },
   build: {
     target: 'es2022',
     cssCodeSplit: true,
@@ -130,4 +134,4 @@ export default defineConfig({
       },
     },
   },
-})
+}))

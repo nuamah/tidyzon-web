@@ -27,8 +27,9 @@ const sets = [
   // 1000w: desktop ~500px CSS × 2 DPR without jumping to 1330w
   { input: 'heroImage.jpg', widths: [665, 800, 1000, 1330], base: 'heroImage' },
   { input: 'tidyzon_vehicle_02.jpg', widths: [525, 800, 1050], base: 'tidyzon_vehicle_02' },
-  { input: 'tidyzon_cleaner_01.jpg', widths: [606, 900, 1212], base: 'tidyzon_cleaner_01' },
-  { input: 'newimage.jpg', widths: [606, 900, 1212], base: 'newimage' },
+  // 800w: ~360–400px slot × 2 DPR lands between 606 and 900 (saves vs jumping to 900.webp)
+  { input: 'tidyzon_cleaner_01.jpg', widths: [606, 800, 900, 1212], base: 'tidyzon_cleaner_01' },
+  { input: 'newimage.jpg', widths: [606, 800, 900, 1212], base: 'newimage' },
   // About / Contact / Services page images (match layout + 2× DPR)
   { input: 'discover.jpg', widths: [512, 768, 1024], base: 'discover' },
   { input: 'contactImage.jpg', widths: [480, 960, 1280, 1536], base: 'contactImage' },
