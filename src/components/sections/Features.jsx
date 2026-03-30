@@ -110,7 +110,10 @@ const Features = () => {
               src="/assets/t1.jpg" 
               alt="Tidyzon track record" 
               className="section-image"
+              width={1024}
+              height={1536}
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="content-section">

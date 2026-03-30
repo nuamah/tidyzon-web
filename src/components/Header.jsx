@@ -51,6 +51,9 @@ const Header = () => {
               src="/assets/logo.png" 
               alt="Tidyzon Logo" 
               className="mobile-nav-logo"
+              width={186}
+              height={67}
+              decoding="async"
             />
           </Link>
           <button
@@ -105,6 +108,9 @@ const Header = () => {
               src="/assets/logo.png" 
               alt="Tidyzon Logo" 
               className="logo-image"
+              width={186}
+              height={67}
+              decoding="async"
             />
           </Link>
 

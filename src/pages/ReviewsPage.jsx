@@ -184,7 +184,15 @@ const ReviewsPage = () => {
                 <div key={index} className="review-card-detailed">
                   <div className="review-header">
                     <div className="reviewer-info">
-                      <img src={review.avatar} alt={review.name} className="reviewer-avatar" />
+                      <img
+                        src={review.avatar}
+                        alt={review.name}
+                        className="reviewer-avatar"
+                        width={50}
+                        height={50}
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div>
                         <h3 className="reviewer-name">{review.name}</h3>
                         <p className="reviewer-role">{review.role}</p>

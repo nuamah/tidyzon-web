@@ -32,7 +32,10 @@ const AnimatedStats = () => {
               src="/assets/ttd.jpg" 
               alt="Join Tidyzon as a provider" 
               className="section-image"
+              width={1536}
+              height={1024}
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

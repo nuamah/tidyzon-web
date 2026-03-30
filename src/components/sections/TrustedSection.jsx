@@ -71,14 +71,15 @@ const TrustedSection = () => {
           <div className="trusted-image">
             <div className="image-container">
               <ResponsivePicture
-                webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
-                fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
+                avifSrcSet="/assets/tidyzon_cleaner_01-606.avif 606w, /assets/tidyzon_cleaner_01-900.avif 900w, /assets/tidyzon_cleaner_01-1212.avif 1212w"
+                webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-900.webp 900w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
+                fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-900.jpg 900w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
                 fallbackSrc="/assets/tidyzon_cleaner_01-606.jpg"
                 alt="Professional cleaning service in action"
                 className="main-image"
                 width={606}
                 height={404}
-                sizes="(max-width: 768px) 100vw, 606px"
+                sizes="(max-width: 768px) min(100vw, 606px), 606px"
                 loading="lazy"
                 decoding="async"
               />

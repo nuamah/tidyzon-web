@@ -200,6 +200,10 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
                       src="/assets/car.png" 
                       alt={`${provider.name} location`}
                       className="car-marker-icon"
+                      width={1024}
+                      height={1024}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </button>
                 )

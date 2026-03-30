@@ -237,6 +237,8 @@ const TeamsPage = () => {
                         src={member.image} 
                         alt={member.name}
                         className="member-image"
+                        width={800}
+                        height={600}
                         loading="lazy"
                         decoding="async"
                       />
@@ -273,6 +275,8 @@ const TeamsPage = () => {
                         src={member.image} 
                         alt={member.name}
                         className="member-image"
+                        width={800}
+                        height={600}
                         loading="lazy"
                         decoding="async"
                       />

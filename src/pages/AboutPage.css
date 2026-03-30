@@ -107,6 +107,7 @@
   box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
 }
 
+.story-image picture,
 .story-image img {
   width: 100%;
   height: auto;

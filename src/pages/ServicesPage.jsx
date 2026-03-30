@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
+import ResponsivePicture from '../components/ResponsivePicture'
 import './ServicesPage.css'
 
 const ServicesPage = () => {
@@ -390,10 +391,16 @@ const ServicesPage = () => {
           <div className="container">
             <div className="trash-bin-card">
               <div className="trash-bin-image">
-                <img 
-                  src="/assets/trashbin.jpg" 
-                  alt="Trash Bin Cleaning Service" 
+                <ResponsivePicture
+                  avifSrcSet="/assets/trashbin-350.avif 350w, /assets/trashbin-700.avif 700w, /assets/trashbin-1050.avif 1050w"
+                  webpSrcSet="/assets/trashbin-350.webp 350w, /assets/trashbin-700.webp 700w, /assets/trashbin-1050.webp 1050w"
+                  fallbackSrcSet="/assets/trashbin-350.jpg 350w, /assets/trashbin-700.jpg 700w, /assets/trashbin-1050.jpg 1050w"
+                  fallbackSrc="/assets/trashbin-350.jpg"
+                  alt="Trash Bin Cleaning Service"
                   className="service-image"
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 768px) min(100vw - 2rem, 400px), 350px"
                   loading="lazy"
                   decoding="async"
                 />

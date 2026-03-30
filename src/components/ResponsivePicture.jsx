@@ -1,9 +1,10 @@
 import React from 'react'
 
 /**
- * WebP + JPEG with optional responsive srcset (1× / 2× widths).
+ * AVIF + WebP + JPEG with responsive `w` descriptors.
  */
 export default function ResponsivePicture({
+  avifSrcSet,
   webpSrcSet,
   fallbackSrcSet,
   fallbackSrc,
@@ -31,6 +32,9 @@ export default function ResponsivePicture({
 
   return (
     <picture>
+      {avifSrcSet ? (
+        <source type="image/avif" srcSet={avifSrcSet} sizes={sizes} />
+      ) : null}
       <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
       <img {...imgProps} />
     </picture>

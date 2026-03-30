@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Target, Eye, Award, ArrowRight } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
+import ResponsivePicture from '../components/ResponsivePicture'
 import './AboutPage.css'
 
 const AboutPage = () => {
@@ -40,9 +41,15 @@ const AboutPage = () => {
                 </p>
               </div>
               <div className="story-image">
-                <img 
-                  src="/assets/discover.jpg" 
+                <ResponsivePicture
+                  avifSrcSet="/assets/discover-512.avif 512w, /assets/discover-768.avif 768w, /assets/discover-1024.avif 1024w"
+                  webpSrcSet="/assets/discover-512.webp 512w, /assets/discover-768.webp 768w, /assets/discover-1024.webp 1024w"
+                  fallbackSrcSet="/assets/discover-512.jpg 512w, /assets/discover-768.jpg 768w, /assets/discover-1024.jpg 1024w"
+                  fallbackSrc="/assets/discover-512.jpg"
                   alt="Discover Tidyzon's journey"
+                  width={1024}
+                  height={1536}
+                  sizes="(max-width: 1023px) min(100vw - 2rem, 736px), min(45vw, 520px)"
                   loading="lazy"
                   decoding="async"
                 />

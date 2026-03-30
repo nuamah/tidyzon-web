@@ -150,14 +150,15 @@ const Services = () => {
             </div>
             <div className="section-header-image">
               <ResponsivePicture
-                webpSrcSet="/assets/tidyzon_vehicle_02-525.webp 525w, /assets/tidyzon_vehicle_02-1050.webp 1050w"
-                fallbackSrcSet="/assets/tidyzon_vehicle_02-525.jpg 525w, /assets/tidyzon_vehicle_02-1050.jpg 1050w"
+                avifSrcSet="/assets/tidyzon_vehicle_02-525.avif 525w, /assets/tidyzon_vehicle_02-800.avif 800w, /assets/tidyzon_vehicle_02-1050.avif 1050w"
+                webpSrcSet="/assets/tidyzon_vehicle_02-525.webp 525w, /assets/tidyzon_vehicle_02-800.webp 800w, /assets/tidyzon_vehicle_02-1050.webp 1050w"
+                fallbackSrcSet="/assets/tidyzon_vehicle_02-525.jpg 525w, /assets/tidyzon_vehicle_02-800.jpg 800w, /assets/tidyzon_vehicle_02-1050.jpg 1050w"
                 fallbackSrc="/assets/tidyzon_vehicle_02-525.jpg"
                 alt="Tidyzon Car Cleaning Service"
                 className="cleaner-image"
                 width={525}
                 height={350}
-                sizes="(max-width: 768px) 90vw, 525px"
+                sizes="(min-width: 1025px) 400px, 300px"
                 loading="lazy"
                 decoding="async"
               />
@@ -405,14 +406,14 @@ const Services = () => {
                 </div>
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
-                    fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
+                    webpSrcSet="/assets/tidyzon_cleaner_01-606.webp 606w, /assets/tidyzon_cleaner_01-900.webp 900w, /assets/tidyzon_cleaner_01-1212.webp 1212w"
+                    fallbackSrcSet="/assets/tidyzon_cleaner_01-606.jpg 606w, /assets/tidyzon_cleaner_01-900.jpg 900w, /assets/tidyzon_cleaner_01-1212.jpg 1212w"
                     fallbackSrc="/assets/tidyzon_cleaner_01-606.jpg"
                     alt="Service Providers Team"
                     className="dual-cta-img"
                     width={606}
                     height={404}
-                    sizes="(max-width: 768px) 100vw, 606px"
+                    sizes="(max-width: 768px) min(100vw - 3rem, 1000px), 280px"
                     loading="lazy"
                     decoding="async"
                   />
@@ -423,14 +424,15 @@ const Services = () => {
               <div className="dual-cta-card">
                 <div className="dual-cta-image">
                   <ResponsivePicture
-                    webpSrcSet="/assets/newimage-606.webp 606w, /assets/newimage-1212.webp 1212w"
-                    fallbackSrcSet="/assets/newimage-606.jpg 606w, /assets/newimage-1212.jpg 1212w"
+                    avifSrcSet="/assets/newimage-606.avif 606w, /assets/newimage-900.avif 900w, /assets/newimage-1212.avif 1212w"
+                    webpSrcSet="/assets/newimage-606.webp 606w, /assets/newimage-900.webp 900w, /assets/newimage-1212.webp 1212w"
+                    fallbackSrcSet="/assets/newimage-606.jpg 606w, /assets/newimage-900.jpg 900w, /assets/newimage-1212.jpg 1212w"
                     fallbackSrc="/assets/newimage-606.jpg"
                     alt="Customer Booking Service"
                     className="dual-cta-img"
                     width={606}
                     height={404}
-                    sizes="(max-width: 768px) 100vw, 606px"
+                    sizes="(max-width: 768px) min(100vw - 3rem, 1000px), 280px"
                     loading="lazy"
                     decoding="async"
                   />

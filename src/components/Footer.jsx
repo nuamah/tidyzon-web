@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
-import QRCode from 'qrcode'
 import './Footer.css'
 
 const Footer = () => {
@@ -9,30 +8,35 @@ const Footer = () => {
   const playStoreQRRef = useRef(null)
 
   useEffect(() => {
-    // Generate QR codes for app stores
+    let cancelled = false
     const appStoreUrl = 'https://apps.apple.com/app/tidyzon'
     const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.tidyzon'
 
-    if (appStoreQRRef.current) {
-      QRCode.toCanvas(appStoreQRRef.current, appStoreUrl, {
-        width: 80,
-        margin: 1,
-        color: {
-          dark: '#000000',
-          light: '#FFFFFF'
-        }
-      })
-    }
-
-    if (playStoreQRRef.current) {
-      QRCode.toCanvas(playStoreQRRef.current, playStoreUrl, {
-        width: 80,
-        margin: 1,
-        color: {
-          dark: '#000000',
-          light: '#FFFFFF'
-        }
-      })
+    import('qrcode').then(({ default: QRCode }) => {
+      if (cancelled) return
+      if (appStoreQRRef.current) {
+        QRCode.toCanvas(appStoreQRRef.current, appStoreUrl, {
+          width: 80,
+          margin: 1,
+          color: {
+            dark: '#000000',
+            light: '#FFFFFF'
+          }
+        })
+      }
+      if (playStoreQRRef.current) {
+        QRCode.toCanvas(playStoreQRRef.current, playStoreUrl, {
+          width: 80,
+          margin: 1,
+          color: {
+            dark: '#000000',
+            light: '#FFFFFF'
+          }
+        })
+      }
+    })
+    return () => {
+      cancelled = true
     }
   }, [])
 
@@ -47,6 +51,9 @@ const Footer = () => {
                 src="/assets/logo.png" 
                 alt="Tidyzon Logo" 
                 className="footer-logo-image"
+                width={186}
+                height={67}
+                decoding="async"
               />
             </div>
             <p className="footer-description">

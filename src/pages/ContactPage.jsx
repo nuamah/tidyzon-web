@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
+import ResponsivePicture from '../components/ResponsivePicture'
 import { trackRequestSchedule } from '../lib/analytics'
 import './ContactPage.css'
 
@@ -255,10 +256,18 @@ const ContactPage = () => {
                 </form>
 
                 <div className="contact-image-container">
-                  <img
-                    src="/assets/contactImage.jpg"
+                  <ResponsivePicture
+                    avifSrcSet="/assets/contactImage-480.avif 480w, /assets/contactImage-960.avif 960w, /assets/contactImage-1280.avif 1280w, /assets/contactImage-1536.avif 1536w"
+                    webpSrcSet="/assets/contactImage-480.webp 480w, /assets/contactImage-960.webp 960w, /assets/contactImage-1280.webp 1280w, /assets/contactImage-1536.webp 1536w"
+                    fallbackSrcSet="/assets/contactImage-480.jpg 480w, /assets/contactImage-960.jpg 960w, /assets/contactImage-1280.jpg 1280w, /assets/contactImage-1536.jpg 1536w"
+                    fallbackSrc="/assets/contactImage-480.jpg"
                     alt="Tidyzon Contact Support"
                     className="contact-support-image"
+                    width={1536}
+                    height={1024}
+                    sizes="(max-width: 1023px) min(100vw - 2rem, 720px), min(58vw, 720px)"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

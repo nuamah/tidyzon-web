@@ -1197,6 +1197,12 @@
   position: relative;
 }
 
+.trash-bin-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .service-image {
   width: 100%;
   height: 100%;

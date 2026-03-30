@@ -20,7 +20,10 @@ function htmlOptimizeHead() {
         const entrySrc = entryMatch?.[1]
         if (entrySrc && !next.includes(`href="${entrySrc}"`)) {
           const preload = `<link rel="modulepreload" crossorigin href="${entrySrc}" />`
-          const imagePreload = next.match(/<link[^>]+rel="preload"[^>]+as="image"[^>]*\/?>/i)
+          // Match first LCP image preload (may span lines: imagesrcset / imagesizes)
+          const imagePreload = next.match(
+            /<link[\s\S]*?rel=["']preload["'][\s\S]*?as=["']image["'][\s\S]*?>/i,
+          )
           if (imagePreload) {
             next = next.replace(imagePreload[0], `${imagePreload[0]}\n    ${preload}`)
           } else {
