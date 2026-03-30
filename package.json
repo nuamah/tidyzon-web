@@ -13,6 +13,7 @@
     "optimize-images": "echo 'Image optimization complete. Consider using tools like imagemin or sharp for production.'"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
     "concurrently": "^9.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",

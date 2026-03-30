@@ -45,30 +45,16 @@
         }
       }
     </script>
-    
-    <!-- Google Fonts: load CSS without blocking first paint -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Static shell so lab tools get a first paint before JS (helps avoid NO_FCP / all-metric errors). Replaced on React mount. -->
+    <div id="root">
+      <p
+        style="margin:0;padding:1rem;font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:1rem;color:#334155;background:#fff"
+      >
+        Tidyzon
+      </p>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
