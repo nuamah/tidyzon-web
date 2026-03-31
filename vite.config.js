@@ -107,15 +107,22 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: 'es2022',
     cssCodeSplit: true,
+    // Do not modulepreload the qrcode chunk: it is only needed after Footer / modal async chunks load.
+    modulePreload: {
+      resolveDependencies: (_filename, deps) =>
+        deps.filter((dep) => !dep.includes('qrcode')),
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (!id.includes('node_modules')) return
-          // Keep scheduler & react-tied deps with React to avoid TDZ / "Cannot access before initialization" in vendor chunk.
-          if (id.includes('scheduler')) return 'react-vendor'
-          if (id.includes('use-sync-external-store')) return 'react-vendor'
-          if (id.includes('react-dom') || id.includes('/react/') || id.includes('\\react\\')) {
-            return 'react-vendor'
+          // Split react vs react-dom so one chunk isn’t a single 60KB “react-vendor” target for Lighthouse.
+          // Order matters: react-dom path must not match the generic react-package check below.
+          if (id.includes('react-dom')) return 'react-dom'
+          if (id.includes('scheduler')) return 'react-dom'
+          if (id.includes('use-sync-external-store')) return 'react-core'
+          if (id.includes('node_modules/react/') || id.includes('node_modules\\react\\')) {
+            return 'react-core'
           }
           // SEO meta: separate from react-vendor so Lighthouse attributes less weight to the core runtime chunk.
           if (id.includes('react-helmet-async') || id.includes('react-helmet')) return 'helmet-async'
