@@ -1,0 +1,59 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "about": "Nosotros",
+      "team": "Equipo",
+      "contact": "Contacto",
+      "terms": "Términos",
+      "privacy": "Privacidad"
+    },
+    "cta": {
+      "user": "Usuario",
+      "provider": "Proveedor"
+    },
+    "aria": {
+      "closeMenu": "Cerrar menú",
+      "toggleMenu": "Alternar menú"
+    }
+  },
+  "localization": {
+    "buttonTitle": "Cambiar idioma y ubicación",
+    "buttonAria": "Configuración de localización",
+    "drawerTitle": "Selecciona idioma y ubicación",
+    "languageTitle": "Selecciona idioma",
+    "locationTitle": "Selecciona ubicación",
+    "confirm": "Confirmar cambios"
+  },
+  "footer": {
+    "description": "Tu aliado de confianza para servicios premium de limpieza del hogar y del auto. Haciendo tu vida más limpia, un servicio a la vez.",
+    "servicesHeading": "Servicios",
+    "services": {
+      "carCleaning": "Limpieza de autos",
+      "binSanitization": "Sanitización de botes",
+      "allServices": "Todos los servicios"
+    },
+    "companyHeading": "Empresa",
+    "company": {
+      "aboutUs": "Sobre nosotros",
+      "team": "Equipo",
+      "contact": "Contacto",
+      "getStarted": "Comenzar",
+      "becomeProvider": "Conviértete en proveedor",
+      "terms": "Términos y condiciones",
+      "privacy": "Política de privacidad",
+      "customerServiceAgreement": "Acuerdo de servicio al cliente",
+      "serviceProviderAgreement": "Acuerdo para proveedores"
+    },
+    "contactHeading": "Ponte en contacto",
+    "downloadHeading": "Descarga nuestra app",
+    "copyright": "© 2024 Tidyzon. Todos los derechos reservados.",
+    "legal": {
+      "privacyPolicy": "Política de privacidad",
+      "termsOfService": "Términos del servicio",
+      "customerAgreement": "Acuerdo del cliente",
+      "providerAgreement": "Acuerdo del proveedor"
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "hero": {
+    "badge": "Trusted by Happy Customers",
+    "title": "Quality services at your doorstep",
+    "requestTitle": "Request / Schedule",
+    "locationPlaceholder": "Enter service location",
+    "locationTitle": "Use current location",
+    "requestAria": "Request service providers for this location",
+    "card1Title": "Car Cleaning",
+    "card1Subtitle": "Professional detailing",
+    "card2Title": "5-Star Service",
+    "card2Subtitle": "Highly rated",
+    "line1": "Skip the car wash line! No need to drive out!",
+    "line2": "We come to you!",
+    "geolocationNotSupported": "Geolocation is not supported by this browser.",
+    "geolocationError": "Unable to get your location. Please enter it manually."
+  },
+  "services": {
+    "badge": "Our Services",
+    "titleLine1": "Car Cleaning Packages",
+    "titleLine2": "Choose Your Perfect Wash",
+    "subtitle": "Prices for wash packages depend on your vehicle type. Vehicle types like MVP and Truck include an additional $10 each. Displayed prices are for passenger cars only.",
+    "popular": "Most Popular",
+    "previousPackages": "Previous packages",
+    "nextPackages": "Next packages",
+    "perWash": "per wash",
+    "includedFeatures": "Included Features:",
+    "doNotInclude": "Do not include",
+    "addOns": "Add ons",
+    "continue": "Continue",
+    "customTitle": "Need a Custom Service Package?",
+    "customText": "Contact us for personalized cleaning solutions tailored to your specific needs.",
+    "customQuote": "Get Custom Quote",
+    "providerTitle": "Become a service provider",
+    "providerSubtitle": "Sign up as a service provider",
+    "userTitle": "Fast, reliable services at your doorstep, at your fingertips",
+    "userSubtitle": "Sign up and book services",
+    "signUp": "Sign up",
+    "packages": {
+      "speedInterior": {
+        "name": "Speed Package",
+        "title": "SPEED PACKAGE - INTERIOR ONLY",
+        "duration": "15mins",
+        "pricingLabel": "Pricing per wash",
+        "features": ["Vacuum - Regular", "Wipe door jambs"],
+        "excludedFeatures": ["Deep stain", "Pet removal", "Excessive trash removal", "Heavy dirt"]
+      },
+      "speed": {
+        "name": "Speed Package",
+        "title": "SPEED PACKAGE - FULL PACKAGE",
+        "duration": "30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs"]
+      },
+      "deluxe": {
+        "name": "Deluxe Package",
+        "title": "DELUXE WASH",
+        "duration": "2hrs 30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Air for dryer", "Air for Vacuum", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets"]
+      },
+      "premium": {
+        "name": "Premium Package",
+        "title": "PREMIUM WASH",
+        "duration": "4hrs 30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Air for dryer", "Air for Vacuum", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets", "machine wax"]
+      },
+      "biofluids": {
+        "name": "Biofluids / Detail",
+        "title": "BIOFLUIDS / DETAIL",
+        "duration": "2hrs",
+        "featuresLabel": "Inclusive",
+        "features": ["Wipe dash", "Door Panels", "Vacuum Regular", "Wash Windows", "Wash mats"],
+        "addOnsIncluded": {
+          "name": "Add Exterior Wash",
+          "duration": "30mins"
+        }
+      }
+    }
+  },
+  "animatedStats": {
+    "title": "Your journey as a provider",
+    "titleHighlight": " starts today",
+    "description": "Your journey as a provider starts today. Sign up to make good money with good tips.",
+    "userCta": "Sign up as User",
+    "providerCta": "Sign up as Provider"
+  },
+  "features": {
+    "titlePrefix": "Why Choose",
+    "titleBrand": "Tidyzon",
+    "subtitle": "Experience the difference with our premium cleaning services designed for modern living",
+    "items": [
+      {
+        "title": "Instant Booking",
+        "description": "Book services in seconds with our intuitive mobile app. No waiting, no hassle."
+      },
+      {
+        "title": "Verified Professionals",
+        "description": "All service providers are background-checked and highly rated by our community."
+      },
+      {
+        "title": "Flexible Scheduling",
+        "description": "Choose times that work for you. Same-day service available in most areas."
+      },
+      {
+        "title": "Trusted by 10K+",
+        "description": "Join thousands of satisfied customers who trust Tidyzon for their cleaning needs."
+      },
+      {
+        "title": "Quality Guaranteed",
+        "description": "100% satisfaction guarantee or we'll make it right. Your happiness is our priority."
+      },
+      {
+        "title": "Eco-Friendly",
+        "description": "We use environmentally safe products that are tough on dirt, gentle on nature."
+      }
+    ],
+    "trackTitlePrefix": "Our",
+    "trackTitleHighlight": "Track Record",
+    "trackTitleSuffix": " Speaks",
+    "trackDescription": "Anywhere! Anytime! Everywhere we bring the VIP treatment your car deserves to you."
+  },
+  "testimonials": {
+    "titlePrefix": "What our",
+    "titleHighlight": "Customers",
+    "titleSuffix": "say",
+    "subtitle": "Don't just take our word for it - hear what our customers have to say",
+    "ctaTitle": "Ready to experience the Tidyzon difference?",
+    "ctaButton": "Join 10,000+ Happy Customers",
+    "items": [
+      {
+        "text": "Tidyzon has transformed my weekly routine! The car cleaning service is exceptional, and the professionals are always on time. Highly recommend!"
+      },
+      {
+        "text": "The trash bin sanitization service is a game-changer. My bins have never been cleaner, and the odor is completely gone. Worth every penny!"
+      },
+      {
+        "text": "Professional, reliable, and affordable. Tidyzon's home cleaning service has made managing my properties so much easier. The team is outstanding!"
+      },
+      {
+        "text": "As a busy parent, Tidyzon is a lifesaver. Quick booking, great service, and the eco-friendly products give me peace of mind. 10/10!"
+      },
+      {
+        "text": "The app is incredibly user-friendly and the service quality is unmatched. I've tried other services, but Tidyzon is simply the best!"
+      },
+      {
+        "text": "Fantastic service from start to finish. The professionals are courteous, thorough, and take pride in their work. Couldn't be happier!"
+      }
+    ]
+  }
+}

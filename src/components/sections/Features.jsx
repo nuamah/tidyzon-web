@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Zap, Shield, Clock, Users, Award, HeartHandshake } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import './Features.css'
 
 const Features = () => {
+  const { t } = useTranslation('home')
   const [scrollY, setScrollY] = useState(0)
   const featuresRef = useRef(null)
 
@@ -15,38 +17,13 @@ const Features = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const features = [
-    {
-      icon: Zap,
-      title: "Instant Booking",
-      description: "Book services in seconds with our intuitive mobile app. No waiting, no hassle."
-    },
-    {
-      icon: Shield,
-      title: "Verified Professionals",
-      description: "All service providers are background-checked and highly rated by our community."
-    },
-    {
-      icon: Clock,
-      title: "Flexible Scheduling",
-      description: "Choose times that work for you. Same-day service available in most areas."
-    },
-    {
-      icon: Users,
-      title: "Trusted by 10K+",
-      description: "Join thousands of satisfied customers who trust Tidyzon for their cleaning needs."
-    },
-    {
-      icon: Award,
-      title: "Quality Guaranteed",
-      description: "100% satisfaction guarantee or we'll make it right. Your happiness is our priority."
-    },
-    {
-      icon: HeartHandshake,
-      title: "Eco-Friendly",
-      description: "We use environmentally safe products that are tough on dirt, gentle on nature."
-    }
-  ]
+  const iconMap = [Zap, Shield, Clock, Users, Award, HeartHandshake]
+  const localizedItems = t('features.items', { returnObjects: true })
+  const features = (Array.isArray(localizedItems) ? localizedItems : []).map((item, idx) => ({
+    icon: iconMap[idx] || Zap,
+    title: item.title,
+    description: item.description,
+  }))
 
   return (
     <section className="features-section" ref={featuresRef}>
@@ -65,10 +42,10 @@ const Features = () => {
       <div className="container">
         <div className="features-header">
           <h2 className="features-title">
-            Why Choose <span className="gradient-text-feat">Tidyzon</span>
+            {t('features.titlePrefix')} <span className="gradient-text-feat">{t('features.titleBrand')}</span>
           </h2>
           <p className="features-subtitle">
-            Experience the difference with our premium cleaning services designed for modern living
+            {t('features.subtitle')}
           </p>
         </div>
 
@@ -118,10 +95,10 @@ const Features = () => {
           </div>
           <div className="content-section">
             <h2 className="section-title">
-              Our <span className="gradient-text-feat">Track Record</span> Speaks
+              {t('features.trackTitlePrefix')} <span className="gradient-text-feat">{t('features.trackTitleHighlight')}</span>{t('features.trackTitleSuffix')}
             </h2>
             <p className="section-description">
-              Anywhere! Anytime! Everywhere we bring the VIP treatment your car deserves to you.
+              {t('features.trackDescription')}
             </p>
           </div>
         </div>

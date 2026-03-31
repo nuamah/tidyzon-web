@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { Star, Quote } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../DownloadModal'
 import './Testimonials.css'
 
 const Testimonials = () => {
+  const { t } = useTranslation('home')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const localizedItems = t('testimonials.items', { returnObjects: true })
   const testimonials = [
     {
       name: "Sarah Johnson",
@@ -55,6 +58,10 @@ const Testimonials = () => {
       service: "Home Cleaning"
     }
   ]
+  const translatedTestimonials = testimonials.map((item, idx) => ({
+    ...item,
+    text: localizedItems?.[idx]?.text || item.text,
+  }))
 
   return (
     <>
@@ -63,15 +70,15 @@ const Testimonials = () => {
       <div className="container">
         <div className="testimonials-header">
           <h2 className="testimonials-title">
-            What our <span className="gradient-text-test">Customers</span> say
+            {t('testimonials.titlePrefix')} <span className="gradient-text-test">{t('testimonials.titleHighlight')}</span> {t('testimonials.titleSuffix')}
           </h2>
           <p className="testimonials-subtitle">
-            Don't just take our word for it - hear what our customers have to say
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map((testimonial, index) => (
+          {translatedTestimonials.map((testimonial, index) => (
             <div key={index} className="testimonial-card">
               <div className="testimonial-header">
                 <div className="testimonial-quote-icon">
@@ -91,8 +98,8 @@ const Testimonials = () => {
 
         {/* Bottom CTA */}
         <div className="testimonials-cta">
-          <h3 className="cta-text-test">Ready to experience the Tidyzon difference?</h3>
-          <button className="cta-btn-test" onClick={() => setIsModalOpen(true)}>Join 10,000+ Happy Customers</button>
+          <h3 className="cta-text-test">{t('testimonials.ctaTitle')}</h3>
+          <button className="cta-btn-test" onClick={() => setIsModalOpen(true)}>{t('testimonials.ctaButton')}</button>
         </div>
       </div>
     </section>

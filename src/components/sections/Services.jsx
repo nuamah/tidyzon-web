@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Car, Sparkles, ArrowRight, Check, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../DownloadModal'
 import ResponsivePicture from '../ResponsivePicture'
 import './Services.css'
 
 const Services = () => {
+  const { t } = useTranslation('home')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [scrollY, setScrollY] = useState(0)
@@ -16,91 +18,54 @@ const Services = () => {
   const carPackages = [
     {
       id: 'speed-interior',
-      name: 'Speed Package',
-      title: 'SPEED PACKAGE - INTERIOR ONLY',
+      name: t('services.packages.speedInterior.name'),
+      title: t('services.packages.speedInterior.title'),
       price: '$29.99',
-      duration: '15mins',
-      pricingLabel: 'Pricing per wash',
-      features: ['Vacuum - Regular', 'Wipe door jambs'],
-      excludedFeatures: [
-        'Deep stain',
-        'Pet removal',
-        'Excessive trash removal',
-        'Heavy dirt',
-      ],
+      duration: t('services.packages.speedInterior.duration'),
+      pricingLabel: t('services.packages.speedInterior.pricingLabel'),
+      features: t('services.packages.speedInterior.features', { returnObjects: true }),
+      excludedFeatures: t('services.packages.speedInterior.excludedFeatures', { returnObjects: true }),
     },
     {
       id: 'speed',
-      name: 'Speed Package',
-      title: 'SPEED PACKAGE - FULL PACKAGE',
+      name: t('services.packages.speed.name'),
+      title: t('services.packages.speed.title'),
       price: '$49.99',
-      duration: '30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs'
-      ],
+      duration: t('services.packages.speed.duration'),
+      features: t('services.packages.speed.features', { returnObjects: true }),
     },
     {
       id: 'deluxe',
-      name: 'Deluxe Package',
-      title: 'DELUXE WASH',
+      name: t('services.packages.deluxe.name'),
+      title: t('services.packages.deluxe.title'),
       price: '$155.00',
-      duration: '2hrs 30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs',
-        'Air for dryer',
-        'Air for Vacuum',
-        'Tire shine, rims and air',
-        'Wash Mat',
-        'Armoral and door panel',
-        'Dash Clean and Shine',
-        'Clean cup holders',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets'
-      ],
+      duration: t('services.packages.deluxe.duration'),
+      features: t('services.packages.deluxe.features', { returnObjects: true }),
       popular: true
     },
     {
       id: 'premium',
-      name: 'Premium Package',
-      title: 'PREMIUM WASH',
+      name: t('services.packages.premium.name'),
+      title: t('services.packages.premium.title'),
       price: '$249.99',
-      duration: '4hrs 30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs',
-        'Air for dryer',
-        'Air for Vacuum',
-        'Tire shine, rims and air',
-        'Wash Mat',
-        'Armoral and door panel',
-        'Dash Clean and Shine',
-        'Clean cup holders',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets',
-        'machine wax'
-      ],
+      duration: t('services.packages.premium.duration'),
+      features: t('services.packages.premium.features', { returnObjects: true }),
     },
     {
       id: 'biofluids',
-      name: 'Biofluids / Detail',
-      title: 'BIOFLUIDS / DETAIL',
+      name: t('services.packages.biofluids.name'),
+      title: t('services.packages.biofluids.title'),
       price: '$299.99',
-      duration: '2hrs',
-      features: ['Wipe dash', 'Door Panels', 'Vacuum Regular', 'Wash Windows', 'Wash mats'],
-      featuresLabel: 'Inclusive',
+      duration: t('services.packages.biofluids.duration'),
+      features: t('services.packages.biofluids.features', { returnObjects: true }),
+      featuresLabel: t('services.packages.biofluids.featuresLabel'),
       addOnsIncluded: [
-        { name: 'Add Exterior Wash', price: '$19.99', originalPrice: '$50.00', duration: '30mins' },
+        {
+          name: t('services.packages.biofluids.addOnsIncluded.name'),
+          price: '$19.99',
+          originalPrice: '$50.00',
+          duration: t('services.packages.biofluids.addOnsIncluded.duration'),
+        },
       ],
     },
   ]
@@ -137,15 +102,15 @@ const Services = () => {
             <div className="section-header-content">
               <div className="section-badge">
                 <Sparkles className="badge-icon-sm" />
-                <span>Our Services</span>
+                <span>{t('services.badge')}</span>
               </div>
               <h2 className="section-title">
-                Car Cleaning Packages
+                {t('services.titleLine1')}
                 <br />
-                <span className="gradient-text-services">Choose Your Perfect Wash</span>
+                <span className="gradient-text-services">{t('services.titleLine2')}</span>
               </h2>
               <p className="section-subtitle">
-                Prices for wash packages depend on your vehicle type. Vehicle type like MVP, Truck will incur additional $10 each. Displayed prices are passenger cars only
+                {t('services.subtitle')}
               </p>
             </div>
             <div className="section-header-image">
@@ -172,7 +137,7 @@ const Services = () => {
               className="packages-carousel-arrow packages-carousel-arrow-left"
               onClick={() => setCarouselIndex((i) => Math.max(0, i - 1))}
               disabled={carouselIndex === 0}
-              aria-label="Previous packages"
+              aria-label={t('services.previousPackages')}
             >
               <ChevronLeft className="packages-carousel-arrow-icon" />
             </button>
@@ -193,12 +158,12 @@ const Services = () => {
                   {/* Desktop Layout - Original Structure */}
                   <div className="package-desktop-layout">
                     {pkg.addOn && (
-                      <div className="package-addon-badge">Add ons</div>
+                      <div className="package-addon-badge">{t('services.addOns')}</div>
                     )}
                     {pkg.popular && (
                       <div className="popular-badge">
                         <Sparkles className="popular-icon" />
-                        <span>Most Popular</span>
+                        <span>{t('services.popular')}</span>
                       </div>
                     )}
                     <div className="package-icon-wrapper">
@@ -221,7 +186,7 @@ const Services = () => {
                         <span className="package-pricing-sublabel">{pkg.pricingLabel}</span>
                       )}
                       <span className="package-price">{pkg.price}</span>
-                      {!pkg.pricingLabel && <span className="price-label">per wash</span>}
+                      {!pkg.pricingLabel && <span className="price-label">{t('services.perWash')}</span>}
                     </div>
                   </div>
 
@@ -248,18 +213,18 @@ const Services = () => {
                             <span className="package-pricing-sublabel package-pricing-sublabel--mobile">{pkg.pricingLabel}</span>
                           )}
                           <span className="package-price-mobile">{pkg.price}</span>
-                          {!pkg.pricingLabel && <span className="price-label-mobile">per wash</span>}
+                          {!pkg.pricingLabel && <span className="price-label-mobile">{t('services.perWash')}</span>}
                         </div>
                       </div>
                     </div>
                     <div className="package-header-right">
                       {pkg.addOn && (
-                        <div className="package-addon-badge-mobile">Add ons</div>
+                        <div className="package-addon-badge-mobile">{t('services.addOns')}</div>
                       )}
                       {pkg.popular && (
                         <div className="popular-badge-mobile">
                           <Sparkles className="popular-icon" />
-                          <span>Most popular</span>
+                          <span>{t('services.popular')}</span>
                         </div>
                       )}
                       <ChevronDown className={`accordion-chevron ${isExpanded ? 'expanded' : ''}`} />
@@ -275,7 +240,7 @@ const Services = () => {
 
                     {pkg.features.length > 0 && (
                     <div className="package-features">
-                      <p className="features-title">{pkg.featuresLabel || 'Included Features:'}</p>
+                      <p className="package-features-title">{pkg.featuresLabel || t('services.includedFeatures')}</p>
                       <ul className="features-list">
                         {pkg.features.slice(0, 3).map((feature, idx) => (
                           <li key={idx} className="feature-item">
@@ -291,21 +256,20 @@ const Services = () => {
                       
                       <ul className="features-list features-list-additional">
                         {pkg.features.slice(3).map((feature, idx) => {
-                          // Add divider after "Wipe door jambs" for all packages (separates section 2 from section 3)
-                          const shouldAddDividerAfterWipeDoorJambs = feature === 'Wipe door jambs';
-                          
-                          // For Premium: Add divider before "machine wax" (separates section 3 from section 4)
-                          const shouldAddDividerBeforeMachineWax = pkg.id === 'premium' && 
-                                                                 feature === 'machine wax';
+                          const featureIndex = idx + 3
+                          // Add divider after the 5th feature for all packages.
+                          const shouldAddDividerAfterFifthFeature = featureIndex === 4
+                          // For Premium: add divider before the final feature.
+                          const shouldAddDividerBeforeFinalFeature = pkg.id === 'premium' && featureIndex === pkg.features.length - 1
                           
                           return (
                             <React.Fragment key={idx}>
-                              {shouldAddDividerBeforeMachineWax && <li className="features-divider" role="separator" aria-hidden="true"></li>}
+                              {shouldAddDividerBeforeFinalFeature && <li className="features-divider" role="separator" aria-hidden="true"></li>}
                               <li className="feature-item">
                                 <Check className="check-icon" />
                                 <span>{feature}</span>
                               </li>
-                              {shouldAddDividerAfterWipeDoorJambs && <li className="features-divider" role="separator" aria-hidden="true"></li>}
+                              {shouldAddDividerAfterFifthFeature && <li className="features-divider" role="separator" aria-hidden="true"></li>}
                             </React.Fragment>
                           );
                         })}
@@ -317,7 +281,7 @@ const Services = () => {
 
                     {pkg.excludedFeatures && pkg.excludedFeatures.length > 0 && (
                       <div className="package-excluded">
-                        <span className="package-excluded-badge">Do not include</span>
+                        <span className="package-excluded-badge">{t('services.doNotInclude')}</span>
                         <ul className="package-excluded-list">
                           {pkg.excludedFeatures.map((item, idx) => (
                             <li key={idx} className="package-excluded-item">
@@ -331,7 +295,7 @@ const Services = () => {
 
                     {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
                       <div className="package-addons-included">
-                        <p className="package-addons-included-label">Add ons</p>
+                        <p className="package-addons-included-label">{t('services.addOns')}</p>
                         <ul className="package-addons-included-list">
                           {pkg.addOnsIncluded.map((addon, idx) => (
                             <li key={idx} className="package-addon-included-item">
@@ -357,7 +321,7 @@ const Services = () => {
                         setIsModalOpen(true)
                       }}
                     >
-                      <span>Continue</span>
+                      <span>{t('services.continue')}</span>
                       <ArrowRight className="cta-arrow" />
                     </button>
                   </div>
@@ -372,7 +336,7 @@ const Services = () => {
               className="packages-carousel-arrow packages-carousel-arrow-right"
               onClick={() => setCarouselIndex((i) => Math.min(maxCarouselIndex, i + 1))}
               disabled={carouselIndex >= maxCarouselIndex}
-              aria-label="Next packages"
+              aria-label={t('services.nextPackages')}
             >
               <ChevronRight className="packages-carousel-arrow-icon" />
             </button>
@@ -382,11 +346,11 @@ const Services = () => {
           <div className="services-cta">
             <div className="cta-card">
               <div className="cta-content">
-                <h3 className="cta-title">Need a Custom Service Package?</h3>
-                <p className="cta-text">Contact us for personalized cleaning solutions tailored to your specific needs.</p>
+                <h3 className="cta-title">{t('services.customTitle')}</h3>
+                <p className="cta-text">{t('services.customText')}</p>
               </div>
               <Link to="/contact" className="cta-button">
-                Get Custom Quote
+                {t('services.customQuote')}
                 <ArrowRight className="cta-arrow" />
               </Link>
             </div>
@@ -398,10 +362,10 @@ const Services = () => {
               {/* Become a Service Provider */}
               <div className="dual-cta-card">
                 <div className="dual-cta-content">
-                  <h3 className="dual-cta-title">Become a service provider</h3>
-                  <p className="dual-cta-subtitle">Sign up as a service provider</p>
+                  <h3 className="dual-cta-title">{t('services.providerTitle')}</h3>
+                  <p className="dual-cta-subtitle">{t('services.providerSubtitle')}</p>
                   <Link to="/provider" className="dual-cta-button">
-                    Sign up
+                    {t('services.signUp')}
                   </Link>
                 </div>
                 <div className="dual-cta-image">
@@ -439,10 +403,10 @@ const Services = () => {
                   />
                 </div>
                 <div className="dual-cta-content">
-                  <h3 className="dual-cta-title">Fast, reliable services at your doorstep, at your fingertips</h3>
-                  <p className="dual-cta-subtitle">Sign up and book services</p>
+                  <h3 className="dual-cta-title">{t('services.userTitle')}</h3>
+                  <p className="dual-cta-subtitle">{t('services.userSubtitle')}</p>
                   <Link to="/get-started" className="dual-cta-button">
-                    Sign up
+                    {t('services.signUp')}
                   </Link>
                 </div>
               </div>

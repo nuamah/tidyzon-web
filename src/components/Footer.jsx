@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import './Footer.css'
 
 const Footer = () => {
+  const { t } = useTranslation()
   const appStoreQRRef = useRef(null)
   const playStoreQRRef = useRef(null)
 
@@ -57,7 +59,7 @@ const Footer = () => {
               />
             </div>
             <p className="footer-description">
-              Your trusted partner for premium home and car cleaning services. Making your life cleaner, one service at a time.
+              {t('footer.description')}
             </p>
             <div className="footer-social">
               <a href="#" className="social-link" aria-label="Facebook">
@@ -77,33 +79,33 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="footer-links">
-            <h4 className="footer-heading">Services</h4>
+            <h4 className="footer-heading">{t('footer.servicesHeading')}</h4>
             <ul className="footer-list">
-              <li><Link to="/services">Car Cleaning</Link></li>
-              <li><Link to="/services">Bin Sanitization</Link></li>
-              <li><Link to="/services">All Services</Link></li>
+              <li><Link to="/services">{t('footer.services.carCleaning')}</Link></li>
+              <li><Link to="/services">{t('footer.services.binSanitization')}</Link></li>
+              <li><Link to="/services">{t('footer.services.allServices')}</Link></li>
             </ul>
           </div>
 
               {/* Company */}
               <div className="footer-links">
-                <h4 className="footer-heading">Company</h4>
+                <h4 className="footer-heading">{t('footer.companyHeading')}</h4>
                 <ul className="footer-list">
-                  <li><Link to="/about">About Us</Link></li>
-                  <li><Link to="/teams">Team</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
-                  <li><Link to="/get-started">Get Started</Link></li>
-                  <li><Link to="/provider">Become a Provider</Link></li>
-                  <li><Link to="/terms">Terms & Conditions</Link></li>
-                  <li><Link to="/privacy">Privacy Policy</Link></li>
-                  <li><Link to="/customer-service-agreement">Customer Service Agreement</Link></li>
-                  <li><Link to="/service-provider-agreement">Service Provider Agreement</Link></li>
+                  <li><Link to="/about">{t('footer.company.aboutUs')}</Link></li>
+                  <li><Link to="/teams">{t('footer.company.team')}</Link></li>
+                  <li><Link to="/contact">{t('footer.company.contact')}</Link></li>
+                  <li><Link to="/get-started">{t('footer.company.getStarted')}</Link></li>
+                  <li><Link to="/provider">{t('footer.company.becomeProvider')}</Link></li>
+                  <li><Link to="/terms">{t('footer.company.terms')}</Link></li>
+                  <li><Link to="/privacy">{t('footer.company.privacy')}</Link></li>
+                  <li><Link to="/customer-service-agreement">{t('footer.company.customerServiceAgreement')}</Link></li>
+                  <li><Link to="/service-provider-agreement">{t('footer.company.serviceProviderAgreement')}</Link></li>
                 </ul>
               </div>
 
           {/* Contact */}
           <div className="footer-contact">
-            <h4 className="footer-heading">Get in Touch</h4>
+            <h4 className="footer-heading">{t('footer.contactHeading')}</h4>
             <ul className="contact-list">
               <li>
                 <Mail className="contact-icon" />
@@ -121,7 +123,7 @@ const Footer = () => {
 
             {/* Download App Section */}
             <div className="footer-download-section">
-              <h5 className="download-heading">Download Our App</h5>
+              <h5 className="download-heading">{t('footer.downloadHeading')}</h5>
               <div className="footer-app-stores">
                 <div className="footer-store-item">
                   <canvas ref={appStoreQRRef} className="footer-qr-code"></canvas>
@@ -159,13 +161,13 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © 2024 Tidyzon. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="footer-legal">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/customer-service-agreement">Customer Agreement</Link>
-            <Link to="/service-provider-agreement">Provider Agreement</Link>
+            <Link to="/privacy">{t('footer.legal.privacyPolicy')}</Link>
+            <Link to="/terms">{t('footer.legal.termsOfService')}</Link>
+            <Link to="/customer-service-agreement">{t('footer.legal.customerAgreement')}</Link>
+            <Link to="/service-provider-agreement">{t('footer.legal.providerAgreement')}</Link>
           </div>
         </div>
       </div>

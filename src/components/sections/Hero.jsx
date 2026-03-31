@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ArrowRight, Sparkles, MapPin, Navigation } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../DownloadModal'
 import ProvidersMapModal from '../ProvidersMapModal'
 import ResponsivePicture from '../ResponsivePicture'
 import './Hero.css'
 
 const Hero = () => {
+  const { t } = useTranslation('home')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isProvidersModalOpen, setIsProvidersModalOpen] = useState(false)
   const [location, setLocation] = useState('')
@@ -148,7 +150,7 @@ const Hero = () => {
   // Get current location using geolocation
   const getCurrentLocation = () => {
     if (!navigator.geolocation) {
-      alert('Geolocation is not supported by this browser.')
+      alert(t('hero.geolocationNotSupported'))
       return
     }
 
@@ -182,7 +184,7 @@ const Hero = () => {
       },
       (error) => {
         console.error('Error getting location:', error)
-        alert('Unable to get your location. Please enter it manually.')
+        alert(t('hero.geolocationError'))
         setIsGettingLocation(false)
       }
     )
@@ -240,22 +242,22 @@ const Hero = () => {
           {/* Badge */}
           <div className="hero-badge">
             <Sparkles className="badge-icon" />
-            <span>Trusted by Happy Customers</span>
+            <span>{t('hero.badge')}</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="hero-title-simple">
-            Quality services at your doorstep
+            {t('hero.title')}
           </h1>
 
           {/* Request/Schedule Component */}
           <div className="hero-request-section">
-            <h2 className="request-title">Request / Schedule</h2>
+            <h2 className="request-title">{t('hero.requestTitle')}</h2>
             <div className="request-form">
               <div className="location-input-container" ref={inputRef}>
                 <input 
                   type="text" 
-                  placeholder="Enter service location"
+                  placeholder={t('hero.locationPlaceholder')}
                   className="location-input"
                   value={location || ''}
                   onChange={(e) => handleLocationChange(e.target.value)}
@@ -265,7 +267,7 @@ const Hero = () => {
                   className="location-icon-btn"
                   onClick={getCurrentLocation}
                   disabled={isGettingLocation}
-                  title="Use current location"
+                  title={t('hero.locationTitle')}
                 >
                   {isGettingLocation ? (
                     <div className="loading-spinner"></div>
@@ -295,7 +297,7 @@ const Hero = () => {
                 onClick={() => setIsProvidersModalOpen(true)}
                 disabled={!location || !location.trim()}
                 type="button"
-                aria-label="Request service providers for this location"
+                aria-label={t('hero.requestAria')}
               >
                 <ArrowRight className="arrow-icon" />
               </button>
@@ -324,15 +326,15 @@ const Hero = () => {
             <div className="floating-card card-1">
               <div className="card-icon">🚗</div>
               <div className="card-text">
-                <div className="card-title">Car Cleaning</div>
-                <div className="card-subtitle">Professional detailing</div>
+                <div className="card-title">{t('hero.card1Title')}</div>
+                <div className="card-subtitle">{t('hero.card1Subtitle')}</div>
               </div>
             </div>
             <div className="floating-card card-2">
               <div className="card-icon">⭐</div>
               <div className="card-text">
-                <div className="card-title">5-Star Service</div>
-                <div className="card-subtitle">Highly rated</div>
+                <div className="card-title">{t('hero.card2Title')}</div>
+                <div className="card-subtitle">{t('hero.card2Subtitle')}</div>
               </div>
             </div>
           </div>
@@ -340,8 +342,8 @@ const Hero = () => {
           {/* Skip the car wash line */}
           <div className="hero-convenience-text">
             <span className="bullet-text">
-              Skip the car wash line! No need to drive out!<br />
-              We come to you!
+              {t('hero.line1')}<br />
+              {t('hero.line2')}
             </span>
           </div>
         </div>

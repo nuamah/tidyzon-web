@@ -1,0 +1,59 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "team": "Team",
+      "contact": "Contact",
+      "terms": "Terms",
+      "privacy": "Privacy"
+    },
+    "cta": {
+      "user": "User",
+      "provider": "Provider"
+    },
+    "aria": {
+      "closeMenu": "Close menu",
+      "toggleMenu": "Toggle menu"
+    }
+  },
+  "localization": {
+    "buttonTitle": "Change language and location",
+    "buttonAria": "Localization settings",
+    "drawerTitle": "Select language and location",
+    "languageTitle": "Select language",
+    "locationTitle": "Select location",
+    "confirm": "Confirm changes"
+  },
+  "footer": {
+    "description": "Your trusted partner for premium home and car cleaning services. Making your life cleaner, one service at a time.",
+    "servicesHeading": "Services",
+    "services": {
+      "carCleaning": "Car Cleaning",
+      "binSanitization": "Bin Sanitization",
+      "allServices": "All Services"
+    },
+    "companyHeading": "Company",
+    "company": {
+      "aboutUs": "About Us",
+      "team": "Team",
+      "contact": "Contact",
+      "getStarted": "Get Started",
+      "becomeProvider": "Become a Provider",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "customerServiceAgreement": "Customer Service Agreement",
+      "serviceProviderAgreement": "Service Provider Agreement"
+    },
+    "contactHeading": "Get in Touch",
+    "downloadHeading": "Download Our App",
+    "copyright": "© 2024 Tidyzon. All rights reserved.",
+    "legal": {
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "customerAgreement": "Customer Agreement",
+      "providerAgreement": "Provider Agreement"
+    }
+  }
+}
