@@ -5,7 +5,8 @@ import ResponsivePicture from '../components/ResponsivePicture'
 import { trackRequestSchedule } from '../lib/analytics'
 import './ContactPage.css'
 
-const API_BASE = import.meta.env.VITE_API_URL || ''
+const CONTACT_API_BASE =
+  'https://25p5ndzk5j.execute-api.us-east-1.amazonaws.com/dev/v1'
 
 const ContactPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -39,10 +40,19 @@ const ContactPage = () => {
       subject: formData.subject,
     })
     try {
-      const res = await fetch(`${API_BASE}/api/contact`, {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.phone
+          ? `Phone: ${formData.phone}\n\n${formData.message}`
+          : formData.message,
+      }
+
+      const res = await fetch(`${CONTACT_API_BASE}/admin/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
@@ -55,7 +65,7 @@ const ContactPage = () => {
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
     } catch {
       setSubmitStatus('error')
-      setSubmitMessage('Could not reach the server. If you are developing locally, run the API with npm run server.')
+      setSubmitMessage('Could not reach the server. Please try again in a moment.')
     }
   }
 
