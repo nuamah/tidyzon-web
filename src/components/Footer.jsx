@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
+import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 import './Footer.css'
 
 const FooterQr = lazy(() => import('./FooterQr'))
@@ -78,10 +78,6 @@ const Footer = () => {
               <li>
                 <Phone className="contact-icon" />
                 <span>(815) 608-1632</span>
-              </li>
-              <li>
-                <MapPin className="contact-icon" />
-                <span>708 Saybrook Ct. Romeoville IL 60446</span>
               </li>
             </ul>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
+import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
 import ResponsivePicture from '../components/ResponsivePicture'
 import { trackRequestSchedule } from '../lib/analytics'
@@ -81,12 +81,6 @@ const ContactPage = () => {
       title: 'Call Us',
       value: '(815) 608-1632',
       link: 'tel:+18156081632'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      value: '708 Saybrook Ct. Romeoville IL 60446',
-      link: '#'
     },
     {
       icon: Clock,
@@ -304,14 +298,6 @@ const ContactPage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Map Section */}
-        <section className="map-section">
-          <div className="map-placeholder">
-            <MapPin className="map-icon" />
-            <p className="map-text">Visit our office at 708 Saybrook Ct. Romeoville IL 60446</p>
           </div>
         </section>
       </div>
