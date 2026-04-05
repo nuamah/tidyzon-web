@@ -30,10 +30,6 @@ const ROUTES = {
     title: 'Get started',
     description: 'Get started with Tidyzon — download the app and book your first service.',
   },
-  '/reviews': {
-    title: 'Reviews',
-    description: 'Read what customers say about Tidyzon services and providers.',
-  },
   '/open-positions': {
     title: 'Careers & open positions',
     description: 'Open roles and career opportunities at Tidyzon.',

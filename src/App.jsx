@@ -22,7 +22,6 @@ const OpenPositionsPage = lazy(() => import('./pages/OpenPositionsPage'))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'))
 const PrivacyRequestsPage = lazy(() => import('./pages/PrivacyRequestsPage'))
 const ProviderPage = lazy(() => import('./pages/ProviderPage'))
-const ReviewsPage = lazy(() => import('./pages/ReviewsPage'))
 const ServiceProviderAgreementPage = lazy(() => import('./pages/ServiceProviderAgreementPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const TeamsPage = lazy(() => import('./pages/TeamsPage'))
@@ -51,7 +50,6 @@ const App = () => {
             <Route path="/teams" element={<TeamsPage />} />
             <Route path="/provider" element={<ProviderPage />} />
             <Route path="/get-started" element={<GetStartedPage />} />
-            <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/open-positions" element={<OpenPositionsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/help" element={<ContactPage />} />
