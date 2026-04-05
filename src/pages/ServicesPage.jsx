@@ -67,7 +67,7 @@ const ServicesPage = () => {
     {
       id: 'premium',
       name: 'Premium Package',
-      title: 'PREMIUM WASH',
+      title: 'DETAIL WASH',
       price: '$249.99',
       duration: '4hrs 30mins',
       features: [
