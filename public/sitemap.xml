@@ -7,7 +7,6 @@
   <url><loc>https://tidyzon.com/teams</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tidyzon.com/provider</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://tidyzon.com/get-started</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://tidyzon.com/reviews</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tidyzon.com/open-positions</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tidyzon.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://tidyzon.com/help</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
