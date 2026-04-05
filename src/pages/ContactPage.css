@@ -88,11 +88,25 @@
   .contact-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Center the lone third card on the second row */
+  .contact-info-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 100%;
+    max-width: calc((100% - 1.5rem) / 2);
+  }
 }
 
 @media (min-width: 1024px) {
   .contact-info-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-info-card:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: none;
   }
 }
 
