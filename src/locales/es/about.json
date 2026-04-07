@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "titlePrefix": "Descubre la historia detrás de",
+    "titleBrand": "Tidyzon",
+    "subtitle": "Explora el recorrido de Tidyzon, donde el servicio de calidad se une con la innovación, conectándote con proveedores confiables para todas tus necesidades de limpieza."
+  },
+  "journey": {
+    "title": "Nuestro recorrido",
+    "p1": "Tidyzon nació del deseo de simplificar las tareas diarias conectando a los consumidores con proveedores de servicios confiables. Fundada en 2021, nuestra misión fue clara: llevar un servicio de calidad directamente a tu puerta. Nuestros fundadores, inspirados por la necesidad de soluciones de limpieza convenientes y confiables, se propusieron crear una plataforma que cierre la brecha entre los consumidores y los profesionales calificados.",
+    "p2": "Hoy, Tidyzon es un testimonio de innovación y dedicación, asegurando que cada tarea se realice con cuidado y precisión.",
+    "imageAlt": "Descubre el recorrido de Tidyzon"
+  },
+  "mission": {
+    "title": "Nuestra misión",
+    "subtitle": "Impulsados por la excelencia",
+    "p1": "En Tidyzon, nuestra misión es revolucionar la forma en que se entregan los servicios de limpieza. Estamos comprometidos a brindar un servicio excepcional que supere las expectativas, garantizando que cada interacción sea fluida y satisfactoria. Nuestro equipo está impulsado por una pasión por la excelencia, buscando continuamente mejorar nuestras ofertas y ofrecer una comodidad inigualable.",
+    "p2": "Creemos en empoderar a nuestros proveedores con las herramientas y la capacitación que necesitan para tener éxito, fomentando una comunidad de confianza y confiabilidad. Únete a nuestro camino para redefinir el servicio de calidad, una tarea a la vez.",
+    "p3": "Nuestra dedicación a la calidad es inquebrantable, y estamos orgullosos de los rigurosos estándares que mantenemos. Desde verificaciones de antecedentes hasta capacitación integral, nos aseguramos de que nuestros proveedores estén preparados para ofrecer el más alto nivel de servicio. En Tidyzon, tu satisfacción es nuestra prioridad y estamos comprometidos a facilitar tu vida, una limpieza a la vez."
+  },
+  "vision": {
+    "title": "Nuestra visión para el futuro",
+    "p1": "En Tidyzon, imaginamos un futuro donde el servicio de calidad esté integrado sin esfuerzo en la vida diaria, mejorando el bienestar de nuestra comunidad. Nuestro objetivo es revolucionar la industria de servicios estableciendo nuevos estándares de excelencia, asegurando que cada interacción esté marcada por profesionalismo y cuidado. Buscamos empoderar a los proveedores locales, fomentando una red basada en el respeto mutuo y la innovación.",
+    "p2": "Al aprovechar la tecnología, aspiramos a crear un ecosistema sostenible y eficiente que beneficie tanto a consumidores como a proveedores, contribuyendo a un mundo más limpio y organizado.",
+    "p3": "Nuestra visión va más allá de la entrega inmediata del servicio; estamos comprometidos a generar un impacto duradero en las comunidades a las que servimos. Creemos en apoyar las economías locales brindando oportunidades de crecimiento y desarrollo a nuestros proveedores. Mediante la mejora continua y la adaptación, Tidyzon se esfuerza por ser un líder en la industria, reconocido por su integridad y dedicación a la satisfacción del cliente.",
+    "p4": "Mirando hacia el futuro, Tidyzon está dedicado a expandir su alcance y mejorar sus servicios. Estamos comprometidos con la innovación, buscando nuevas formas de mejorar nuestros procesos y brindar un valor excepcional. Nuestra visión es ser la opción preferida para un servicio de calidad, reconocidos por nuestro compromiso con la excelencia y nuestra capacidad de adaptarnos a las necesidades cambiantes de nuestros clientes. Al priorizar la sostenibilidad y el compromiso comunitario, buscamos dejar un legado positivo para las futuras generaciones."
+  },
+  "quality": {
+    "title": "Nuestro compromiso con la calidad",
+    "p1": "Tidyzon mantiene un compromiso firme de entregar servicio de calidad en cada puerta. Nuestros proveedores reciben capacitación rigurosa y pasan verificaciones de antecedentes para asegurar los más altos estándares de profesionalismo y experiencia. Creemos que la calidad no es solo una promesa, sino una práctica que se refleja en cada tarea que realizamos. Nuestro compromiso con la excelencia se evidencia en nuestra atención al detalle y nuestra dedicación a la satisfacción del cliente.",
+    "p2": "Establecemos estándares estrictos para nuestros proveedores de servicios, exigiendo el equipo y las habilidades necesarias para realizar su trabajo de forma eficiente. Nuestros procesos de aseguramiento de calidad están diseñados para garantizar que cada servicio cumpla con nuestras altas expectativas, brindando tranquilidad a nuestros clientes. En Tidyzon, estamos dedicados a la mejora continua, buscando siempre retroalimentación e implementando cambios que elevan la calidad de nuestros servicios.",
+    "p3": "En Tidyzon, entendemos que el servicio de calidad es la base de nuestro negocio. Nuestro compromiso con la excelencia se refleja en programas de capacitación integrales, que equipan a nuestros proveedores con habilidades y conocimientos para entregar un servicio sobresaliente. Creemos en fomentar una cultura de responsabilidad y transparencia, asegurando que nuestros clientes reciban la mejor experiencia posible.",
+    "p4": "Nuestro compromiso con la calidad va más allá de la entrega del servicio; abarca cada aspecto de nuestras operaciones. Desde el momento en que se agenda una tarea hasta su finalización, priorizamos eficiencia, confiabilidad y satisfacción del cliente. Estamos comprometidos a construir relaciones duraderas basadas en confianza y respeto mutuo. En Tidyzon, la calidad no es solo una meta; es una promesa que hacemos a cada cliente, todos los días."
+  },
+  "cta": {
+    "title": "Descubre nuestros servicios excepcionales",
+    "subtitle": "Únete hoy a la comunidad Tidyzon y experimenta una comodidad incomparable con nuestros servicios de primera. Ya sea que necesites una limpieza rápida del auto o un lavado profundo de botes de basura, nuestros proveedores confiables están listos para ayudarte. ¡Regístrate ahora y disfruta de un servicio de calidad en tu puerta!",
+    "button": "Comenzar"
+  }
+}

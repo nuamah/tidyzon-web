@@ -15,67 +15,6 @@
     "geolocationNotSupported": "La geolocalización no es compatible con este navegador.",
     "geolocationError": "No se pudo obtener tu ubicación. Ingrésala manualmente."
   },
-  "services": {
-    "badge": "Nuestros servicios",
-    "titleLine1": "Paquetes de limpieza de autos",
-    "titleLine2": "Elige tu lavado ideal",
-    "subtitle": "Los precios de los paquetes dependen del tipo de vehículo. Tipos como MVP y camioneta tienen un cargo adicional de $10 cada uno. Los precios mostrados son solo para autos de pasajeros.",
-    "popular": "Más popular",
-    "previousPackages": "Paquetes anteriores",
-    "nextPackages": "Siguientes paquetes",
-    "perWash": "por lavado",
-    "includedFeatures": "Incluye:",
-    "doNotInclude": "No incluye",
-    "addOns": "Adicionales",
-    "continue": "Continuar",
-    "customTitle": "¿Necesitas un paquete personalizado?",
-    "customText": "Contáctanos para soluciones de limpieza personalizadas según tus necesidades.",
-    "customQuote": "Solicitar cotización",
-    "providerTitle": "Conviértete en proveedor de servicios",
-    "providerSubtitle": "Regístrate como proveedor",
-    "userTitle": "Servicios rápidos y confiables en la puerta de tu casa, al alcance de tus manos",
-    "userSubtitle": "Regístrate y reserva servicios",
-    "signUp": "Registrarse",
-    "packages": {
-      "speedInterior": {
-        "name": "Paquete Rápido",
-        "title": "PAQUETE RÁPIDO - SOLO INTERIOR",
-        "duration": "15 min",
-        "pricingLabel": "Precio por lavado",
-        "features": ["Aspirado - Regular", "Limpieza de marcos de puertas"],
-        "excludedFeatures": ["Manchas profundas", "Eliminación de pelo de mascota", "Retiro excesivo de basura", "Suciedad pesada"]
-      },
-      "speed": {
-        "name": "Paquete Rápido",
-        "title": "PAQUETE RÁPIDO - PAQUETE COMPLETO",
-        "duration": "30 min",
-        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas"]
-      },
-      "deluxe": {
-        "name": "Paquete Deluxe",
-        "title": "LAVADO DELUXE",
-        "duration": "2 h 30 min",
-        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas", "Aire para secado", "Aire para aspirado", "Brillo de llantas, rines y aire", "Lavado de tapetes", "Armoral y panel de puertas", "Limpieza y brillo de tablero", "Limpieza de portavasos", "Shampoo y panel de puertas", "Shampoo de asientos y alfombras"]
-      },
-      "premium": {
-        "name": "Paquete Premium",
-        "title": "LAVADO PREMIUM",
-        "duration": "4 h 30 min",
-        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas", "Aire para secado", "Aire para aspirado", "Brillo de llantas, rines y aire", "Lavado de tapetes", "Armoral y panel de puertas", "Limpieza y brillo de tablero", "Limpieza de portavasos", "Shampoo y panel de puertas", "Shampoo de asientos y alfombras", "Cera mecánica"]
-      },
-      "biofluids": {
-        "name": "Biofluidos / Detalle",
-        "title": "BIOFLUIDOS / DETALLE",
-        "duration": "2 h",
-        "featuresLabel": "Incluye",
-        "features": ["Limpieza de tablero", "Paneles de puertas", "Aspirado regular", "Limpieza de ventanas", "Lavado de tapetes"],
-        "addOnsIncluded": {
-          "name": "Agregar lavado exterior",
-          "duration": "30 min"
-        }
-      }
-    }
-  },
   "animatedStats": {
     "title": "Tu camino como proveedor",
     "titleHighlight": " comienza hoy",

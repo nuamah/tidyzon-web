@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Target, Eye, Award, ArrowRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../components/DownloadModal'
 import ResponsivePicture from '../components/ResponsivePicture'
 import './AboutPage.css'
 
 const AboutPage = () => {
+  const { t } = useTranslation('about')
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
@@ -18,10 +20,10 @@ const AboutPage = () => {
           <div className="container">
             <div className="about-hero-content">
               <h1 className="about-hero-title">
-                Discover the Story Behind <span className="gradient-text">Tidyzon</span>
+                {t('hero.titlePrefix')} <span className="gradient-text">{t('hero.titleBrand')}</span>
               </h1>
               <p className="about-hero-subtitle">
-                Explore the journey of Tidyzon, where quality service meets innovation, connecting you with trusted providers for all your cleaning needs.
+                {t('hero.subtitle')}
               </p>
             </div>
           </div>
@@ -32,12 +34,12 @@ const AboutPage = () => {
           <div className="container">
             <div className="story-grid">
               <div className="story-content">
-                <h2 className="story-title">Our Journey</h2>
+                <h2 className="story-title">{t('journey.title')}</h2>
                 <p className="story-text">
-                  Tidyzon was born out of a desire to simplify everyday chores by connecting consumers with reliable service providers. Founded in 2021, our mission was clear: to deliver quality service right at your doorstep. Our founders, inspired by the need for dependable and convenient cleaning solutions, set out to create a platform that bridges the gap between consumers and skilled professionals.
+                  {t('journey.p1')}
                 </p>
                 <p className="story-text">
-                  Today, Tidyzon stands as a testament to innovation and dedication, ensuring that every task is handled with care and precision.
+                  {t('journey.p2')}
                 </p>
               </div>
               <div className="story-image">
@@ -46,7 +48,7 @@ const AboutPage = () => {
                   webpSrcSet="/assets/discover-512.webp 512w, /assets/discover-768.webp 768w, /assets/discover-1024.webp 1024w"
                   fallbackSrcSet="/assets/discover-512.jpg 512w, /assets/discover-768.jpg 768w, /assets/discover-1024.jpg 1024w"
                   fallbackSrc="/assets/discover-512.jpg"
-                  alt="Discover Tidyzon's journey"
+                  alt={t('journey.imageAlt')}
                   width={1024}
                   height={1536}
                   sizes="(max-width: 1023px) min(100vw - 2rem, 736px), min(45vw, 520px)"
@@ -65,17 +67,17 @@ const AboutPage = () => {
               <div className="mission-icon-wrapper">
                 <Target className="mission-icon" />
               </div>
-              <h2 className="mission-title">Our Mission</h2>
-              <h3 className="mission-subtitle">Driven by Excellence</h3>
+              <h2 className="mission-title">{t('mission.title')}</h2>
+              <h3 className="mission-subtitle">{t('mission.subtitle')}</h3>
               <div className="mission-text-content">
                 <p className="mission-text">
-                  At Tidyzon, our mission is to revolutionize the way cleaning services are delivered. We are committed to providing exceptional service that exceeds customer expectations, ensuring that every interaction is seamless and satisfying. Our team is driven by a passion for excellence, constantly striving to enhance our offerings and deliver unparalleled convenience.
+                  {t('mission.p1')}
                 </p>
                 <p className="mission-text">
-                  We believe in empowering our providers with the tools and training they need to succeed, fostering a community of trust and reliability. Join us on our journey to redefine quality service, one task at a time.
+                  {t('mission.p2')}
                 </p>
                 <p className="mission-text">
-                  Our dedication to quality is unwavering, and we take pride in the rigorous standards we uphold. From thorough background checks to comprehensive training, we ensure that our providers are equipped to deliver the highest level of service. At Tidyzon, your satisfaction is our priority, and we are committed to making your life easier, one clean at a time.
+                  {t('mission.p3')}
                 </p>
               </div>
             </div>
@@ -89,19 +91,19 @@ const AboutPage = () => {
               <div className="vision-icon-wrapper">
                 <Eye className="vision-icon" />
               </div>
-              <h2 className="vision-title">Our Vision for the Future</h2>
+              <h2 className="vision-title">{t('vision.title')}</h2>
               <div className="vision-text-content">
                 <p className="vision-text">
-                  At Tidyzon, we envision a future where quality service is seamlessly integrated into everyday life, enhancing the well-being of our community. Our goal is to revolutionize the service industry by setting new standards of excellence, ensuring that every interaction is marked by professionalism and care. We aim to empower local service providers, fostering a network that thrives on mutual respect and innovation.
+                  {t('vision.p1')}
                 </p>
                 <p className="vision-text">
-                  By leveraging technology, we aspire to create a sustainable and efficient ecosystem that benefits both consumers and providers, ultimately contributing to a cleaner, more organized world.
+                  {t('vision.p2')}
                 </p>
                 <p className="vision-text">
-                  Our vision extends beyond immediate service delivery; we are committed to making a lasting impact on the communities we serve. We believe in supporting local economies by providing opportunities for growth and development to our service providers. Through continuous improvement and adaptation, Tidyzon strives to be a leader in the service industry, known for its integrity and dedication to customer satisfaction.
+                  {t('vision.p3')}
                 </p>
                 <p className="vision-text">
-                  As we look to the future, Tidyzon is dedicated to expanding our reach and enhancing our service offerings. We are committed to innovation, constantly seeking new ways to improve our processes and deliver exceptional value to our customers. Our vision is to be the preferred choice for quality service, recognized for our commitment to excellence and our ability to adapt to the ever-changing needs of our clients. By prioritizing sustainability and community engagement, we aim to leave a positive legacy for future generations.
+                  {t('vision.p4')}
                 </p>
               </div>
             </div>
@@ -115,19 +117,19 @@ const AboutPage = () => {
               <div className="quality-icon-wrapper">
                 <Award className="quality-icon" />
               </div>
-              <h2 className="quality-title">Our Commitment to Quality</h2>
+              <h2 className="quality-title">{t('quality.title')}</h2>
               <div className="quality-text-content">
                 <p className="quality-text">
-                  Tidyzon is unwavering in its commitment to delivering quality service at every doorstep. Our providers undergo rigorous training and background checks to ensure they meet the highest standards of professionalism and expertise. We believe that quality service is not just a promise but a practice that is reflected in every task we undertake. Our commitment to excellence is evident in our meticulous attention to detail and our dedication to customer satisfaction.
+                  {t('quality.p1')}
                 </p>
                 <p className="quality-text">
-                  We set stringent standards for our service providers, requiring them to possess the necessary equipment and skills to perform their tasks efficiently. Our quality assurance processes are designed to ensure that every service delivered meets our high expectations, providing peace of mind to our clients. At Tidyzon, we are dedicated to continuous improvement, always seeking feedback and implementing changes that enhance the quality of our services.
+                  {t('quality.p2')}
                 </p>
                 <p className="quality-text">
-                  At Tidyzon, we understand that quality service is the cornerstone of our business. Our commitment to excellence is reflected in our comprehensive training programs, which equip our providers with the skills and knowledge they need to deliver outstanding service. We believe in fostering a culture of accountability and transparency, ensuring that our clients receive the best possible experience.
+                  {t('quality.p3')}
                 </p>
                 <p className="quality-text">
-                  Our quality commitment extends beyond service delivery; it encompasses every aspect of our operations. From the moment a task is scheduled to its completion, we prioritize efficiency, reliability, and customer satisfaction. We are committed to building lasting relationships with our clients, based on trust and mutual respect. At Tidyzon, quality is not just a goal; it is a promise we make to every customer, every day.
+                  {t('quality.p4')}
                 </p>
               </div>
             </div>
@@ -138,12 +140,12 @@ const AboutPage = () => {
         <section className="about-cta-section">
           <div className="container">
             <div className="about-cta-card">
-              <h2 className="cta-title">Discover Our Exceptional Services</h2>
+              <h2 className="cta-title">{t('cta.title')}</h2>
               <p className="cta-subtitle">
-                Join the Tidyzon community today and experience unparalleled convenience with our top-notch services. Whether you need a quick car clean or a thorough trash bin wash, our trusted providers are ready to assist you. Sign up now and enjoy quality service at your doorstep!
+                {t('cta.subtitle')}
               </p>
               <button className="btn-cta-white" onClick={() => setIsModalOpen(true)}>
-                Get Started
+                {t('cta.button')}
                 <ArrowRight className="btn-icon" />
               </button>
             </div>

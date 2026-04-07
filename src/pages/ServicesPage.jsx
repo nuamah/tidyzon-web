@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../components/DownloadModal'
 import ResponsivePicture from '../components/ResponsivePicture'
 import './ServicesPage.css'
 
 const ServicesPage = () => {
+  const { t } = useTranslation('services')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [expandedPackage, setExpandedPackage] = useState('deluxe') // Default to deluxe (most popular)
@@ -13,93 +15,51 @@ const ServicesPage = () => {
   const carPackages = [
     {
       id: 'speed-interior',
-      name: 'Speed Package',
-      title: 'SPEED PACKAGE - INTERIOR ONLY',
+      name: t('packages.items.speedInterior.name'),
+      title: t('packages.items.speedInterior.title'),
       price: '$29.99',
-      duration: '15mins',
-      pricingLabel: 'Pricing per wash',
-      features: ['Vacuum - Regular', 'Wipe door jambs'],
-      excludedFeatures: [
-        'Deep stain',
-        'Pet removal',
-        'Excessive trash removal',
-        'Heavy dirt',
-      ],
+      duration: t('packages.items.speedInterior.duration'),
+      pricingLabel: t('packages.items.speedInterior.pricingLabel'),
+      features: t('packages.items.speedInterior.features', { returnObjects: true }),
+      excludedFeatures: t('packages.items.speedInterior.excludedFeatures', { returnObjects: true })
     },
     {
       id: 'speed',
-      name: 'Speed Package',
-      title: 'SPEED PACKAGE - FULL PACKAGE',
+      name: t('packages.items.speed.name'),
+      title: t('packages.items.speed.title'),
       price: '$49.99',
-      duration: '30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs'
-      ],
+      duration: t('packages.items.speed.duration'),
+      features: t('packages.items.speed.features', { returnObjects: true })
     },
     {
       id: 'deluxe',
-      name: 'Deluxe Package',
-      title: 'DELUXE WASH',
+      name: t('packages.items.deluxe.name'),
+      title: t('packages.items.deluxe.title'),
       price: '$155.00',
-      duration: '2hrs 30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs',
-        'Air for dryer',
-        'Air for Vacuum',
-        'Tire shine, rims and air',
-        'Wash Mat',
-        'Armoral and door panel',
-        'Dash Clean and Shine',
-        'Clean cup holders',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets'
-      ],
+      duration: t('packages.items.deluxe.duration'),
+      features: t('packages.items.deluxe.features', { returnObjects: true }),
       popular: true
     },
     {
       id: 'premium',
-      name: 'Premium Package',
-      title: 'PREMIUM WASH',
+      name: t('packages.items.premium.name'),
+      title: t('packages.items.premium.title'),
       price: '$249.99',
-      duration: '4hrs 30mins',
-      features: [
-        'Exterior hand wash',
-        'Clean all windows',
-        'Towel dry',
-        'Vacuum - Regular',
-        'Wipe door jambs',
-        'Air for dryer',
-        'Air for Vacuum',
-        'Tire shine, rims and air',
-        'Wash Mat',
-        'Armoral and door panel',
-        'Dash Clean and Shine',
-        'Clean cup holders',
-        'Shampoo and door panel',
-        'Shampoo seats & Carpets',
-        'machine wax'
-      ],
+      duration: t('packages.items.premium.duration'),
+      features: t('packages.items.premium.features', { returnObjects: true })
     },
     {
       id: 'biofluids',
-      name: 'Biofluids / Detail',
-      title: 'BIOFLUIDS SERVICES / DETAIL',
+      name: t('packages.items.biofluids.name'),
+      title: t('packages.items.biofluids.title'),
       price: '$299.99',
-      duration: '2hrs',
-      features: ['Wipe dash', 'Door Panels', 'Vacuum Regular', 'Wash Windows', 'Wash mats'],
-      featuresLabel: 'Inclusive',
+      duration: t('packages.items.biofluids.duration'),
+      features: t('packages.items.biofluids.features', { returnObjects: true }),
+      featuresLabel: t('packages.items.biofluids.featuresLabel'),
       addOnsIncluded: [
-        { name: 'Add Exterior Wash', price: '$19.99', originalPrice: '$50.00', duration: '30mins' },
-      ],
-    },
+        { name: t('packages.items.biofluids.addOnsIncluded.name'), price: '$19.99', originalPrice: '$50.00', duration: t('packages.items.biofluids.addOnsIncluded.duration') }
+      ]
+    }
   ]
 
   const maxCarouselIndex = Math.max(0, carPackages.length - 3)
@@ -107,18 +67,15 @@ const ServicesPage = () => {
   const whyChoose = [
     {
       icon: Award,
-      title: "Advanced Cleaning Equipment",
-      description: "Our providers use state-of-the-art equipment to ensure efficient and effective cleaning for every service offered."
+      ...t('whyChoose.items.0', { returnObjects: true })
     },
     {
       icon: Shield,
-      title: "Thorough Background Checks",
-      description: "All providers undergo comprehensive background checks to guarantee safety and reliability for our customers."
+      ...t('whyChoose.items.1', { returnObjects: true })
     },
     {
       icon: Clock,
-      title: "Flexible Scheduling",
-      description: "Book services at your convenience, with options for immediate or future scheduling to fit your busy lifestyle."
+      ...t('whyChoose.items.2', { returnObjects: true })
     }
   ]
 
@@ -137,10 +94,10 @@ const ServicesPage = () => {
           <div className="container">
             <div className="services-hero-content">
               <h1 className="services-hero-title animate-fade-up">
-                Services
+                {t('hero.title')}
               </h1>
               <p className="services-hero-subtitle animate-fade-up delay-1">
-                Experience top-tier cleaning solutions tailored to your needs, delivered right to your doorstep with unmatched convenience and quality.
+                {t('hero.subtitle')}
               </p>
             </div>
           </div>
@@ -150,10 +107,10 @@ const ServicesPage = () => {
         <section className="main-cta-section">
           <div className="container">
             <div className="main-cta-content">
-              <h2 className="main-cta-title">Your Quality Service Awaits</h2>
-              <p className="main-cta-subtitle">Join countless satisfied customers and enjoy a cleaner, healthier quality service.</p>
+              <h2 className="main-cta-title">{t('mainCta.title')}</h2>
+              <p className="main-cta-subtitle">{t('mainCta.subtitle')}</p>
               <button className="main-cta-btn" onClick={() => setIsModalOpen(true)}>
-                Book Your Service Today
+                {t('mainCta.button')}
                 <ArrowRight className="btn-icon" />
               </button>
             </div>
@@ -168,16 +125,16 @@ const ServicesPage = () => {
               <div className="car-icon-wrapper">
                 <Car className="car-icon" />
               </div>
-              <h2 className="car-service-title">Car Cleaning</h2>
+              <h2 className="car-service-title">{t('carCleaning.title')}</h2>
               <p className="car-service-description">
-                Our car cleaning services offer a thorough interior vacuum, dashboard polish, window cleaning, and exterior wash, ensuring your vehicle looks pristine inside and out.
+                {t('carCleaning.description')}
               </p>
             </div>
 
             {/* Package Pricing Grid */}
             <div className="pricing-header">
-              <h3 className="pricing-section-title">Choose Your Package</h3>
-              <p className="pricing-subtitle">Bundle wash (All add ons inclusive)</p>
+              <h3 className="pricing-section-title">{t('packages.title')}</h3>
+              <p className="pricing-subtitle">{t('packages.subtitle')}</p>
             </div>
 
             <div className="pricing-carousel-outer">
@@ -186,7 +143,7 @@ const ServicesPage = () => {
                 className="pricing-carousel-arrow pricing-carousel-arrow-left"
                 onClick={() => setCarouselIndex((i) => Math.max(0, i - 1))}
                 disabled={carouselIndex === 0}
-                aria-label="Previous packages"
+                aria-label={t('packages.previousPackages')}
               >
                 <ChevronLeft className="pricing-carousel-arrow-icon" />
               </button>
@@ -207,12 +164,12 @@ const ServicesPage = () => {
                     {/* Desktop Layout - Original Structure */}
                     <div className="package-desktop-layout">
                       {pkg.addOn && (
-                        <div className="package-addon-badge">Add ons</div>
+                        <div className="package-addon-badge">{t('packages.addOns')}</div>
                       )}
                       {pkg.popular && (
                         <div className="popular-badge">
                           <Sparkles className="popular-icon" />
-                          <span>Most Popular</span>
+                          <span>{t('packages.popular')}</span>
                         </div>
                       )}
                       <div className="package-header">
@@ -231,7 +188,7 @@ const ServicesPage = () => {
                           <span className="package-pricing-sublabel">{pkg.pricingLabel}</span>
                         )}
                         <span className="package-price">{pkg.price}</span>
-                        {!pkg.pricingLabel && <span className="price-label">per wash</span>}
+                        {!pkg.pricingLabel && <span className="price-label">{t('packages.perWash')}</span>}
                       </div>
                     </div>
 
@@ -254,18 +211,18 @@ const ServicesPage = () => {
                               <span className="package-pricing-sublabel package-pricing-sublabel--mobile">{pkg.pricingLabel}</span>
                             )}
                             <span className="package-price-mobile">{pkg.price}</span>
-                            {!pkg.pricingLabel && <span className="price-label-mobile">per wash</span>}
+                            {!pkg.pricingLabel && <span className="price-label-mobile">{t('packages.perWash')}</span>}
                           </div>
                         </div>
                       </div>
                       <div className="package-header-right">
                         {pkg.addOn && (
-                          <div className="package-addon-badge-mobile">Add ons</div>
+                          <div className="package-addon-badge-mobile">{t('packages.addOns')}</div>
                         )}
                         {pkg.popular && (
                           <div className="popular-badge-mobile">
                             <Sparkles className="popular-icon" />
-                            <span>Most popular</span>
+                            <span>{t('packages.popular')}</span>
                           </div>
                         )}
                         <ChevronDown className={`accordion-chevron ${isExpanded ? 'expanded' : ''}`} />
@@ -281,7 +238,7 @@ const ServicesPage = () => {
 
                       {pkg.features.length > 0 && (
                       <div className="package-features">
-                        <p className="features-title">{pkg.featuresLabel || 'Included Features:'}</p>
+                        <p className="features-title">{pkg.featuresLabel || t('packages.includedFeatures')}</p>
                         <ul className="features-list">
                           {pkg.features.slice(0, 3).map((feature, idx) => (
                             <li key={idx} className="feature-item">
@@ -323,7 +280,7 @@ const ServicesPage = () => {
 
                       {pkg.excludedFeatures && pkg.excludedFeatures.length > 0 && (
                         <div className="package-excluded">
-                          <span className="package-excluded-badge">Do not include</span>
+                          <span className="package-excluded-badge">{t('packages.doNotInclude')}</span>
                           <ul className="package-excluded-list">
                             {pkg.excludedFeatures.map((item, idx) => (
                               <li key={idx} className="package-excluded-item">
@@ -337,7 +294,7 @@ const ServicesPage = () => {
 
                       {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
                         <div className="package-addons-included">
-                          <p className="package-addons-included-label">Add ons</p>
+                          <p className="package-addons-included-label">{t('packages.addOns')}</p>
                           <ul className="package-addons-included-list">
                             {pkg.addOnsIncluded.map((addon, idx) => (
                               <li key={idx} className="package-addon-included-item">
@@ -363,7 +320,7 @@ const ServicesPage = () => {
                           setIsModalOpen(true)
                         }}
                       >
-                        <span>Continue</span>
+                        <span>{t('packages.continue')}</span>
                         <ArrowRight className="cta-arrow" />
                       </button>
                     </div>
@@ -378,7 +335,7 @@ const ServicesPage = () => {
                 className="pricing-carousel-arrow pricing-carousel-arrow-right"
                 onClick={() => setCarouselIndex((i) => Math.min(maxCarouselIndex, i + 1))}
                 disabled={carouselIndex >= maxCarouselIndex}
-                aria-label="Next packages"
+                aria-label={t('packages.nextPackages')}
               >
                 <ChevronRight className="pricing-carousel-arrow-icon" />
               </button>
@@ -396,7 +353,7 @@ const ServicesPage = () => {
                   webpSrcSet="/assets/trashbin-350.webp 350w, /assets/trashbin-700.webp 700w, /assets/trashbin-1050.webp 1050w"
                   fallbackSrcSet="/assets/trashbin-350.jpg 350w, /assets/trashbin-700.jpg 700w, /assets/trashbin-1050.jpg 1050w"
                   fallbackSrc="/assets/trashbin-350.jpg"
-                  alt="Trash Bin Cleaning Service"
+                  alt={t('trashBin.imageAlt')}
                   className="service-image"
                   width={1536}
                   height={1024}
@@ -406,11 +363,11 @@ const ServicesPage = () => {
                 />
               </div>
               <div className="trash-bin-content">
-                <h3 className="service-title">Trash Bin Cleaning</h3>
-                <p className="service-description">Professional sanitization service that eliminates odors, bacteria, and germs with eco-friendly solutions.</p>
-                <div className="service-price">$10.00 per bin</div>
+                <h3 className="service-title">{t('trashBin.title')}</h3>
+                <p className="service-description">{t('trashBin.description')}</p>
+                <div className="service-price">{t('trashBin.price')}</div>
                 <button className="service-button" onClick={() => setIsModalOpen(true)}>
-                  Book Now
+                  {t('trashBin.bookNow')}
                 </button>
               </div>
             </div>
@@ -420,7 +377,7 @@ const ServicesPage = () => {
         {/* Why Choose Section */}
         <section className="why-choose-section">
           <div className="container">
-            <h2 className="why-choose-title">Why Choose Tidyzon?</h2>
+            <h2 className="why-choose-title">{t('whyChoose.title')}</h2>
             <div className="why-choose-grid">
               {whyChoose.map((item, index) => {
                 const IconComponent = item.icon

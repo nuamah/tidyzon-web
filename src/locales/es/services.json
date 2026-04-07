@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "title": "Servicios",
+    "subtitle": "Experimenta soluciones de limpieza de primer nivel adaptadas a tus necesidades, entregadas directamente en tu puerta con una comodidad y calidad inigualables."
+  },
+  "mainCta": {
+    "title": "Tu servicio de calidad te espera",
+    "subtitle": "Únete a innumerables clientes satisfechos y disfruta de un servicio más limpio y saludable.",
+    "button": "Reserva tu servicio hoy"
+  },
+  "carCleaning": {
+    "title": "Limpieza de autos",
+    "description": "Nuestros servicios de limpieza de autos incluyen aspirado interior completo, pulido de tablero, limpieza de ventanas y lavado exterior, para que tu vehículo luzca impecable por dentro y por fuera."
+  },
+  "packages": {
+    "title": "Elige tu paquete",
+    "subtitle": "Lavado en paquete (Todos los adicionales incluidos)",
+    "popular": "Más popular",
+    "previousPackages": "Paquetes anteriores",
+    "nextPackages": "Siguientes paquetes",
+    "perWash": "por lavado",
+    "includedFeatures": "Incluye:",
+    "doNotInclude": "No incluye",
+    "addOns": "Adicionales",
+    "continue": "Continuar",
+    "items": {
+      "speedInterior": {
+        "name": "Paquete Rápido",
+        "title": "PAQUETE RÁPIDO - SOLO INTERIOR",
+        "duration": "15 min",
+        "pricingLabel": "Precio por lavado",
+        "features": ["Aspirado - Regular", "Limpieza de marcos de puertas"],
+        "excludedFeatures": ["Manchas profundas", "Eliminación de pelo de mascota", "Retiro excesivo de basura", "Suciedad pesada"]
+      },
+      "speed": {
+        "name": "Paquete Rápido",
+        "title": "PAQUETE RÁPIDO - PAQUETE COMPLETO",
+        "duration": "30 min",
+        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas"]
+      },
+      "deluxe": {
+        "name": "Paquete Deluxe",
+        "title": "LAVADO DELUXE",
+        "duration": "2 h 30 min",
+        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas", "Aire para secado", "Aire para aspirado", "Brillo de llantas, rines y aire", "Lavado de tapetes", "Armoral y panel de puertas", "Limpieza y brillo de tablero", "Limpieza de portavasos", "Shampoo y panel de puertas", "Shampoo de asientos y alfombras"]
+      },
+      "premium": {
+        "name": "Paquete Premium",
+        "title": "LAVADO PREMIUM",
+        "duration": "4 h 30 min",
+        "features": ["Lavado exterior a mano", "Limpieza de todas las ventanas", "Secado con toalla", "Aspirado - Regular", "Limpieza de marcos de puertas", "Aire para secado", "Aire para aspirado", "Brillo de llantas, rines y aire", "Lavado de tapetes", "Armoral y panel de puertas", "Limpieza y brillo de tablero", "Limpieza de portavasos", "Shampoo y panel de puertas", "Shampoo de asientos y alfombras", "Cera mecánica"]
+      },
+      "biofluids": {
+        "name": "Biofluidos / Detalle",
+        "title": "SERVICIOS DE BIOFLUIDOS / DETALLE",
+        "duration": "2 h",
+        "featuresLabel": "Incluye",
+        "features": ["Limpieza de tablero", "Paneles de puertas", "Aspirado regular", "Limpieza de ventanas", "Lavado de tapetes"],
+        "addOnsIncluded": {
+          "name": "Agregar lavado exterior",
+          "duration": "30 min"
+        }
+      }
+    }
+  },
+  "trashBin": {
+    "title": "Limpieza de botes de basura",
+    "description": "Servicio profesional de sanitización que elimina olores, bacterias y gérmenes con soluciones ecológicas.",
+    "price": "$10.00 por bote",
+    "bookNow": "Reservar ahora",
+    "imageAlt": "Servicio de limpieza de botes de basura"
+  },
+  "whyChoose": {
+    "title": "¿Por qué elegir Tidyzon?",
+    "items": [
+      {
+        "title": "Equipo de limpieza avanzado",
+        "description": "Nuestros proveedores usan equipos de última generación para garantizar una limpieza eficiente y efectiva en cada servicio."
+      },
+      {
+        "title": "Verificaciones de antecedentes rigurosas",
+        "description": "Todos los proveedores pasan verificaciones exhaustivas para garantizar seguridad y confiabilidad."
+      },
+      {
+        "title": "Horarios flexibles",
+        "description": "Reserva cuando te convenga, con opciones inmediatas o programadas para adaptarse a tu estilo de vida."
+      }
+    ]
+  },
+  "sectionServices": {
+    "badge": "Nuestros servicios",
+    "titleLine1": "Paquetes de limpieza de autos",
+    "titleLine2": "Elige tu lavado ideal",
+    "subtitle": "Los precios de los paquetes dependen del tipo de vehículo. Tipos como MVP y camioneta tienen un cargo adicional de $10 cada uno. Los precios mostrados son solo para autos de pasajeros.",
+    "customTitle": "¿Necesitas un paquete personalizado?",
+    "customText": "Contáctanos para soluciones de limpieza personalizadas según tus necesidades.",
+    "customQuote": "Solicitar cotización",
+    "providerTitle": "Conviértete en proveedor de servicios",
+    "providerSubtitle": "Regístrate como proveedor",
+    "userTitle": "Servicios rápidos y confiables en la puerta de tu casa, al alcance de tus manos",
+    "userSubtitle": "Regístrate y reserva servicios",
+    "signUp": "Registrarse"
+  }
+}

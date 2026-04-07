@@ -7,7 +7,7 @@ import ResponsivePicture from '../ResponsivePicture'
 import './Services.css'
 
 const Services = () => {
-  const { t } = useTranslation('home')
+  const { t } = useTranslation('services')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const [scrollY, setScrollY] = useState(0)
@@ -18,53 +18,53 @@ const Services = () => {
   const carPackages = [
     {
       id: 'speed-interior',
-      name: t('services.packages.speedInterior.name'),
-      title: t('services.packages.speedInterior.title'),
+      name: t('packages.items.speedInterior.name'),
+      title: t('packages.items.speedInterior.title'),
       price: '$29.99',
-      duration: t('services.packages.speedInterior.duration'),
-      pricingLabel: t('services.packages.speedInterior.pricingLabel'),
-      features: t('services.packages.speedInterior.features', { returnObjects: true }),
-      excludedFeatures: t('services.packages.speedInterior.excludedFeatures', { returnObjects: true }),
+      duration: t('packages.items.speedInterior.duration'),
+      pricingLabel: t('packages.items.speedInterior.pricingLabel'),
+      features: t('packages.items.speedInterior.features', { returnObjects: true }),
+      excludedFeatures: t('packages.items.speedInterior.excludedFeatures', { returnObjects: true }),
     },
     {
       id: 'speed',
-      name: t('services.packages.speed.name'),
-      title: t('services.packages.speed.title'),
+      name: t('packages.items.speed.name'),
+      title: t('packages.items.speed.title'),
       price: '$49.99',
-      duration: t('services.packages.speed.duration'),
-      features: t('services.packages.speed.features', { returnObjects: true }),
+      duration: t('packages.items.speed.duration'),
+      features: t('packages.items.speed.features', { returnObjects: true }),
     },
     {
       id: 'deluxe',
-      name: t('services.packages.deluxe.name'),
-      title: t('services.packages.deluxe.title'),
+      name: t('packages.items.deluxe.name'),
+      title: t('packages.items.deluxe.title'),
       price: '$155.00',
-      duration: t('services.packages.deluxe.duration'),
-      features: t('services.packages.deluxe.features', { returnObjects: true }),
+      duration: t('packages.items.deluxe.duration'),
+      features: t('packages.items.deluxe.features', { returnObjects: true }),
       popular: true
     },
     {
       id: 'premium',
-      name: t('services.packages.premium.name'),
-      title: t('services.packages.premium.title'),
+      name: t('packages.items.premium.name'),
+      title: t('packages.items.premium.title'),
       price: '$249.99',
-      duration: t('services.packages.premium.duration'),
-      features: t('services.packages.premium.features', { returnObjects: true }),
+      duration: t('packages.items.premium.duration'),
+      features: t('packages.items.premium.features', { returnObjects: true }),
     },
     {
       id: 'biofluids',
-      name: t('services.packages.biofluids.name'),
-      title: t('services.packages.biofluids.title'),
+      name: t('packages.items.biofluids.name'),
+      title: t('packages.items.biofluids.title'),
       price: '$299.99',
-      duration: t('services.packages.biofluids.duration'),
-      features: t('services.packages.biofluids.features', { returnObjects: true }),
-      featuresLabel: t('services.packages.biofluids.featuresLabel'),
+      duration: t('packages.items.biofluids.duration'),
+      features: t('packages.items.biofluids.features', { returnObjects: true }),
+      featuresLabel: t('packages.items.biofluids.featuresLabel'),
       addOnsIncluded: [
         {
-          name: t('services.packages.biofluids.addOnsIncluded.name'),
+          name: t('packages.items.biofluids.addOnsIncluded.name'),
           price: '$19.99',
           originalPrice: '$50.00',
-          duration: t('services.packages.biofluids.addOnsIncluded.duration'),
+          duration: t('packages.items.biofluids.addOnsIncluded.duration'),
         },
       ],
     },
@@ -102,15 +102,15 @@ const Services = () => {
             <div className="section-header-content">
               <div className="section-badge">
                 <Sparkles className="badge-icon-sm" />
-                <span>{t('services.badge')}</span>
+                <span>{t('sectionServices.badge')}</span>
               </div>
               <h2 className="section-title">
-                {t('services.titleLine1')}
+                {t('sectionServices.titleLine1')}
                 <br />
-                <span className="gradient-text-services">{t('services.titleLine2')}</span>
+                <span className="gradient-text-services">{t('sectionServices.titleLine2')}</span>
               </h2>
               <p className="section-subtitle">
-                {t('services.subtitle')}
+                {t('sectionServices.subtitle')}
               </p>
             </div>
             <div className="section-header-image">
@@ -137,7 +137,7 @@ const Services = () => {
               className="packages-carousel-arrow packages-carousel-arrow-left"
               onClick={() => setCarouselIndex((i) => Math.max(0, i - 1))}
               disabled={carouselIndex === 0}
-              aria-label={t('services.previousPackages')}
+              aria-label={t('packages.previousPackages')}
             >
               <ChevronLeft className="packages-carousel-arrow-icon" />
             </button>
@@ -158,12 +158,12 @@ const Services = () => {
                   {/* Desktop Layout - Original Structure */}
                   <div className="package-desktop-layout">
                     {pkg.addOn && (
-                      <div className="package-addon-badge">{t('services.addOns')}</div>
+                      <div className="package-addon-badge">{t('packages.addOns')}</div>
                     )}
                     {pkg.popular && (
                       <div className="popular-badge">
                         <Sparkles className="popular-icon" />
-                        <span>{t('services.popular')}</span>
+                        <span>{t('packages.popular')}</span>
                       </div>
                     )}
                     <div className="package-icon-wrapper">
@@ -186,7 +186,7 @@ const Services = () => {
                         <span className="package-pricing-sublabel">{pkg.pricingLabel}</span>
                       )}
                       <span className="package-price">{pkg.price}</span>
-                      {!pkg.pricingLabel && <span className="price-label">{t('services.perWash')}</span>}
+                      {!pkg.pricingLabel && <span className="price-label">{t('packages.perWash')}</span>}
                     </div>
                   </div>
 
@@ -213,18 +213,18 @@ const Services = () => {
                             <span className="package-pricing-sublabel package-pricing-sublabel--mobile">{pkg.pricingLabel}</span>
                           )}
                           <span className="package-price-mobile">{pkg.price}</span>
-                          {!pkg.pricingLabel && <span className="price-label-mobile">{t('services.perWash')}</span>}
+                          {!pkg.pricingLabel && <span className="price-label-mobile">{t('packages.perWash')}</span>}
                         </div>
                       </div>
                     </div>
                     <div className="package-header-right">
                       {pkg.addOn && (
-                        <div className="package-addon-badge-mobile">{t('services.addOns')}</div>
+                        <div className="package-addon-badge-mobile">{t('packages.addOns')}</div>
                       )}
                       {pkg.popular && (
                         <div className="popular-badge-mobile">
                           <Sparkles className="popular-icon" />
-                          <span>{t('services.popular')}</span>
+                          <span>{t('packages.popular')}</span>
                         </div>
                       )}
                       <ChevronDown className={`accordion-chevron ${isExpanded ? 'expanded' : ''}`} />
@@ -240,7 +240,7 @@ const Services = () => {
 
                     {pkg.features.length > 0 && (
                     <div className="package-features">
-                      <p className="package-features-title">{pkg.featuresLabel || t('services.includedFeatures')}</p>
+                      <p className="package-features-title">{pkg.featuresLabel || t('packages.includedFeatures')}</p>
                       <ul className="features-list">
                         {pkg.features.slice(0, 3).map((feature, idx) => (
                           <li key={idx} className="feature-item">
@@ -281,7 +281,7 @@ const Services = () => {
 
                     {pkg.excludedFeatures && pkg.excludedFeatures.length > 0 && (
                       <div className="package-excluded">
-                        <span className="package-excluded-badge">{t('services.doNotInclude')}</span>
+                        <span className="package-excluded-badge">{t('packages.doNotInclude')}</span>
                         <ul className="package-excluded-list">
                           {pkg.excludedFeatures.map((item, idx) => (
                             <li key={idx} className="package-excluded-item">
@@ -295,7 +295,7 @@ const Services = () => {
 
                     {pkg.addOnsIncluded && pkg.addOnsIncluded.length > 0 && (
                       <div className="package-addons-included">
-                        <p className="package-addons-included-label">{t('services.addOns')}</p>
+                        <p className="package-addons-included-label">{t('packages.addOns')}</p>
                         <ul className="package-addons-included-list">
                           {pkg.addOnsIncluded.map((addon, idx) => (
                             <li key={idx} className="package-addon-included-item">
@@ -321,7 +321,7 @@ const Services = () => {
                         setIsModalOpen(true)
                       }}
                     >
-                      <span>{t('services.continue')}</span>
+                      <span>{t('packages.continue')}</span>
                       <ArrowRight className="cta-arrow" />
                     </button>
                   </div>
@@ -336,7 +336,7 @@ const Services = () => {
               className="packages-carousel-arrow packages-carousel-arrow-right"
               onClick={() => setCarouselIndex((i) => Math.min(maxCarouselIndex, i + 1))}
               disabled={carouselIndex >= maxCarouselIndex}
-              aria-label={t('services.nextPackages')}
+              aria-label={t('packages.nextPackages')}
             >
               <ChevronRight className="packages-carousel-arrow-icon" />
             </button>
@@ -346,11 +346,11 @@ const Services = () => {
           <div className="services-cta">
             <div className="cta-card">
               <div className="cta-content">
-                <h3 className="cta-title">{t('services.customTitle')}</h3>
-                <p className="cta-text">{t('services.customText')}</p>
+                <h3 className="cta-title">{t('sectionServices.customTitle')}</h3>
+                <p className="cta-text">{t('sectionServices.customText')}</p>
               </div>
               <Link to="/contact" className="cta-button">
-                {t('services.customQuote')}
+                {t('sectionServices.customQuote')}
                 <ArrowRight className="cta-arrow" />
               </Link>
             </div>
@@ -362,10 +362,10 @@ const Services = () => {
               {/* Become a Service Provider */}
               <div className="dual-cta-card">
                 <div className="dual-cta-content">
-                  <h3 className="dual-cta-title">{t('services.providerTitle')}</h3>
-                  <p className="dual-cta-subtitle">{t('services.providerSubtitle')}</p>
+                  <h3 className="dual-cta-title">{t('sectionServices.providerTitle')}</h3>
+                  <p className="dual-cta-subtitle">{t('sectionServices.providerSubtitle')}</p>
                   <Link to="/provider" className="dual-cta-button">
-                    {t('services.signUp')}
+                    {t('sectionServices.signUp')}
                   </Link>
                 </div>
                 <div className="dual-cta-image">
@@ -403,10 +403,10 @@ const Services = () => {
                   />
                 </div>
                 <div className="dual-cta-content">
-                  <h3 className="dual-cta-title">{t('services.userTitle')}</h3>
-                  <p className="dual-cta-subtitle">{t('services.userSubtitle')}</p>
+                  <h3 className="dual-cta-title">{t('sectionServices.userTitle')}</h3>
+                  <p className="dual-cta-subtitle">{t('sectionServices.userSubtitle')}</p>
                   <Link to="/get-started" className="dual-cta-button">
-                    {t('services.signUp')}
+                    {t('sectionServices.signUp')}
                   </Link>
                 </div>
               </div>

@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "title": "Services",
+    "subtitle": "Experience top-tier cleaning solutions tailored to your needs, delivered right to your doorstep with unmatched convenience and quality."
+  },
+  "mainCta": {
+    "title": "Your Quality Service Awaits",
+    "subtitle": "Join countless satisfied customers and enjoy a cleaner, healthier quality service.",
+    "button": "Book Your Service Today"
+  },
+  "carCleaning": {
+    "title": "Car Cleaning",
+    "description": "Our car cleaning services offer a thorough interior vacuum, dashboard polish, window cleaning, and exterior wash, ensuring your vehicle looks pristine inside and out."
+  },
+  "packages": {
+    "title": "Choose Your Package",
+    "subtitle": "Bundle wash (All add ons inclusive)",
+    "popular": "Most Popular",
+    "previousPackages": "Previous packages",
+    "nextPackages": "Next packages",
+    "perWash": "per wash",
+    "includedFeatures": "Included Features:",
+    "doNotInclude": "Do not include",
+    "addOns": "Add ons",
+    "continue": "Continue",
+    "items": {
+      "speedInterior": {
+        "name": "Speed Package",
+        "title": "SPEED PACKAGE - INTERIOR ONLY",
+        "duration": "15mins",
+        "pricingLabel": "Pricing per wash",
+        "features": ["Vacuum - Regular", "Wipe door jambs"],
+        "excludedFeatures": ["Deep stain", "Pet removal", "Excessive trash removal", "Heavy dirt"]
+      },
+      "speed": {
+        "name": "Speed Package",
+        "title": "SPEED PACKAGE - FULL PACKAGE",
+        "duration": "30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs"]
+      },
+      "deluxe": {
+        "name": "Deluxe Package",
+        "title": "DELUXE WASH",
+        "duration": "2hrs 30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Air for dryer", "Air for Vacuum", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets"]
+      },
+      "premium": {
+        "name": "Premium Package",
+        "title": "PREMIUM WASH",
+        "duration": "4hrs 30mins",
+        "features": ["Exterior hand wash", "Clean all windows", "Towel dry", "Vacuum - Regular", "Wipe door jambs", "Air for dryer", "Air for Vacuum", "Tire shine, rims and air", "Wash Mat", "Armoral and door panel", "Dash Clean and Shine", "Clean cup holders", "Shampoo and door panel", "Shampoo seats & Carpets", "machine wax"]
+      },
+      "biofluids": {
+        "name": "Biofluids / Detail",
+        "title": "BIOFLUIDS SERVICES / DETAIL",
+        "duration": "2hrs",
+        "featuresLabel": "Inclusive",
+        "features": ["Wipe dash", "Door Panels", "Vacuum Regular", "Wash Windows", "Wash mats"],
+        "addOnsIncluded": {
+          "name": "Add Exterior Wash",
+          "duration": "30mins"
+        }
+      }
+    }
+  },
+  "trashBin": {
+    "title": "Trash Bin Cleaning",
+    "description": "Professional sanitization service that eliminates odors, bacteria, and germs with eco-friendly solutions.",
+    "price": "$10.00 per bin",
+    "bookNow": "Book Now",
+    "imageAlt": "Trash Bin Cleaning Service"
+  },
+  "whyChoose": {
+    "title": "Why Choose Tidyzon?",
+    "items": [
+      {
+        "title": "Advanced Cleaning Equipment",
+        "description": "Our providers use state-of-the-art equipment to ensure efficient and effective cleaning for every service offered."
+      },
+      {
+        "title": "Thorough Background Checks",
+        "description": "All providers undergo comprehensive background checks to guarantee safety and reliability for our customers."
+      },
+      {
+        "title": "Flexible Scheduling",
+        "description": "Book services at your convenience, with options for immediate or future scheduling to fit your busy lifestyle."
+      }
+    ]
+  },
+  "sectionServices": {
+    "badge": "Our Services",
+    "titleLine1": "Car Cleaning Packages",
+    "titleLine2": "Choose Your Perfect Wash",
+    "subtitle": "Prices for wash packages depend on your vehicle type. Vehicle types like MVP and Truck include an additional $10 each. Displayed prices are for passenger cars only.",
+    "customTitle": "Need a Custom Service Package?",
+    "customText": "Contact us for personalized cleaning solutions tailored to your specific needs.",
+    "customQuote": "Get Custom Quote",
+    "providerTitle": "Become a service provider",
+    "providerSubtitle": "Sign up as a service provider",
+    "userTitle": "Fast, reliable services at your doorstep, at your fingertips",
+    "userSubtitle": "Sign up and book services",
+    "signUp": "Sign up"
+  }
+}

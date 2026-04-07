@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Our Team",
+    "titleLine1": "Meet the People Behind",
+    "titleBrandLine": "Tidyzon's Success",
+    "subtitle": "A dedicated team of professionals committed to delivering exceptional cleaning services and building lasting relationships with our customers and service providers."
+  },
+  "executives": {
+    "title": "Executive Leadership",
+    "subtitle": "Meet our visionary leaders driving Tidyzon's mission forward"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The dedicated professionals making Tidyzon's vision a reality"
+  },
+  "join": {
+    "title": "Join Our Growing Team",
+    "subtitle": "We're always looking for passionate individuals who share our vision of delivering exceptional service experiences. Come be part of the Tidyzon family!",
+    "features": [
+      "Competitive benefits and growth opportunities",
+      "Collaborative and inclusive work environment",
+      "Make a real impact in the service industry"
+    ],
+    "cta": "View Open Positions"
+  },
+  "members": {
+    "danGrasso": {
+      "position": "Co founder / Board Member",
+      "bio": "Operations expert focused on optimizing processes, building efficient systems, and ensuring exceptional customer experiences."
+    },
+    "emmanuelZielonka": {
+      "position": "Co-Founder / Board Member",
+      "bio": "Visionary leader driving innovation and strategic growth in the service industry with a passion for excellence."
+    },
+    "martinZielonka": {
+      "position": "Co founder/ Board Member",
+      "bio": "Strategic leader with 15+ years of experience in scaling technology companies and driving operational excellence."
+    },
+    "michealAkwasiOsei": {
+      "position": "Co-Founder / UI Blueprint / Board Member",
+      "bio": "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures."
+    },
+    "sanjuAbraham": {
+      "position": "Team Leader / Supervisor / Board Member",
+      "bio": "Serial startup CTO (engineering, AI, scaling orgs)"
+    },
+    "isaacPaintsil": {
+      "position": "Board Member",
+      "bio": "Technology visionary passionate about building scalable platforms and leading engineering teams to deliver innovative solutions."
+    },
+    "nuamahGeorge": {
+      "position": "Team President / Backend Developer",
+      "bio": "Experienced project manager overseeing development workflows and ensuring timely delivery of high-quality solutions."
+    },
+    "aduAmankwahIsaac": {
+      "position": "Team Assistant / Frontend Supervisor",
+      "bio": "Frontend supervisor leading the development of user interfaces and ensuring optimal user experiences across all platforms."
+    },
+    "sonie": {
+      "position": "Team Leader Assistant",
+      "bio": "Supports team operations and assists frontend delivery to ensure consistent UI quality."
+    },
+    "benedictBoaduBoateng": {
+      "position": "Backend Developer",
+      "bio": "Skilled backend developer building robust server-side solutions and maintaining database integrity."
+    },
+    "randyOtabilOdoom": {
+      "position": "Frontend Developer",
+      "bio": "Creative frontend developer crafting responsive user interfaces and implementing modern web technologies."
+    },
+    "kwamenaEssifulAnsah": {
+      "position": "Backend Developer",
+      "bio": "Experienced backend developer specializing in scalable architecture and API development."
+    },
+    "johnKennedyMarteyTetteh": {
+      "position": "Frontend Developer",
+      "bio": "Frontend developer passionate about creating intuitive user experiences and implementing modern design patterns."
+    },
+    "awuahMaxwellTwerefour": {
+      "position": "Frontend Developer",
+      "bio": "Frontend developer focused on building responsive web applications and optimizing user interface performance."
+    },
+    "patrickAsiedu": {
+      "position": "Frontend Developer",
+      "bio": "Frontend developer dedicated to creating seamless user experiences and implementing cutting-edge web technologies."
+    },
+    "frankMensah": {
+      "position": "UI/UX Designer",
+      "bio": "Creative UI/UX designer crafting beautiful and functional designs that enhance user engagement and satisfaction."
+    },
+    "sammy": {
+      "position": "UI/UX Designer",
+      "bio": "Designs intuitive user interfaces and user journeys focused on clarity and usability."
+    },
+    "fred": {
+      "position": "Backend Developer",
+      "bio": "Builds reliable backend services and APIs with a focus on performance and security."
+    }
+  }
+}

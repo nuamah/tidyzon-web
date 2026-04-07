@@ -1,5 +1,6 @@
 import React from 'react'
 import { Users, Award, Mail, Linkedin, Github } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import './TeamsPage.css'
 
 // Function to generate avatar initials
@@ -9,13 +10,14 @@ const generateAvatar = (name) => {
 }
 
 const TeamsPage = () => {
+  const { t } = useTranslation('teams')
   const executives = [
     {
       id: 1,
       name: "Dan Grasso",
-      position: "Co founder / Board Member",
+      position: t('members.danGrasso.position'),
       image: "/assets/team/Dan Grasso2.jpg",
-      bio: "Operations expert focused on optimizing processes, building efficient systems, and ensuring exceptional customer experiences.",
+      bio: t('members.danGrasso.bio'),
       email: "dan@tidyzon.com",
       linkedin: "https://linkedin.com/in/dangrasso",
       github: null
@@ -23,9 +25,9 @@ const TeamsPage = () => {
     {
       id: 2,
       name: "Emmanuel Zielonka",
-      position: "Co-Founder / Board Member",
+      position: t('members.emmanuelZielonka.position'),
       image: "/assets/team/emmaNew.jpg",
-      bio: "Visionary leader driving innovation and strategic growth in the service industry with a passion for excellence.",
+      bio: t('members.emmanuelZielonka.bio'),
       email: "emmanuel@tidyzon.com",
       linkedin: "https://linkedin.com/in/emmanuelzielonka",
       github: null
@@ -33,9 +35,9 @@ const TeamsPage = () => {
     {
       id: 3,
       name: "Martin Zielonka",
-      position: "Co founder/ Board Member",
+      position: t('members.martinZielonka.position'),
       image: "/assets/team/Martin Zielonka.jpg",
-      bio: "Strategic leader with 15+ years of experience in scaling technology companies and driving operational excellence.",
+      bio: t('members.martinZielonka.bio'),
       email: "martin@tidyzon.com",
       linkedin: "https://linkedin.com/in/martinzielonka",
       github: null
@@ -43,9 +45,9 @@ const TeamsPage = () => {
     {
       id: 4,
       name: "Micheal Akwasi Osei",
-      position: "Co-Founder / UI Blueprint / Board Member",
+      position: t('members.michealAkwasiOsei.position'),
       image: "/assets/team/micheal.jpg",
-      bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",
+      bio: t('members.michealAkwasiOsei.bio'),
       email: "michael@tidyzon.com",
       linkedin: "https://linkedin.com/in/michealakwasiosei",
       github: null
@@ -53,9 +55,9 @@ const TeamsPage = () => {
     {
       id: 5,
       name: "Dr. Sanju Abraham",
-      position: "Team Leader / Supervisor / Board Member",
+      position: t('members.sanjuAbraham.position'),
       image: "/assets/team/Sanju Abraham.jpg",
-      bio: "Serial startup CTO (engineering, AI, scaling orgs)",
+      bio: t('members.sanjuAbraham.bio'),
       email: "sanju@tidyzon.com",
       linkedin: "https://linkedin.com/in/drsanjuabraham",
       github: null
@@ -63,9 +65,9 @@ const TeamsPage = () => {
     {
       id: 6,
       name: "Isaac Paintsil",
-      position: "Board Member",
+      position: t('members.isaacPaintsil.position'),
       image: "/assets/team/Isaac Pinstil.jpg",
-      bio: "Technology visionary passionate about building scalable platforms and leading engineering teams to deliver innovative solutions.",
+      bio: t('members.isaacPaintsil.bio'),
       email: "isaac@tidyzon.com",
       linkedin: "https://linkedin.com/in/isaacpaintsil",
       github: null
@@ -76,9 +78,9 @@ const TeamsPage = () => {
     {
       id: 7,
       name: "Nuamah George",
-      position: "Team President / Backend Developer",
+      position: t('members.nuamahGeorge.position'),
       image: "/assets/team/george.jpg",
-      bio: "Experienced project manager overseeing development workflows and ensuring timely delivery of high-quality solutions.",
+      bio: t('members.nuamahGeorge.bio'),
       email: "george@tidyzon.com",
       linkedin: "https://linkedin.com/in/nuamahgeorge",
       github: "https://github.com/nuamahgeorge"
@@ -86,9 +88,9 @@ const TeamsPage = () => {
     {
       id: 8,
       name: "Adu Amankwah Isaac",
-      position: "Team Assistant / Frontend Supervisor",
+      position: t('members.aduAmankwahIsaac.position'),
       image: "/assets/team/iksoftImage.png",
-      bio: "Frontend supervisor leading the development of user interfaces and ensuring optimal user experiences across all platforms.",
+      bio: t('members.aduAmankwahIsaac.bio'),
       email: "business.iksofttechnologies@gmail.com",
       linkedin: "https://www.linkedin.com/in/adu-amankwah-isaac-46842a185/",
       github: "https://github.com/iksoft"
@@ -96,9 +98,9 @@ const TeamsPage = () => {
     {
       id: 16,
       name: "Sonie",
-      position: "Team Leader Assistant",
+      position: t('members.sonie.position'),
       image: null,
-      bio: "Supports team operations and assists frontend delivery to ensure consistent UI quality.",
+      bio: t('members.sonie.bio'),
       email: "sonie@tidyzon.com",
       linkedin: null,
       github: null
@@ -106,9 +108,9 @@ const TeamsPage = () => {
     {
       id: 9,
       name: "Benedict Boadu-Boateng",
-      position: "Backend Developer",
+      position: t('members.benedictBoaduBoateng.position'),
       image: null,
-      bio: "Skilled backend developer building robust server-side solutions and maintaining database integrity.",
+      bio: t('members.benedictBoaduBoateng.bio'),
       email: "benedict@tidyzon.com",
       linkedin: "https://linkedin.com/in/benedictboadu",
       github: "https://github.com/benedictboadu"
@@ -116,9 +118,9 @@ const TeamsPage = () => {
     {
       id: 10,
       name: "Randy Otabil Odoom",
-      position: "Frontend Developer",
+      position: t('members.randyOtabilOdoom.position'),
       image: null,
-      bio: "Creative frontend developer crafting responsive user interfaces and implementing modern web technologies.",
+      bio: t('members.randyOtabilOdoom.bio'),
       email: "randy@tidyzon.com",
       linkedin: "https://linkedin.com/in/randyotabil",
       github: "https://github.com/randyotabil"
@@ -126,9 +128,9 @@ const TeamsPage = () => {
     {
       id: 11,
       name: "Kwamena Essiful-Ansah",
-      position: "Backend Developer",
+      position: t('members.kwamenaEssifulAnsah.position'),
       image: null,
-      bio: "Experienced backend developer specializing in scalable architecture and API development.",
+      bio: t('members.kwamenaEssifulAnsah.bio'),
       email: "kwamena@tidyzon.com",
       linkedin: "https://linkedin.com/in/kwamenaessiful",
       github: "https://github.com/kwamenaessiful"
@@ -136,9 +138,9 @@ const TeamsPage = () => {
     {
       id: 12,
       name: "John Kennedy Martey Tetteh",
-      position: "Frontend Developer",
+      position: t('members.johnKennedyMarteyTetteh.position'),
       image: null,
-      bio: "Frontend developer passionate about creating intuitive user experiences and implementing modern design patterns.",
+      bio: t('members.johnKennedyMarteyTetteh.bio'),
       email: "john@tidyzon.com",
       linkedin: "https://linkedin.com/in/johnkennedy",
       github: "https://github.com/johnkennedy"
@@ -146,9 +148,9 @@ const TeamsPage = () => {
     {
       id: 13,
       name: "Awuah Maxwell Twerefour",
-      position: "Frontend Developer",
+      position: t('members.awuahMaxwellTwerefour.position'),
       image: null,
-      bio: "Frontend developer focused on building responsive web applications and optimizing user interface performance.",
+      bio: t('members.awuahMaxwellTwerefour.bio'),
       email: "maxwell@tidyzon.com",
       linkedin: "https://linkedin.com/in/maxwelltwerefour",
       github: "https://github.com/maxwelltwerefour"
@@ -156,9 +158,9 @@ const TeamsPage = () => {
     {
       id: 14,
       name: "Patrick Asiedu",
-      position: "Frontend Developer",
+      position: t('members.patrickAsiedu.position'),
       image: null,
-      bio: "Frontend developer dedicated to creating seamless user experiences and implementing cutting-edge web technologies.",
+      bio: t('members.patrickAsiedu.bio'),
       email: "patrick@tidyzon.com",
       linkedin: "https://linkedin.com/in/patrickasiedu",
       github: "https://github.com/patrickasiedu"
@@ -166,9 +168,9 @@ const TeamsPage = () => {
     {
       id: 15,
       name: "Frank Mensah",
-      position: "UI/UX Designer",
+      position: t('members.frankMensah.position'),
       image: null,
-      bio: "Creative UI/UX designer crafting beautiful and functional designs that enhance user engagement and satisfaction.",
+      bio: t('members.frankMensah.bio'),
       email: "frank@tidyzon.com",
       linkedin: "https://linkedin.com/in/frankmensah",
       github: null
@@ -176,9 +178,9 @@ const TeamsPage = () => {
     {
       id: 17,
       name: "Sammy",
-      position: "UI/UX Designer",
+      position: t('members.sammy.position'),
       image: null,
-      bio: "Designs intuitive user interfaces and user journeys focused on clarity and usability.",
+      bio: t('members.sammy.bio'),
       email: "sammy@tidyzon.com",
       linkedin: null,
       github: null
@@ -186,9 +188,9 @@ const TeamsPage = () => {
     {
       id: 18,
       name: "Fred",
-      position: "Backend Developer",
+      position: t('members.fred.position'),
       image: null,
-      bio: "Builds reliable backend services and APIs with a focus on performance and security.",
+      bio: t('members.fred.bio'),
       email: "fred@tidyzon.com",
       linkedin: null,
       github: null
@@ -206,16 +208,15 @@ const TeamsPage = () => {
           <div className="hero-content">
             <div className="hero-badge">
               <Users className="badge-icon" />
-              <span>Our Team</span>
+              <span>{t('hero.badge')}</span>
             </div>
             <h1 className="hero-title">
-              Meet the People Behind
+              {t('hero.titleLine1')}
               <br />
-              <span className="gradient-text">Tidyzon's Success</span>
+              <span className="gradient-text">{t('hero.titleBrandLine')}</span>
             </h1>
             <p className="hero-subtitle">
-              A dedicated team of professionals committed to delivering exceptional cleaning services 
-              and building lasting relationships with our customers and service providers.
+              {t('hero.subtitle')}
             </p>
           </div>
         </div>
@@ -225,8 +226,8 @@ const TeamsPage = () => {
       <section className="team-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Executive Leadership</h2>
-            <p className="section-subtitle">Meet our visionary leaders driving Tidyzon's mission forward</p>
+            <h2 className="section-title">{t('executives.title')}</h2>
+            <p className="section-subtitle">{t('executives.subtitle')}</p>
           </div>
           <div className="team-grid executives-grid">
             {executives.map((member) => (
@@ -263,8 +264,8 @@ const TeamsPage = () => {
       <section className="team-section our-team-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Our Team</h2>
-            <p className="section-subtitle">The dedicated professionals making Tidyzon's vision a reality</p>
+            <h2 className="section-title">{t('team.title')}</h2>
+            <p className="section-subtitle">{t('team.subtitle')}</p>
           </div>
           <div className="team-grid">
             {teamMembers.map((member) => (
@@ -302,27 +303,26 @@ const TeamsPage = () => {
         <div className="container">
           <div className="join-team-content">
             <div className="join-team-text">
-              <h2 className="join-team-title">Join Our Growing Team</h2>
+              <h2 className="join-team-title">{t('join.title')}</h2>
               <p className="join-team-subtitle">
-                We're always looking for passionate individuals who share our vision of 
-                delivering exceptional service experiences. Come be part of the Tidyzon family!
+                {t('join.subtitle')}
               </p>
               <div className="join-team-features">
                 <div className="feature-item">
                   <Award className="feature-icon" />
-                  <span>Competitive benefits and growth opportunities</span>
+                  <span>{t('join.features.0')}</span>
                 </div>
                 <div className="feature-item">
                   <Users className="feature-icon" />
-                  <span>Collaborative and inclusive work environment</span>
+                  <span>{t('join.features.1')}</span>
                 </div>
                 <div className="feature-item">
                   <Award className="feature-icon" />
-                  <span>Make a real impact in the service industry</span>
+                  <span>{t('join.features.2')}</span>
                 </div>
               </div>
               <a href="/open-positions" className="join-team-cta">
-                View Open Positions
+                {t('join.cta')}
                 <Award className="btn-icon" />
               </a>
             </div>

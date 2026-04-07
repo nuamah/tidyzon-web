@@ -1,0 +1,100 @@
+{
+  "hero": {
+    "badge": "Nuestro equipo",
+    "titleLine1": "Conoce a las personas detrás del",
+    "titleBrandLine": "éxito de Tidyzon",
+    "subtitle": "Un equipo dedicado de profesionales comprometidos con brindar servicios de limpieza excepcionales y construir relaciones duraderas con nuestros clientes y proveedores."
+  },
+  "executives": {
+    "title": "Liderazgo ejecutivo",
+    "subtitle": "Conoce a nuestros líderes visionarios que impulsan la misión de Tidyzon"
+  },
+  "team": {
+    "title": "Nuestro equipo",
+    "subtitle": "Los profesionales dedicados que hacen realidad la visión de Tidyzon"
+  },
+  "join": {
+    "title": "Únete a nuestro equipo en crecimiento",
+    "subtitle": "Siempre buscamos personas apasionadas que compartan nuestra visión de ofrecer experiencias de servicio excepcionales. ¡Ven y sé parte de la familia Tidyzon!",
+    "features": [
+      "Beneficios competitivos y oportunidades de crecimiento",
+      "Ambiente de trabajo colaborativo e inclusivo",
+      "Genera un impacto real en la industria de servicios"
+    ],
+    "cta": "Ver vacantes"
+  },
+  "members": {
+    "danGrasso": {
+      "position": "Cofundador / Miembro de la junta",
+      "bio": "Experto en operaciones enfocado en optimizar procesos, construir sistemas eficientes y garantizar experiencias excepcionales para los clientes."
+    },
+    "emmanuelZielonka": {
+      "position": "Cofundador / Miembro de la junta",
+      "bio": "Líder visionario que impulsa la innovación y el crecimiento estratégico en la industria de servicios con pasión por la excelencia."
+    },
+    "martinZielonka": {
+      "position": "Cofundador / Miembro de la junta",
+      "bio": "Líder estratégico con más de 15 años de experiencia escalando empresas tecnológicas e impulsando la excelencia operativa."
+    },
+    "michealAkwasiOsei": {
+      "position": "Cofundador / UI Blueprint / Miembro de la junta",
+      "bio": "Desarrollador innovador de UI Blueprint con experiencia en traducir sistemas de diseño en arquitecturas front-end escalables y modulares."
+    },
+    "sanjuAbraham": {
+      "position": "Líder de equipo / Supervisor / Miembro de la junta",
+      "bio": "CTO serial en startups (ingeniería, IA, escalado de organizaciones)"
+    },
+    "isaacPaintsil": {
+      "position": "Miembro de la junta",
+      "bio": "Visionario tecnológico apasionado por construir plataformas escalables y liderar equipos de ingeniería para entregar soluciones innovadoras."
+    },
+    "nuamahGeorge": {
+      "position": "Presidente del equipo / Desarrollador backend",
+      "bio": "Project manager experimentado que supervisa flujos de desarrollo y asegura la entrega puntual de soluciones de alta calidad."
+    },
+    "aduAmankwahIsaac": {
+      "position": "Asistente del equipo / Supervisor frontend",
+      "bio": "Supervisor frontend que lidera el desarrollo de interfaces y garantiza experiencias de usuario óptimas en todas las plataformas."
+    },
+    "sonie": {
+      "position": "Asistente del líder de equipo",
+      "bio": "Apoya las operaciones del equipo y ayuda en la entrega frontend para asegurar una calidad de UI consistente."
+    },
+    "benedictBoaduBoateng": {
+      "position": "Desarrollador backend",
+      "bio": "Desarrollador backend capacitado que construye soluciones robustas del lado del servidor y mantiene la integridad de la base de datos."
+    },
+    "randyOtabilOdoom": {
+      "position": "Desarrollador frontend",
+      "bio": "Desarrollador frontend creativo que crea interfaces responsivas e implementa tecnologías web modernas."
+    },
+    "kwamenaEssifulAnsah": {
+      "position": "Desarrollador backend",
+      "bio": "Desarrollador backend con experiencia, especializado en arquitectura escalable y desarrollo de APIs."
+    },
+    "johnKennedyMarteyTetteh": {
+      "position": "Desarrollador frontend",
+      "bio": "Desarrollador frontend apasionado por crear experiencias de usuario intuitivas e implementar patrones de diseño modernos."
+    },
+    "awuahMaxwellTwerefour": {
+      "position": "Desarrollador frontend",
+      "bio": "Desarrollador frontend enfocado en construir aplicaciones web responsivas y optimizar el rendimiento de la interfaz."
+    },
+    "patrickAsiedu": {
+      "position": "Desarrollador frontend",
+      "bio": "Desarrollador frontend dedicado a crear experiencias de usuario fluidas e implementar tecnologías web de vanguardia."
+    },
+    "frankMensah": {
+      "position": "Diseñador UI/UX",
+      "bio": "Diseñador UI/UX creativo que crea diseños atractivos y funcionales que mejoran la participación y satisfacción del usuario."
+    },
+    "sammy": {
+      "position": "Diseñador UI/UX",
+      "bio": "Diseña interfaces y recorridos de usuario intuitivos, enfocados en claridad y usabilidad."
+    },
+    "fred": {
+      "position": "Desarrollador backend",
+      "bio": "Construye servicios backend y APIs confiables con enfoque en rendimiento y seguridad."
+    }
+  }
+}
