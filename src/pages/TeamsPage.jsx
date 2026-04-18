@@ -42,7 +42,7 @@ const TeamsPage = () => {
     },
     {
       id: 4,
-      name: "Micheal Akwasi Osei",
+      name: "Michael Akwasi Osei",
       position: "Co-Founder / UI Blueprint / Board Member",
       image: "/assets/team/micheal.jpg",
       bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",

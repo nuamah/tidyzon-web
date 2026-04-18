@@ -109,7 +109,7 @@ const TIDYZON_KNOWLEDGE_BASE = {
         email: "martin@tidyzon.com"
       },
       {
-        name: "Micheal Akwasi Osei",
+        name: "Michael Akwasi Osei",
         position: "Co-Founder / UI Blueprint / Board Member",
         bio: "Innovative UI Blueprint Developer with expertise in translating design systems into scalable, modular front-end architectures.",
         email: "michael@tidyzon.com"
