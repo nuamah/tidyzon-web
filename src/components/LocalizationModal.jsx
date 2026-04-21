@@ -2,42 +2,27 @@ import { useState } from "react";
 import { Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "./LocalizationModal.css";
+import CustomSelect from "./CustomSelect";
 
 const LANGUAGES = [
   { code: "en", name: "English", flag: "🇺🇸" },
   { code: "es", name: "Español", flag: "🇪🇸" },
 ];
 
-const LOCATIONS = [
-  { code: "us", name: "United States", flag: "🇺🇸", currency: "USD" },
-  { code: "gb", name: "United Kingdom", flag: "🇬🇧", currency: "GBP" },
-  { code: "es", name: "Spain", flag: "🇪🇸", currency: "EUR" },
-  { code: "eu", name: "European Union", flag: "🇪🇺", currency: "EUR" },
-  { code: "ca", name: "Canada", flag: "🇨🇦", currency: "CAD" },
-  { code: "au", name: "Australia", flag: "🇦🇺", currency: "AUD" },
-  { code: "jp", name: "Japan", flag: "🇯🇵", currency: "JPY" },
-  { code: "cn", name: "China", flag: "🇨🇳", currency: "CNY" },
-  { code: "in", name: "India", flag: "🇮🇳", currency: "INR" },
-  { code: "br", name: "Brazil", flag: "🇧🇷", currency: "BRL" },
-  { code: "mx", name: "Mexico", flag: "🇲🇽", currency: "MXN" },
-];
+
 
 export function LocalizationModal() {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language?.startsWith("es") ? "es" : "en");
-  const [selectedLocation, setSelectedLocation] = useState("us");
 
   const currentLanguage = LANGUAGES.find((l) => l.code === selectedLanguage);
-  const currentLocation = LOCATIONS.find((l) => l.code === selectedLocation);
+  
 
   const handleLanguageChange = (code) => {
     setSelectedLanguage(code);
   };
 
-  const handleLocationChange = (code) => {
-    setSelectedLocation(code);
-  };
 
   return (
     <>
@@ -49,7 +34,7 @@ export function LocalizationModal() {
         aria-label={t("localization.buttonAria")}
       >
         <span className="localization-flag">
-          {currentLocation?.flag || "🌍"}
+          {currentLanguage?.flag || "🌍"}
         </span>
       </button>
 
@@ -74,31 +59,11 @@ export function LocalizationModal() {
         <div className="drawer-body">
           <div className="drawer-section">
             <h3 className="drawer-section-title">{t("localization.languageTitle")}</h3>
-            <select
+            <CustomSelect
               value={selectedLanguage}
-              onChange={(e) => handleLanguageChange(e.target.value)}
-              className="select-trigger"
-            >
-              {LANGUAGES.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="drawer-section">
-            <h3 className="drawer-section-title">{t("localization.locationTitle")}</h3>
-            <select
-              value={selectedLocation}
-              onChange={(e) => handleLocationChange(e.target.value)}
-              className="select-trigger"
-            >
-              {LOCATIONS.map((location) => (
-                <option key={location.code} value={location.code}>
-                  {location.flag} {location.name} ({location.currency})
-                </option>
-              ))}
-            </select>
+              onChange={handleLanguageChange}
+              options={LANGUAGES}
+            />
           </div>
 
           <button

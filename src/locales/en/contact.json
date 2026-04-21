@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "titlePrefix": "Get in",
+    "titleHighlight": "Touch",
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+  },
+  "info": {
+    "email": "Email Us",
+    "call": "Call Us",
+    "visit": "Visit Us",
+    "hours": "Business Hours",
+    "address": "708 Saybrook Ct. Romeoville IL 60446",
+    "hoursValue": "Mon-Sun: 7AM - 7PM"
+  },
+  "form": {
+    "title": "Send us a Message",
+    "description": "Fill out the form below and our team will get back to you within 24 hours.",
+    "labels": {
+      "name": "Full Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "subject": "Subject *",
+      "message": "Message *"
+    },
+    "placeholders": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "(815) 608-1632",
+      "subject": "How can we help?",
+      "message": "Tell us more about your inquiry..."
+    },
+    "submit": {
+      "sending": "Sending…",
+      "default": "Send Message"
+    },
+    "status": {
+      "genericError": "Something went wrong. Please try again.",
+      "success": "Thank you! We will get back to you soon.",
+      "serverUnreachable": "Could not reach the server. If you are developing locally, run the API with npm run server."
+    },
+    "imageAlt": "Tidyzon Contact Support"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How quickly can I book a service?",
+        "answer": "You can book a service instantly through our app. Most services are available same-day or within 24 hours."
+      },
+      {
+        "question": "Are your service providers insured?",
+        "answer": "Yes, all our service providers are fully insured and background-checked for your peace of mind."
+      },
+      {
+        "question": "What areas do you serve?",
+        "answer": "We currently serve major metropolitan areas. Check the app for availability in your specific location."
+      },
+      {
+        "question": "Can I cancel or reschedule a booking?",
+        "answer": "Yes, you can cancel or reschedule up to 24 hours before your appointment through the app."
+      }
+    ]
+  },
+  "downloadCta": {
+    "title": "Prefer to use the app?",
+    "text": "Get instant support through our mobile app",
+    "button": "Download App"
+  },
+  "map": {
+    "textPrefix": "Visit our office at",
+    "address": "708 Saybrook Ct. Romeoville IL 60446"
+  }
+}

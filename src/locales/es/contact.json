@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "titlePrefix": "Ponte en",
+    "titleHighlight": "contacto",
+    "subtitle": "¿Tienes preguntas? Nos encantaría escucharte. Envíanos un mensaje y responderemos lo antes posible."
+  },
+  "info": {
+    "email": "Envíanos un correo",
+    "call": "Llámanos",
+    "visit": "Visítanos",
+    "hours": "Horario de atención",
+    "address": "708 Saybrook Ct. Romeoville IL 60446",
+    "hoursValue": "Lun-Dom: 7AM - 7PM"
+  },
+  "form": {
+    "title": "Envíanos un mensaje",
+    "description": "Completa el formulario y nuestro equipo se comunicará contigo dentro de 24 horas.",
+    "labels": {
+      "name": "Nombre completo *",
+      "email": "Correo electrónico *",
+      "phone": "Número de teléfono",
+      "subject": "Asunto *",
+      "message": "Mensaje *"
+    },
+    "placeholders": {
+      "name": "Juan Pérez",
+      "email": "juan@ejemplo.com",
+      "phone": "(815) 608-1632",
+      "subject": "¿Cómo podemos ayudarte?",
+      "message": "Cuéntanos más sobre tu consulta..."
+    },
+    "submit": {
+      "sending": "Enviando…",
+      "default": "Enviar mensaje"
+    },
+    "status": {
+      "genericError": "Algo salió mal. Por favor inténtalo de nuevo.",
+      "success": "¡Gracias! Nos pondremos en contacto contigo pronto.",
+      "serverUnreachable": "No se pudo conectar con el servidor. Si estás desarrollando localmente, inicia la API con npm run server."
+    },
+    "imageAlt": "Soporte de contacto de Tidyzon"
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Qué tan rápido puedo reservar un servicio?",
+        "answer": "Puedes reservar al instante desde nuestra app. La mayoría de servicios están disponibles el mismo día o dentro de 24 horas."
+      },
+      {
+        "question": "¿Sus proveedores de servicio están asegurados?",
+        "answer": "Sí, todos nuestros proveedores están totalmente asegurados y pasan verificación de antecedentes para tu tranquilidad."
+      },
+      {
+        "question": "¿En qué zonas ofrecen servicio?",
+        "answer": "Actualmente atendemos áreas metropolitanas principales. Revisa la app para disponibilidad en tu ubicación."
+      },
+      {
+        "question": "¿Puedo cancelar o reprogramar una reserva?",
+        "answer": "Sí, puedes cancelar o reprogramar hasta 24 horas antes de tu cita desde la app."
+      }
+    ]
+  },
+  "downloadCta": {
+    "title": "¿Prefieres usar la app?",
+    "text": "Obtén soporte instantáneo desde nuestra aplicación móvil",
+    "button": "Descargar app"
+  },
+  "map": {
+    "textPrefix": "Visita nuestra oficina en",
+    "address": "708 Saybrook Ct. Romeoville IL 60446"
+  }
+}

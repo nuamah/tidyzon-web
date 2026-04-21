@@ -1,0 +1,222 @@
+{
+  "hero": {
+    "title": "Terms and Conditions",
+    "lastUpdated": "Last Updated: March 2, 2025"
+  },
+  "sections": {
+    "intro": {
+      "title": "1. INTRODUCTION",
+      "p1": "Welcome to Tidyzon (\"Company\", \"we\", \"our\", \"us\"). These Terms and Conditions (\"Terms\") govern your access to and use of the Tidyzon website, mobile application, and services (collectively, the \"Platform\").",
+      "p2Prefix": "By accessing or using our Platform, you agree to be bound by these Terms, including our ",
+      "p2LinkText": "SMS Terms & Conditions",
+      "p2Suffix": " when you use text messaging features. If you disagree with any part of these Terms, you may not access the Platform.",
+      "p3": "Depending on how you use the Platform, additional agreements may apply: our Customer Service Agreement (for customers who book services) and our Service Provider Agreement (for independent contractors who provide services). The Privacy Policy describes how we handle personal information—it does not replace these agreements."
+    },
+    "platform": {
+      "title": "2. PLATFORM DESCRIPTION",
+      "p1": "Tidyzon operates an online platform that connects customers with independent service providers who offer on-site services including, but not limited to, car washing and garbage/recycle can cleaning. All services are performed at the customer's location."
+    },
+    "eligibility": {
+      "title": "3. ELIGIBILITY",
+      "p1": "You must be at least 18 years of age and capable of forming a binding contract with Tidyzon to use our Platform. By using our Platform, you represent and warrant that you meet these requirements."
+    },
+    "account": {
+      "title": "4. ACCOUNT REGISTRATION",
+      "p1": "To use certain features of the Platform, you must register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate, current, and complete."
+    },
+    "conduct": {
+      "title": "5. USER CONDUCT",
+      "lead": "When using our Platform, you agree not to:",
+      "items": [
+        "Violate any applicable laws or regulations",
+        "Infringe upon the rights of others",
+        "Submit false or misleading information",
+        "Interfere with the proper operation of the Platform",
+        "Engage in any conduct that restricts or inhibits any other user from using the Platform"
+      ]
+    },
+    "serviceRequests": {
+      "title": "6. SERVICE REQUESTS",
+      "requestingTitle": "6.1 Requesting Services",
+      "requestingText": "Customers may request services through our Platform for immediate service or scheduled service. Service availability is subject to service provider availability and acceptance.",
+      "cancellationsTitle": "6.2 Cancellations",
+      "cancellationsText": "Cancellation policies will be provided at the time of booking. Certain cancellations may be subject to fees.",
+      "providerSelectionTitle": "6.3 Service Provider Selection",
+      "providerSelectionText": "Service providers are independent contractors and not employees of Tidyzon. Tidyzon does not guarantee the availability of any particular service provider. Anyone who provides services through the Platform is bound by the Service Provider Agreement.",
+      "refundsTitle": "6.5 Eligibility of Refunds",
+      "refundsText": "Outline details of under what circumstances will we issue a refund.",
+      "backgroundTitle": "6.6 Background Verification",
+      "backgroundText": "We can talk about the fact that we are verifying our drivers for the safety of our customers. We can talk about exactly what we are getting verified."
+    },
+    "sms": {
+      "title": "7. TIDYZON SMS TERMS & CONDITIONS",
+      "effectiveDate": "Effective date: 12/23/2025",
+      "p1": "These SMS Program Terms apply to SMS and MMS text messages sent by Tidyzon, including messages sent using an autodialer or other automated technology. Tidyzon may send messages from multiple phone numbers or short codes.",
+      "whatReceiveTitle": "1) What you will receive",
+      "whatReceiveLead": "If you opt in, Tidyzon may send messages such as:",
+      "whatReceiveItems": [
+        "One-time passcodes and account security verification",
+        "Booking confirmations, reminders, and status updates",
+        "Provider arrival notifications, service updates, and cancellations",
+        "Customer support communications you request"
+      ],
+      "optInTitle": "2) How you opt in",
+      "optInLead": "You opt in only when you take an affirmative action, such as:",
+      "optInItems": [
+        "Checking an SMS consent box in the app or on the website",
+        "Enabling SMS in your notification settings",
+        "Providing your number for a specific text feature and confirming consent where prompted"
+      ],
+      "consentRulesTitle": "Consent rules",
+      "consentRulesItems": [
+        "Message frequency varies based on your activity.",
+        "Message and data rates may apply.",
+        "Your consent to receive texts is not required to purchase."
+      ],
+      "frequencyTitle": "3) Message frequency",
+      "frequencyText": "Message frequency varies. It depends on account activity, booking activity, and support requests.",
+      "costsTitle": "4) Costs",
+      "costsText": "Tidyzon does not charge for texts. Your carrier may charge message and data rates.",
+      "optOutTitle": "5) Opt out",
+      "optOutText1": "You can opt out at any time by replying STOP.",
+      "optOutText2": "You can also use common opt-out keywords such as END, CANCEL, UNSUBSCRIBE, or QUIT.",
+      "afterOptOutTitle": "After you opt out:",
+      "afterOptOutItems": [
+        "You will receive one confirmation message.",
+        "You will stop receiving Tidyzon texts, including security codes, until you opt back in."
+      ],
+      "optBackInTitle": "6) Opt back in",
+      "optBackInLead": "To opt back in:",
+      "optBackInItems": [
+        "Reply START (or UNSTOP, where supported), or",
+        "Re-enable SMS in the app settings."
+      ],
+      "helpTitle": "7) Help",
+      "helpLead": "Reply HELP for help, or contact Tidyzon support at:",
+      "helpItems": [
+        "Email: support@tidyzon.com",
+        "In-app support: Tidyzon app support chat"
+      ],
+      "carrierTitle": "8) Carrier and delivery",
+      "carrierText": "Carriers are not liable for delayed or undelivered messages. Message delivery is not guaranteed and depends on your carrier and network availability.",
+      "changesTitle": "9) Changes",
+      "changesText": "Tidyzon may update these SMS Program Terms. Continued enrollment after the effective date constitutes acceptance of the revised terms.",
+      "privacyTitle": "10) Privacy",
+      "privacyText": "Tidyzon handles phone numbers and SMS data as described in the Tidyzon Privacy Policy and our SMS Privacy Notice."
+    },
+    "smsPrivacyPolicy": {
+      "title": "Tidyzon SMS Privacy Policy",
+      "intro": "This notice explains how Tidyzon handles your phone number and SMS related data.",
+      "collectTitle": "What we collect for SMS",
+      "collectItems": [
+        "Phone number",
+        "Opt-in and opt-out records (timestamp, source, and method)",
+        "Message metadata (timestamps, delivery status)",
+        "Message content needed to provide the service (example: OTP, booking updates, support threads)"
+      ],
+      "useTitle": "How we use it",
+      "useItems": [
+        "Provide security and account access (example: OTP)",
+        "Send booking and service updates you request",
+        "Provide customer support",
+        "Prevent fraud and abuse",
+        "Meet legal and compliance obligations"
+      ],
+      "sharingTitle": "Sharing",
+      "sharingLead": "We may share limited SMS related data with:",
+      "sharingItems": [
+        "Messaging and infrastructure vendors that deliver messages on our behalf",
+        "Providers and contractors are only needed to fulfill a booking",
+        "Authorities, when required by law"
+      ],
+      "sharingNote": "Vendors must protect your information and may use it only to provide services to Tidyzon.",
+      "noSellingTitle": "No selling, no marketing, sharing of mobile data",
+      "noSellingItems": [
+        "Tidyzon does not sell your phone number.",
+        "Tidyzon does not share mobile information for third-party marketing or promotional purposes."
+      ],
+      "retentionTitle": "Retention",
+      "retentionLead": "We keep SMS related data only as long as needed for:",
+      "retentionItems": [
+        "Service delivery",
+        "Security and fraud prevention",
+        "Compliance and dispute resolution"
+      ],
+      "choicesTitle": "Your choices",
+      "choicesItems": [
+        "Reply STOP to opt out.",
+        "Manage notification preferences in the app.",
+        "Request access, correction, or deletion where applicable by contacting support."
+      ],
+      "rightsTitle": "Your Rights",
+      "rightsLead": "Depending on your location, you may have the right to:",
+      "rightsItems": [
+        "Access, correct, or delete your personal information",
+        "Withdraw consent for SMS communications",
+        "Request information about data usage and sharing"
+      ],
+      "requestsNote": "Requests can be made through the Tidyzon app or customer support.",
+      "changesTitle": "Changes to This Policy",
+      "changesText": "Tidyzon may update this Privacy Policy from time to time. Continued use of the app constitutes acceptance of the revised policy."
+    },
+    "payment": {
+      "title": "8. PAYMENT TERMS",
+      "pricingTitle": "8.1 Pricing",
+      "pricingText": "Service prices will be displayed on the Platform before you confirm your booking. Prices may vary based on service type, location, and other factors.",
+      "processingTitle": "7.2 Payment Processing",
+      "processingText": "All payments are processed through Stripe, a third-party payment processor. Tidyzon does not store your payment information or details specific to payments. By making a payment, you agree to Stripe's terms of service and privacy policy.",
+      "refundsTitle": "7.3 Refunds",
+      "refundsText": "Refund policies will be specified at the time of booking. Generally, if no service provider accepts your service request, you will not be charged."
+    },
+    "liability": {
+      "title": "9. LIMITATION OF LIABILITY",
+      "p1": "TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL TIDYZON BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE PLATFORM OR SERVICES.",
+      "p2": "TIDYZON'S TOTAL LIABILITY TO YOU FOR ANY DAMAGES SHALL NOT EXCEED THE AMOUNT PAID BY YOU FOR THE SERVICE THAT GAVE RISE TO SUCH LIABILITY."
+    },
+    "warranties": {
+      "title": "10. DISCLAIMER OF WARRANTIES",
+      "p1": "THE PLATFORM AND SERVICES ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT."
+    },
+    "indemnification": {
+      "title": "11. INDEMNIFICATION",
+      "p1": "You agree to indemnify, defend, and hold harmless Tidyzon and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in any way connected with your access to or use of the Platform or Services."
+    },
+    "thirdParty": {
+      "title": "12. THIRD-PARTY SERVICES",
+      "p1": "Our Platform may contain links to third-party websites or services that are not owned or controlled by Tidyzon. Tidyzon has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services."
+    },
+    "dataPrivacy": {
+      "title": "13. DATA COLLECTION AND PRIVACY",
+      "p1": "Your use of our Platform is also governed by our Privacy Policy, which is incorporated by reference into these Terms. For text messaging, our SMS Terms & Conditions and the SMS Privacy Notice also apply. Please review our Privacy Policy to understand our practices."
+    },
+    "modifications": {
+      "title": "14. MODIFICATIONS TO TERMS",
+      "p1": "Tidyzon reserves the right to modify these Terms at any time. We will provide notice of any material changes through the Platform or by other means. Your continued use of the Platform after such modifications will constitute your acknowledgment and agreement to the modified Terms."
+    },
+    "termination": {
+      "title": "15. TERMINATION",
+      "p1": "Tidyzon reserves the right to terminate or suspend your account and access to the Platform at any time, without prior notice or liability, for any reason."
+    },
+    "law": {
+      "title": "16. GOVERNING LAW",
+      "p1": "These Terms shall be governed by and construed in accordance with the laws of the State of Illinois, without regard to its conflict of law provisions."
+    },
+    "disputes": {
+      "title": "17. DISPUTE RESOLUTION",
+      "p1": "Any dispute arising from or relating to the subject matter of these Terms shall be finally settled in accordance with the laws of the State of Illinois. The courts located in Illinois will have exclusive jurisdiction over any dispute arising out of these Terms."
+    },
+    "severability": {
+      "title": "18. SEVERABILITY",
+      "p1": "If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect."
+    },
+    "entire": {
+      "title": "19. ENTIRE AGREEMENT",
+      "p1": "These Terms constitute the entire agreement between you and Tidyzon regarding the Platform and supersede all prior and contemporaneous written or oral agreements."
+    },
+    "contact": {
+      "title": "20. CONTACT INFORMATION",
+      "p1": "If you have any questions about these Terms, please contact us at support@tidyzon.com.",
+      "p2": "By using Tidyzon's Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions."
+    }
+  }
+}

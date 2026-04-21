@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './PrivacyPage.css'
 
 const PrivacyPage = () => {
+  const { t } = useTranslation('privacy')
   return (
     <div className="privacy-page">
       {/* Hero Section */}
       <section className="privacy-hero">
         <div className="container">
           <div className="privacy-hero-content">
-            <h1 className="privacy-hero-title">Privacy Policy</h1>
-            <p className="privacy-hero-subtitle">Last Updated: March 2, 2025</p>
+            <h1 className="privacy-hero-title">{t('hero.title')}</h1>
+            <p className="privacy-hero-subtitle">{t('hero.lastUpdated')}</p>
           </div>
         </div>
       </section>

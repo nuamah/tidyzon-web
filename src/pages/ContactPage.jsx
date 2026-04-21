@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import DownloadModal from '../components/DownloadModal'
 import ResponsivePicture from '../components/ResponsivePicture'
 import { trackRequestSchedule } from '../lib/analytics'
@@ -8,6 +9,7 @@ import './ContactPage.css'
 const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const ContactPage = () => {
+  const { t } = useTranslation('contact')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // 'loading' | 'success' | 'error' | null
   const [submitMessage, setSubmitMessage] = useState('')
@@ -47,63 +49,46 @@ const ContactPage = () => {
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
         setSubmitStatus('error')
-        setSubmitMessage(data.message || data.error || 'Something went wrong. Please try again.')
+        setSubmitMessage(data.message || data.error || t('form.status.genericError'))
         return
       }
       setSubmitStatus('success')
-      setSubmitMessage(data.message || 'Thank you! We will get back to you soon.')
+      setSubmitMessage(data.message || t('form.status.success'))
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
     } catch {
       setSubmitStatus('error')
-      setSubmitMessage('Could not reach the server. If you are developing locally, run the API with npm run server.')
+      setSubmitMessage(t('form.status.serverUnreachable'))
     }
   }
 
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email Us',
+      title: t('info.email'),
       value: 'support@tidyzon.com',
       link: 'mailto:support@tidyzon.com'
     },
     {
       icon: Phone,
-      title: 'Call Us',
+      title: t('info.call'),
       value: '(815) 608-1632',
       link: 'tel:+18156081632'
     },
     {
       icon: MapPin,
-      title: 'Visit Us',
-      value: '708 Saybrook Ct. Romeoville IL 60446',
+      title: t('info.visit'),
+      value: t('info.address'),
       link: '#'
     },
     {
       icon: Clock,
-      title: 'Business Hours',
-      value: 'Mon-Sun: 7AM - 7PM',
+      title: t('info.hours'),
+      value: t('info.hoursValue'),
       link: '#'
     }
   ]
 
-  const faqs = [
-    {
-      question: 'How quickly can I book a service?',
-      answer: 'You can book a service instantly through our app. Most services are available same-day or within 24 hours.'
-    },
-    {
-      question: 'Are your service providers insured?',
-      answer: 'Yes, all our service providers are fully insured and background-checked for your peace of mind.'
-    },
-    {
-      question: 'What areas do you serve?',
-      answer: 'We currently serve major metropolitan areas. Check the app for availability in your specific location.'
-    },
-    {
-      question: 'Can I cancel or reschedule a booking?',
-      answer: 'Yes, you can cancel or reschedule up to 24 hours before your appointment through the app.'
-    }
-  ]
+  const faqs = t('faq.items', { returnObjects: true })
 
   return (
     <>
@@ -116,10 +101,10 @@ const ContactPage = () => {
           <div className="container">
             <div className="contact-hero-content">
               <h1 className="contact-hero-title">
-                Get in <span className="gradient-text">Touch</span>
+                {t('hero.titlePrefix')} <span className="gradient-text">{t('hero.titleHighlight')}</span>
               </h1>
               <p className="contact-hero-subtitle">
-                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                {t('hero.subtitle')}
               </p>
             </div>
           </div>
@@ -156,16 +141,16 @@ const ContactPage = () => {
               <div className="form-column">
                 <div className="form-header">
                   <MessageCircle className="form-header-icon" />
-                  <h2 className="form-title">Send us a Message</h2>
+                  <h2 className="form-title">{t('form.title')}</h2>
                   <p className="form-description">
-                    Fill out the form below and our team will get back to you within 24 hours.
+                    {t('form.description')}
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="contact-form">
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="name" className="form-label">Full Name *</label>
+                      <label htmlFor="name" className="form-label">{t('form.labels.name')}</label>
                       <input
                         type="text"
                         id="name"
@@ -174,11 +159,11 @@ const ContactPage = () => {
                         onChange={handleChange}
                         className="form-input"
                         required
-                        placeholder="John Doe"
+                        placeholder={t('form.placeholders.name')}
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="email" className="form-label">Email Address *</label>
+                      <label htmlFor="email" className="form-label">{t('form.labels.email')}</label>
                       <input
                         type="email"
                         id="email"
@@ -187,14 +172,14 @@ const ContactPage = () => {
                         onChange={handleChange}
                         className="form-input"
                         required
-                        placeholder="john@example.com"
+                        placeholder={t('form.placeholders.email')}
                       />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label htmlFor="phone" className="form-label">Phone Number</label>
+                      <label htmlFor="phone" className="form-label">{t('form.labels.phone')}</label>
                       <input
                         type="tel"
                         id="phone"
@@ -202,11 +187,11 @@ const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="form-input"
-                        placeholder="(815) 608-1632"
+                        placeholder={t('form.placeholders.phone')}
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="subject" className="form-label">Subject *</label>
+                      <label htmlFor="subject" className="form-label">{t('form.labels.subject')}</label>
                       <input
                         type="text"
                         id="subject"
@@ -215,13 +200,13 @@ const ContactPage = () => {
                         onChange={handleChange}
                         className="form-input"
                         required
-                        placeholder="How can we help?"
+                        placeholder={t('form.placeholders.subject')}
                       />
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="message" className="form-label">Message *</label>
+                    <label htmlFor="message" className="form-label">{t('form.labels.message')}</label>
                     <textarea
                       id="message"
                       name="message"
@@ -230,7 +215,7 @@ const ContactPage = () => {
                       className="form-textarea"
                       required
                       rows="6"
-                      placeholder="Tell us more about your inquiry..."
+                      placeholder={t('form.placeholders.message')}
                     ></textarea>
                   </div>
 
@@ -251,7 +236,7 @@ const ContactPage = () => {
                     disabled={submitStatus === 'loading'}
                   >
                     <Send className="submit-icon" />
-                    <span>{submitStatus === 'loading' ? 'Sending…' : 'Send Message'}</span>
+                    <span>{submitStatus === 'loading' ? t('form.submit.sending') : t('form.submit.default')}</span>
                   </button>
                 </form>
 
@@ -261,7 +246,7 @@ const ContactPage = () => {
                     webpSrcSet="/assets/contactImage-480.webp 480w, /assets/contactImage-960.webp 960w, /assets/contactImage-1280.webp 1280w, /assets/contactImage-1536.webp 1536w"
                     fallbackSrcSet="/assets/contactImage-480.jpg 480w, /assets/contactImage-960.jpg 960w, /assets/contactImage-1280.jpg 1280w, /assets/contactImage-1536.jpg 1536w"
                     fallbackSrc="/assets/contactImage-480.jpg"
-                    alt="Tidyzon Contact Support"
+                    alt={t('form.imageAlt')}
                     className="contact-support-image"
                     width={1536}
                     height={1024}
@@ -273,7 +258,7 @@ const ContactPage = () => {
               </div>
 
               <div className="faq-column">
-                <h3 className="faq-title">Frequently Asked Questions</h3>
+                <h3 className="faq-title">{t('faq.title')}</h3>
                 <div className="faq-list">
                   {faqs.map((faq, index) => (
                     <div key={index} className="faq-item">
@@ -284,12 +269,12 @@ const ContactPage = () => {
                 </div>
 
                 <div className="download-app-cta">
-                  <h4 className="download-cta-title">Prefer to use the app?</h4>
+                  <h4 className="download-cta-title">{t('downloadCta.title')}</h4>
                   <p className="download-cta-text">
-                    Get instant support through our mobile app
+                    {t('downloadCta.text')}
                   </p>
                   <button type="button" className="download-cta-btn" onClick={() => setIsModalOpen(true)}>
-                    Download App
+                    {t('downloadCta.button')}
                   </button>
                 </div>
               </div>
@@ -301,7 +286,7 @@ const ContactPage = () => {
         <section className="map-section">
           <div className="map-placeholder">
             <MapPin className="map-icon" />
-            <p className="map-text">Visit our office at 708 Saybrook Ct. Romeoville IL 60446</p>
+            <p className="map-text">{t('map.textPrefix')} {t('map.address')}</p>
           </div>
         </section>
       </div>
