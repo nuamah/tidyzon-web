@@ -1,118 +1,82 @@
-# AI Chatbot Setup Guide
+# AI Chatbot Setup Guide (DeepSeek)
+
+Tidy A.I. Assistant answers **Tidyzon-only** questions using a full site knowledge base and the **DeepSeek** API.
 
 ## Prerequisites
+
 - Node.js installed
-- OpenAI API Key (get one from https://platform.openai.com/api-keys)
+- DeepSeek API key from [https://platform.deepseek.com](https://platform.deepseek.com)
 
-## Installation Steps
+## 1. Configure environment
 
-### 1. Install Server Dependencies
-Navigate to your project root and run:
-```bash
-npm install express cors dotenv openai
+Create a `.env` file in the project root:
+
 ```
-
-### 2. Create .env File
-Create a `.env` file in the root of your project (tidyzon-website folder) with:
-```
-OPENAI_API_KEY=your_actual_openai_api_key_here
+DEEPSEEK_API_KEY=sk-your_deepseek_api_key
 PORT=3001
 ```
 
-**Important:** Replace `your_actual_openai_api_key_here` with your real OpenAI API key.
+Optional:
 
-### 3. Update package.json
-Add the following to your `package.json`:
-
-```json
-{
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "server": "node server/index.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "build": "vite build",
-    "preview": "vite preview"
-  }
-}
+```
+DEEPSEEK_MODEL=deepseek-chat
 ```
 
-### 4. Install Concurrently (Optional)
-To run both the Vite dev server and the AI chatbot server simultaneously:
-```bash
-npm install --save-dev concurrently
+### Static hosting (Vercel) without Express
+
+If only the frontend is deployed, set a Vite env var so the browser can call DeepSeek directly:
+
+```
+VITE_DEEPSEEK_API_KEY=sk-your_deepseek_api_key
 ```
 
-## Running the Application
+**Note:** `VITE_*` keys are visible in the client bundle. Prefer running the Express server with `DEEPSEEK_API_KEY` whenever possible.
 
-### Option 1: Run Both Servers Together (Recommended)
+## 2. Run locally
+
+**Both frontend + API (recommended):**
+
 ```bash
 npm run dev:all
 ```
 
-### Option 2: Run Servers Separately
+Or separately:
 
-**Terminal 1 - Frontend:**
 ```bash
-npm run dev
+npm run dev      # Vite on :5173 (proxies /api → :3001)
+npm run server   # Express DeepSeek proxy on :3001
 ```
 
-**Terminal 2 - Backend API:**
-```bash
-npm run server
-```
+## How it works
 
-## How It Works
+1. Visitor messages go to `POST /api/chat` (Vite proxy in development).
+2. The server calls DeepSeek (`deepseek-chat`) with a system prompt that includes the full Tidyzon knowledge base from `src/data/tidyzon-knowledge-base.js`.
+3. Off-topic questions are refused; only Tidyzon-related answers are allowed.
+4. If the API is unavailable, the widget falls back to a local keyword knowledge base.
 
-1. **Frontend (Port 5173):** Your React app with Vite
-2. **Backend (Port 3001):** Express server handling OpenAI API calls
-3. **AI Assistant:** Uses GPT-3.5-turbo to answer questions about Tidyzon
+## Knowledge base coverage
 
-## Features
+The assistant is loaded with data aligned to the live site:
 
-- **Smart Restrictions:** Only answers questions related to Tidyzon services
-- **Context Aware:** Knows all about Tidyzon's services, pricing, and policies
-- **Friendly UI:** Beautiful chat interface in bottom-right corner
-- **Mobile Responsive:** Works great on all devices
+- Company story, mission, vision, contact, hours
+- All car packages (Speed Interior/Full, Deluxe, Premium, Biofluids) + trash bin cleaning
+- Team / board members from the Teams page
+- Booking, apps, provider signup, FAQs, careers, legal page pointers
 
-## Testing the Chatbot
+When you change prices or copy on the site, update `src/data/tidyzon-knowledge-base.js` so answers stay accurate.
 
-Once running, try asking:
+## Try asking
+
 - "What services do you offer?"
-- "How much does car cleaning cost?"
-- "Tell me about the Deluxe package"
-- "How do I book a service?"
+- "How much is the Deluxe package?"
+- "Tell me about Biofluids"
+- "How do I become a provider?"
+- "Who is on the team?"
 
-The bot will politely decline to answer off-topic questions.
+Off-topic (e.g. weather, politics) should be politely declined.
 
-## Troubleshooting
+## Security
 
-### API Key Issues
-- Make sure your `.env` file is in the project root
-- Verify your OpenAI API key is correct
-- Check if you have billing enabled on your OpenAI account
-
-### Server Won't Start
-- Make sure port 3001 is not already in use
-- Check that all dependencies are installed
-- Verify `server/index.js` file exists
-
-### Chat Not Working
-- Open browser console to check for errors
-- Ensure both frontend and backend servers are running
-- Check network tab for failed API requests
-
-## Security Notes
-
-- **Never commit `.env` file** to version control
-- The `.env` file is already in `.gitignore`
-- API calls are made from your server, not the client
-- This prevents exposing your OpenAI API key to users
-
-## Cost Considerations
-
-- GPT-3.5-turbo is relatively inexpensive
-- Each message costs approximately $0.002
-- Set usage limits in your OpenAI dashboard
-- Monitor your API usage regularly
-
+- Never commit `.env`
+- Prefer `DEEPSEEK_API_KEY` on the server over `VITE_DEEPSEEK_API_KEY`
+- Monitor usage and set limits in the DeepSeek dashboard

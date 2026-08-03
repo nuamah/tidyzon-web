@@ -8,6 +8,15 @@
   padding: 1rem 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
+  pointer-events: none; /* Let page scroll/tap through empty header chrome */
+}
+
+.modern-header .header-container,
+.modern-header .header-logo,
+.modern-header .mobile-menu-btn,
+.modern-header .desktop-nav,
+.modern-header .header-cta {
+  pointer-events: auto;
 }
 
 .modern-header.scrolled {
@@ -249,10 +258,12 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  pointer-events: none; /* Closed drawer must not steal taps */
 }
 
 .mobile-nav.open {
   transform: translateX(0);
+  pointer-events: auto;
 }
 
 /* Mobile Nav Header */

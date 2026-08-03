@@ -1,335 +1,430 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react'
-import { MessageCircle, X, Send, Loader } from 'lucide-react'
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
+import { X, Send, Loader, ExternalLink, Trash2 } from 'lucide-react'
 import OpenAI from 'openai'
-import { TIDYZON_KNOWLEDGE_BASE, findAnswer } from '../data/tidyzon-knowledge-base'
+import { SYSTEM_PROMPT, findAnswer } from '../data/tidyzon-knowledge-base'
 import './AIChatbot.css'
+
+const BOT_IMAGE = '/assets/botImage.png'
+
+// Temporary: DeepSeek key in the client until a secure API endpoint is ready.
+const DEEPSEEK_API_KEY = 'sk-89be30c6be764e8ba99dfc1215368cc5'
+const DEEPSEEK_MODEL = 'deepseek-chat'
+const STORAGE_KEY = 'tidyzon_ai_chat_messages'
+
+const WELCOME_AI =
+  "Hello! I'm Tidy A.I. Assistant. I can help with Tidyzon's services, pricing, booking, apps, team, becoming a provider, and contact details. How can I assist you today?"
+
+const WELCOME_LOCAL =
+  "Hello! I'm Tidy A.I. Assistant. I can help with Tidyzon's services, pricing, booking, and contact details using our knowledge base. For immediate help: support@tidyzon.com or (815) 608-1632."
+
+const OFF_TOPIC_HINT =
+  "I'm specifically designed to help with Tidyzon. Ask me about our car cleaning packages, trash bin sanitization, booking, apps, team, or becoming a provider."
+
+const defaultWelcome = () => [{ role: 'assistant', content: WELCOME_AI }]
+
+function loadStoredMessages() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return defaultWelcome()
+    const parsed = JSON.parse(raw)
+    if (!Array.isArray(parsed) || parsed.length === 0) return defaultWelcome()
+    const valid = parsed.every(
+      (m) =>
+        m &&
+        (m.role === 'user' || m.role === 'assistant') &&
+        typeof m.content === 'string',
+    )
+    return valid ? parsed : defaultWelcome()
+  } catch {
+    return defaultWelcome()
+  }
+}
+
+function linkLabelFromUrl(url) {
+  const lower = url.toLowerCase()
+  if (lower.startsWith('mailto:')) return `Email ${url.replace(/^mailto:/i, '')}`
+  if (lower.startsWith('tel:')) {
+    const num = url.replace(/^tel:/i, '')
+    return `Call ${num}`
+  }
+  if (lower.includes('tidyzon.com/services')) return 'View Services'
+  if (lower.includes('tidyzon.com/get-started')) return 'Get Started'
+  if (lower.includes('tidyzon.com/contact') || lower.includes('tidyzon.com/help'))
+    return 'Contact Us'
+  if (lower.includes('tidyzon.com/provider')) return 'Become a Provider'
+  if (lower.includes('tidyzon.com/about')) return 'About Tidyzon'
+  if (lower.includes('tidyzon.com/teams')) return 'Meet the Team'
+  if (lower.includes('apps.apple.com') || lower.includes('play.google.com')) {
+    if (lower.includes('provider')) return 'Download Provider App'
+    return 'Download User App'
+  }
+  if (lower.includes('tidyzon.com')) return 'Visit Tidyzon'
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return 'Open link'
+  }
+}
+
+function normalizeHref(href) {
+  const trimmed = href.trim()
+  if (/^(https?:|mailto:|tel:)/i.test(trimmed)) return trimmed
+  if (trimmed.startsWith('/')) return trimmed
+  if (trimmed.includes('@') && !trimmed.includes(' ')) return `mailto:${trimmed}`
+  if (/^\+?[\d\s().-]{7,}$/.test(trimmed)) {
+    return `tel:${trimmed.replace(/[^\d+]/g, '')}`
+  }
+  return trimmed
+}
+
+/** Split text into plain parts + link tokens for button rendering */
+function tokenizeInline(text) {
+  const tokens = []
+  const pattern =
+    /\[([^\]]+)\]\(([^)]+)\)|(https?:\/\/[^\s<>)"']+)|(mailto:[^\s<>)"']+)|(tel:[^\s<>)"']+)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})|(\+?1?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/g
+
+  let lastIndex = 0
+  let match
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      tokens.push({ type: 'text', value: text.slice(lastIndex, match.index) })
+    }
+
+    if (match[1] && match[2]) {
+      tokens.push({
+        type: 'link',
+        label: match[1].trim(),
+        href: normalizeHref(match[2]),
+      })
+    } else if (match[3] || match[4] || match[5]) {
+      const href = match[3] || match[4] || match[5]
+      tokens.push({
+        type: 'link',
+        label: linkLabelFromUrl(href),
+        href: normalizeHref(href),
+      })
+    } else if (match[6]) {
+      tokens.push({
+        type: 'link',
+        label: `Email ${match[6]}`,
+        href: `mailto:${match[6]}`,
+      })
+    } else if (match[7]) {
+      const raw = match[7]
+      tokens.push({
+        type: 'link',
+        label: `Call ${raw}`,
+        href: `tel:${raw.replace(/[^\d+]/g, '')}`,
+      })
+    }
+
+    lastIndex = match.index + match[0].length
+  }
+
+  if (lastIndex < text.length) {
+    tokens.push({ type: 'text', value: text.slice(lastIndex) })
+  }
+
+  return tokens.length ? tokens : [{ type: 'text', value: text }]
+}
+
+function renderInlineText(text, keyPrefix) {
+  // Bold / italic on text segments only (links stay as buttons)
+  const withMarks = (segment, key) => {
+    const parts = []
+    const re = /(\*\*|__)(.+?)\1|(\*|_)(.+?)\3/g
+    let i = 0
+    let m
+    while ((m = re.exec(segment)) !== null) {
+      if (m.index > i) parts.push(segment.slice(i, m.index))
+      if (m[1]) {
+        parts.push(
+          <strong key={`${key}-b-${m.index}`}>{m[2]}</strong>,
+        )
+      } else {
+        parts.push(<em key={`${key}-i-${m.index}`}>{m[4]}</em>)
+      }
+      i = m.index + m[0].length
+    }
+    if (i < segment.length) parts.push(segment.slice(i))
+    return parts.length ? parts : segment
+  }
+
+  return tokenizeInline(text).map((token, idx) => {
+    const key = `${keyPrefix}-${idx}`
+    if (token.type === 'link') {
+      const isHttp = /^https?:/i.test(token.href)
+      return (
+        <a
+          key={key}
+          href={token.href}
+          className="chat-link-btn"
+          {...(isHttp
+            ? { target: '_blank', rel: 'noopener noreferrer' }
+            : {})}
+        >
+          <span>{token.label}</span>
+          <ExternalLink className="chat-link-btn-icon" aria-hidden="true" />
+        </a>
+      )
+    }
+    return (
+      <React.Fragment key={key}>
+        {withMarks(token.value, key)}
+      </React.Fragment>
+    )
+  })
+}
+
+function formatMessage(content) {
+  const blocks = content
+    .replace(/\r\n/g, '\n')
+    .split(/\n{2,}/)
+    .map((b) => b.trim())
+    .filter(Boolean)
+
+  return blocks.map((block, index) => {
+    const lines = block.split('\n').map((l) => l.trim()).filter(Boolean)
+    const isList =
+      lines.length > 0 &&
+      lines.every((line) => /^([•\-*]|\d+[.)])\s+/.test(line))
+
+    const isHeading =
+      lines.length === 1 &&
+      (lines[0].endsWith(':') ||
+        (/^\*\*.+\*\*:?$/.test(lines[0]) && lines[0].length < 80) ||
+        (lines[0].length < 55 && !lines[0].includes('.') && /^[A-Z0-9]/.test(lines[0])))
+
+    if (isHeading) {
+      const heading = lines[0].replace(/^[:\s]+|[:\s]+$/g, '').replace(/\*\*/g, '')
+      return (
+        <h4 key={`h-${index}`} className="message-title">
+          {heading.replace(/:$/, '')}
+        </h4>
+      )
+    }
+
+    if (isList) {
+      return (
+        <ul key={`l-${index}`} className="message-list">
+          {lines.map((line, itemIndex) => {
+            const clean = line.replace(/^([•\-*]|\d+[.)])\s+/, '')
+            return (
+              <li key={`li-${index}-${itemIndex}`} className="message-list-item">
+                {renderInlineText(clean, `li-${index}-${itemIndex}`)}
+              </li>
+            )
+          })}
+        </ul>
+      )
+    }
+
+    // Mixed block: keep line breaks professionally
+    if (lines.length > 1) {
+      return (
+        <div key={`b-${index}`} className="message-block">
+          {lines.map((line, lineIndex) => {
+            if (/^([•\-*]|\d+[.)])\s+/.test(line)) {
+              return (
+                <div key={`bl-${lineIndex}`} className="message-list-item message-list-item--inline">
+                  {renderInlineText(
+                    line.replace(/^([•\-*]|\d+[.)])\s+/, ''),
+                    `bl-${index}-${lineIndex}`,
+                  )}
+                </div>
+              )
+            }
+            return (
+              <p key={`bp-${lineIndex}`} className="message-paragraph message-paragraph--tight">
+                {renderInlineText(line, `bp-${index}-${lineIndex}`)}
+              </p>
+            )
+          })}
+        </div>
+      )
+    }
+
+    return (
+      <p key={`p-${index}`} className="message-paragraph">
+        {renderInlineText(block, `p-${index}`)}
+      </p>
+    )
+  })
+}
 
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState([
-    {
-      role: 'assistant',
-      content: "Hello! I'm Tidy A.I. Assistant powered by advanced AI. I'm here to help you with information about our services, pricing, booking, contact details, and more. How can I assist you today?"
-    }
-  ])
+  const [messages, setMessages] = useState(loadStoredMessages)
   const [inputMessage, setInputMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [apiAvailable, setApiAvailable] = useState(false)
-  const [quotaExceeded, setQuotaExceeded] = useState(false) // Track if quota is exceeded
+  const [quotaExceeded, setQuotaExceeded] = useState(false)
   const messagesEndRef = useRef(null)
+  const textareaRef = useRef(null)
+  const chatWindowRef = useRef(null)
 
-  // Initialize OpenAI client - Get API key from environment
-  // Get API key from Vite environment variables
-  const apiKey = import.meta.env.VITE_OPENAI_API_KEY
-  
-  // Debug: Log API key status on component mount
+  const apiKeyReady =
+    DEEPSEEK_API_KEY.startsWith('sk-') &&
+    !DEEPSEEK_API_KEY.includes('REPLACE_WITH')
+
+  const apiAvailable = apiKeyReady && !quotaExceeded
+
+  const deepseek = useMemo(() => {
+    if (!apiKeyReady) return null
+    return new OpenAI({
+      apiKey: DEEPSEEK_API_KEY,
+      baseURL: 'https://api.deepseek.com',
+      dangerouslyAllowBrowser: true,
+      maxRetries: 0,
+    })
+  }, [apiKeyReady])
+
+  // Persist conversation so closing / refreshing keeps history
   useEffect(() => {
-    console.log('🔍 Checking API Key...')
-    console.log('Environment mode:', import.meta.env.MODE)
-    console.log('VITE_OPENAI_API_KEY exists:', !!import.meta.env.VITE_OPENAI_API_KEY)
-    
-    if (apiKey && apiKey.length > 0 && apiKey.startsWith('sk-')) {
-      console.log('✅ API Key found and appears valid (length:', apiKey.length, ')')
-      console.log('✅ API Key prefix:', apiKey.substring(0, 7) + '...')
-      console.log('✅ OpenAI client will be initialized')
-      setApiAvailable(true)
-      setQuotaExceeded(false) // Reset quota status on mount
-    } else if (apiKey && apiKey.length > 0 && (apiKey === 'your_key_here' || !apiKey.startsWith('sk-'))) {
-      console.warn('⚠️ API Key appears to be a placeholder or invalid')
-      setApiAvailable(false)
-    } else {
-      console.warn('⚠️ API Key NOT found or invalid!')
-      console.warn('💡 To enable AI features:')
-      console.warn('   1. Make sure .env file is in project root (same folder as package.json)')
-      console.warn('   2. .env file must contain: VITE_OPENAI_API_KEY=sk-your-actual-key')
-      console.warn('   3. STOP the dev server (Ctrl+C) and RESTART it (npm run dev)')
-      console.warn('   4. Vite only reads .env files when the server STARTS')
-      console.warn('📚 Chatbot will use local knowledge base instead')
-      setApiAvailable(false)
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages))
+    } catch {
+      // ignore quota / private mode
     }
-  }, [apiKey])
-
-  // Initialize OpenAI client only when API key is available
-  const openai = useMemo(() => {
-    if (apiKey && apiKey.startsWith('sk-')) {
-      console.log('🔧 Initializing OpenAI client with API key')
-      return new OpenAI({
-        apiKey: apiKey,
-        dangerouslyAllowBrowser: true, // Required for browser usage
-        maxRetries: 0 // Disable retries to avoid multiple 429 errors
-      })
-    }
-    console.log('⚠️ OpenAI client not initialized - no valid API key')
-    return null
-  }, [apiKey])
-
-  // Check API availability when chat opens
-  useEffect(() => {
-    if (isOpen) {
-      if (apiKey && apiKey.length > 0) {
-        setApiAvailable(true)
-        // Update initial message if API is available
-        if (messages.length === 1 && messages[0].role === 'assistant') {
-          setMessages([{
-            role: 'assistant',
-            content: "Hello! I'm Tidy A.I. Assistant powered by advanced AI. I'm here to help you with information about our services, pricing, booking, contact details, and more. How can I assist you today?"
-          }])
-        }
-      } else {
-        setApiAvailable(false)
-        setMessages([{
-          role: 'assistant',
-          content: "Hello! I'm Tidy A.I. Assistant. I can help you with information about our services, pricing, booking, contact details, and more using our knowledge base. How can I assist you today?\n\n*Note: For more detailed AI-powered responses, the OpenAI API key can be configured. For immediate assistance, contact us at support@tidyzon.com or call (815) 608-1632."
-        }])
-      }
-    }
-  }, [isOpen, apiKey])
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  useEffect(() => {
-    scrollToBottom()
   }, [messages])
 
-  // Prevent body scroll on mobile when chatbot is open
+  useEffect(() => {
+    if (!isOpen) return
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages, isOpen, isLoading])
+
+  useEffect(() => {
+    if (isOpen && textareaRef.current) {
+      textareaRef.current.style.height = 'auto'
+      textareaRef.current.focus()
+    }
+  }, [isOpen])
+
   useEffect(() => {
     if (isOpen && window.innerWidth <= 1023) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'unset'
     }
-
     return () => {
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
 
-  // System prompt with comprehensive company information
-  const SYSTEM_PROMPT = `You are Tidy A.I Assistant, a professional and knowledgeable AI assistant for Tidyzon, a premium mobile cleaning service company. Your role is to provide accurate, helpful, and detailed information about Tidyzon's services, team, pricing, and features.
+  const closeChat = useCallback(() => {
+    setIsOpen(false)
+  }, [])
 
-COMPREHENSIVE COMPANY INFORMATION:
+  const openChat = useCallback(() => {
+    setIsOpen(true)
+  }, [])
 
-${JSON.stringify(TIDYZON_KNOWLEDGE_BASE, null, 2)}
+  // Escape closes chat
+  useEffect(() => {
+    if (!isOpen) return
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') closeChat()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [isOpen, closeChat])
 
-CORE RESPONSIBILITIES:
-- Answer questions about Tidyzon's services, pricing, booking process, team members, mobile apps, and cleaning-related topics
-- Provide detailed, accurate information from the knowledge base above
-- Help users understand service packages, features, and pricing
-- Guide users through the booking process
-- Share contact information when needed
-- Explain how to become a service provider
+  const clearConversation = () => {
+    const welcome = [
+      {
+        role: 'assistant',
+        content: apiAvailable ? WELCOME_AI : WELCOME_LOCAL,
+      },
+    ]
+    setMessages(welcome)
+  }
 
-IMPORTANT GUIDELINES:
-
-1. **Answer Quality**: Provide comprehensive, detailed answers. Don't just give short responses - explain features, benefits, and next steps. Use the knowledge base extensively.
-
-2. **Service Information**: When asked about services:
-   - List all features included in packages
-   - Mention pricing clearly
-   - Explain duration and what's included
-   - Note that MVP and Truck vehicles incur an additional $10 charge
-   - Compare packages when relevant
-
-3. **Contact Information**: Always provide:
-   - Email: support@tidyzon.com
-   - Phone: (815) 608-1632
-   - Address: 708 Saybrook Ct. Romeoville IL 60446
-   - Business Hours: Mon-Sun: 7AM - 7PM
-
-4. **Response Format**: Structure responses clearly:
-   - Use **bold** for headings and important terms
-   - Use bullet points (•) for lists
-   - Use numbered lists for steps
-   - Separate sections with line breaks
-   - Include actionable next steps
-
-5. **Off-Topic Questions**: If asked about unrelated topics (politics, weather, jokes, other companies, etc.), politely say: "I'm specifically designed to help with Tidyzon's cleaning services. I can help you with our car cleaning packages, trash bin sanitization, booking process, team information, or mobile apps. What would you like to know?"
-
-6. **Prohibited**: Do not provide medical, legal, or financial advice. Do not engage in controversial discussions.
-
-7. **Tone**: Be professional, friendly, enthusiastic, and helpful. Show genuine interest in helping users.
-
-8. **Accuracy**: Always reference the knowledge base. If information isn't in the knowledge base, suggest contacting support@tidyzon.com.
-
-9. **Goal**: Guide users toward:
-   - Booking a service
-   - Downloading the mobile app
-   - Learning more about Tidyzon
-   - Becoming a service provider
-
-10. **Examples of Good Responses**:
-   - When asked about pricing: Provide all package prices, features, duration, and vehicle type notes
-   - When asked about booking: Explain all 6 steps clearly
-   - When asked about services: List all services with details
-   - When asked about team: Mention key team members and their roles
-
-Remember: Be thorough, helpful, and always use the knowledge base to provide accurate, detailed information.`
+  const localFallback = (userMessage) => {
+    const lower = userMessage.toLowerCase().trim()
+    const greetings = [
+      'hi',
+      'hello',
+      'hey',
+      'greetings',
+      'good morning',
+      'good afternoon',
+      'good evening',
+    ]
+    const isGreeting = greetings.some(
+      (g) => lower === g || lower.startsWith(g + ' '),
+    )
+    if (isGreeting) {
+      return `Hello! I'm Tidy A.I. Assistant for **Tidyzon**.\n\nI can help with:\n• Car cleaning packages and pricing\n• Trash bin sanitization\n• Booking and mobile apps\n• Becoming a provider\n• Team and company info\n• Contact details\n\n${OFF_TOPIC_HINT}\n\n[Email Support](mailto:support@tidyzon.com)\n[Call Tidyzon](tel:+18156081632)`
+    }
+    const result = findAnswer(userMessage)
+    return (
+      result?.answer ||
+      `${OFF_TOPIC_HINT}\n\n[Email Support](mailto:support@tidyzon.com)\n[Call Tidyzon](tel:+18156081632)\n[Contact Us](https://tidyzon.com/contact)`
+    )
+  }
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return
 
     const userMessage = inputMessage.trim()
     setInputMessage('')
-    
+    if (textareaRef.current) textareaRef.current.style.height = 'auto'
+
     const newMessages = [...messages, { role: 'user', content: userMessage }]
     setMessages(newMessages)
     setIsLoading(true)
 
-    // Debug: Log current state
-    console.log('🔍 DEBUG - handleSendMessage called')
-    console.log('🔍 apiKey exists:', !!apiKey)
-    console.log('🔍 apiKey starts with sk-:', apiKey?.startsWith('sk-'))
-    console.log('🔍 apiKey value:', apiKey ? apiKey.substring(0, 20) + '...' : 'undefined')
-    console.log('🔍 openai client exists:', !!openai)
-    console.log('🔍 quotaExceeded:', quotaExceeded)
-    console.log('🔍 apiAvailable:', apiAvailable)
-    console.log('🔍 import.meta.env.VITE_OPENAI_API_KEY:', import.meta.env.VITE_OPENAI_API_KEY ? import.meta.env.VITE_OPENAI_API_KEY.substring(0, 20) + '...' : 'NOT FOUND')
+    // Keep last turns for context (welcome + recent history)
+    const conversation = newMessages
+      .filter((m) => m.role === 'user' || m.role === 'assistant')
+      .slice(-24)
+      .map(({ role, content }) => ({ role, content }))
 
-    // ALWAYS try OpenAI API first if API key exists and quota hasn't been exceeded
-    // Check apiKey directly from env as fallback
-    const effectiveApiKey = apiKey || import.meta.env.VITE_OPENAI_API_KEY
-    
-    // Create OpenAI client on the fly if it doesn't exist but we have a key
-    let effectiveOpenai = openai
-    if (!effectiveOpenai && effectiveApiKey && effectiveApiKey.startsWith('sk-')) {
-      console.log('🔧 Creating OpenAI client on-the-fly')
-      effectiveOpenai = new OpenAI({
-        apiKey: effectiveApiKey,
-        dangerouslyAllowBrowser: true,
-        maxRetries: 0
-      })
-    }
-    
-    const shouldUseAPI = effectiveApiKey && effectiveApiKey.startsWith('sk-') && effectiveOpenai && !quotaExceeded
-    
-    console.log('🔍 effectiveApiKey:', effectiveApiKey ? effectiveApiKey.substring(0, 20) + '...' : 'undefined')
-    console.log('🔍 effectiveOpenai exists:', !!effectiveOpenai)
-    console.log('🔍 shouldUseAPI:', shouldUseAPI)
-    
-    if (shouldUseAPI) {
-      console.log('✅ All conditions met - Attempting OpenAI API call')
-      console.log('🤖 Attempting OpenAI API call with key:', effectiveApiKey.substring(0, 15) + '...')
-      console.log('🤖 Sending message to OpenAI API:', userMessage)
-      console.log('🤖 System prompt length:', SYSTEM_PROMPT.length, 'characters')
-      console.log('🤖 Messages being sent:', newMessages.length, 'messages')
+    try {
+      let assistantMessage = null
 
-      try {
-        const modelName = 'gpt-3.5-turbo'
-        console.log('🚀 Making OpenAI API request now...')
-        console.log('📋 Using model:', modelName)
-        const completion = await effectiveOpenai.chat.completions.create({
-          model: modelName,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...newMessages
-          ],
-          max_tokens: 1000,
-          temperature: 0.7,
-        })
-        console.log('✅ OpenAI API request completed successfully')
-
-        const assistantMessage = completion.choices[0].message.content
-        console.log('✅ OpenAI API Response received successfully!')
-        console.log('✅ Response length:', assistantMessage.length, 'characters')
-        console.log('✅ Response preview:', assistantMessage.substring(0, 200))
-        
-        // Mark API as available since we got a successful response
-        setApiAvailable(true)
-        setQuotaExceeded(false)
-        
-        setMessages([...newMessages, { 
-          role: 'assistant', 
-          content: assistantMessage 
-        }])
-        setIsLoading(false)
-        return // Exit early on success
-      } catch (error) {
-        console.error('❌ OpenAI API Error:', error)
-        console.error('❌ Error name:', error.name)
-        console.error('❌ Error message:', error.message)
-        console.error('❌ Error status:', error.status)
-        
-        const errorMessage = (error.message || '').toLowerCase()
-        const errorType = error.constructor?.name || error.name || ''
-        const statusCode = error.status || error.response?.status || ''
-        
-        // Handle quota/rate limit errors - fall back to local knowledge base
-        if (errorMessage.includes('quota') || 
-            errorMessage.includes('rate limit') || 
-            errorMessage.includes('429') ||
-            errorType.includes('RateLimit') ||
-            statusCode === 429) {
-          console.log('⚠️ API quota/rate limit exceeded (429 error)')
-          console.log('⚠️ Model being used: gpt-3.5-turbo')
-          console.log('⚠️ Falling back to local knowledge base')
-          setQuotaExceeded(true)
-          setApiAvailable(false)
-          // Continue to local knowledge base fallback below
-        } else if (errorMessage.includes('api key') || 
-                   errorMessage.includes('authentication') ||
-                   errorMessage.includes('401') ||
-                   errorType.includes('Authentication') ||
-                   statusCode === 401) {
-          console.log('⚠️ API key authentication issue, will use local knowledge base')
-          setApiAvailable(false)
-          // Continue to local knowledge base fallback below
-        } else {
-          // For other errors (network, timeout, etc.), try local knowledge base as fallback
-          console.log('⚠️ API error occurred, falling back to local knowledge base:', errorMessage)
-          console.log('⚠️ Error type:', errorType, 'Status:', statusCode)
+      if (deepseek && !quotaExceeded) {
+        try {
+          const completion = await deepseek.chat.completions.create({
+            model: DEEPSEEK_MODEL,
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              ...conversation,
+            ],
+            max_tokens: 1200,
+            temperature: 0.5,
+          })
+          assistantMessage = completion.choices[0]?.message?.content || null
+        } catch (error) {
+          const msg = (error.message || '').toLowerCase()
+          const status = error.status || error.response?.status
+          if (
+            status === 429 ||
+            msg.includes('429') ||
+            msg.includes('rate') ||
+            msg.includes('quota')
+          ) {
+            setQuotaExceeded(true)
+          }
         }
       }
-    } else {
-      console.log('❌ OpenAI API call NOT attempted. Reasons:')
-      if (!apiKey || !apiKey.startsWith('sk-')) {
-        console.log('   ❌ No valid API key found')
-        console.log('   ❌ apiKey value:', apiKey || 'undefined')
-        console.log('   ❌ import.meta.env.VITE_OPENAI_API_KEY:', import.meta.env.VITE_OPENAI_API_KEY ? 'EXISTS' : 'NOT FOUND')
-      }
-      if (quotaExceeded) {
-        console.log('   ❌ API quota exceeded')
-      }
-      if (!openai) {
-        console.log('   ❌ OpenAI client not initialized')
-        console.log('   ❌ This means apiKey check failed during useMemo initialization')
-      }
-      console.log('📚 Falling back to local knowledge base')
-    }
 
-    // Fallback to local knowledge base
-    console.log('📚 Using local knowledge base for:', userMessage)
-    try {
-      // Handle simple greetings first
-      const lowerMessage = userMessage.toLowerCase().trim()
-      const greetings = ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening']
-      const isGreeting = greetings.some(greeting => lowerMessage === greeting || lowerMessage.startsWith(greeting + ' '))
-      
-      let assistantMessage
-      if (isGreeting) {
-        // Friendly greeting response
-        assistantMessage = `Hello! 👋 I'm Tidy A.I. Assistant. I'm here to help you with information about Tidyzon's professional cleaning services.\n\n**What I can help you with:**\n• Car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n• Frequently asked questions\n\n**How can I assist you today?**\n\nTry asking me:\n• "What services do you offer?"\n• "How much does the Deluxe package cost?"\n• "How do I book a service?"\n• "What's your phone number?"\n\nFor immediate assistance, contact us at **support@tidyzon.com** or call **(815) 608-1632**.`
-      } else {
-        // Use knowledge base for other queries
-        const result = findAnswer(userMessage)
-        assistantMessage = result?.answer || `I'm here to help! You can ask me about:\n\n• Our car cleaning packages and pricing\n• How to book a service\n• Contact information\n• Mobile apps\n• Becoming a service provider\n\nFor detailed assistance, please contact us at support@tidyzon.com or call (815) 608-1632.`
+      if (!assistantMessage) {
+        assistantMessage = localFallback(userMessage)
       }
-      
-      // Don't add fallback note - user wants API to be primary method
-      
-      console.log('✅ Local knowledge base response generated, length:', assistantMessage.length)
-      
-      setMessages([...newMessages, { 
-        role: 'assistant', 
-        content: assistantMessage 
-      }])
-    } catch (fallbackError) {
-      console.error('❌ Local knowledge base error:', fallbackError)
-      setMessages([...newMessages, { 
-        role: 'assistant', 
-        content: `I apologize, but I'm having trouble processing your request right now. Please contact us directly at support@tidyzon.com or call (815) 608-1632 for assistance.` 
-      }])
+
+      setMessages([
+        ...newMessages,
+        { role: 'assistant', content: assistantMessage },
+      ])
+    } catch {
+      setMessages([
+        ...newMessages,
+        {
+          role: 'assistant',
+          content:
+            'I apologize, but I am having trouble right now.\n\n[Email Support](mailto:support@tidyzon.com)\n[Call Tidyzon](tel:+18156081632)',
+        },
+      ])
     } finally {
       setIsLoading(false)
     }
@@ -342,113 +437,115 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
     }
   }
 
-  // Format AI response for better readability
-  const formatMessage = (content) => {
-    const paragraphs = content.split('\n\n').filter(p => p.trim())
-    
-    return paragraphs.map((paragraph, index) => {
-      const trimmedParagraph = paragraph.trim()
-      
-      if (trimmedParagraph.length < 50 && (trimmedParagraph.includes(':') || trimmedParagraph.match(/^[A-Z\s]+$/))) {
-        return (
-          <h4 key={index} className="message-title">
-            {trimmedParagraph.replace(':', '')}
-          </h4>
-        )
-      }
-      
-      if (trimmedParagraph.match(/^[\d\-\*\+]\s/) || trimmedParagraph.includes('\n-') || trimmedParagraph.includes('\n•')) {
-        const lines = trimmedParagraph.split('\n').filter(line => line.trim())
-        const listItems = lines.map(line => line.trim())
-        
-        return (
-          <ul key={index} className="message-list">
-            {listItems.map((item, itemIndex) => {
-              const cleanItem = item.replace(/^[\d\-\*\+]\s+/, '').replace(/^[\d]+\.\s+/, '')
-              const formattedItem = formatText(cleanItem)
-              
-              return (
-                <li key={itemIndex} className="message-list-item">
-                  {formattedItem}
-                </li>
-              )
-            })}
-          </ul>
-        )
-      }
-      
-      return (
-        <p key={index} className="message-paragraph">
-          {formatText(trimmedParagraph)}
-        </p>
-      )
-    })
-  }
-
-  const formatText = (text) => {
-    let formatted = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    formatted = formatted.replace(/__(.*?)__/g, '<strong>$1</strong>')
-    formatted = formatted.replace(/\*(.*?)\*/g, '<em>$1</em>')
-    formatted = formatted.replace(/_(.*?)_/g, '<em>$1</em>')
-    
-    return <span dangerouslySetInnerHTML={{ __html: formatted }} />
-  }
-
   return (
     <>
-      {/* Chat Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="ai-chat-button-merged"
-        aria-label="Open AI Assistant"
-      >
-        {isOpen ? (
-          <X className="chat-button-icon" />
-        ) : (
-          <MessageCircle className="chat-button-icon" />
-        )}
-      </button>
+      {!isOpen && (
+        <button
+          onClick={openChat}
+          className="ai-chat-button-merged"
+          aria-label="Open AI Assistant"
+        >
+          <img
+            src={BOT_IMAGE}
+            alt="Tidy A.I. Assistant"
+            className="ai-chat-bot-fab"
+            width={120}
+            height={136}
+            decoding="async"
+          />
+        </button>
+      )}
 
-      {/* Chat Window */}
       {isOpen && (
-        <div className="ai-chat-window">
-          {/* Header */}
+        <div
+          className="ai-chat-overlay"
+          onClick={closeChat}
+          aria-hidden="true"
+        />
+      )}
+
+      {isOpen && (
+        <div
+          className="ai-chat-window"
+          ref={chatWindowRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Tidy A.I. Assistant"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="chat-header">
             <div className="chat-header-content">
               <div className="chat-avatar">
-                <MessageCircle className="avatar-icon" />
+                <img
+                  src={BOT_IMAGE}
+                  alt=""
+                  className="chat-avatar-bot"
+                  width={40}
+                  height={45}
+                  decoding="async"
+                />
               </div>
               <div className="chat-title-section">
                 <h3 className="chat-title">Tidy A.I Assistant</h3>
                 <p className="chat-status">
-                  {apiAvailable ? 'AI-Powered' : 'Knowledge Base'}
+                  {apiAvailable ? 'AI-Powered · Tidyzon only' : 'Knowledge Base'}
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="chat-close-btn"
-              aria-label="Close chat"
-            >
-              <X className="close-icon" />
-            </button>
+            <div className="chat-header-actions">
+              <button
+                type="button"
+                onClick={clearConversation}
+                className="chat-clear-btn"
+                aria-label="Clear conversation"
+                title="Clear conversation"
+              >
+                <Trash2 className="clear-icon" />
+              </button>
+              <button
+                type="button"
+                onClick={closeChat}
+                className="chat-close-btn"
+                aria-label="Close chat"
+              >
+                <X className="close-icon" />
+              </button>
+            </div>
           </div>
 
-          {/* Messages */}
           <div className="chat-messages">
+            <div className="chat-bot-greeting">
+              <div className="chat-bot-greeting-figure">
+                <img
+                  src={BOT_IMAGE}
+                  alt="Tidy A.I. Assistant"
+                  className="chat-bot-greeting-img"
+                  width={140}
+                  height={158}
+                  decoding="async"
+                />
+              </div>
+              <p className="chat-bot-greeting-label">Tidy A.I. Assistant</p>
+              <p className="chat-bot-greeting-sub">Here to help with Tidyzon</p>
+            </div>
+
             {messages.map((message, index) => (
               <div
-                key={index}
-                className={`chat-message ${message.role === 'user' ? 'user-message' : 'assistant-message'}`}
+                key={`${message.role}-${index}-${message.content.slice(0, 12)}`}
+                className={`chat-message ${
+                  message.role === 'user' ? 'user-message' : 'assistant-message'
+                }`}
               >
                 <div className="message-content">
-                  {message.role === 'assistant' ? formatMessage(message.content) : message.content}
+                  {message.role === 'assistant'
+                    ? formatMessage(message.content)
+                    : message.content}
                 </div>
               </div>
             ))}
             {isLoading && (
               <div className="chat-message assistant-message">
-                <div className="message-content">
+                <div className="message-content message-content--loading">
                   <Loader className="loading-icon" />
                   <span>AI is thinking...</span>
                 </div>
@@ -457,18 +554,30 @@ Remember: Be thorough, helpful, and always use the knowledge base to provide acc
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
           <div className="chat-input-container">
             <textarea
+              ref={textareaRef}
               value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
+              onChange={(e) => {
+                setInputMessage(e.target.value)
+                if (textareaRef.current) {
+                  textareaRef.current.style.height = 'auto'
+                  textareaRef.current.style.height =
+                    Math.min(textareaRef.current.scrollHeight, 120) + 'px'
+                }
+              }}
               onKeyPress={handleKeyPress}
-              placeholder={apiAvailable ? "Type your message..." : "Type your message (using knowledge base)..."}
+              placeholder={
+                apiAvailable
+                  ? 'Ask about Tidyzon...'
+                  : 'Ask about Tidyzon (knowledge base)...'
+              }
               className="chat-input"
               rows="1"
               disabled={isLoading}
             />
             <button
+              type="button"
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || isLoading}
               className="chat-send-btn"

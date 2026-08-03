@@ -11,13 +11,14 @@ const Services = () => {
   const [scrollY, setScrollY] = useState(0)
   const [expandedPackage, setExpandedPackage] = useState('deluxe') // Default to deluxe (most popular)
   const [carouselIndex, setCarouselIndex] = useState(0)
+  const [isStackedLayout, setIsStackedLayout] = useState(true)
   const servicesRef = useRef(null)
 
   const carPackages = [
     {
       id: 'speed-interior',
       name: 'Speed Package',
-      title: 'SPEED PACKAGE - INTERIOR ONLY',
+      title: 'SPEED - INTERIOR ONLY',
       price: '$29.99',
       duration: '15mins',
       pricingLabel: 'Pricing per wash',
@@ -32,7 +33,7 @@ const Services = () => {
     {
       id: 'speed',
       name: 'Speed Package',
-      title: 'SPEED PACKAGE - FULL PACKAGE',
+      title: 'SPEED - FULL PACKAGE',
       price: '$49.99',
       duration: '30mins',
       features: [
@@ -46,7 +47,7 @@ const Services = () => {
     {
       id: 'deluxe',
       name: 'Deluxe Package',
-      title: 'DETAIL WASH',
+      title: 'DELUXE - DETAIL WASH',
       price: '$155.00',
       duration: '2hrs 30mins',
       features: [
@@ -70,7 +71,7 @@ const Services = () => {
     {
       id: 'premium',
       name: 'Premium Package',
-      title: 'DETAIL WASH',
+      title: 'PREMIUM - DETAIL WASH',
       price: '$249.99',
       duration: '4hrs 30mins',
       features: [
@@ -114,6 +115,17 @@ const Services = () => {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)')
+    const syncLayout = () => {
+      setIsStackedLayout(mq.matches)
+      if (mq.matches) setCarouselIndex(0)
+    }
+    syncLayout()
+    mq.addEventListener('change', syncLayout)
+    return () => mq.removeEventListener('change', syncLayout)
   }, [])
 
   return (
@@ -177,8 +189,12 @@ const Services = () => {
               <ChevronLeft className="packages-carousel-arrow-icon" />
             </button>
             <div
-              className="packages-carousel-track"
-              style={{ transform: `translateX(-${carouselIndex * (100 / 5)}%)` }}
+              className={`packages-carousel-track${isStackedLayout ? ' is-stacked' : ''}`}
+              style={
+                isStackedLayout
+                  ? undefined
+                  : { transform: `translateX(-${carouselIndex * (100 / 5)}%)` }
+              }
             >
             {carPackages.map((pkg, index) => {
               const isExpanded = expandedPackage === pkg.id
@@ -244,11 +260,8 @@ const Services = () => {
                           {pkg.originalPrice && (
                             <span className="package-original-price-mobile">{pkg.originalPrice}</span>
                           )}
-                          {pkg.pricingLabel && (
-                            <span className="package-pricing-sublabel package-pricing-sublabel--mobile">{pkg.pricingLabel}</span>
-                          )}
                           <span className="package-price-mobile">{pkg.price}</span>
-                          {!pkg.pricingLabel && <span className="price-label-mobile">per wash</span>}
+                          <span className="price-label-mobile">per wash</span>
                         </div>
                       </div>
                     </div>

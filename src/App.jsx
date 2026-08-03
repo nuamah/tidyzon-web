@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import PostHogAutoCapture from './components/PostHogAutoCapture'
 import PostHogInit from './components/PostHogInit'
 import ScrollToTop from './components/ScrollToTop'
+import AIChatbot from './components/AIChatbot'
 import Home from './components/Home'
 import RouteSEO from './components/RouteSEO'
 import './App.css'
@@ -69,6 +70,7 @@ const App = () => {
         </main>
         <Footer />
         <ScrollToTop />
+        <AIChatbot />
       </div>
       </HelmetProvider>
     </BrowserRouter>

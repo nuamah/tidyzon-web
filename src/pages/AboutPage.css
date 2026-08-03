@@ -6,6 +6,8 @@
 /* Hero Section */
 .about-hero {
   position: relative;
+  z-index: 0;
+  isolation: isolate;
   padding: 10rem 0 6rem;
   background: linear-gradient(135deg, rgb(82, 136, 40) 0%, rgb(88, 99, 197) 100%);
   overflow: hidden;
@@ -14,6 +16,7 @@
 .about-hero-bg {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background-image: 
     radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);

@@ -1,6 +1,8 @@
 /* Modern Hero Section Styles */
 .hero-section {
   position: relative;
+  z-index: 0;
+  isolation: isolate; /* Keep hero layers below fixed navbar/drawer */
   height: 700px;
   display: flex;
   align-items: center;
@@ -35,6 +37,7 @@
   inset: 0;
   overflow: hidden;
   z-index: 0;
+  pointer-events: none; /* Never block navbar taps */
 }
 
 /* Parallax Layers */
@@ -383,7 +386,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   border: 1px solid #e5e7eb;
-  z-index: 1000;
+  z-index: 50; /* Stay inside hero stacking context; below navbar */
   max-height: 250px;
   overflow-y: auto;
 }
