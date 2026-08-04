@@ -2,13 +2,11 @@ import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react'
 import { X, Send, Loader, ExternalLink, Trash2 } from 'lucide-react'
 import OpenAI from 'openai'
 import { SYSTEM_PROMPT, findAnswer } from '../data/tidyzon-knowledge-base'
+import { fetchDeepSeekApiKey } from '../lib/deepseekKey'
 import './AIChatbot.css'
 
 const BOT_IMAGE = '/assets/botImage.png'
-
-// Temporary: DeepSeek key in the client until a secure API endpoint is ready.
-const DEEPSEEK_API_KEY = 'sk-89be30c6be764e8ba99dfc1215368cc5'
-const DEEPSEEK_MODEL = 'deepseek-chat'
+const DEEPSEEK_MODEL = import.meta.env.VITE_DEEPSEEK_MODEL || 'deepseek-chat'
 const STORAGE_KEY = 'tidyzon_ai_chat_messages'
 
 const WELCOME_AI =
@@ -258,25 +256,48 @@ const AIChatbot = () => {
   const [inputMessage, setInputMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [quotaExceeded, setQuotaExceeded] = useState(false)
+  const [deepseekApiKey, setDeepseekApiKey] = useState('')
+  const [keyStatus, setKeyStatus] = useState('idle') // idle | loading | ready | error
   const messagesEndRef = useRef(null)
   const textareaRef = useRef(null)
   const chatWindowRef = useRef(null)
 
-  const apiKeyReady =
-    DEEPSEEK_API_KEY.startsWith('sk-') &&
-    !DEEPSEEK_API_KEY.includes('REPLACE_WITH')
-
+  const apiKeyReady = deepseekApiKey.startsWith('sk-')
   const apiAvailable = apiKeyReady && !quotaExceeded
 
   const deepseek = useMemo(() => {
     if (!apiKeyReady) return null
     return new OpenAI({
-      apiKey: DEEPSEEK_API_KEY,
+      apiKey: deepseekApiKey,
       baseURL: 'https://api.deepseek.com',
       dangerouslyAllowBrowser: true,
       maxRetries: 0,
     })
-  }, [apiKeyReady])
+  }, [apiKeyReady, deepseekApiKey])
+
+  // Load DeepSeek key from backend (JWT) — never hardcode in source
+  useEffect(() => {
+    let cancelled = false
+
+    const loadKey = async () => {
+      setKeyStatus('loading')
+      try {
+        const key = await fetchDeepSeekApiKey()
+        if (cancelled) return
+        setDeepseekApiKey(key)
+        setKeyStatus('ready')
+      } catch {
+        if (cancelled) return
+        setDeepseekApiKey('')
+        setKeyStatus('error')
+      }
+    }
+
+    loadKey()
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   // Persist conversation so closing / refreshing keeps history
   useEffect(() => {
@@ -382,9 +403,26 @@ const AIChatbot = () => {
     try {
       let assistantMessage = null
 
-      if (deepseek && !quotaExceeded) {
+      let client = deepseek
+      if (!client && !quotaExceeded) {
         try {
-          const completion = await deepseek.chat.completions.create({
+          const key = await fetchDeepSeekApiKey()
+          setDeepseekApiKey(key)
+          setKeyStatus('ready')
+          client = new OpenAI({
+            apiKey: key,
+            baseURL: 'https://api.deepseek.com',
+            dangerouslyAllowBrowser: true,
+            maxRetries: 0,
+          })
+        } catch {
+          setKeyStatus('error')
+        }
+      }
+
+      if (client && !quotaExceeded) {
+        try {
+          const completion = await client.chat.completions.create({
             model: DEEPSEEK_MODEL,
             messages: [
               { role: 'system', content: SYSTEM_PROMPT },
@@ -488,7 +526,11 @@ const AIChatbot = () => {
               <div className="chat-title-section">
                 <h3 className="chat-title">Tidy A.I Assistant</h3>
                 <p className="chat-status">
-                  {apiAvailable ? 'AI-Powered · Tidyzon only' : 'Knowledge Base'}
+                  {keyStatus === 'loading'
+                    ? 'Connecting…'
+                    : apiAvailable
+                      ? 'AI-Powered · Tidyzon only'
+                      : 'Knowledge Base'}
                 </p>
               </div>
             </div>
