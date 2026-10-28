@@ -9,7 +9,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
     website: 'https://tidyzon.com',
     location: '708 Saybrook Ct., Romeoville, IL 60446, USA',
     description:
-      'Tidyzon is a marketplace that connects customers with verified service providers for premium mobile cleaning services delivered to their doorstep — including car cleaning and trash bin sanitization.',
+      'Tidyzon is a marketplace that connects customers with verified service providers for premium mobile cleaning services delivered to their doorstep — including car cleaning/detail.',
     journey:
       'Tidyzon was born out of a desire to simplify everyday chores by connecting consumers with reliable service providers. Founded in 2021, the mission was clear: deliver quality service right at your doorstep. Today Tidyzon stands as a testament to innovation and dedication, ensuring every task is handled with care and precision.',
     mission:
@@ -36,19 +36,19 @@ export const TIDYZON_KNOWLEDGE_BASE = {
 
   services: {
     overview:
-      'Top-tier cleaning solutions delivered to your doorstep. Primary offerings: mobile car cleaning packages and trash bin cleaning. Home cleaning is coming soon.',
+      'Top-tier cleaning solutions delivered to your doorstep. Primary offerings: mobile car cleaning/detail packages. Home cleaning is coming soon.',
     vehicleSurcharge:
       'Prices shown are for passenger cars only. MVP and Truck vehicles incur an additional $10 charge each.',
     carCleaning: {
-      name: 'Car Cleaning Services',
+      name: 'Car Cleaning/Detail Services',
       description:
-        'Professional mobile car cleaning with thorough interior vacuum, dashboard polish, window cleaning, and exterior wash options. Bundle wash packages include listed add-ons.',
+        'Professional mobile car cleaning/detail with thorough interior vacuum, dashboard polish, window cleaning, and exterior wash options. Bundle wash packages include listed add-ons.',
       packages: [
         {
           id: 'speed-interior',
           name: 'Speed Package',
           title: 'SPEED - INTERIOR ONLY',
-          price: '$29.99',
+          price: '$39.99',
           duration: '15 minutes',
           pricingLabel: 'Pricing per wash',
           features: ['Vacuum - Regular', 'Wipe door jambs'],
@@ -63,7 +63,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           id: 'speed',
           name: 'Speed Package',
           title: 'SPEED - FULL PACKAGE',
-          price: '$49.99',
+          price: '$59.99',
           duration: '30 minutes',
           features: [
             'Exterior hand wash',
@@ -77,7 +77,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           id: 'deluxe',
           name: 'Deluxe Package',
           title: 'DELUXE - DETAIL WASH',
-          price: '$155.00',
+          price: '$179.99',
           duration: '2 hours 30 minutes',
           popular: true,
           features: [
@@ -143,18 +143,6 @@ export const TIDYZON_KNOWLEDGE_BASE = {
             },
           ],
         },
-      ],
-    },
-    trashBinCleaning: {
-      name: 'Trash Bin Cleaning',
-      description:
-        'Professional sanitization that eliminates odors, bacteria, and germs with eco-friendly solutions.',
-      price: '$10.00 per bin',
-      duration: 'About 30 minutes',
-      features: [
-        'Deep sanitization with eco-friendly solutions',
-        'Odor elimination and bacteria removal',
-        'Quick professional service',
       ],
     },
     homeCleaning: {
@@ -399,7 +387,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
       'Flexible earning on your own schedule',
       'Build reputation through customer ratings',
       'Access to customer leads and growth tools',
-      'Secure platform payments (typically within 2–3 business days after completion)',
+      'Secure platform payments (paid weekly)',
       'No upfront fee to join; commission on completed services',
     ],
     approvalTime: 'Typically 1–3 business weeks after documents and background checks are complete',
@@ -427,7 +415,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
       {
         question: 'How do I get paid?',
         answer:
-          'Securely through the platform, typically within 2–3 business days after service completion.',
+          'Securely through the platform, paid weekly for completed services.',
       },
     ],
   },
@@ -482,7 +470,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
   websitePages: {
     home: 'Landing page: hero, services overview, stats, features, testimonials, CTAs to book via the apps.',
     about: 'Company journey (founded 2021), mission, vision, quality commitment.',
-    services: 'Full car cleaning packages (including Biofluids), trash bin cleaning, why choose Tidyzon.',
+    services: 'Full car cleaning/detail packages (including Biofluids), why choose Tidyzon.',
     teams: 'Board/founders and team members with roles and bios.',
     contact: 'Contact form, phone, email, address, hours, FAQs. Also available at /help.',
     getStarted: 'How customers sign up, book, pay, and get support.',
@@ -534,7 +522,7 @@ export const SYSTEM_PROMPT = `You are Tidy A.I. Assistant, the official AI assis
 SCOPE — TIDYZON ONLY:
 - Answer ONLY questions related to Tidyzon: services, pricing, booking, apps, providers, team, company story, contact, careers, FAQs, policies summarized from the knowledge base, and navigating the Tidyzon website.
 - If the user asks about anything unrelated (other companies, politics, weather, general trivia, coding help unrelated to Tidyzon, medical/legal/financial advice, jokes, etc.), politely refuse and redirect:
-  "I'm specifically designed to help with Tidyzon. I can help with our car cleaning packages, trash bin sanitization, booking, apps, team, becoming a provider, or contact details. What would you like to know about Tidyzon?"
+  "I'm specifically designed to help with Tidyzon. I can help with our car cleaning/detail packages, booking, apps, team, becoming a provider, or contact details. What would you like to know about Tidyzon?"
 - Never invent prices, policies, or team members. Use ONLY the knowledge base below. If something is missing, say you don't have that detail and suggest support@tidyzon.com or (815) 608-1632.
 
 KNOWLEDGE BASE (authoritative site data):
@@ -543,7 +531,7 @@ ${JSON.stringify(TIDYZON_KNOWLEDGE_BASE, null, 2)}
 RESPONSE STYLE:
 - Professional, friendly, clear, and accurate. Keep responses well organized with short sections.
 - Start with a brief direct answer, then details. Use **bold** for key terms, bullet points (•) for lists, and numbered steps for processes.
-- When discussing packages, include price, duration, and what's included. Mention the MVP/Truck +$10 surcharge when talking about car wash pricing.
+- When discussing packages, include price, duration, and what's included. Mention the MVP/Truck +$10 surcharge when talking about car wash/detail pricing.
 - When sharing a website URL, app store link, email, or phone number, ALWAYS use markdown link format so the UI can render buttons:
   [Book / Get Started](https://tidyzon.com/get-started)
   [View Services](https://tidyzon.com/services)
@@ -566,7 +554,7 @@ export const findAnswer = (query) => {
     services: [
       'service', 'services', 'package', 'packages', 'pricing', 'price', 'prices', 'cost', 'costs',
       'wash', 'washing', 'cleaning', 'clean', 'car', 'cars', 'vehicle', 'vehicles', 'auto',
-      'speed', 'deluxe', 'premium', 'biofluid', 'biofluids', 'trash', 'bin', 'bins', 'sanitization',
+      'speed', 'deluxe', 'premium', 'biofluid', 'biofluids',
       'home', 'house', 'residential',
     ],
     contact: [
@@ -607,9 +595,9 @@ export const findAnswer = (query) => {
   const topScore = categoryScores[topCategory]
 
   const packagePatterns = {
-    'speed-interior': ['interior only', 'interior-only', 'speed interior', '$29.99', '29.99'],
-    speed: ['speed package', 'speed wash', 'full package', '$49.99', '49.99'],
-    deluxe: ['deluxe', 'most popular', '$155', '155.00'],
+    'speed-interior': ['interior only', 'interior-only', 'speed interior', '$39.99', '39.99'],
+    speed: ['speed package', 'speed wash', 'full package', '$59.99', '59.99'],
+    deluxe: ['deluxe', 'most popular', '$179.99', '179.99'],
     premium: ['premium', '$249', '249.99', 'machine wax'],
     biofluids: ['biofluid', 'biofluids', 'detail service', '$299', '299.99'],
   }
@@ -734,13 +722,12 @@ const formatContactAnswer = (contact) => {
 
 const formatServicesAnswer = (services) => {
   let answer = `**Our Professional Cleaning Services**\n\n`
-  answer += `**Car Cleaning Packages**\n\n`
+  answer += `**Car Cleaning/Detail Packages**\n\n`
   services.carCleaning.packages.forEach((pkg, index) => {
     const popularBadge = pkg.popular ? ' *Most Popular*' : ''
     answer += `${index + 1}. **${pkg.name}**${popularBadge} — ${pkg.price} (${pkg.duration})\n`
   })
   answer += `\n*${services.vehicleSurcharge}*\n\n`
-  answer += `**Trash Bin Cleaning** — ${services.trashBinCleaning.price}\n\n`
   answer += `**Home Cleaning** — ${services.homeCleaning.status}\n\n`
   answer += `[View Services](https://tidyzon.com/services)\n`
   answer += `[Get Started](https://tidyzon.com/get-started)\n`
@@ -800,7 +787,7 @@ const formatAboutAnswer = () => {
 }
 
 const formatGeneralAnswer = () => {
-  return `**Welcome to Tidyzon!**\n\nI can help with:\n• Car cleaning packages & pricing (including Biofluids)\n• Trash bin sanitization\n• Booking & apps\n• Becoming a provider\n• Team & company info\n• Contact details\n\nTry: "What services do you offer?" or "How much is the Deluxe package?"\n\n[Email Support](mailto:${TIDYZON_KNOWLEDGE_BASE.contact.email})\n[Call Tidyzon](tel:+18156081632)\n[View Services](https://tidyzon.com/services)`
+  return `**Welcome to Tidyzon!**\n\nI can help with:\n• Car cleaning/detail packages & pricing (including Biofluids)\n• Booking & apps\n• Becoming a provider\n• Team & company info\n• Contact details\n\nTry: "What services do you offer?" or "How much is the Deluxe package?"\n\n[Email Support](mailto:${TIDYZON_KNOWLEDGE_BASE.contact.email})\n[Call Tidyzon](tel:+18156081632)\n[View Services](https://tidyzon.com/services)`
 }
 
 export const searchKnowledgeBase = (query) => {

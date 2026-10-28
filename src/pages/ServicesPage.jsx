@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Car, Sparkles, Check, ArrowRight, Shield, Award, Clock, ChevronDown, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import DownloadModal from '../components/DownloadModal'
-import ResponsivePicture from '../components/ResponsivePicture'
 import './ServicesPage.css'
 
 const ServicesPage = () => {
@@ -27,7 +26,7 @@ const ServicesPage = () => {
       id: 'speed-interior',
       name: 'Speed Package',
       title: 'SPEED - INTERIOR ONLY',
-      price: '$29.99',
+      price: '$39.99',
       duration: '15mins',
       pricingLabel: 'Pricing per wash',
       features: ['Vacuum - Regular', 'Wipe door jambs'],
@@ -42,7 +41,7 @@ const ServicesPage = () => {
       id: 'speed',
       name: 'Speed Package',
       title: 'SPEED - FULL PACKAGE',
-      price: '$49.99',
+      price: '$59.99',
       duration: '30mins',
       features: [
         'Exterior hand wash',
@@ -56,7 +55,7 @@ const ServicesPage = () => {
       id: 'deluxe',
       name: 'Deluxe Package',
       title: 'DELUXE - DETAIL WASH',
-      price: '$155.00',
+      price: '$179.99',
       duration: '2hrs 30mins',
       features: [
         'Exterior hand wash',
@@ -180,9 +179,9 @@ const ServicesPage = () => {
               <div className="car-icon-wrapper">
                 <Car className="car-icon" />
               </div>
-              <h2 className="car-service-title">Car Cleaning</h2>
+              <h2 className="car-service-title">Car Cleaning/Detail</h2>
               <p className="car-service-description">
-                Our car cleaning services offer a thorough interior vacuum, dashboard polish, window cleaning, and exterior wash, ensuring your vehicle looks pristine inside and out.
+                Our car cleaning/detail services offer a thorough interior vacuum, dashboard polish, window cleaning, and exterior wash, ensuring your vehicle looks pristine inside and out.
               </p>
             </div>
 
@@ -395,37 +394,6 @@ const ServicesPage = () => {
               >
                 <ChevronRight className="pricing-carousel-arrow-icon" />
               </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Trash Bin Package Section */}
-        <section className="trash-bin-section">
-          <div className="container">
-            <div className="trash-bin-card">
-              <div className="trash-bin-image">
-                <ResponsivePicture
-                  avifSrcSet="/assets/trashbin-350.avif 350w, /assets/trashbin-700.avif 700w, /assets/trashbin-1050.avif 1050w"
-                  webpSrcSet="/assets/trashbin-350.webp 350w, /assets/trashbin-700.webp 700w, /assets/trashbin-1050.webp 1050w"
-                  fallbackSrcSet="/assets/trashbin-350.jpg 350w, /assets/trashbin-700.jpg 700w, /assets/trashbin-1050.jpg 1050w"
-                  fallbackSrc="/assets/trashbin-350.jpg"
-                  alt="Trash Bin Cleaning Service"
-                  className="service-image"
-                  width={1536}
-                  height={1024}
-                  sizes="(max-width: 768px) min(100vw - 2rem, 400px), 350px"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="trash-bin-content">
-                <h3 className="service-title">Trash Bin Cleaning</h3>
-                <p className="service-description">Professional sanitization service that eliminates odors, bacteria, and germs with eco-friendly solutions.</p>
-                <div className="service-price">$10.00 per bin</div>
-                <button className="service-button" onClick={() => setIsModalOpen(true)}>
-                  Book Now
-                </button>
-              </div>
             </div>
           </div>
         </section>

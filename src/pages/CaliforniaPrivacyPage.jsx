@@ -30,7 +30,7 @@ const CaliforniaPrivacyPage = () => {
                 This Policy explains how Tidyzon collects, uses, discloses, "sells," and "shares" Personal Information (as the CCPA/CPRA defines those terms), our retention practices, and California residents' rights. If you are a service provider (independent contractor) using the Tidyzon platform to receive and perform jobs ("Provider"), please also review Section 13 (Provider-Specific Disclosures).
               </p>
               <p className="california-privacy-text">
-                We provide an on-demand marketplace for residential services (e.g., mobile car washes and trash bin cleaning). To enable immediate and scheduled jobs, we use location data to match customers with nearby eligible Providers and to route and coordinate Services.
+                We provide an on-demand marketplace for residential services (e.g., mobile car wash/detail). To enable immediate and scheduled jobs, we use location data to match customers with nearby eligible Providers and to route and coordinate Services.
               </p>
             </div>
 

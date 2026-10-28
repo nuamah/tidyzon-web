@@ -69,7 +69,7 @@ npm run dev
 ✅ Professional Header with Navigation  
 ✅ Hero Section with Call-to-Actions  
 ✅ Welcome/About Section  
-✅ Services Showcase (Car Cleaning, Trash Bin Cleaning)  
+✅ Services Showcase (Car Cleaning)  
 ✅ Key Features Section  
 ✅ Customer Testimonials  
 ✅ Final CTA Section  

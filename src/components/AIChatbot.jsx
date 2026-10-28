@@ -16,7 +16,7 @@ const WELCOME_LOCAL =
   "Hello! I'm Tidy A.I. Assistant. I can help with Tidyzon's services, pricing, booking, and contact details using our knowledge base. For immediate help: support@tidyzon.com or (815) 608-1632."
 
 const OFF_TOPIC_HINT =
-  "I'm specifically designed to help with Tidyzon. Ask me about our car cleaning packages, trash bin sanitization, booking, apps, team, or becoming a provider."
+  "I'm specifically designed to help with Tidyzon. Ask me about our car cleaning/detail packages, booking, apps, team, or becoming a provider."
 
 const defaultWelcome = () => [{ role: 'assistant', content: WELCOME_AI }]
 
@@ -374,7 +374,7 @@ const AIChatbot = () => {
       (g) => lower === g || lower.startsWith(g + ' '),
     )
     if (isGreeting) {
-      return `Hello! I'm Tidy A.I. Assistant for **Tidyzon**.\n\nI can help with:\n• Car cleaning packages and pricing\n• Trash bin sanitization\n• Booking and mobile apps\n• Becoming a provider\n• Team and company info\n• Contact details\n\n${OFF_TOPIC_HINT}\n\n[Email Support](mailto:support@tidyzon.com)\n[Call Tidyzon](tel:+18156081632)`
+      return `Hello! I'm Tidy A.I. Assistant for **Tidyzon**.\n\nI can help with:\n• Car cleaning/detail packages and pricing\n• Booking and mobile apps\n• Becoming a provider\n• Team and company info\n• Contact details\n\n${OFF_TOPIC_HINT}\n\n[Email Support](mailto:support@tidyzon.com)\n[Call Tidyzon](tel:+18156081632)`
     }
     const result = findAnswer(userMessage)
     return (

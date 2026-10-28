@@ -59,7 +59,7 @@ npm run server   # Express DeepSeek proxy on :3001
 The assistant is loaded with data aligned to the live site:
 
 - Company story, mission, vision, contact, hours
-- All car packages (Speed Interior/Full, Deluxe, Premium, Biofluids) + trash bin cleaning
+- All car packages (Speed Interior/Full, Deluxe, Premium, Biofluids)
 - Team / board members from the Teams page
 - Booking, apps, provider signup, FAQs, careers, legal page pointers
 

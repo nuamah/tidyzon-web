@@ -4,7 +4,7 @@ import { defaultDescription, ogImagePath, absoluteUrl } from '../config/seo'
 
 const ROUTES = {
   '/': {
-    title: 'Tidyzon — Mobile car wash & home cleaning services',
+    title: 'Tidyzon — Mobile car wash/detail & home cleaning services',
     description: defaultDescription,
   },
   '/about': {
@@ -15,7 +15,7 @@ const ROUTES = {
   '/services': {
     title: 'Services',
     description:
-      'Explore Tidyzon services: mobile car washing, garbage and recycle bin cleaning, and more at your location.',
+      'Explore Tidyzon services: mobile car washing/detail packages and more at your location.',
   },
   '/teams': {
     title: 'Team',
@@ -24,7 +24,7 @@ const ROUTES = {
   '/provider': {
     title: 'Become a service provider',
     description:
-      'Join Tidyzon as an independent contractor. Offer car wash and cleaning services on your schedule.',
+      'Join Tidyzon as an independent contractor. Offer car wash/detail and cleaning services on your schedule.',
   },
   '/get-started': {
     title: 'Get started',

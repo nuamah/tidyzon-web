@@ -64,7 +64,7 @@ const NotFoundPage = () => {
                 <Search className="link-icon" />
                 <div className="link-content">
                   <span className="link-title">Our Services</span>
-                  <span className="link-desc">Car cleaning & more</span>
+                  <span className="link-desc">Car cleaning/detail & more</span>
                 </div>
               </Link>
               <Link to="/about" className="popular-link">

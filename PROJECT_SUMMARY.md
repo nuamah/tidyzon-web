@@ -92,9 +92,8 @@ tidyzon-website/
 
 ### 4. Services Section
 - Featured service image
-- **Two Main Services:**
+- **Main Services:**
   1. Mobile Car Cleaning
-  2. Trash Bin Cleaning
 - Icon-based cards
 - Individual booking CTAs
 - "View All Services" button

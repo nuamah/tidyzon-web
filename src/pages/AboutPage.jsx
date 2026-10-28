@@ -140,7 +140,7 @@ const AboutPage = () => {
             <div className="about-cta-card">
               <h2 className="cta-title">Discover Our Exceptional Services</h2>
               <p className="cta-subtitle">
-                Join the Tidyzon community today and experience unparalleled convenience with our top-notch services. Whether you need a quick car clean or a thorough trash bin wash, our trusted providers are ready to assist you. Sign up now and enjoy quality service at your doorstep!
+                Join the Tidyzon community today and experience unparalleled convenience with our top-notch services. Whether you need a quick Speed wash or a full Deluxe detail, our trusted providers are ready to assist you. Sign up now and enjoy quality service at your doorstep!
               </p>
               <button className="btn-cta-white" onClick={() => setIsModalOpen(true)}>
                 Get Started

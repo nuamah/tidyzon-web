@@ -47,7 +47,7 @@ const PrivacyPage = () => {
               <ul className="privacy-list">
                 <li>Personal identification information (name, email address, phone number)</li>
                 <li>Physical address where services will be performed</li>
-                <li>Vehicle information (make, model, photos) for car washing services</li>
+                <li>Vehicle information (make, model, photos) for car washing/detail services</li>
                 <li>Information about your property (e.g., availability of outside water faucet)</li>
                 <li>Communications with us and Service Providers through the Platform</li>
               </ul>

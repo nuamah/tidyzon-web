@@ -42,7 +42,7 @@ const TermsPage = () => {
             <div className="terms-section">
               <h2 className="terms-section-title">2. PLATFORM DESCRIPTION</h2>
               <p className="terms-text">
-                Tidyzon operates an online platform that connects customers with independent service providers who offer on-site services including, but not limited to, car washing and garbage/recycle can cleaning. All services are performed at the customer's location.
+                Tidyzon operates an online platform that connects customers with independent service providers who offer on-site services including, but not limited to, car washing/detail and garbage/recycle can cleaning. All services are performed at the customer's location.
               </p>
             </div>
 

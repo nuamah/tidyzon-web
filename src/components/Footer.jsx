@@ -37,7 +37,7 @@ const Footer = () => {
               />
             </div>
             <p className="footer-description">
-              Your trusted partner for premium home and car cleaning services. Making your life cleaner, one service at a time.
+              Your trusted partner for premium home and car cleaning/detail services. Making your life cleaner, one service at a time.
             </p>
             <div className="footer-social">
               <a
@@ -74,8 +74,7 @@ const Footer = () => {
           <div className="footer-links">
             <h4 className="footer-heading">Services</h4>
             <ul className="footer-list">
-              <li><Link to="/services">Car Cleaning</Link></li>
-              <li><Link to="/services">Bin Sanitization</Link></li>
+              <li><Link to="/services">Car Cleaning/Detail</Link></li>
               <li><Link to="/services">All Services</Link></li>
             </ul>
           </div>

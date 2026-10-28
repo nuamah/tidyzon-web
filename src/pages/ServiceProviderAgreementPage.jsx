@@ -58,7 +58,7 @@ const ServiceProviderAgreementPage = () => {
 
               <h3 className="terms-subsection-title">1.3 "Services"</h3>
               <p className="terms-text">
-                means the on-site services offered through the Platform, including but not limited to car washing services and garbage/recycle can cleaning services.
+                means the on-site services offered through the Platform, including but not limited to car washing/detail services and garbage/recycle can cleaning services.
               </p>
             </div>
 

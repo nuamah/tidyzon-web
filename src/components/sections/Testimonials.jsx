@@ -11,16 +11,16 @@ const Testimonials = () => {
       role: "Homeowner",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      text: "Tidyzon has transformed my weekly routine! The car cleaning service is exceptional, and the professionals are always on time. Highly recommend!",
-      service: "Car Cleaning"
+      text: "Tidyzon has transformed my weekly routine! The car cleaning/detail service is exceptional, and the professionals are always on time. Highly recommend!",
+      service: "Car Cleaning/Detail"
     },
     {
       name: "Michael Chen",
       role: "Business Owner",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      text: "The trash bin sanitization service is a game-changer. My bins have never been cleaner, and the odor is completely gone. Worth every penny!",
-      service: "Bin Cleaning"
+      text: "Booked a Deluxe wash through the app and my car looked brand new. Fast, thorough, and the provider was professional from start to finish.",
+      service: "Car Cleaning/Detail"
     },
     {
       name: "Emily Rodriguez",
@@ -44,7 +44,7 @@ const Testimonials = () => {
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
       text: "The app is incredibly user-friendly and the service quality is unmatched. I've tried other services, but Tidyzon is simply the best!",
-      service: "Car Cleaning"
+      service: "Car Cleaning/Detail"
     },
     {
       name: "Robert Martinez",
@@ -92,7 +92,7 @@ const Testimonials = () => {
         {/* Bottom CTA */}
         <div className="testimonials-cta">
           <h3 className="cta-text-test">Ready to experience the Tidyzon difference?</h3>
-          <button className="cta-btn-test" onClick={() => setIsModalOpen(true)}>Join 10,000+ Happy Customers</button>
+          <button className="cta-btn-test" onClick={() => setIsModalOpen(true)}>Join 5,000+ Happy Customers</button>
         </div>
       </div>
     </section>

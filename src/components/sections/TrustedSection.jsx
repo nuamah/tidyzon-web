@@ -7,7 +7,7 @@ const TrustedSection = () => {
   const benefits = [
     {
       icon: Users,
-      title: "10,000+ Happy Customers",
+      title: "5,000+ Happy Customers",
       description: "Join thousands of satisfied customers who trust Tidyzon for their cleaning needs"
     },
     {
@@ -98,7 +98,7 @@ const TrustedSection = () => {
                     <Users className="icon" />
                   </div>
                   <div className="card-content">
-                    <div className="card-value">10K+</div>
+                    <div className="card-value">5K+</div>
                     <div className="card-label">Customers</div>
                   </div>
                 </div>

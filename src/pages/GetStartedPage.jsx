@@ -63,7 +63,7 @@ const GetStartedPage = () => {
     },
     {
       question: "What services can I book through Tidyzon?",
-      answer: "You can book a wide range of cleaning and maintenance services including house cleaning, car washing, window cleaning, and more. All services are provided by verified professionals."
+      answer: "You can book a wide range of cleaning and maintenance services including house cleaning, car washing/detail, window cleaning, and more. All services are provided by verified professionals."
     },
     {
       question: "How do I schedule a service?",

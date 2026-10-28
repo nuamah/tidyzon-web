@@ -324,7 +324,7 @@ const Hero = () => {
             <div className="floating-card card-1">
               <div className="card-icon">🚗</div>
               <div className="card-text">
-                <div className="card-title">Car Cleaning</div>
+                <div className="card-title">Car Cleaning/Detail</div>
                 <div className="card-subtitle">Professional detailing</div>
               </div>
             </div>
@@ -340,7 +340,7 @@ const Hero = () => {
           {/* Skip the car wash line */}
           <div className="hero-convenience-text">
             <span className="bullet-text">
-              Skip the car wash line! No need to drive out!<br />
+              Skip the car wash/detail line! No need to drive out!<br />
               We come to you!
             </span>
           </div>

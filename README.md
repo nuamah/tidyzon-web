@@ -22,7 +22,7 @@ A modern, responsive website for Tidyzon - your trusted service partner for home
 1. **Header** - Navigation with mobile menu support
 2. **Hero** - Eye-catching introduction with CTA
 3. **Welcome** - Company overview and mission
-4. **Services** - Mobile car cleaning and trash bin cleaning
+4. **Services** - Mobile car cleaning
 5. **Features** - Key platform benefits
 6. **Testimonials** - Customer reviews and ratings
 7. **CTA** - Final call-to-action

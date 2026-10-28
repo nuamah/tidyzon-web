@@ -107,7 +107,7 @@ const ProviderPage = () => {
     },
     {
       question: "How do I get paid for completed services?",
-      answer: "Payments are processed securely through our platform. You'll receive payment for completed services within 2-3 business days after service completion."
+      answer: "Payments are processed securely through our platform. You'll receive payment for completed services weekly."
     },
     {
       question: "What support is available for providers?",

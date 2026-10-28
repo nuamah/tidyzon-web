@@ -58,7 +58,7 @@ const CustomerServiceAgreementPage = () => {
 
               <h3 className="terms-subsection-title">1.3 "Services"</h3>
               <p className="terms-text">
-                means the on-site services offered through the Platform, including but not limited to car washing services and garbage/recycle can cleaning services.
+                means the on-site services offered through the Platform, including but not limited to car washing/detail services and garbage/recycle can cleaning services.
               </p>
 
               <h3 className="terms-subsection-title">1.4 "Customer"</h3>
@@ -127,7 +127,7 @@ const CustomerServiceAgreementPage = () => {
               <ul className="terms-list">
                 <li>Customer name and contact information</li>
                 <li>Service location address</li>
-                <li>Vehicle make and model (for car washing services)</li>
+                <li>Vehicle make and model (for car washing/detail services)</li>
                 <li>Photos of the vehicle or items to be serviced</li>
                 <li>Availability of outside water faucet</li>
                 <li>Any other information reasonably requested by Tidyzon</li>

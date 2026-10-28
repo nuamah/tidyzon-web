@@ -19,7 +19,7 @@ const Services = () => {
       id: 'speed-interior',
       name: 'Speed Package',
       title: 'SPEED - INTERIOR ONLY',
-      price: '$29.99',
+      price: '$39.99',
       duration: '15mins',
       pricingLabel: 'Pricing per wash',
       features: ['Vacuum - Regular', 'Wipe door jambs'],
@@ -34,7 +34,7 @@ const Services = () => {
       id: 'speed',
       name: 'Speed Package',
       title: 'SPEED - FULL PACKAGE',
-      price: '$49.99',
+      price: '$59.99',
       duration: '30mins',
       features: [
         'Exterior hand wash',
@@ -48,7 +48,7 @@ const Services = () => {
       id: 'deluxe',
       name: 'Deluxe Package',
       title: 'DELUXE - DETAIL WASH',
-      price: '$155.00',
+      price: '$179.99',
       duration: '2hrs 30mins',
       features: [
         'Exterior hand wash',
@@ -152,7 +152,7 @@ const Services = () => {
                 <span>Our Services</span>
               </div>
               <h2 className="section-title">
-                Car Cleaning Packages
+                Car Cleaning/Detail Packages
                 <br />
                 <span className="gradient-text-services">Choose Your Perfect Wash</span>
               </h2>
@@ -166,7 +166,7 @@ const Services = () => {
                 webpSrcSet="/assets/tidyzon_vehicle_02-525.webp 525w, /assets/tidyzon_vehicle_02-800.webp 800w, /assets/tidyzon_vehicle_02-1050.webp 1050w"
                 fallbackSrcSet="/assets/tidyzon_vehicle_02-525.jpg 525w, /assets/tidyzon_vehicle_02-800.jpg 800w, /assets/tidyzon_vehicle_02-1050.jpg 1050w"
                 fallbackSrc="/assets/tidyzon_vehicle_02-525.jpg"
-                alt="Tidyzon Car Cleaning Service"
+                alt="Tidyzon Car Cleaning/Detail Service"
                 className="cleaner-image"
                 width={525}
                 height={350}

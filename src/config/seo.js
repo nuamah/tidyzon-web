@@ -7,7 +7,7 @@ export const SITE_URL = (
 ).replace(/\/$/, '')
 
 export const defaultDescription =
-  'Tidyzon connects you with trusted providers for mobile car wash, trash bin cleaning, and more. Book on-demand home and vehicle services.'
+  'Tidyzon connects you with trusted providers for mobile car wash/detail and more. Book on-demand home and vehicle services.'
 
 export const ogImagePath = '/assets/tidyzon_hero_02.png'
 
