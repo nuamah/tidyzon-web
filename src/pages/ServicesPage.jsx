@@ -42,7 +42,7 @@ const ServicesPage = () => {
       name: 'Speed Package',
       title: 'SPEED - FULL PACKAGE',
       price: '$59.99',
-      duration: '30mins',
+      duration: '45mins',
       features: [
         'Exterior hand wash',
         'Clean all windows',

@@ -33,7 +33,7 @@ const Features = () => {
     },
     {
       icon: Users,
-      title: "Trusted by 10K+",
+      title: "Trusted by 5K",
       description: "Join thousands of satisfied customers who trust Tidyzon for their cleaning needs."
     },
     {

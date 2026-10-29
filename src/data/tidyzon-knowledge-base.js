@@ -38,7 +38,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
     overview:
       'Top-tier cleaning solutions delivered to your doorstep. Primary offerings: mobile car cleaning/detail packages. Home cleaning is coming soon.',
     vehicleSurcharge:
-      'Prices shown are for passenger cars only. MVP and Truck vehicles incur an additional $10 charge each.',
+      'Prices shown are for passenger cars only. MPV and Truck vehicles incur an additional $10 charge each.',
     carCleaning: {
       name: 'Car Cleaning/Detail Services',
       description:
@@ -64,7 +64,7 @@ export const TIDYZON_KNOWLEDGE_BASE = {
           name: 'Speed Package',
           title: 'SPEED - FULL PACKAGE',
           price: '$59.99',
-          duration: '30 minutes',
+          duration: '45 minutes',
           features: [
             'Exterior hand wash',
             'Clean all windows',
@@ -531,7 +531,7 @@ ${JSON.stringify(TIDYZON_KNOWLEDGE_BASE, null, 2)}
 RESPONSE STYLE:
 - Professional, friendly, clear, and accurate. Keep responses well organized with short sections.
 - Start with a brief direct answer, then details. Use **bold** for key terms, bullet points (•) for lists, and numbered steps for processes.
-- When discussing packages, include price, duration, and what's included. Mention the MVP/Truck +$10 surcharge when talking about car wash/detail pricing.
+- When discussing packages, include price, duration, and what's included. Mention the MPV/Truck +$10 surcharge when talking about car wash/detail pricing.
 - When sharing a website URL, app store link, email, or phone number, ALWAYS use markdown link format so the UI can render buttons:
   [Book / Get Started](https://tidyzon.com/get-started)
   [View Services](https://tidyzon.com/services)

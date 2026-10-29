@@ -35,7 +35,7 @@ const Services = () => {
       name: 'Speed Package',
       title: 'SPEED - FULL PACKAGE',
       price: '$59.99',
-      duration: '30mins',
+      duration: '45mins',
       features: [
         'Exterior hand wash',
         'Clean all windows',
@@ -157,7 +157,7 @@ const Services = () => {
                 <span className="gradient-text-services">Choose Your Perfect Wash</span>
               </h2>
               <p className="section-subtitle">
-                Prices for wash packages depend on your vehicle type. Vehicle type like MVP, Truck will incur additional $10 each. Displayed prices are passenger cars only
+                Prices for wash packages depend on your vehicle type. Vehicle type like MPV, Truck will incur additional $10 each. Displayed prices are passenger cars only
               </p>
             </div>
             <div className="section-header-image">

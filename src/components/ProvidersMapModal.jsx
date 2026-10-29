@@ -19,7 +19,7 @@ const ProvidersMapModal = ({ isOpen, onClose, location }) => {
       lat: 41.7503,
       lng: -88.1536,
       price: "$59.99",
-      duration: "30mins",
+      duration: "45mins",
       showInList: true
     },
     {
